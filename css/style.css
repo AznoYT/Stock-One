@@ -1,0 +1,92 @@
+/************************
+*                       *
+*    File: style.css    *
+*                       *
+************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: #000000;
+	color: #CCCCCC;
+	font-family: Consolas, Monospace;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	height: 5%;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.time {
+	font-size: 18px;
+	margin-left: 4px;
+	margin-top: 4px;
+	position: absolute;
+}
+
+section {
+	height: 91%;
+	position: relative;
+	width: 100%;
+}
+
+aside {
+	border-bottom: 2px solid;
+	border-top: 2px solid;
+	height: 100%;
+	position: absolute;
+	width: 30%;
+}
+
+.left {
+	border-left: 2px solid;
+	left: 1%;
+}
+
+.right {
+	border-right: 2px solid;
+	left: 68.5%;
+}
+
+article {
+	border-bottom: 2px solid;
+	border-top: 2px solid;
+	height: 100%;
+	left: 34%;
+	position: absolute;
+	width: 31.5%;
+}
+
+h2 {
+	background-color: #CCCCCC;
+	color: #000000;
+	margin-left: 1px;
+	margin-right: 1px;
+	margin-top: 1px;
+	padding-left: 4px;
+	position: relative;
+}
+
+footer {
+	height: 3%;
+	padding-top: 4px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+/********
+*  END  *
+********/
