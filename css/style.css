@@ -82,6 +82,29 @@ header {
 	position: absolute;
 }
 
+.h-butons {
+	margin-top: 4px;
+	margin-right: 4px;
+	position: absolute;
+	right: 0px;
+}
+
+input {
+	background-color: #000000;
+	border: 2px solid;
+	border-radius: 6px;
+	color: #CCCCCC;
+	font-family: Consolas, Monospace;
+	padding: 3px;
+	position: relative;
+	transition: 0.5s;
+}
+
+input:hover {
+	background-color: #CCCCCC;
+	color: #000000;
+}
+
 section {
 	height: 91%;
 	position: relative;
