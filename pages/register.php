@@ -11,7 +11,7 @@
 			<h1>Stock One </h1>
 		</header>
 		<section>
-			<form method="get" action="validate.php">
+			<form method="post" action="validate.php">
 				<fieldset>
 					<legend>Information Personnel:</legend>
 					Nom d'utilisateur:<br>
@@ -25,10 +25,13 @@
 					<input type="radio" name="genre" value="Femme"> Femme<br>
 					<input type="radio" name="genre" value="Autres"> Autres<br><br>
 					E-mail:<br>
-					<input type="email" name="email"><br><br>
+					<input type="email" name="email"><br>
+					Mot de passe:<br>
+					<input type="password" name="pws" value=""><br><br>
 					<input type="checkbox" name="notif" value="notif"> Souhaitez vous recevoir des notifications de la part de Stock-One<br>
 					<input type="checkbox" name="notifpart" value="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter<br><br>
-					<input type="submit" value="Envoyer"><input type="reset" value="Tout Effacer">
+					<input type="submit" value="Envoyer">
+					<input type="reset" value="Tout Effacer">
 				</fieldset>
 			</form>
 		</section>
