@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Inscription</title>
-		<link rel="stylesheet" type="text/css" href="./css/style.css" />
-		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<body>
 		<header>
