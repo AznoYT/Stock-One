@@ -1,5 +1,5 @@
 language: html
-rvm:
+#rvm:
  - html 5
  - css
  - php
