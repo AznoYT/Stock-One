@@ -1,8 +1,0 @@
-language: html
-html:
- - html 5
- - css
- - php
- - java
-# uncomment and edit the following line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
