@@ -2,4 +2,4 @@
 
 Tous les Droits sont réservés.
 
-Toutes Reproduction entrenera des poursuites judiciere
+Toutes Reproduction entrenera des poursuites judicieres
