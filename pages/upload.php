@@ -14,7 +14,7 @@
 			<form method="post" action="vupload.php">
 				<fieldset>
 					<legend>Envoyer le fichier :</legend><br><br>
-						<input name="fichier" type="file" /><br><br>
+						<input name="file" type="file" /><br><br>
 						<input type="checkbox" name="public" value="notif"> Public <br>
 						<input type="checkbox" name="Privee" value="notifpart"> Privée<br><br>
 						<input type="submit" name="submit" value="Uploader" />
