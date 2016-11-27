@@ -6,6 +6,15 @@
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
+	<?php
+		// mieux de le faire avec un try car la connexion sera permanante
+		try {
+			$bdd = new PDO('mysql:host=51.255.34.189;dbname=Stock-One;charset=utf8', 'root', 'ugo31140');
+		}
+		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
+			die('ERROR : '.$e->getMessage());
+		}
+	?>
 	<body>
 		<header>
 			<h1>Stock One </h1>
@@ -33,18 +42,8 @@
 				echo 'Notif Partenaire:';
 				echo $_POST['notifpart'];
 				
-				$servername = "51.255.34.189";
-				$username = "root";
-				$password = "ugo31140";
-				$dbname = "Stock-One";
-
-				// Create connection
-				$conn = new mysqli($servername, $username, $password, $dbname);
-				// Check connection
-				if ($conn->connect_error) {
-					die("Connection failed: " . $conn->connect_error);
-				} 
-
+				// J'ai foutu la connexion entre le head et le body
+				
 				$sql = "INSERT INTO user (utilisateur, nom, prenom, genre, email, Notif Stock-One, Notif Partenaire)
 				VALUES ('utilisateur', 'Nom', 'prenom', 'genre', 'email', 'notif', 'notifpart')";
 
