@@ -7,6 +7,7 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
+		// Verifie la co par toi même par je me suis pris un refoule par ton serveur
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
 			$bdd = new PDO('mysql:host=51.255.34.189;dbname=Stock-One;charset=utf8', 'root', 'ugo31140');
