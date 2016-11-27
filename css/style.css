@@ -111,6 +111,12 @@ section {
 	width: 100%;
 }
 
+fieldset {
+	border: solid 2px;
+	border-radius: 8px;
+	padding: 4px;
+}
+
 aside {
 	border-bottom: 2px solid;
 	border-radius: 8px;
