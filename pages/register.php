@@ -14,19 +14,19 @@
 			<form method="post" action="validate.php">
 				<fieldset>
 					<legend>Information Personnel:</legend>
-					Nom d'utilisateur:<br>
+					<label>Nom d'utilisateur:</label><br>
 					<input type="text" name="utilisateur" value=""><br>
-					Nom:<br>
+					<label>Nom:</label><br>
 					<input type="text" name="Nom" value=""><br>
-					Prénom:<br>
+					<label>Prénom:</label><br>
 					<input type="text" name="prenom" value=""><br><br>
-					Sexe:<br>
+					<label>Sexe:</label><br>
 					<input type="radio" name="genre" value="Homme" checked> Homme<br>
 					<input type="radio" name="genre" value="Femme"> Femme<br>
 					<input type="radio" name="genre" value="Autres"> Autres<br><br>
-					E-mail:<br>
+					<label>E-mail:</label><br>
 					<input type="email" name="email"><br>
-					Mot de passe:<br>
+					<label>Mot de passe:</label><br>
 					<input type="password" name="pws" value=""><br><br>
 					<input type="checkbox" name="notif" value="notif"> Souhaitez vous recevoir des notifications de la part de Stock-One<br>
 					<input type="checkbox" name="notifpart" value="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter<br><br>

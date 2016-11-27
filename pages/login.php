@@ -14,9 +14,9 @@
 			<form method="post" action="veriflogin.php">
 				<fieldset>
 					<legend>Connexion:</legend>
-					Nom d'Utilisateur:<br>
+					<label>Nom d'Utilisateur:</label><br>
 					<input type="text" name="utilisateur" value=""><br>
-					Mot de passe:<br>
+					<label>Mot de passe:</label><br>
 					<input type="password" name="pws" value=""><br><br>
 					<input type="submit" value="Connexion">
 				</fieldset>

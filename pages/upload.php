@@ -13,10 +13,12 @@
 		<section>
 			<form method="post" action="vupload.php">
 				<fieldset>
-					<legend>Envoyer le fichier :</legend><br><br>
+					<legend>Envoyer le fichier :</legend><br>
 						<input name="file" type="file" /><br><br>
-						<input type="checkbox" name="public" value="notif"> Public <br>
-						<input type="checkbox" name="Privee" value="notifpart"> Privée<br><br>
+						<input type="checkbox" name="" value="notif">
+						<label>Public</label><br/>
+						<input type="checkbox" name="Privee" value="notifpart">
+						<label>Public</label><br/><br/>
 						<input type="submit" name="submit" value="Uploader" />
 				</fieldset>
 			</form>
