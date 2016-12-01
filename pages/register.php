@@ -25,8 +25,9 @@
 					<input type="radio" name="genre" value="Femme"> Femme<br>
 					<input type="radio" name="genre" value="Autres"> Autres<br><br>
 					<label>E-mail:</label><br>
-					<input type="email" name="email"><br>
-					<label>Mot de passe:</label><br>
+					<input type="email" name="email"><br/><br/>
+					<label>Mot de passe:</label><br/>
+					<input type="password" name="pws" value=""><br>
 					<input type="password" name="pws" value=""><br><br>
 					<input type="checkbox" name="notif" value="notif"> Souhaitez vous recevoir des notifications de la part de Stock-One<br>
 					<input type="checkbox" name="notifpart" value="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter<br><br>

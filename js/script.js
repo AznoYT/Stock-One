@@ -22,6 +22,15 @@ function checkTime(i) {
 	return i;
 }
 
+function dev(op) {
+	if(op == 1) {
+		document.location = "./index.html";
+	}
+	if(op == 2) {
+		document.location = "./client.php";
+	}
+}
+
 /******
 * END *
 ******/

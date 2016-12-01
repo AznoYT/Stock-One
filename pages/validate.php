@@ -17,7 +17,7 @@
 	?>
 	<body>
 		<header>
-			<h1>Stock One </h1>
+			<h1>Stock One</h1>
 		</header>
 		<section>
 			<?php
@@ -46,13 +46,13 @@
 				
 				$sql = "INSERT INTO user (utilisateur, nom, prenom, genre, email, Notif Stock-One, Notif Partenaire)
 				VALUES ('utilisateur', 'Nom', 'prenom', 'genre', 'email', 'notif', 'notifpart')";
-
-				if ($conn->query($sql) === TRUE) {
+				
+				if($conn->query($sql) === TRUE) {
 					echo "New record created successfully";
 				} else {
 					echo "Error: " . $sql . "<br>" . $conn->error;
 				}
-
+				
 				$conn->close();
 			?>
 		</section>

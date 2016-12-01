@@ -89,12 +89,23 @@ header {
 	right: 0px;
 }
 
+.dev {
+	border: 1px solid;
+	border-radius: 8px;
+	margin-top: 4px;
+	margin-right: 4px;
+	padding: 2px;
+	position: absolute;
+	right: 300px;
+}
+
 input {
 	background-color: #000000;
 	border: 2px solid;
 	border-radius: 6px;
 	color: #CCCCCC;
 	font-family: Consolas, Monospace;
+	margin: 2px;
 	padding: 3px;
 	position: relative;
 	transition: 0.5s;
