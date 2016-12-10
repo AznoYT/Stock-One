@@ -39,7 +39,17 @@
 				echo("<p>> Recevoir des notification de So: $notif <br/>");
 				echo("<p>> Avoir contact avec les partenaires de So: $notifpart <br/></p>");
 				
-				
+				//Insertion des informations dans la base de données
+				$stmt = $bdd->prepare("INSERT INTO user (utilisateur, nom, prenom, genre, email, pws, Notif Stock-One, Notif Partenaire) VALUES (:user, :name, :prenom, :genre, :email, :pws, :Notif Stock-One, :Notif Partenaire)");
+				$stmt->bindParam(':user', $usr);
+				$stmt->bindParam(':name', $name);
+				$stmt->bindParam(':prenom', $subname);
+				$stmt->bindParam(':genre', $sexe);
+				$stmt->bindParam(':email', $mail);
+				$stmt->bindParam(':pws', $passwords);
+				$stmt->bindParam(':Notif Stock-One', $notif);
+				$stmt->bindParam(':Notif Partenaire', $notifpart);
+				$stmt->execute();
 			?>
 		</section>
 		<footer>
