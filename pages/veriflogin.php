@@ -32,8 +32,11 @@
 						header("location: ../client.php");
 					}
 				}else{
-					echo "Nom d'utilisateur ou mot de passe incorect";
+					$try = 0;
 				}
+			}
+			if($try == 0) {
+				echo "Nom d'utilisateur ou mot de passe incorrect";
 			}
 			$bdd=null;
 			?>
