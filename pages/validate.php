@@ -9,7 +9,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one-710;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -27,8 +27,19 @@
 				$subname = $_POST['prenom'];
 				$sexe = $_POST['genre'];
 				$mail = $_POST['email'];
-				$notif = $_POST['notif'];
-				$notifpart = $_POST['notifpart'];
+				
+				if(!isset($_POST['notif'])) {
+					$notif = 'n';
+				}
+				else {
+					$notif = 'y';
+				}
+				if(!isset($_POST['notifpart'])) {
+					$notifpart = 'n';
+				}
+				else {
+					$notifpart = 'y';
+				}
 				
 				echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
 				echo("<p>> Nom d'utilisateur: $usr <br/>");
@@ -40,16 +51,10 @@
 				echo("<p>> Avoir contact avec les partenaires de So: $notifpart <br/></p>");
 				
 				//Insertion des informations dans la base de données
-				$stmt = $bdd->prepare("INSERT INTO user (utilisateur, nom, prenom, genre, email, pws, Notif Stock-One, Notif Partenaire) VALUES (:user, :name, :prenom, :genre, :email, :pws, :Notif Stock-One, :Notif Partenaire)");
-				$stmt->bindParam(':user', $usr);
-				$stmt->bindParam(':name', $name);
-				$stmt->bindParam(':prenom', $subname);
-				$stmt->bindParam(':genre', $sexe);
-				$stmt->bindParam(':email', $mail);
-				$stmt->bindParam(':pws', $passwords);
-				$stmt->bindParam(':Notif Stock-One', $notif);
-				$stmt->bindParam(':Notif Partenaire', $notifpart);
-				$stmt->execute();
+				$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+				$stmt -> execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
+				
+				$stmt = $bdd->query('SELECT utilisateur FROM user');
 			?>
 		</section>
 		<footer>
