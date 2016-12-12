@@ -23,18 +23,18 @@
 			<?php
 			$sql = 'SELECT * FROM user';
 			$login = $bdd->query($sql);
-			$usr = $login->fetch();
 			$lusr = $_POST['lutilisateur'];
 			$lpws = $_POST['lpws'];
-			
-			if($lusr == $usr[2]){
-				if($lpsw == $user[7]){
-					header("location: ../client.php");
+			while ($usr = $login->fetch()){
+				if($lusr == $usr[1]){
+					if($lpws == $usr[6])
+					{
+						header("location: ../client.php");
+					}
+				}else{
+					echo "Nom d'utilisateur ou mot de passe incorect";
 				}
-			}else{
-				echo "Nom d'utilisateur ou mot de passe incorect";
 			}
-			
 			$bdd=null;
 			?>
 		</section>
