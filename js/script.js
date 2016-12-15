@@ -43,6 +43,7 @@ function verify(pws1, pws2) {
 	return passed;
 }
 
+// Nouvelle fonction pour géré les popup de login ou register
 function popuplogin(login) {
 	var popup = document.getElementById('popup');
 	
