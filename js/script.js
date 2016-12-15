@@ -43,6 +43,19 @@ function verify(pws1, pws2) {
 	return passed;
 }
 
+function popuplogin(login) {
+	var popup = document.getElementById('popup');
+	
+	if(login == 1) {
+		// Ici le Login
+		popup.innerHTML = '<form method="post" action="./pages/veriflogin.php"><fieldset><legend>Connexion:</legend><label>Nom d\'Utilisateur:</label><br><input type="text" name="lutilisateur" ><br><label>Mot de passe:</label><br><input type="password" name="lpws" ><br><br><input type="submit" value="Connexion"></fieldset></form>';
+	}
+	if(login == 2) {
+		// Ici le Register
+		popup.innerHTML = '<form method="post" action="./pages/validate.php" onsubmit="return verify(this.pws, this.pws1);"><fieldset><legend>Information Personnel:</legend><label>Nom d\'utilisateur:</label><br><input type="text" name="utilisateur" value="" /><br><label>Nom:</label><br><input type="text" name="Nom" value="" /><br><label>Prénom:</label><br><input type="text" name="prenom" value="" /><br><br><label>Sexe:</label><br><input type="radio" name="genre" value="Homme" checked /> Homme<br><input type="radio" name="genre" value="Femme" /> Femme<br><input type="radio" name="genre" value="Autres" /> Autres<br><br><label>E-mail:</label><br><input type="email" name="email" /><br/><br/><label>Mot de passe:</label><br/><input type="password" name="pws" value="" /><br><input type="password" name="pws1" value="" /><br><br><input type="checkbox" name="notif" value="1" /> Souhaitez vous recevoir des notifications de la part de Stock-One<br><input type="checkbox" name="notifpart" value="1" /> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter<br><br><input type="submit" value="Envoyer" /><input type="reset" value="Tout Effacer" /></fieldset></form>';
+	}
+}
+
 function dev(op) {
 	if(op == 1) {
 		document.location = "./index.html";

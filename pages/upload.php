@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- upload.php -->
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -28,3 +29,4 @@
 		</footer>
 	</body>
 </html>
+<!-- END -->

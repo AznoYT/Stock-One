@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- validate.php -->
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -55,6 +56,8 @@
 				$stmt -> execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
 				
 				$stmt = $bdd->query('SELECT utilisateur FROM user');
+				
+				header('location: ../client.php');
 			?>
 		</section>
 		<footer>
@@ -62,3 +65,4 @@
 		</footer>
 	</body>
 </html>
+<!-- END -->

@@ -11,8 +11,10 @@
 		<header>
 			<div class="time" id="txt"></div>
 			<div class="h-butons">
-				<a href="./pages/login.php"><input class="color" type="button" value="Connexion" /></a>
-				<a href="./pages/register.php"><input class="color" type="button" value="Créer un Compte" /></a>
+				<!--<a href="./pages/login.php"><input class="color" type="button" value="Connexion" /></a>
+				<a href="./pages/register.php"><input class="color" type="button" value="Créer un Compte" /></a>-->
+				<input class="color" type="button" value="Connexion" onclick="popuplogin(1);" />
+				<input class="color" type="button" value="Créer un Compte" onclick="popuplogin(2);" />
 			</div>
 			<div class="dev">
 				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
@@ -22,7 +24,9 @@
 		</header>
 		<section>
 			<aside class="left">
-				
+				<div id="popup">
+					
+				</div>
 			</aside>
 			<article>
 				
