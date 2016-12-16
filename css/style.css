@@ -147,6 +147,14 @@ aside {
 	left: 68.5%;
 }
 
+div.popup {
+	margin-left: 12%;
+	margin-top: 12%;
+	position: absolute;
+	width: 300%;
+	z-index: 2;
+}
+
 article {
 	border-bottom: 2px solid;
 	border-radius: 8px;
