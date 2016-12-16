@@ -26,12 +26,13 @@
 				$login = $bdd->query($sql);
 				$lusr = $_POST['lutilisateur'];
 				$lpws = $_POST['lpws'];
-				while ($usr = $login->fetch()){
+				while ($usr = $login->fetch()) {
 					if($lusr == $usr[0]) {
 						if($lpws == $usr[5]) {
 							header("location: ../client.php");
 						}
-					}else{
+					}
+					else {
 						$try = 0;
 					}
 				}
