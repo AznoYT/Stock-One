@@ -63,7 +63,7 @@ function popupaction(action) {
 	
 	if(action == 1) {
 		// Ici l'upload
-		popup.innerHTML = '<form method="post" action="vupload.php"><fieldset><legend>Envoyer le fichier :</legend><br><input name="file" type="file" /><br><br><input type="checkbox" name="Public" value="notif"><label>Publique</label><br/><br/><input type="submit" name="submit" value="Uploader" /></fieldset></form';
+		popup.innerHTML = '<form method="post" action="./pages/vupload.php"><fieldset><legend>Envoyer le fichier :</legend><br><input name="file" type="file" /><br><br><input type="checkbox" name="Public" value="notif"><label>Publique</label><br/><br/><input type="submit" name="submit" value="Uploader" /></fieldset></form';
 	}
 	if(action == 2) {
 		// Ici le download
