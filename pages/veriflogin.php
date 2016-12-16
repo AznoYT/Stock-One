@@ -26,6 +26,7 @@
 				$login = $bdd->query($sql);
 				$lusr = $_POST['lutilisateur'];
 				$lpws = $_POST['lpws'];
+				
 				while ($usr = $login->fetch()) {
 					if($lusr == $usr[0]) {
 						if($lpws == $usr[5]) {
