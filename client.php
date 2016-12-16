@@ -20,9 +20,10 @@
 		<header>
 			<div class="time" id="txt"></div>
 			<div class="h-butons">
-				<a href="./pages/upload.php"><input class="color" type="button" value="Importer"></input></a>
-				<a href="./pages/download.php"><input class="color" type="button" value="Télécharger"></input></a>
-				<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion"></input></a>
+				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
+				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
+				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
+				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
 			<div class="dev">
 				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
@@ -35,7 +36,7 @@
 				<h2>Racine</h2>
 				<div class="content">
 					<?php
-						echo "en construction";
+						echo("en construction");
 					?>
 				</div>
 			</aside>
@@ -43,7 +44,7 @@
 				<h2>Dossiers</h2>
 				<div class="content">
 					<?php
-						echo "en construction";
+						echo("en construction");
 					?>
 				</div>
 			</article>
@@ -51,10 +52,13 @@
 				<h2>Fichiers</h2>
 				<div class="content">
 					<?php
-						echo "en construction";
+						echo("en construction");
 					?>
 				</div>
 			</aside>
+			<div class="client_popup" id="popup">
+				
+			</div>
 		</section>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
