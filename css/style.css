@@ -122,6 +122,10 @@ section {
 	width: 100%;
 }
 
+form {
+	background-color: #000000;
+}
+
 fieldset {
 	border: solid 2px;
 	border-radius: 8px;
@@ -152,6 +156,16 @@ div.popup {
 	margin-top: 12%;
 	position: absolute;
 	width: 300%;
+	z-index: 2;
+}
+
+div.client_popup {
+	bottom: 12%;
+	left: 12%;
+	right: 12%;
+	top: 12%;
+	position: absolute;
+	width: auto;
 	z-index: 2;
 }
 
@@ -191,6 +205,7 @@ h2 {
 
 footer {
 	height: 3%;
+	padding-bottom: 4px;
 	padding-top: 4px;
 	position: relative;
 	text-align: left;
