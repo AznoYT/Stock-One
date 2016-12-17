@@ -11,7 +11,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -22,7 +22,6 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					// Sa, c'est une sorte de sécurité, en gros si il y a pas de variable user, bah ça revient à l'index.
 					if(isset($_GET['user'])) {
 						$user = $_GET['user'];
 						echo("$user");
