@@ -10,7 +10,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one-710;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());

@@ -122,11 +122,8 @@ section {
 	width: 100%;
 }
 
-form {
-	background-color: #000000;
-}
-
 fieldset {
+	background-color: #000000;
 	border: solid 2px;
 	border-radius: 8px;
 	padding: 4px;
