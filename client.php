@@ -22,6 +22,7 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
+					// Sa, c'est une sorte de sécurité, en gros si il y a pas de variable user, bah ça revient à l'index.
 					if(isset($_GET['user'])) {
 						$user = $_GET['user'];
 						echo("$user");
