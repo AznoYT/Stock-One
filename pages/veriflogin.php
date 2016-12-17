@@ -32,7 +32,7 @@
 					if($lusr == $usr[0]) {
 						if($lpws == $usr[5]) {
 							$try = 1;
-							header("location: ../client.php");
+							header("location: ../client.php?user=$lusr");
 						}
 					}
 				}

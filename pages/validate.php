@@ -69,7 +69,7 @@
 					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
 					$stmt = $bdd->query('SELECT utilisateur FROM user');
 					
-					header('location: ../client.php');
+					header("location: ../client.php?user=$rusr");
 				}
 				$bdd = null;
 			?>
