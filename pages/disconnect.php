@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <!-- disconnect.php -->
-<?php session_destroy(); ?>
+<?php session_start(); ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - DÃ©connexion</title>
+		<title>Stock One - Déconnexion</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
-		catch(Exception $e) { // au cas-oÃ¹ si Ã§a foire il affiche la couille dans le patÃ©
+		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
@@ -23,6 +23,7 @@
 		</header>
 		<section>
 			<?php
+				$_SESSION['user'] = NULL;
 				header("location: ../index.html");
 			?>
 		</section>
