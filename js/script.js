@@ -115,16 +115,6 @@ function disconnect(stat) {
 	}
 }
 
-// Cette fonction est temporaire, c'est pour le switch de page rapidement
-function dev(op) {
-	if(op == 1) {
-		document.location = "./index.html";
-	}
-	if(op == 2) {
-		document.location = "./client.php";
-	}
-}
-
 /******
 * END *
 ******/
