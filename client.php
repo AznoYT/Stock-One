@@ -22,8 +22,13 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					$user = $_GET['user'];
-					echo("$user");
+					if(isset($_GET['user'])) {
+						$user = $_GET['user'];
+						echo("$user");
+					}
+					else {
+						header("location: ./index.html");
+					}
 				?>
 			</div>
 			<div class="h-butons">
