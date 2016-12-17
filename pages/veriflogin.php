@@ -28,7 +28,7 @@
 				$lpws = $_POST['lpws'];
 				$try = 0;
 				
-				while ($usr = $login->fetch()) {
+				while($usr = $login->fetch()) {
 					if($lusr == $usr[0]) {
 						if($lpws == $usr[5]) {
 							$try = 1;
@@ -37,9 +37,9 @@
 					}
 				}
 				if($try == 0) {
-					echo "Nom d'utilisateur ou mot de passe incorrect";
+					echo("Nom d'utilisateur ou mot de passe incorrect");
 				}
-				$bdd=null;
+				$bdd = null;
 			?>
 		</section>
 		<footer>
