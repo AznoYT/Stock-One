@@ -26,11 +26,11 @@
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
 				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
-			<div class="dev">
+			<!--<div class="dev">
 				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
 				<input class="color" type="button" value="CLIENT" onclick="dev(2);" />
-			</div>
+			</div>-->
 			<h1>Stock One</h1>
 		</header>
 		<section>
