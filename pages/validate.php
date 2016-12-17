@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- validate.php -->
+<?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -10,7 +11,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -64,6 +65,8 @@
 					echo("<script>alert('Nom d\'utilisateur déjà éxistant.');document.location = '../index.html';</script>");
 				}
 				else {
+					$_SESSION['user'] = $_POST['utilisateur'];
+					
 					//Insertion des informations dans la base de données
 					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));

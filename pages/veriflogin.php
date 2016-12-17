@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- veriflogin.php -->
+<?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -10,7 +11,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -32,6 +33,7 @@
 					if($lusr == $usr[0]) {
 						if($lpws == $usr[5]) {
 							$try = 1;
+							$_SESSION['user'] = $_POST['lutilisateur'];
 							header("location: ../client.php?user=$lusr");
 						}
 					}
