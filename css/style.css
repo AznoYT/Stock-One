@@ -152,14 +152,6 @@ aside {
 }
 
 div.popup {
-	margin-left: 12%;
-	margin-top: 12%;
-	position: absolute;
-	width: 300%;
-	z-index: 2;
-}
-
-div.client_popup {
 	bottom: 12%;
 	left: 12%;
 	right: 12%;
