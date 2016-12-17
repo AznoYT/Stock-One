@@ -10,7 +10,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -22,8 +22,8 @@
 		</header>
 		<section>
 			<?php
-				$usr = $_POST['utilisateur'];
-				$pws = $_POST['pws'];
+				$rusr = $_POST['utilisateur'];
+				$pass = $_POST['pws'];
 				$name = $_POST['Nom'];
 				$subname = $_POST['prenom'];
 				$sexe = $_POST['genre'];
@@ -43,7 +43,7 @@
 				}
 				
 				echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
-				echo("<p>> Nom d'utilisateur: $usr <br/>");
+				echo("<p>> Nom d'utilisateur: $rusr <br/>");
 				echo("<p>> Nom: $name <br/>");
 				echo("<p>> Prénom: $subname <br/>");
 				echo("<p>> Votre sexe: $sexe <br/>");
@@ -56,23 +56,22 @@
 				$try = 0;
 				
 				while($usr = $login->fetch()) {
-					if($usr = $usr[1]) {
-						$try = 0;
-					}
-					else {
+					if($rusr == $usr[0]) {
 						$try = 1;
-						
-						//Insertion des informations dans la base de données
-						$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
-						$stmt -> execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
-						$stmt = $bdd->query('SELECT utilisateur FROM user');
-						
-						header('location: ../client.php');
 					}
 				}
-				if($try == 0) {
+				if($try == 1) {
 					echo("<script>alert('Nom d\'utilisateur déjà éxistant.');document.location = '../index.html';</script>");
 				}
+				else {
+					//Insertion des informations dans la base de données
+					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
+					$stmt = $bdd->query('SELECT utilisateur FROM user');
+					
+					header('location: ../client.php');
+				}
+				$bdd = null;
 			?>
 		</section>
 		<footer>
