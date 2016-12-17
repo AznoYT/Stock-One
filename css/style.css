@@ -82,6 +82,10 @@ header {
 	position: absolute;
 }
 
+.info {
+	margin-left: 120px;
+}
+
 .h-butons {
 	margin-top: 4px;
 	margin-right: 4px;
