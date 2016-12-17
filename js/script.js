@@ -99,7 +99,7 @@ function popupaction(action) {
 	}
 	if(action == 2) {
 		// Ici le download
-		popup.innerHTML = '<fieldset><legend>Recevoir un fichier:</legend><p>En Construction</p><br /><input type="button" onclick="popupaction(0);" value="Annuler" /></fieldset>';
+		popup.innerHTML = '<fieldset><legend>Recevoir un fichier:</legend><p>En Construction</p><br /><input type="button" onclick="popupaction(0);" value="OK" /></fieldset>';
 	}
 	if(action == 3) {
 		// Ici la deconnexion
