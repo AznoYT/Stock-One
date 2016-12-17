@@ -21,13 +21,13 @@
 		<header>
 			<div class="time" id="txt"></div>
 			<div class="h-butons">
+				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
 				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
 				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
 			<!--<div class="dev">
-				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
 				<input class="color" type="button" value="CLIENT" onclick="dev(2);" />
 			</div>-->
