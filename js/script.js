@@ -22,6 +22,8 @@ function checkTime(i) {
 	return i;
 }
 
+// Cette fonction d'alert texte l'affiche mtn sur les 2 type de connexion Login & Register
+// Le choix du mode se fait dans la variable "connect" de la fonction
 function verify(connect, pws1, pws2) {
 	var passed = false;
 	var msg1 = document.getElementById('msg1');
