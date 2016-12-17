@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="icon" type="image/png" href="../image/cloud-10 (1).png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
@@ -16,7 +17,7 @@
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
-	<body onload="startTime()">
+	<body onload="startTime();">
 		<header>
 			<div class="time" id="txt"></div>
 			<div class="h-butons">
@@ -26,6 +27,7 @@
 				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
 			<div class="dev">
+				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
 				<input class="color" type="button" value="CLIENT" onclick="dev(2);" />
 			</div>
@@ -56,6 +58,7 @@
 					?>
 				</div>
 			</aside>
+			<!-- Le changement de popup s'opérera sur cette balise div depuis le javascript -->
 			<div class="popup" id="popup">
 				
 			</div>
