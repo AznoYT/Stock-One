@@ -20,6 +20,12 @@
 	<body onload="startTime();">
 		<header>
 			<div class="time" id="txt"></div>
+			<div class="time info">
+				<?php
+					$user = $_GET['user'];
+					echo("$user");
+				?>
+			</div>
 			<div class="h-butons">
 				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
