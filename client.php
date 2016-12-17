@@ -10,7 +10,7 @@
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -56,7 +56,7 @@
 					?>
 				</div>
 			</aside>
-			<div class="client_popup" id="popup">
+			<div class="popup" id="popup">
 				
 			</div>
 		</section>
