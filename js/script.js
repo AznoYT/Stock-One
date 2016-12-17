@@ -70,7 +70,7 @@ function verify(connect, pws1, pws2) {
 	}
 }
 
-// Nouvelle fonction pour géré les popup de login ou register
+// Nouvelle fonction pour géré les popup de login ou register de l'index
 function popuplogin(login) {
 	var popup = document.getElementById('popup');
 	
@@ -101,7 +101,16 @@ function popupaction(action) {
 	}
 	if(action == 3) {
 		// Ici la deconnexion
-		popup.innerHTML = '<fieldset><legend>Déconnexion:</legend><p>En Construction</p><br /><input type="button" onclick="popupaction(0);" value="Annuler" /></fieldset>';
+		popup.innerHTML = '<fieldset><legend>Déconnexion:</legend><label>Êtes-vous sûre de vouloir vous déconnecter ?</label><br /><br /><input type="button" onclick="disconnect(0);" value="Non" /><input type="button" onclick="disconnect(1);" value="Oui" /></fieldset>';
+	}
+}
+
+function disconnect(stat) {
+	if(stat == 0) {
+		popupaction(0);
+	}
+	if(stat == 1) {
+		document.location = "./pages/disconnect.php";
 	}
 }
 
