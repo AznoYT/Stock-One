@@ -34,7 +34,7 @@
 						if(in_array($extension_upload, $extensions_autorisees)) {
 							// On peut valider le fichier et le stocker définitivement
 							
-							move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . basename($_FILES['file']['name']));
+							move_uploaded_file($_FILES['file']['tmp_name'], 'fichiers/' . basename($_FILES['file']['name']));
 							echo "L'envoi a bien été effectué !";
 						}
 					}
