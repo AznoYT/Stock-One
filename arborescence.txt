@@ -1,0 +1,24 @@
+Structure du dossier
+
+C:.
+|   client.php
+|   index.html
+|   stock-one.sql
+|   tree.txt
+|   
++---css
+|       other.css
+|       style.css
+|       
++---fichiers
++---js
+|       other.js
+|       script.js
+|       
+\---pages
+        disconnect.php
+        other.php
+        validate.php
+        veriflogin.php
+        vupload.php
+        
