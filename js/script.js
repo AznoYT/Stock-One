@@ -115,6 +115,15 @@ function disconnect(stat) {
 	}
 }
 
+function other(op) {
+	if(op == 0) {
+		document.location = "../index.html";
+	}
+	if(op == 1) {
+		document.location = "./pages/other.php";
+	}
+}
+
 /******
 * END *
 ******/
