@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- game.html -->
+<!-- other.php -->
 <?php session_start() ?>
 <html>
 <head>
