@@ -1,21 +1,21 @@
 Structure du dossier
 
-C:.
+Stock-One-master ./
 |   client.php
 |   index.html
 |   stock-one.sql
 |   tree.txt
 |   
-+---css
++--> css/
 |       other.css
 |       style.css
 |       
-+---fichiers
-+---js
++--> fichiers/
++--> js/
 |       other.js
 |       script.js
 |       
-\---pages
+\--> pages/
         disconnect.php
         other.php
         validate.php
