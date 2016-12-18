@@ -1,6 +1,6 @@
-/*****************
-* Hidden Program *
-*****************/
+/***********
+* other.js *
+***********/
 
 window.addEventListener('load', beg_func, false);
 var COLS=50, ROWS= 17, SPACE=0, SNAKE=1, FOOD=2, LEFT=0, UP=1, RIGHT=2, DOWN=3, KEY_LEFT=37, KEY_UP=38, KEY_RIGHT=39, KEY_DOWN=40, KEY_SPC=32, KEY_ESC=27, canvas, context, keystate, frames, score, fr=0;
