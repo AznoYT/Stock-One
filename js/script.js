@@ -42,6 +42,10 @@ function verify(connect, pws1, pws2) {
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
+		else if(pws1 == 1 && pws2 == 0) { // Cette condition c'est pour le mot de passe faux
+			msg1.innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
+			msg2.innerHTML = '';
+		}
 		else {
 			var passed = true;
 		}
@@ -74,17 +78,23 @@ function verify(connect, pws1, pws2) {
 }
 
 // Nouvelle fonction pour géré les popup de login ou register de l'index
-function popuplogin(login) {
+function popuplogin(login, attempt) {
 	var popup = document.getElementById('popup');
 	
 	if(login == 1) {
 		// Ici le Login
-		packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
+		if(attempt == 1) {
+			packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
+		}
+		else {
+			packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
+		}
+		
 		packet += '<fieldset>';
 		packet += '<legend>Connexion:</legend>';
 		packet += '<label>Nom d\'Utilisateur:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="lutilisateur" />';
+		packet += '<input type="text" name="lutilisateur" id="userinput" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
 		packet += '<label>Mot de passe:</label>';
@@ -93,7 +103,14 @@ function popuplogin(login) {
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
 		packet += '<input type="submit" value="Connexion" />';
-		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		
+		if(attempt == 1) {
+			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
+		}
+		else {
+			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		}
+		
 		packet += '</fieldset>';
 		packet += '</form>';
 		
