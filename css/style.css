@@ -120,6 +120,10 @@ input:hover {
 	color: #000000;
 }
 
+#msg1, #msg2 {
+	color: #FF0000;
+}
+
 section {
 	height: 91%;
 	position: relative;
