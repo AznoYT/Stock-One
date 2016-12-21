@@ -4,6 +4,8 @@
 *                       *
 ************************/
 
+var packet = '';
+
 function startTime() {
 	var today = new Date();
 	var h = today.getHours();
@@ -77,11 +79,76 @@ function popuplogin(login) {
 	
 	if(login == 1) {
 		// Ici le Login
-		popup.innerHTML = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);"><fieldset><legend>Connexion:</legend><label>Nom d\'Utilisateur:</label><br><input type="text" name="lutilisateur" ><font style="color: #FF0000;" id="msg1"></font><br><label>Mot de passe:</label><br><input type="password" name="lpws" ><font style="color: #FF0000;" id="msg2"></font><br><br><input type="submit" value="Connexion"><input type="button" onclick="popupaction(0);" value="Annuler" /></fieldset></form>';
+		packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
+		packet += '<fieldset>';
+		packet += '<legend>Connexion:</legend>';
+		packet += '<label>Nom d\'Utilisateur:</label>';
+		packet += '<br />';
+		packet += '<input type="text" name="lutilisateur" />';
+		packet += '<font style="color: #FF0000;" id="msg1"></font>';
+		packet += '<br />';
+		packet += '<label>Mot de passe:</label>';
+		packet += '<br />';
+		packet += '<input type="password" name="lpws" />';
+		packet += '<font style="color: #FF0000;" id="msg2"></font>';
+		packet += '<br /><br />';
+		packet += '<input type="submit" value="Connexion" />';
+		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		packet += '</fieldset>';
+		packet += '</form>';
+		
+		popup.innerHTML = packet;
 	}
 	if(login == 2) {
 		// Ici le Register
-		popup.innerHTML = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1);"><fieldset><legend>Inscription:</legend><label>Nom d\'utilisateur:</label><br><input type="text" name="utilisateur" value="" /><br><label>Nom:</label><br><input type="text" name="Nom" value="" /><br><label>Prénom:</label><br><input type="text" name="prenom" value="" /><br><br><label>Sexe:</label><br><input type="radio" name="genre" value="Homme" checked /> Homme<br><input type="radio" name="genre" value="Femme" /> Femme<br><input type="radio" name="genre" value="Autres" /> Autres<br><br><label>E-mail:</label><br><input type="email" name="email" /><br/><br/><label>Mot de passe:</label><br/><input type="password" name="pws" value="" /><font style="color: #FF0000;" id="msg1"></font><br><label>Confirmer votre Mot de Passe:</label><br><input type="password" name="pws1" value="" /><font style="color: #FF0000;" id="msg2"></font><br><br><input type="checkbox" name="notif" value="1" /> Souhaitez vous recevoir des notifications de la part de Stock-One<br><input type="checkbox" name="notifpart" value="1" /> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter<br><br><input type="submit" value="Envoyer" /><input type="reset" value="Tout Effacer" /><input type="button" onclick="popupaction(0);" value="Annuler" /></fieldset></form>';
+		packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1);">';
+		packet += '<fieldset>';
+		packet += '<legend>Inscription:</legend>';
+		packet += '<label>Nom d\'utilisateur:</label>';
+		packet += '<br />';
+		packet += '<input type="text" name="utilisateur" value="" />';
+		packet += '<br />';
+		packet += '<label>Nom:</label>';
+		packet += '<br />';
+		packet += '<input type="text" name="Nom" value="" />';
+		packet += '<br />';
+		packet += '<label>Prénom:</label>';
+		packet += '<br />';
+		packet += '<input type="text" name="prenom" value="" />';
+		packet += '<br /><br />';
+		packet += '<label>Sexe:</label>';
+		packet += '<br />';
+		packet += '<input type="radio" name="genre" value="Homme" checked /> Homme';
+		packet += '<br />';
+		packet += '<input type="radio" name="genre" value="Femme" /> Femme';
+		packet += '<br />';
+		packet += '<input type="radio" name="genre" value="Autres" /> Autres';
+		packet += '<br /><br />';
+		packet += '<label>E-mail:</label>';
+		packet += '<br />';
+		packet += '<input type="email" name="email" />';
+		packet += '<br/><br/>';
+		packet += '<label>Mot de passe:</label>';
+		packet += '<br/>';
+		packet += '<input type="password" name="pws" value="" />';
+		packet += '<font style="color: #FF0000;" id="msg1"></font>';
+		packet += '<br />';
+		packet += '<label>Confirmer votre Mot de Passe:</label>';
+		packet += '<br />';
+		packet += '<input type="password" name="pws1" value="" />';
+		packet += '<font style="color: #FF0000;" id="msg2"></font>';
+		packet += '<br /><br />';
+		packet += '<input type="checkbox" name="notif" value="1" /> Souhaitez vous recevoir des notifications de la part de Stock-One';
+		packet += '<br />';
+		packet += '<input type="checkbox" name="notifpart" value="1" /> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter';
+		packet += '<br /><br />';
+		packet += '<input type="submit" value="Envoyer" />';
+		packet += '<input type="reset" value="Tout Effacer" />';
+		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		packet += '</fieldset>';
+		packet += '</form>';
+		
+		popup.innerHTML = packet;
 	}
 }
 
@@ -94,15 +161,44 @@ function popupaction(action) {
 	}
 	if(action == 1) {
 		// Ici l'upload
-		popup.innerHTML = '<form method="post" action="./pages/vupload.php"><fieldset><legend>Envoyer un fichier:</legend><br><input name="file" type="file" /><br><br><input type="checkbox" name="Public" value="notif"><label>Publique</label><br/><br/><input type="submit" name="submit" value="Importer" /><input type="button" onclick="popupaction(0);" value="Annuler" /></fieldset></form';
+		packet = '<form method="post" action="./pages/vupload.php">';
+		packet += '<fieldset>';
+		packet += '<legend>Envoyer un fichier:</legend>'
+		packet += '<br />'
+		packet += '<input name="file" type="file" />'
+		packet += '<br /><br />'
+		packet += '<input type="checkbox" name="Public" value="notif">'
+		packet += '<label>Publique</label>'
+		packet += '<br/><br/>'
+		packet += '<input type="submit" name="submit" value="Importer" />'
+		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'
+		packet += '</fieldset>'
+		packet += '</form';
+		
+		popup.innerHTML = packet;
 	}
 	if(action == 2) {
 		// Ici le download
-		popup.innerHTML = '<fieldset><legend>Recevoir un fichier:</legend><p>En Construction</p><br /><input type="button" onclick="popupaction(0);" value="OK" /></fieldset>';
+		packet = '<fieldset>';
+		packet += '<legend>Recevoir un fichier:</legend>';
+		packet += '<p>En Construction</p>';
+		packet += '<br />';
+		packet += '<input type="button" onclick="popupaction(0);" value="OK" />';
+		packet += '</fieldset>';
+		
+		popup.innerHTML = packet;
 	}
 	if(action == 3) {
 		// Ici la deconnexion
-		popup.innerHTML = '<fieldset><legend>Déconnexion:</legend><label>Êtes-vous sûre de vouloir vous déconnecter ?</label><br /><br /><input type="button" onclick="disconnect(0);" value="Non" /><input type="button" onclick="disconnect(1);" value="Oui" /></fieldset>';
+		packet = '<fieldset>';
+		packet += '<legend>Déconnexion:</legend>';
+		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
+		packet += '<br /><br />';
+		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
+		packet += '<input type="button" onclick="disconnect(1);" value="Oui" />';
+		packet += '</fieldset>';
+		
+		popup.innerHTML = packet;
 	}
 }
 
@@ -115,9 +211,10 @@ function disconnect(stat) {
 	}
 }
 
+// Fonction de développement /!\ PAS TOUCHER !!!!
 function other(op) {
 	if(op == 0) {
-		document.location = "../index.html";
+		document.location = "../client.php";
 	}
 	if(op == 1) {
 		document.location = "./pages/other.php";
