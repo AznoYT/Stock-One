@@ -34,6 +34,7 @@
 					header('location: ../client.php');
 				}
 				else {
+					// Premiers test avec une image
 					$extension_ok = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
 					$extension_upload = strtolower(  substr(  strrchr($_FILES['file']['name'], '.')  ,1)  );
 					if ( in_array($extension_upload,$extensions_ok) ) echo "Extension validate";
