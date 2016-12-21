@@ -78,7 +78,6 @@ function beg_func() {
 		document.getElementById('instr').innerHTML = "Appuyez sur la fleche du bas pour reveiller le serpent";
 		init()
 		infinity();
-		document.getElementById('sound').play();
     }
 	}
 	document.onkeyup = function(e){
