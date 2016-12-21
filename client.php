@@ -39,10 +39,6 @@
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
 				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
-			<!--<div class="dev">
-				<input class="color" type="button" value="INDEX" onclick="dev(1);" />
-				<input class="color" type="button" value="CLIENT" onclick="dev(2);" />
-			</div>-->
 			<h1>Stock One</h1>
 		</header>
 		<section>
@@ -71,7 +67,7 @@
 				</div>
 			</aside>
 			<!-- Le changement de popup s'opérera sur cette balise div depuis le javascript -->
-			<div class="popup" id="popup">
+			<div id="popup">
 				
 			</div>
 		</section>

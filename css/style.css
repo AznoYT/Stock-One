@@ -93,7 +93,7 @@ header {
 	right: 0px;
 }
 
-.dev {
+/*.dev {
 	border: 1px solid;
 	border-radius: 8px;
 	margin-top: 4px;
@@ -101,7 +101,7 @@ header {
 	padding: 2px;
 	position: absolute;
 	right: 300px;
-}
+}*/
 
 input {
 	background-color: #000000;
@@ -156,7 +156,7 @@ aside {
 	left: 68.5%;
 }
 
-div.popup {
+#popup {
 	bottom: 12%;
 	left: 12%;
 	right: 12%;

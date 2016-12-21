@@ -21,4 +21,4 @@ Stock-One-master ./
         validate.php
         veriflogin.php
         vupload.php
-        
+				

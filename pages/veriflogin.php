@@ -22,7 +22,7 @@
 			<h1>Stock One </h1>
 		</header>
 		<section>
-			<div class="popup" id="popup">
+			<div id="popup">
 				
 			</div>
 			<?php

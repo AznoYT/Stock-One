@@ -4,7 +4,7 @@
 *                       *
 ************************/
 
-var packet = NULL;
+var packet;
 
 function startTime() {
 	var today = new Date();
@@ -83,6 +83,7 @@ function popuplogin(login, attempt) {
 	
 	if(login == 1) {
 		// Ici le Login
+		// Ces conditions sont variante pour les chemins d'actions des formulaire si il y a un imprévue à la connexion
 		if(attempt == 1) {
 			packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
 		}
