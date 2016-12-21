@@ -4,7 +4,7 @@
 *                       *
 ************************/
 
-var packet = '';
+var packet = NULL;
 
 function startTime() {
 	var today = new Date();
