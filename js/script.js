@@ -37,7 +37,6 @@ function verify(connect, pws1, pws2) {
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le second champs.");
 			msg1.innerHTML = '';
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
@@ -53,19 +52,16 @@ function verify(connect, pws1, pws2) {
 	}
 	if(connect == 2) {
 		if(pws1.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le premier champs.");
 			msg1.innerHTML = ' <-- Ce champs est vide !';
 			msg2.innerHTML = '';
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le second champs.");
 			msg1.innerHTML = '';
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
 		else if(pws1.value != pws2.value) {
-			//alert("Les 2 mot de passe ne correspondent pas.");
 			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
 			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.select();
