@@ -39,7 +39,7 @@
 					}
 				}
 				if($try == 0) {
-					echo("Nom d'utilisateur ou mot de passe incorrect");
+					echo("<script>alert('Nom d\'utilisateur ou mot de passe incorrect'); document.location = '../index.html';</script>");
 				}
 				$bdd = null;
 			?>
