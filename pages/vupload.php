@@ -43,6 +43,9 @@
 					if ($resultat) echo "Transfert réussi";
 					header('location: ../client.php');
 				}
+				/**************************************************************
+				* Pour le moment il n'y a rien qui part je continue le script *
+				**************************************************************/
 			?>
 		</section>
 		<footer>
