@@ -22,6 +22,9 @@
 			<h1>Stock One </h1>
 		</header>
 		<section>
+			<div class="popup" id="popup">
+				
+			</div>
 			<?php
 				$sql = 'SELECT * FROM user';
 				$login = $bdd->query($sql);
@@ -39,10 +42,15 @@
 					}
 				}
 				if($try == 0) {
-					echo("<script>alert('Nom d\'utilisateur ou mot de passe incorrect'); document.location = '../index.html';</script>");
+					echo("> Echec de la tentative de connexion.");
 				}
 				$bdd = null;
 			?>
+			<script type="text/javascript">
+				popuplogin(1, 1);
+				verify(1, 1, 0);
+				document.getElementById('userinput').value = "<?php echo($lusr); ?>";
+			</script>
 		</section>
 		<footer>
 			<h4></h4>
