@@ -68,6 +68,10 @@ body {
 	width: 100%;
 }
 
+.annimation {
+	overflow: hidden;
+}
+
 header {
 	height: 5%;
 	position: relative;
@@ -163,7 +167,21 @@ aside {
 	top: 12%;
 	position: absolute;
 	width: auto;
-	z-index: 2;
+}
+
+.about {
+	bottom: 12%;
+	left: 12%;
+	right: 12%;
+	top: 12%;
+	position: absolute;
+	width: auto;
+}
+
+iframe {
+	border: 0;
+	height: 100%;
+	width: 100%;
 }
 
 article {

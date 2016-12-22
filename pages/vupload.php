@@ -35,8 +35,8 @@
 				}
 				else {
 					// Premiers test avec une image
-					$extension_ok = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-					$extension_upload = strtolower(  substr(  strrchr($_FILES['file']['name'], '.')  ,1)  );
+					$extension_ok = array('jpg', 'jpeg', 'gif', 'png');
+					$extension_upload = strtolower(  substr(  strrchr($_FILES['file']['name'], '.'), 1));
 					if ( in_array($extension_upload,$extensions_ok) ) echo "Extension validate";
 					$path = "files/{$data['nom']}.{$extension_upload}";
 					$resultat = move_uploaded_file($_FILES['file']['tmp_name'],$path);
