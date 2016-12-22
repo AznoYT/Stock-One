@@ -65,7 +65,7 @@
 					}
 				}
 				if($try == 1) {
-					echo("> Echec de la tentative de creation de compte.");
+					echo("<br />> Echec de la tentative de creation de compte.");
 				}
 				else {
 					$_SESSION['user'] = $_POST['utilisateur'];
