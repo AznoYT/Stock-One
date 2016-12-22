@@ -22,6 +22,9 @@
 			<h1>Stock One</h1>
 		</header>
 		<section>
+			<div id="popup">
+				
+			</div>
 			<?php
 				$rusr = $_POST['utilisateur'];
 				$pass = $_POST['pws'];
@@ -62,7 +65,7 @@
 					}
 				}
 				if($try == 1) {
-					echo("<script>alert('Nom d\'utilisateur déjà éxistant.');document.location = '../index.html';</script>");
+					echo("> Echec de la tentative de creation de compte.");
 				}
 				else {
 					$_SESSION['user'] = $_POST['utilisateur'];
@@ -76,6 +79,11 @@
 				}
 				$bdd = null;
 			?>
+			<script type="text/javascript">
+				popuplogin(2, 1);
+				verify(2, 1, 1, 0);
+				document.getElementById('userinput').value = "<?php echo($rusr); ?>";
+			</script>
 		</section>
 		<footer>
 			<h4></h4>
