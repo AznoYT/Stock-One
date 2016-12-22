@@ -76,6 +76,11 @@ function verify(connect, pws1, pws2, usr) {
 			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.select();
 		}
+		else if(pws1 == 1 && pws2 == 1 && usr == 0) { // Cette condition c'est pour le nom d'utilisateur déjà existant
+			msg0.innerHTML = ' Nom d\'utilisateur déjà existant';
+			msg1.innerHTML = '';
+			msg2.innerHTML = '';
+		}
 		else {
 			var passed = true;
 		}
@@ -125,12 +130,19 @@ function popuplogin(login, attempt) {
 	}
 	if(login == 2) {
 		// Ici le Register
-		packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
+		// Même top que pour le login
+		if(attempt == 1) {
+			packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
+		}
+		else {
+			packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
+		}
+		
 		packet += '<fieldset>';
 		packet += '<legend>Inscription:</legend>';
 		packet += '<label>Nom d\'utilisateur:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="utilisateur" value="" />';
+		packet += '<input type="text" name="utilisateur" id="userinput" value="" />';
 		packet += '<font id="msg0"></font>';
 		packet += '<br />';
 		packet += '<label>Nom:</label>';
@@ -169,7 +181,14 @@ function popuplogin(login, attempt) {
 		packet += '<br /><br />';
 		packet += '<input type="submit" value="Envoyer" />';
 		packet += '<input type="reset" value="Tout Effacer" />';
-		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		
+		if(attempt == 1) {
+			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
+		}
+		else {
+			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		}
+		
 		packet += '</fieldset>';
 		packet += '</form>';
 		
@@ -194,7 +213,7 @@ function popupaction(action) {
 		packet += '<br /><br />';
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
-		packet += '<br/><br/>';
+		packet += '<br /><br />';
 		packet += '<input type="submit" name="submit" value="Importer" />';
 		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
