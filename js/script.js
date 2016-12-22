@@ -56,6 +56,7 @@ function verify(connect, pws1, pws2, usr) {
 			msg0.innerHTML = ' <-- Ce champs est vide !';
 			msg1.innerHTML = '';
 			msg2.innerHTML = '';
+			usr.focus();
 		}
 		else if(pws1.value == '') {
 			msg0.innerHTML = '';
