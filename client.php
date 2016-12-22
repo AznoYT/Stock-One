@@ -37,7 +37,6 @@
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
 				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
-				<!--<a href="./pages/disconnect.php"><input class="color" type="button" value="Déconnexion" /></a>-->
 			</div>
 			<h1>Stock One</h1>
 		</header>
