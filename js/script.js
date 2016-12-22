@@ -25,8 +25,9 @@ function checkTime(i) {
 }
 
 // Cette fonction d'alert texte l'affiche mtn sur les 2 type de connexion Login & Register
-function verify(connect, pws1, pws2) {
+function verify(connect, pws1, pws2, usr) {
 	var passed = false;
+	var msg0 = document.getElementById('msg0');
 	var msg1 = document.getElementById('msg1');
 	var msg2 = document.getElementById('msg2');
 	
@@ -37,7 +38,6 @@ function verify(connect, pws1, pws2) {
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le second champs.");
 			msg1.innerHTML = '';
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
@@ -52,20 +52,25 @@ function verify(connect, pws1, pws2) {
 		return passed;
 	}
 	if(connect == 2) {
-		if(pws1.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le premier champs.");
+		if(usr.value == '') {
+			msg0.innerHTML = ' <-- Ce champs est vide !';
+			msg1.innerHTML = '';
+			msg2.innerHTML = '';
+		}
+		else if(pws1.value == '') {
+			msg0.innerHTML = '';
 			msg1.innerHTML = ' <-- Ce champs est vide !';
 			msg2.innerHTML = '';
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			//alert("Veuillez entrer votre mot de passe dans le second champs.");
+			msg0.innerHTML = '';
 			msg1.innerHTML = '';
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
 		else if(pws1.value != pws2.value) {
-			//alert("Les 2 mot de passe ne correspondent pas.");
+			msg0.innerHTML = '';
 			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
 			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.select();
@@ -119,12 +124,13 @@ function popuplogin(login, attempt) {
 	}
 	if(login == 2) {
 		// Ici le Register
-		packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1);">';
+		packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
 		packet += '<fieldset>';
 		packet += '<legend>Inscription:</legend>';
 		packet += '<label>Nom d\'utilisateur:</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="utilisateur" value="" />';
+		packet += '<font id="msg0"></font>';
 		packet += '<br />';
 		packet += '<label>Nom:</label>';
 		packet += '<br />';

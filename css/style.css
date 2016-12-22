@@ -124,7 +124,7 @@ input:hover {
 	color: #000000;
 }
 
-#msg1, #msg2 {
+#msg0, #msg1, #msg2 {
 	color: #FF0000;
 }
 
@@ -160,16 +160,7 @@ aside {
 	left: 68.5%;
 }
 
-#popup {
-	bottom: 12%;
-	left: 12%;
-	right: 12%;
-	top: 12%;
-	position: absolute;
-	width: auto;
-}
-
-.about {
+.about, #popup {
 	bottom: 12%;
 	left: 12%;
 	right: 12%;
