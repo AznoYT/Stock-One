@@ -33,7 +33,6 @@
 				?>
 			</div>
 			<div class="h-butons">
-				<!-- Comme sur l'index les bouttons sont remplacer par de nouveaux -->
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
 				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
