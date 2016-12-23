@@ -217,7 +217,7 @@ function popupaction(action) {
 		packet += '<input type="submit" name="submit" value="Importer" />';
 		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
-		packet += '</form';
+		packet += '</form>';
 		
 		popup.innerHTML = packet;
 	}
