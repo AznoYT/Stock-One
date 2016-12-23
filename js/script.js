@@ -130,7 +130,7 @@ function popuplogin(login, attempt) {
 	}
 	if(login == 2) {
 		// Ici le Register
-		// Même top que pour le login
+		// Même topo que pour le login
 		if(attempt == 1) {
 			packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
 		}
@@ -197,7 +197,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action) {
+function popupaction(action, attempt) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -205,17 +205,30 @@ function popupaction(action) {
 	}
 	if(action == 1) {
 		// Ici l'upload
-		packet = '<form method="post" action="./pages/vupload.php">';
+		if(attempt == 1) {
+			packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">';
+		}
+		else {
+			packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
+		}
+		
 		packet += '<fieldset>';
 		packet += '<legend>Envoyer un fichier:</legend>';
 		packet += '<br />';
-		packet += '<input name="file" type="file" />';
+		packet += '<input type="file" name="fichiers" id="fichiers" />';
 		packet += '<br /><br />';
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
 		packet += '<br /><br />';
 		packet += '<input type="submit" name="submit" value="Importer" />';
-		packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		
+		if(attempt == 1) {
+			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
+		}
+		else {
+			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		}
+		
 		packet += '</fieldset>';
 		packet += '</form>';
 		

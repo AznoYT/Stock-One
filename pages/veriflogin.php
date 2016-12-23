@@ -37,7 +37,7 @@
 						if($lpws == $usr[5]) {
 							$try = 1;
 							$_SESSION['user'] = $_POST['lutilisateur'];
-							header("location: ../client.php?user=$lusr");
+							header("location: ../client.php");
 						}
 					}
 				}
