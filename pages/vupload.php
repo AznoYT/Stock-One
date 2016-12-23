@@ -39,6 +39,7 @@
 				}
 				else {
 					// Premiers test avec une image
+					$fichier = $_FILES['fichiers']['name'];
 					$req = $bdd->prepare('INSERT INTO donnee(identifiant, nom, public) VALUES(?, ?, ?)');
 					$req->execute(array($_SESSION['user'], $_FILES['fichiers']['name'], $publicstat));
 					
@@ -54,7 +55,7 @@
 					
 					// Une fois validé on le déplace vers le repertoire utilisateur
 					$user = $_SESSION['user'];
-					$path = "../files/$user/{$data['nom']}";
+					$path = "../files/$user/$fichier";
 					$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
 					
 					if($resultat) { // Et enfin on check si le transfert s'est bien passé

@@ -25,8 +25,7 @@
 				
 			</div>
 			<?php
-				$sql = 'SELECT * FROM user';
-				$login = $bdd->query($sql);
+				$login = $bdd->query('SELECT * FROM user');
 				$lusr = $_POST['lutilisateur'];
 				$lpws = $_POST['lpws'];
 				$try = 0;
