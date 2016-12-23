@@ -33,6 +33,7 @@
 				?>
 			</div>
 			<div class="h-butons">
+				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(4);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
 				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
@@ -41,26 +42,32 @@
 		</header>
 		<section>
 			<aside class="left">
-				<h2>Racine</h2>
+				<h2>Racine [./]</h2>
 				<div class="content">
 					<?php
-						echo("en construction");
+						$data = $bdd->query('SELECT * FROM donnee');
+						
+						while($identifiant = $data->fetch()) {
+							if($user == $identifiant[1]) {
+								echo($identifiant[3]."<br />");
+							}
+						}
 					?>
 				</div>
 			</aside>
 			<article>
-				<h2>Dossiers</h2>
+				<h2>Dossiers []</h2>
 				<div class="content">
 					<?php
-						echo("en construction");
+						
 					?>
 				</div>
 			</article>
 			<aside class="right">
-				<h2>Fichiers</h2>
+				<h2>Fichiers []</h2>
 				<div class="content">
 					<?php
-						echo("en construction");
+						
 					?>
 				</div>
 			</aside>
