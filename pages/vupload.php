@@ -11,7 +11,7 @@
 	<?php
 		// Bon tu connais la routine pour le mode de connexion on va pas s'attarder là dessus
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -24,23 +24,35 @@
 		<section>
 			<?php
 				// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
-				$req = $bdd->prepare('INSERT INTO donnee(nom, public, identifiant) VALUES(?, ?, ?)');
-				$req->execute(array($_POST['file'], $_POST['Public'], $_SESSION['user']));
+				if(!isset($_POST['Public'])) {
+					$publicstat = 'n';
+				}
+				else {
+					$publicstat = 'y';
+				}
 				
-				$req = $bdd->query('SELECT nom, public, identifiant FROM donnee');
+				$req = $bdd->prepare('INSERT INTO donnee(identifiant, nom, public) VALUES(?, ?, ?)');
+				$req->execute(array($_SESSION['user'], $_FILES['fichiers']['name'], $publicstat));
+				
+				$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
 				$data = $req->fetch();
 				
-				if (!isset($_FILES['file'])) {
+				if(!isset($_FILES['fichiers'])) {
+					echo("> Pas de fichiers détecter.");
 					header('location: ../client.php');
 				}
 				else {
 					// Premiers test avec une image
-					$extension_ok = array('jpg', 'jpeg', 'gif', 'png');
-					$extension_upload = strtolower(  substr(  strrchr($_FILES['file']['name'], '.'), 1));
-					if ( in_array($extension_upload,$extensions_ok) ) echo "Extension validate";
-					$path = "files/{$data['nom']}.{$extension_upload}";
-					$resultat = move_uploaded_file($_FILES['file']['tmp_name'],$path);
-					if ($resultat) echo "Transfert réussi";
+					$extensions_ok = array('jpg', 'jpeg', 'gif', 'png');
+					$extension_upload = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
+					if(in_array($extension_upload, $extensions_ok)) {
+						echo("> Extension valide.<br />");
+					}
+					$path = "../files/{$data['nom']}";
+					$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
+					if($resultat) {
+						echo("> Transfert réussi.");
+					}
 					header('location: ../client.php');
 				}
 			?>
