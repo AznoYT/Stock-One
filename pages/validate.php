@@ -55,8 +55,7 @@
 				echo("<p>> Recevoir des notification de So: $notif <br/>");
 				echo("<p>> Avoir contact avec les partenaires de So: $notifpart <br/></p>");
 				
-				$sql = 'SELECT * FROM user';
-				$login = $bdd->query($sql);
+				$login = $bdd->query('SELECT * FROM user');
 				$try = 0;
 				
 				while($usr = $login->fetch()) {
@@ -74,6 +73,7 @@
 					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
 					$stmt = $bdd->query('SELECT utilisateur FROM user');
+					mkdir("../files/{$data['identifiant']}", 0700);
 					
 					header("location: ../client.php");
 				}

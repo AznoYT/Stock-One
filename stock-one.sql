@@ -63,7 +63,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`utilisateur`, `nom`, `prenom`, `genre`, `email`, `pws`, `notifso`, `notifpartenaire`) VALUES
 ('4N4RCHY', 'NOM', 'Prénom', 'Homme', 'adresse.mail@gmail.com', 'incorrect', 'n', 'n'),
 ('4STR0', 'NOM', 'Prénom', 'Autres', 'adresse.mail@gmail.com', 'motdepasse', 'n', 'n'),
-('Z3R0', 'NOM', 'Prénom', 'Homme', 'adresse.mail@gmail.com', 'mot', 'n', 'n');
+('Z3R0', 'NOM', 'Prénom', 'Homme', 'adresse.mail@gmail.com', 'mot', 'n', 'n'),
+('admin', '', '', '', '', 'admin', 'n', 'n');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
