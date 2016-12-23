@@ -34,7 +34,7 @@
 					$publicstat = 'y';
 				}
 				
-				if(!isset($_FILES['fichiedrs'])) {
+				if(!isset($_FILES['fichiers'])) {
 					echo("> Pas de fichiers détecter.");
 				}
 				else {
