@@ -92,8 +92,7 @@ function verify(connect, pws1, pws2, usr) {
 function popuplogin(login, attempt) {
 	var popup = document.getElementById('popup');
 	
-	if(login == 1) {
-		// Ici le Login
+	if(login == 1) { // Ici le Login
 		// Ces conditions sont variante pour les chemins d'actions des formulaire si il y a un imprévue à la connexion
 		if(attempt == 1) {
 			packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
@@ -128,8 +127,7 @@ function popuplogin(login, attempt) {
 		
 		popup.innerHTML = packet;
 	}
-	if(login == 2) {
-		// Ici le Register
+	if(login == 2) { // Ici le Register
 		// Même topo que pour le login
 		if(attempt == 1) {
 			packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
@@ -203,8 +201,7 @@ function popupaction(action, attempt) {
 	if(action == 0) {
 		popup.innerHTML = '';
 	}
-	if(action == 1) {
-		// Ici l'upload
+	if(action == 1) { // Ici l'upload
 		if(attempt == 1) {
 			packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">';
 		}
@@ -234,8 +231,7 @@ function popupaction(action, attempt) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 2) {
-		// Ici le download
+	if(action == 2) { // Ici le download
 		packet = '<fieldset>';
 		packet += '<legend>Recevoir un fichier:</legend>';
 		packet += '<p>En Construction</p>';
@@ -245,8 +241,7 @@ function popupaction(action, attempt) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 3) {
-		// Ici la deconnexion
+	if(action == 3) { // Ici la deconnexion
 		packet = '<fieldset>';
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
@@ -254,6 +249,28 @@ function popupaction(action, attempt) {
 		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
 		packet += '<input type="button" onclick="disconnect(1);" value="Oui" />';
 		packet += '</fieldset>';
+		
+		popup.innerHTML = packet;
+	}
+	if(action == 4) { // Ici la création de répertoire
+		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
+		packet += '<fieldset>';
+		packet += '<legend>Nouveau Dossier:</legend>';
+		packet += '<label>Nom du dossier:</label>';
+		packet += '<br />';
+		packet += '<input type="text" name="Nom_Dossier" />';
+		packet += '<br /><br />';
+		packet += '<input type="submit" value="Créer" />';
+		
+		if(attempt == 1) {
+			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
+		}
+		else {
+			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		}
+		
+		packet += '</fieldset>';
+		packet += '</form>';
 		
 		popup.innerHTML = packet;
 	}
