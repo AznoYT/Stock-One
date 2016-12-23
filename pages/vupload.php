@@ -27,14 +27,14 @@
 			</div>
 			<?php
 				// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
-				if(!isset($_POST['Public'])) {
+				if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
 					$publicstat = 'n';
 				}
 				else {
 					$publicstat = 'y';
 				}
 				
-				if(!isset($_FILES['fichiers'])) {
+				if(!isset($_FILES['fichiers'])) { // On check si il y a un fichiers ou pas
 					echo("> Pas de fichiers détecter.");
 				}
 				else {
@@ -48,18 +48,21 @@
 					$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', '');
 					$extension_upload = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
 					
-					if(in_array($extension_upload, $extensions_ok)) {
+					if(in_array($extension_upload, $extensions_ok)) { // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
 						echo("> Extension valide.<br />");
 					}
 					
+					// Une fois validé on le déplace vers le repertoire utilisateur
 					$user = $_SESSION['user'];
 					$path = "../files/$user/{$data['nom']}";
 					$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
 					
-					if($resultat) {
+					if($resultat) { // Et enfin on check si le transfert s'est bien passé
 						echo("> Transfert réussi.");
 					}
 					header('location: ../client.php');
+					
+					// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
 				}
 			?>
 			<script type="text/javascript">

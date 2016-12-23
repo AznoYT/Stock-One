@@ -9,11 +9,10 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		// mieux de le faire avec un try car la connexion sera permanante
 		try {
 			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
-		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
+		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
@@ -73,6 +72,7 @@
 					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
 					$stmt = $bdd->query('SELECT utilisateur FROM user');
+					// Et enfin création du répertoires de stockage de l'utilisateur
 					mkdir("../files/$rusr");
 					
 					header("location: ../client.php");
