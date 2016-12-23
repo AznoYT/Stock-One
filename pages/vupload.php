@@ -47,12 +47,15 @@
 					
 					$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', '');
 					$extension_upload = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
+					
 					if(in_array($extension_upload, $extensions_ok)) {
 						echo("> Extension valide.<br />");
 					}
+					
 					$user = $_SESSION['user'];
 					$path = "../files/$user/{$data['nom']}";
 					$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
+					
 					if($resultat) {
 						echo("> Transfert réussi.");
 					}
