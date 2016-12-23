@@ -1,24 +1,27 @@
 Structure du dossier
 
 Stock-One-master ./
+|   arborescence.txt
 |   client.php
 |   index.html
 |   stock-one.sql
-|   tree.txt
 |   
-+--> css/
++---css
 |       other.css
 |       style.css
 |       
-+--> fichiers/
-+--> js/
++---files
++---js
+|       annimation.js
 |       other.js
 |       script.js
+|       three.min.js
 |       
-\--> pages/
+\---pages
+        annimation.html
         disconnect.php
         other.php
         validate.php
         veriflogin.php
         vupload.php
-				
+        
