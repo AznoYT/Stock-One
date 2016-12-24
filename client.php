@@ -52,7 +52,7 @@
 								if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) {
 									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 0, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
-								if($file[2] == 'txt') {
+								if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js') {
 									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 							}
