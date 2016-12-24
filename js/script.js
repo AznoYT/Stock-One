@@ -278,15 +278,15 @@ function popupaction(action, attempt, methode, nom) {
 		packet = '<fieldset class="view">';
 		packet += '<legend>Fichiers: ' + nom + '</legend>';
 		
-		if(methode == 1) {
-			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
-			packet += '<iframe src="' + attempt + '"></iframe>';
-			packet += '</div>';
-		}
-		else {
+		if(methode == 0) { // Pour les images
 			packet += '<center>';
 			packet += '<img title="' + nom + '" src="' + attempt + '" />';
 			packet += '</center>';
+		}
+		else if(methode == 1) { // Pour les fichiers textes ou pdf
+			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
+			packet += '<iframe src="' + attempt + '"></iframe>';
+			packet += '</div>';
 		}
 		
 		packet += '<br />';
