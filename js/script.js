@@ -253,14 +253,14 @@ function popupaction(action, attempt, methode, nom) {
 		popup.innerHTML = packet;
 	}
 	if(action == 4) { // Ici la création de répertoire
-		packet = '<form method="post" action="" enctype="multipart/form-data">';
+		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
 		packet += '<fieldset>';
 		packet += '<legend>Nouveau Dossier:</legend>';
 		packet += '<label>Nom du dossier:</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="Nom_Dossier" />';
 		packet += '<br /><br />';
-		packet += '<input type="submit" value="Créer" />';
+		packet += '<input type="submit" name="option" value="Créer" />';
 		
 		if(attempt == 1) {
 			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
@@ -279,15 +279,18 @@ function popupaction(action, attempt, methode, nom) {
 		packet += '<legend>Fichiers: ' + nom + '</legend>';
 		packet += '<center>';
 		
-		if(methode == 0) { // Pour les images
+		if(methode == 0) { // Pour les dossiers
+			packet += '<p>En construction</p>';
+		}
+		else if(methode == 1) { // Pour les images
 			packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />';
 		}
-		else if(methode == 1) { // Pour les musiques
+		else if(methode == 2) { // Pour les musiques
 			packet += '<audio autoplay controls>';
 			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
 			packet += '</audio>';
 		}
-		else if(methode == 2) { // Pour les fichiers textes ou pdf
+		else if(methode == 3) { // Pour les fichiers textes ou pdf
 			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
 			packet += '<iframe src="' + attempt + '"></iframe>';
 			packet += '</div>';

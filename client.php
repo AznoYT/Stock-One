@@ -50,16 +50,16 @@
 						while($file = $data->fetch()) {
 							if($user == $file[1]) {
 								if($file[2] == 'folder') {
-									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5);\" value=\"$file[3]\" /><br />");
+									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"button\" value=\"$file[3]\" /><br />");
 								}
 								if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) {
-									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 0, '$file[3]');\" value=\"$file[3]\" /><br />");
+									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 								if($file[2] == 'mp3' || $file[2] == 'wav' || $file[2] == 'wma' || $file[2] == 'aac' || $file[2] == 'ac3' || $file[2] == 'mp4' || $file[2] == 'mp4' || $file[2] == 'm4a') {
-									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/music.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1, '$file[3]');\" value=\"$file[3]\" /><br />");
+									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/music.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 2, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 								if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js' || $file[2] == 'sql') {
-									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/text-file.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 2, '$file[3]');\" value=\"$file[3]\" /><br />");
+									echo("<img class=\"classement\" height=\"15px\" src=\"./pics/text-file.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 3, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 							}
 						}
