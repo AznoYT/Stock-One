@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Snake Game</title>
 		<link rel="stylesheet" type="text/css" href="../css/other.css" />
+		<link rel="icon" type="image/png" href="../image/cloud.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 		<script language="javascript" type="text/javascript" src="../js/other.js"></script>
 	</head>

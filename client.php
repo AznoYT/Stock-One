@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
-		<link rel="icon" type="image/png" href="../image/cloud-10 (1).png" />
+		<link rel="icon" type="image/png" href="../image/cloud.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
@@ -52,8 +52,11 @@
 								if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) {
 									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 0, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
-								if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js') {
+								if($file[2] == 'mp3' || $file[2] == 'wav' || $file[2] == 'wma' || $file[2] == 'aac' || $file[2] == 'ac3' || $file[2] == 'mp4' || $file[2] == 'mp4' || $file[2] == 'm4a') {
 									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1, '$file[3]');\" value=\"$file[3]\" /><br />");
+								}
+								if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js' || $file[2] == 'sql') {
+									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 2, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 							}
 						}

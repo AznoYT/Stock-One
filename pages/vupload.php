@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Validation Upload</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="icon" type="image/png" href="../image/cloud.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
@@ -38,7 +39,6 @@
 					echo("> Pas de fichiers détecter.");
 				}
 				else {
-					// Premiers test avec une image
 					$fichier = $_FILES['fichiers']['name'];
 					$extension = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
 					$user = $_SESSION['user'];
@@ -49,7 +49,7 @@
 					$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
 					$data = $req->fetch();
 					
-					$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', '');
+					$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', 'mp3');
 					$extension_upload = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
 					
 					if(in_array($extension_upload, $extensions_ok)) { // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
@@ -62,8 +62,11 @@
 					
 					if($resultat) { // Et enfin on check si le transfert s'est bien passé
 						echo("> Transfert réussi.");
+						header('location: ../client.php');
 					}
-					header('location: ../client.php');
+					else {
+						echo("> Echec du transfert.");
+					}
 					
 					// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
 				}

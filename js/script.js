@@ -275,22 +275,25 @@ function popupaction(action, attempt, methode, nom) {
 		popup.innerHTML = packet;
 	}
 	if(action == 5) { // Ici l'affichage du fichiers
-		packet = '<fieldset class="view">';
+		packet = '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + '</legend>';
+		packet += '<center>';
 		
 		if(methode == 0) { // Pour les images
-			packet += '<center>';
-			packet += '<div style="background-color: #000000; height: 500px;">';
-			packet += '<img style="height: 100%;" title="' + nom + '" src="' + attempt + '" />';
-			packet += '</div>';
-			packet += '</center>';
+			packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />';
 		}
-		else if(methode == 1) { // Pour les fichiers textes ou pdf
+		else if(methode == 1) { // Pour les musiques
+			packet += '<audio autoplay controls>';
+			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
+			packet += '</audio>';
+		}
+		else if(methode == 2) { // Pour les fichiers textes ou pdf
 			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
 			packet += '<iframe src="' + attempt + '"></iframe>';
 			packet += '</div>';
 		}
 		
+		packet += '</center>';
 		packet += '<br />';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';

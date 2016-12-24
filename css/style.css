@@ -127,6 +127,11 @@ input:hover {
 	width: 100%;
 }
 
+.list:hover {
+	background-color: #333333;
+	color: #CCCCCC;
+}
+
 #msg0, #msg1, #msg2 {
 	color: #FF0000;
 }
@@ -164,6 +169,8 @@ aside {
 }
 
 .about, #popup {
+	background-color: #000000;
+	border-radius: 8px;
 	left: 12%;
 	right: 12%;
 	top: 12%;
