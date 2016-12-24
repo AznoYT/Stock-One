@@ -50,10 +50,10 @@
 						while($file = $data->fetch()) {
 							if($user == $file[1]) {
 								if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) {
-									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', '$file[3]');\" value=\"$file[3]\" /><br />");
+									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 0, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 								if($file[2] == 'txt') {
-									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1);\" value=\"$file[3]\" /><br />");
+									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1, '$file[3]');\" value=\"$file[3]\" /><br />");
 								}
 							}
 						}
