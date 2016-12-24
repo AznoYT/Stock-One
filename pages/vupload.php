@@ -40,8 +40,11 @@
 				else {
 					// Premiers test avec une image
 					$fichier = $_FILES['fichiers']['name'];
-					$req = $bdd->prepare('INSERT INTO donnee(identifiant, nom, public) VALUES(?, ?, ?)');
-					$req->execute(array($_SESSION['user'], $_FILES['fichiers']['name'], $publicstat));
+					$extension = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
+					$user = $_SESSION['user'];
+					$path = "./files/$user/";
+					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, public) VALUES(?, ?, ?, ?, ?)');
+					$req->execute(array($_SESSION['user'], $extension, $_FILES['fichiers']['name'], $path, $publicstat));
 					
 					$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
 					$data = $req->fetch();
@@ -54,7 +57,6 @@
 					}
 					
 					// Une fois validé on le déplace vers le repertoire utilisateur
-					$user = $_SESSION['user'];
 					$path = "../files/$user/$fichier";
 					$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
 					

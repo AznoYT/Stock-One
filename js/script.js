@@ -195,7 +195,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt) {
+function popupaction(action, attempt, nom) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -253,7 +253,7 @@ function popupaction(action, attempt) {
 		popup.innerHTML = packet;
 	}
 	if(action == 4) { // Ici la création de répertoire
-		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
+		packet = '<form method="post" action="" enctype="multipart/form-data">';
 		packet += '<fieldset>';
 		packet += '<legend>Nouveau Dossier:</legend>';
 		packet += '<label>Nom du dossier:</label>';
@@ -271,6 +271,27 @@ function popupaction(action, attempt) {
 		
 		packet += '</fieldset>';
 		packet += '</form>';
+		
+		popup.innerHTML = packet;
+	}
+	if(action == 5) { // Ici l'affichage du fichiers
+		packet = '<fieldset class="view">';
+		packet += '<legend>Fichiers: ' + attempt + '</legend>';
+		
+		if(nom == 1) {
+			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
+			packet += '<iframe src="' + attempt + '"></iframe>';
+			packet += '</div>';
+		}
+		else {
+			packet += '<center>';
+			packet += '<img title=' + nom + ' src=' + attempt + ' />';
+			packet += '</center>';
+		}
+		
+		packet += '<br />';
+		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
+		packet += '</fieldset>';
 		
 		popup.innerHTML = packet;
 	}

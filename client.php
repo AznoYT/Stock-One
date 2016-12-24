@@ -47,9 +47,14 @@
 					<?php
 						$data = $bdd->query('SELECT * FROM donnee');
 						
-						while($identifiant = $data->fetch()) {
-							if($user == $identifiant[1]) {
-								echo($identifiant[3]."<br />");
+						while($file = $data->fetch()) {
+							if($user == $file[1]) {
+								if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) {
+									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', '$file[3]');\" value=\"$file[3]\" /><br />");
+								}
+								if($file[2] == 'txt') {
+									echo("<input class=\"list\" type=\"button\" onclick=\"popupaction(5, '$file[4]$file[3]', 1);\" value=\"$file[3]\" /><br />");
+								}
 							}
 						}
 					?>
@@ -59,7 +64,7 @@
 				<h2>Dossiers []</h2>
 				<div class="content">
 					<?php
-						
+						echo("en construction...");
 					?>
 				</div>
 			</article>
@@ -67,7 +72,7 @@
 				<h2>Fichiers []</h2>
 				<div class="content">
 					<?php
-						
+						echo("en construction...");
 					?>
 				</div>
 			</aside>
