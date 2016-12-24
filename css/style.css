@@ -177,6 +177,7 @@ aside {
 
 iframe {
 	border: 0;
+	border-radius: 8px;
 	height: 100%;
 	width: 100%;
 }
