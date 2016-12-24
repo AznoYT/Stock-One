@@ -195,7 +195,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt, nom) {
+function popupaction(action, attempt, methode, nom) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -276,16 +276,16 @@ function popupaction(action, attempt, nom) {
 	}
 	if(action == 5) { // Ici l'affichage du fichiers
 		packet = '<fieldset class="view">';
-		packet += '<legend>Fichiers: ' + attempt + '</legend>';
+		packet += '<legend>Fichiers: ' + nom + '</legend>';
 		
-		if(nom == 1) {
+		if(methode == 1) {
 			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
 			packet += '<iframe src="' + attempt + '"></iframe>';
 			packet += '</div>';
 		}
 		else {
 			packet += '<center>';
-			packet += '<img title=' + nom + ' src=' + attempt + ' />';
+			packet += '<img title="' + nom + '" src="' + attempt + '" />';
 			packet += '</center>';
 		}
 		
