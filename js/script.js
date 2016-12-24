@@ -280,7 +280,9 @@ function popupaction(action, attempt, methode, nom) {
 		
 		if(methode == 0) { // Pour les images
 			packet += '<center>';
-			packet += '<img title="' + nom + '" src="' + attempt + '" />';
+			packet += '<div style="background-color: #000000; height: 500px;">';
+			packet += '<img style="height: 100%;" title="' + nom + '" src="' + attempt + '" />';
+			packet += '</div>';
 			packet += '</center>';
 		}
 		else if(methode == 1) { // Pour les fichiers textes ou pdf
