@@ -24,6 +24,7 @@
 		<section>
 			<?php
 				// Ce fichiers contiendra les commandes de suppressions et de copies
+				header('location: ../client.php');
 			?>
 		</section>
 		<footer>

@@ -51,7 +51,7 @@ function verify(connect, pws1, pws2, usr) {
 		}
 		return passed;
 	}
-	if(connect == 2) {
+	else if(connect == 2) {
 		if(usr.value == '') {
 			msg0.innerHTML = ' <-- Ce champs est vide !';
 			msg1.innerHTML = '';
@@ -127,7 +127,7 @@ function popuplogin(login, attempt) {
 		
 		popup.innerHTML = packet;
 	}
-	if(login == 2) { // Ici le Register
+	else if(login == 2) { // Ici le Register
 		// Même topo que pour le login
 		if(attempt == 1) {
 			packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
@@ -197,11 +197,16 @@ function popuplogin(login, attempt) {
 // Nouvelle fonction pour géré les popups d'actions du compte.
 function popupaction(action, attempt, methode, nom, taille) {
 	var popup = document.getElementById('popup');
+	popup.style.width = 'auto';
+	popup.style.left = '12%';
 	
 	if(action == 0) {
 		popup.innerHTML = '';
 	}
-	if(action == 1) { // Ici l'upload
+	else if(action == 1) { // Ici l'upload
+		popup.style.width = '30%';
+		popup.style.left = '34.75%';
+		
 		if(attempt == 1) {
 			packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">';
 		}
@@ -210,9 +215,27 @@ function popupaction(action, attempt, methode, nom, taille) {
 		}
 		
 		packet += '<fieldset>';
-		packet += '<legend>Envoyer un fichier:</legend>';
-		packet += '<br />';
-		packet += '<input type="file" name="fichiers" id="fichiers" />';
+		
+		if(methode == 0) {
+			packet += '<legend>Envoyer un élément: [FICHIER]</legend>';
+		}
+		else if(methode == 1) {
+			packet += '<legend>Envoyer un élément: [DOSSIER]</legend>';
+		}
+		
+		packet += '<input type="button" onclick="popupaction(1, 0, 0);" value="Importer un fichier" id="file_choose" />';
+		packet += '<input type="button" onclick="popupaction(1, 0, 1);" value="Importer un dossier" id="folder_choose" />';
+		packet += '<br /><br />';
+		
+		if(methode == 0) { // Alternement en fichier
+			packet += '<input type="file" name="fichiers" id="fichiers" title="Importation de fichiers" />';
+		}
+		else if(methode == 1) { // Alternement en dossier {PAS ENCORE TERMINER}
+			packet += '<input type="file" name="dossier" id="dossier" title="Importation de dossiers" webkitdirectory />';
+			packet += '<br />';
+			packet += '<font id="msg1">/!\\ ATTENTION: Pas encore au point</font>';
+		}
+		
 		packet += '<br /><br />';
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
@@ -231,18 +254,25 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 2) { // Ici la deconnexion
+	else if(action == 2) { // Ici la deconnexion
+		popup.style.width = '30%';
+		popup.style.left = '34.75%';
+		
 		packet = '<fieldset>';
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
 		packet += '<br /><br />';
 		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
+		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(1);" value="Oui" />';
 		packet += '</fieldset>';
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 3) { // Ici la création de répertoire
+	else if(action == 3) { // Ici la création de répertoire
+		popup.style.width = '30%';
+		popup.style.left = '34.75%';
+		
 		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
 		packet += '<fieldset>';
 		packet += '<legend>Nouveau Dossier:</legend>';
@@ -267,8 +297,9 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 4) { // Ici l'affichage du fichiers
-		packet = '<fieldset>';
+	else if(action == 4) { // Ici l'affichage du fichiers
+		packet = '<form method="post" action="./pages/action.php" >';
+		packet += '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
 		packet += '<center>';
 		
@@ -296,9 +327,14 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		packet += '</center>';
 		packet += '<br />';
+		packet += '<input type="submit" name="action" value="Copier" />';
+		packet += '<input type="submit" name="action" value="Déplacer" />';
+		packet += '<input type="submit" name="action" value="Supprimer" />';
+		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
+		packet += '</form>';
 		
 		popup.innerHTML = packet;
 	}
@@ -308,7 +344,7 @@ function disconnect(stat) {
 	if(stat == 0) {
 		popupaction(0);
 	}
-	if(stat == 1) {
+	else if(stat == 1) {
 		document.location = "./pages/disconnect.php";
 	}
 }
@@ -318,7 +354,7 @@ function other(op) {
 	if(op == 0) {
 		document.location = "../client.php";
 	}
-	if(op == 1) {
+	else if(op == 1) {
 		document.location = "./pages/other.php";
 	}
 }
