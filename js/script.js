@@ -289,7 +289,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '</div>';
 		}
 		else if(methode == 4) { // Pour les vidéos
-			packet += '<video autoplay controls>';
+			packet += '<video height="500px" autoplay controls>';
 			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
 			packet += '</video>';
 		}
