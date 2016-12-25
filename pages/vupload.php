@@ -33,11 +33,12 @@
 					$user = $_SESSION['user'];
 					$newelement = $_POST['Nom_Dossier'];
 					$extension = 'folder';
-					$path = "../files/$user/$newelement";
+					$path = "./files/$user/$newelement";
 					
 					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier) VALUES(?, ?, ?, ?)');
 					$req->execute(array($user, $extension, $newelement, $path));
 					
+					$path = "../files/$user/$newelement";
 					mkdir($path);
 					header('location: ../client.php');
 				}
@@ -57,28 +58,31 @@
 					}
 					else {
 						$fichier = $_FILES['fichiers']['name'];
-						$extension = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
+						$extension = strtolower(substr(strrchr($fichier, '.'), 1));
 						$user = $_SESSION['user'];
-						$path = "./files/$user/";
-						$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, public) VALUES(?, ?, ?, ?, ?)');
-						$req->execute(array($_SESSION['user'], $extension, $_FILES['fichiers']['name'], $path, $publicstat));
-						
-						$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
-						$data = $req->fetch();
+						$path = "../files/$user/$fichier"; // Ce path est configuré pour la commande de déplacement
 						
 						$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', 'mp3');
-						$extension_upload = strtolower(substr(strrchr($_FILES['fichiers']['name'], '.'), 1));
 						
-						if(in_array($extension_upload, $extensions_ok)) { // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
+						if(in_array($extension, $extensions_ok)) { // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
 							echo("> Extension valide.<br />");
 						}
 						
-						// Une fois validé on le déplace vers le repertoire utilisateur
-						$path = "../files/$user/$fichier";
+						// On le déplace vers le repertoire utilisateur
 						$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
 						
-						if($resultat) { // Et enfin on check si le transfert s'est bien passé
+						if($resultat) { // Et enfin on check si le transfert s'est bien passé puis on note la trace dans la db
 							echo("> Transfert réussi.");
+							
+							$taille = filesize("$path");
+							$path = "./files/$user/"; // Ce path est le chemin de référence pour la database
+							
+							$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, taille, public) VALUES(?, ?, ?, ?, ?, ?)');
+							$req->execute(array($user, $extension, $fichier, $path, $taille, $publicstat));
+							
+							$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
+							$data = $req->fetch();
+							
 							header('location: ../client.php');
 						}
 						else {

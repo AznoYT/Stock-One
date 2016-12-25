@@ -195,7 +195,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt, methode, nom) {
+function popupaction(action, attempt, methode, nom, taille) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -276,7 +276,7 @@ function popupaction(action, attempt, methode, nom) {
 	}
 	if(action == 5) { // Ici l'affichage du fichiers
 		packet = '<fieldset>';
-		packet += '<legend>Fichiers: ' + nom + '</legend>';
+		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
 		packet += '<center>';
 		
 		if(methode == 0) { // Pour les dossiers
@@ -295,9 +295,15 @@ function popupaction(action, attempt, methode, nom) {
 			packet += '<iframe src="' + attempt + '"></iframe>';
 			packet += '</div>';
 		}
+		else if(methode == 4) { // Pour les vidéos
+			packet += '<video autoplay controls>';
+			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
+			packet += '</video>';
+		}
 		
 		packet += '</center>';
 		packet += '<br />';
+		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
 		
