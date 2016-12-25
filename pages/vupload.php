@@ -27,16 +27,16 @@
 				
 			</div>
 			<?php
+				// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
+				if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
+					$publicstat = 'n';
+				}
+				else {
+					$publicstat = 'y';
+				}
+				
 				if(!isset($_POST['option'])) {
-					// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
 					echo("> Importation d'un fichiers en cours...<br />");
-					
-					if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
-						$publicstat = 'n';
-					}
-					else {
-						$publicstat = 'y';
-					}
 					
 					if(!isset($_FILES['fichiers'])) { // On check si il y a un fichiers ou pas
 						echo("> Pas de fichiers détecter.<br />");
@@ -85,8 +85,8 @@
 					$extension = 'folder';
 					$path = "./files/$user/$newelement";
 					
-					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier) VALUES(?, ?, ?, ?)');
-					$req->execute(array($user, $extension, $newelement, $path));
+					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, public) VALUES(?, ?, ?, ?,?)');
+					$req->execute(array($user, $extension, $newelement, $path, $publicstat));
 					
 					$path = "../files/$user/$newelement";
 					mkdir($path);

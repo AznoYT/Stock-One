@@ -250,6 +250,9 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<br />';
 		packet += '<input type="text" name="Nom_Dossier" />';
 		packet += '<br /><br />';
+		packet += '<input type="checkbox" name="Public" value="notif">';
+		packet += '<label>Publique</label>';
+		packet += '<br /><br />';
 		packet += '<input type="submit" name="option" value="Créer" />';
 		
 		if(attempt == 1) {
