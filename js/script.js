@@ -264,7 +264,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 5) { // Ici l'affichage du fichiers
+	if(action == 4) { // Ici l'affichage du fichiers
 		packet = '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
 		packet += '<center>';
