@@ -33,10 +33,9 @@
 				?>
 			</div>
 			<div class="h-butons">
-				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(4);" />
+				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1);" />
-				<input class="color" type="button" value="Télécharger" onclick="popupaction(2);" />
-				<input class="color" type="button" value="Déconnexion" onclick="popupaction(3);" />
+				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />
 			</div>
 			<h1>Stock One</h1>
 		</header>

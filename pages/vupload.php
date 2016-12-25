@@ -27,24 +27,9 @@
 				
 			</div>
 			<?php
-				if($_POST['option'] == 'Créer') {
-					echo("> Création d'un dossier en cours...");
-					
-					$user = $_SESSION['user'];
-					$newelement = $_POST['Nom_Dossier'];
-					$extension = 'folder';
-					$path = "./files/$user/$newelement";
-					
-					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier) VALUES(?, ?, ?, ?)');
-					$req->execute(array($user, $extension, $newelement, $path));
-					
-					$path = "../files/$user/$newelement";
-					mkdir($path);
-					header('location: ../client.php');
-				}
-				else {
+				if(!isset($_POST['option'])) {
 					// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
-					echo("> Importation d'un fichiers en cours...");
+					echo("> Importation d'un fichiers en cours...<br />");
 					
 					if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
 						$publicstat = 'n';
@@ -54,7 +39,7 @@
 					}
 					
 					if(!isset($_FILES['fichiers'])) { // On check si il y a un fichiers ou pas
-						echo("> Pas de fichiers détecter.");
+						echo("> Pas de fichiers détecter.<br />");
 					}
 					else {
 						$fichier = $_FILES['fichiers']['name'];
@@ -72,7 +57,7 @@
 						$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
 						
 						if($resultat) { // Et enfin on check si le transfert s'est bien passé puis on note la trace dans la db
-							echo("> Transfert réussi.");
+							echo("> Transfert réussi.<br />");
 							
 							$taille = filesize("$path");
 							$path = "./files/$user/"; // Ce path est le chemin de référence pour la database
@@ -86,11 +71,26 @@
 							header('location: ../client.php');
 						}
 						else {
-							echo("> Echec du transfert.");
+							echo("> Echec du transfert.<br />");
 						}
 						
 						// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
 					}
+				}
+				else {
+					echo("> Création d'un dossier en cours...");
+					
+					$user = $_SESSION['user'];
+					$newelement = $_POST['Nom_Dossier'];
+					$extension = 'folder';
+					$path = "./files/$user/$newelement";
+					
+					$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier) VALUES(?, ?, ?, ?)');
+					$req->execute(array($user, $extension, $newelement, $path));
+					
+					$path = "../files/$user/$newelement";
+					mkdir($path);
+					header('location: ../client.php');
 				}
 			?>
 			<script type="text/javascript">

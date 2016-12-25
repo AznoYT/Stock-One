@@ -231,17 +231,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 2) { // Ici le download
-		packet = '<fieldset>';
-		packet += '<legend>Recevoir un fichier:</legend>';
-		packet += '<p>En Construction</p>';
-		packet += '<br />';
-		packet += '<input type="button" onclick="popupaction(0);" value="OK" />';
-		packet += '</fieldset>';
-		
-		popup.innerHTML = packet;
-	}
-	if(action == 3) { // Ici la deconnexion
+	if(action == 2) { // Ici la deconnexion
 		packet = '<fieldset>';
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
@@ -252,7 +242,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		popup.innerHTML = packet;
 	}
-	if(action == 4) { // Ici la création de répertoire
+	if(action == 3) { // Ici la création de répertoire
 		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
 		packet += '<fieldset>';
 		packet += '<legend>Nouveau Dossier:</legend>';
