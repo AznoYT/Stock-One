@@ -94,7 +94,7 @@
 				}
 			?>
 			<script type="text/javascript">
-				popupaction(1, 1);
+				popupaction(1, 1, 0);
 			</script>
 		</section>
 		<footer>

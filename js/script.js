@@ -91,9 +91,14 @@ function verify(connect, pws1, pws2, usr) {
 // Nouvelle fonction pour géré les popup de login ou register de l'index
 function popuplogin(login, attempt) {
 	var popup = document.getElementById('popup');
+	popup.style.width = 'auto';
+	popup.style.left = '12%';
 	
 	if(login == 1) { // Ici le Login
 		// Ces conditions sont variante pour les chemins d'actions des formulaire si il y a un imprévue à la connexion
+		popup.style.width = '42%';
+		popup.style.left = '28.75%';
+		
 		if(attempt == 1) {
 			packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
 		}
@@ -223,8 +228,8 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '<legend>Envoyer un élément: [DOSSIER]</legend>';
 		}
 		
-		packet += '<input type="button" onclick="popupaction(1, 0, 0);" value="Importer un fichier" id="file_choose" />';
-		packet += '<input type="button" onclick="popupaction(1, 0, 1);" value="Importer un dossier" id="folder_choose" />';
+		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 0);" value="Importer un fichier" id="file_choose" />';
+		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 1);" value="Importer un dossier" id="folder_choose" />';
 		packet += '<br /><br />';
 		
 		if(methode == 0) { // Alternement en fichier
