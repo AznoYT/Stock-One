@@ -25,3 +25,4 @@ Stock-One-master ./
         veriflogin.php
         vupload.php
         
+Lien de téléchargement du site: https://mega.nz/#!rwNzXDSY!Gjwpq3TUmcdckQxIyiNE5mf4-PmopDZI29-M5QzKBDE
