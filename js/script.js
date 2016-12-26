@@ -129,8 +129,6 @@ function popuplogin(login, attempt) {
 		
 		packet += '</fieldset>';
 		packet += '</form>';
-		
-		popup.innerHTML = packet;
 	}
 	else if(login == 2) { // Ici le Register
 		// Même topo que pour le login
@@ -194,9 +192,9 @@ function popuplogin(login, attempt) {
 		
 		packet += '</fieldset>';
 		packet += '</form>';
-		
-		popup.innerHTML = packet;
 	}
+	
+	popup.innerHTML = packet;
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
@@ -206,7 +204,8 @@ function popupaction(action, attempt, methode, nom, taille) {
 	popup.style.left = '12%';
 	
 	if(action == 0) {
-		popup.innerHTML = '';
+		packet = '';
+		moreaction(0);
 	}
 	else if(action == 1) { // Ici l'upload
 		popup.style.width = '30%';
@@ -256,8 +255,6 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		packet += '</fieldset>';
 		packet += '</form>';
-		
-		popup.innerHTML = packet;
 	}
 	else if(action == 2) { // Ici la deconnexion
 		popup.style.width = '30%';
@@ -267,12 +264,10 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
 		packet += '<br /><br />';
-		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
-		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(1);" value="Oui" />';
+		packet += ' - ';
+		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
 		packet += '</fieldset>';
-		
-		popup.innerHTML = packet;
 	}
 	else if(action == 3) { // Ici la création de répertoire
 		popup.style.width = '30%';
@@ -299,8 +294,6 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		packet += '</fieldset>';
 		packet += '</form>';
-		
-		popup.innerHTML = packet;
 	}
 	else if(action == 4) { // Ici l'affichage du fichiers
 		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
@@ -332,17 +325,71 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		packet += '</center>';
 		packet += '<br />';
-		packet += '<input type="submit" name="action" value="Copier" />';
-		packet += '<input type="submit" name="action" value="Déplacer" />';
-		packet += '<input type="submit" name="action" value="Supprimer" />';
+		packet += '<input type="button" onclick="moreaction(1, \'' + nom + '\');" value="Copier" />';
+		packet += '<input type="button" onclick="moreaction(2, \'' + nom + '\');" value="Déplacer" />';
+		packet += '<input type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
 		packet += '</form>';
-		
-		popup.innerHTML = packet;
 	}
+	
+	popup.innerHTML = packet;
+	moreaction(0);
+}
+
+// Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
+function moreaction(action, fichier) {
+	var popup = document.getElementById('popupabout');
+	
+	if(action == 0) {
+		packet = '';
+	}
+	else if(action == 1) { // Ici la copie
+		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
+		packet += '<fieldset>';
+		packet += '<legend>Copier un fichier:</legend>';
+		packet += '<p>Copie de "' + fichier + '"</p>';
+		packet += '<br />';
+		packet += '<label>Vers:</label>';
+		packet += '<br />';
+		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
+		packet += '<br /><br />';
+		packet += '<input type="submit" name="action" value="Copier" />';
+		packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
+		packet += '</fieldset>';
+		packet += '</form>';
+	}
+	else if(action == 2) { // Ici le déplacement
+		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
+		packet += '<fieldset>';
+		packet += '<legend>Déplacer un fichier:</legend>';
+		packet += '<p>Déplacement de "' + fichier + '"</p>';
+		packet += '<br />';
+		packet += '<label>Vers:</label>';
+		packet += '<br />';
+		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
+		packet += '<br /><br />';
+		packet += '<input type="submit" name="action" value="Déplacer" />';
+		packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
+		packet += '</fieldset>';
+		packet += '</form>';
+	}
+	else if(action == 3) { // Ici la confirmation de suppression
+		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
+		packet += '<fieldset>';
+		packet += '<legend>Supprimer un fichier:</legend>';
+		packet += '<p>Êtes-vous sûre de vouloir supprimer "' + fichier + '" ?</p>';
+		packet += '<br /><br />';
+		packet += '<input type="submit" name="action" value="Oui" />';
+		packet += ' - ';
+		packet += '<input type="button" onclick="moreaction(0);" value="Non" />';
+		packet += '</fieldset>';
+		packet += '</form>';
+	}
+	
+	popup.innerHTML = packet;
 }
 
 function disconnect(stat) {

@@ -91,6 +91,9 @@
 			<div id="popup">
 				
 			</div>
+			<div id="popupabout">
+				
+			</div>
 		</section>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>

@@ -169,7 +169,7 @@ aside {
 	left: 68.5%;
 }
 
-.about, #popup {
+.about, #popup, #popupabout {
 	background-color: #000000;
 	border-radius: 8px;
 	left: 12%;
@@ -181,6 +181,12 @@ aside {
 
 .about {
 	bottom: 12%;
+}
+
+#popupabout {
+	left: 24%;
+	top: 40%;
+	width: 52%;
 }
 
 iframe {

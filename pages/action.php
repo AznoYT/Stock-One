@@ -32,11 +32,11 @@
 				$fichiers = $_GET['fichiers'];
 				$path = "../files/$user/$fichiers";
 				
-				if(!isset($_GET['to'])) {
+				if(!isset($_POST['to'])) {
 					$pathpaste = NULL;
 				}
 				else {
-					$pathpaste = $_GET['to'];
+					$pathpaste = "../files/$user/".$_POST['to']."/";
 				}
 				
 				echo("> fichiers à traiter: $path<br />");
@@ -45,12 +45,12 @@
 					echo("> Echec de traitement. #ERROR: COMMAND NON TROUVER");
 				}
 				else if($_POST['action'] == 'Copier') { // La copie
-					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
-				}
-				else if($_POST['action'] == 'Déplacer') { // Le déplacement
 					echo("> Copie du fichier: $fichiers vers $pathpaste");
 				}
-				else if($_POST['action'] == 'Supprimer') { // La suppression
+				else if($_POST['action'] == 'Déplacer') { // Le déplacement
+					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
+				}
+				else if($_POST['action'] == 'Oui') { // La suppression
 					echo("> Suppression du fichier: $fichiers");
 				}
 				
