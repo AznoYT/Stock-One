@@ -24,23 +24,34 @@
 		<section>
 			<?php
 				// Ce fichiers contiendra les commandes de suppressions et de copies
+				function insertion($utilisateur ,$extension, $nom, $dir, $publique, $COMMAND) {
+					
+				}
+				
 				$user = $_SESSION['user'];
 				$fichiers = $_GET['fichiers'];
 				$path = "../files/$user/$fichiers";
 				
-				echo("> fichiers à traiter: $path");
+				if(!isset($_GET['to'])) {
+					$pathpaste = NULL;
+				}
+				else {
+					$pathpaste = $_GET['to'];
+				}
 				
-				if(!isset($_POST['action'])) {
-					echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
+				echo("> fichiers à traiter: $path<br />");
+				
+				if(!isset($_POST['action'])) { // Si il s'est passé une couille encore, eh bah ça marque une erreur
+					echo("> Echec de traitement. #ERROR: COMMAND NON TROUVER");
 				}
 				else if($_POST['action'] == 'Copier') { // La copie
-					
+					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
 				}
 				else if($_POST['action'] == 'Déplacer') { // Le déplacement
-					
+					echo("> Copie du fichier: $fichiers vers $pathpaste");
 				}
 				else if($_POST['action'] == 'Supprimer') { // La suppression
-					
+					echo("> Suppression du fichier: $fichiers");
 				}
 				
 				//header('location: ../client.php');
