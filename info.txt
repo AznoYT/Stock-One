@@ -11,18 +11,12 @@ Stock-One-master ./
 |       style.css
 |       
 +---files/
-|   +---4N4RCHY/
-|   |   |   south_park___kenny_cartman_stan_and_kyle_by_zombie_mitsuki-d60azai.jpg
-|   |   |   Synthese activite 3.pdf
-|   |   |   test1.txt
-|   |   |   
-|   |   \---SIN - Project Gr1/
-|   \---admin/
-|           folder.png
-|           gallery.png
-|           movie.png
-|           music.png
-|           text-file.png
+|   \---4N4RCHY/
+|       |   south_park___kenny_cartman_stan_and_kyle_by_zombie_mitsuki-d60azai.jpg
+|       |   Synthese activite 3.pdf
+|       |   test1.txt
+|       |   
+|       \---SIN - Project Gr1/
 |           
 +---js/
 |       annimation.js
@@ -46,4 +40,4 @@ Stock-One-master ./
         music.png
         text-file.png
         
-Lien de téléchargement du site: https://mega.nz/#!rwNzXDSY!Gjwpq3TUmcdckQxIyiNE5mf4-PmopDZI29-M5QzKBDE
+Lien de tÃ©lÃ©chargement du site: https://mega.nz/#!rwNzXDSY!Gjwpq3TUmcdckQxIyiNE5mf4-PmopDZI29-M5QzKBDE
