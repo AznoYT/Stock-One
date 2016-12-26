@@ -303,7 +303,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		popup.innerHTML = packet;
 	}
 	else if(action == 4) { // Ici l'affichage du fichiers
-		packet = '<form method="post" action="./pages/action.php" >';
+		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
 		packet += '<center>';

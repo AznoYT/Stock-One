@@ -24,7 +24,26 @@
 		<section>
 			<?php
 				// Ce fichiers contiendra les commandes de suppressions et de copies
-				header('location: ../client.php');
+				$user = $_SESSION['user'];
+				$fichiers = $_GET['fichiers'];
+				$path = "../files/$user/$fichiers";
+				
+				echo("> fichiers à traiter: $path");
+				
+				if(!isset($_POST['action'])) {
+					echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
+				}
+				else if($_POST['action'] == 'Copier') { // La copie
+					
+				}
+				else if($_POST['action'] == 'Déplacer') { // Le déplacement
+					
+				}
+				else if($_POST['action'] == 'Supprimer') { // La suppression
+					
+				}
+				
+				//header('location: ../client.php');
 			?>
 		</section>
 		<footer>
