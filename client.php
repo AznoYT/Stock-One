@@ -95,7 +95,7 @@
 				<?php
 					// Cette partie du code servira pour la confirmation de commande entré auparavant
 					if(!isset($_GET['code'])) {
-						
+						echo("");
 					}
 					else {
 						if($_GET['code'] == '1') {
