@@ -25,7 +25,9 @@
 			<?php
 				// Ce fichiers contiendra les commandes de suppressions et de copies
 				function insertion($utilisateur ,$extension, $nom, $dir, $publique, $COMMAND) {
+					// Dans la fonction il y aura l'insertion de nouvel donnée dans la database. Elle sera ensuite appeler par chaque conditions
 					
+					return 'OK';
 				}
 				
 				$user = $_SESSION['user'];
@@ -42,19 +44,32 @@
 				echo("> fichiers à traiter: $path<br />");
 				
 				if(!isset($_POST['action'])) { // Si il s'est passé une couille encore, eh bah ça marque une erreur
+					$code = "0";
+					$etat = "ERREUR";
 					echo("> Echec de traitement. #ERROR: COMMAND NON TROUVER");
 				}
 				else if($_POST['action'] == 'Copier') { // La copie
+					$code = "1";
 					echo("> Copie du fichier: $fichiers vers $pathpaste");
+					$etat = insertion();
 				}
 				else if($_POST['action'] == 'Déplacer') { // Le déplacement
+					$code = "2";
 					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
+					$etat = insertion();
 				}
 				else if($_POST['action'] == 'Oui') { // La suppression
+					$code = "3";
 					echo("> Suppression du fichier: $fichiers");
+					$etat = insertion();
+				}
+				else { // Là c'est pour un cas extrêmement rare
+					$code = "0";
+					$etat = "INCONNU";
+					echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
 				}
 				
-				//header('location: ../client.php');
+				header("location: ../client.php?code=$code&etat=$etat");
 			?>
 		</section>
 		<footer>

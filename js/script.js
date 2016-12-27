@@ -392,6 +392,7 @@ function moreaction(action, fichier) {
 	popup.innerHTML = packet;
 }
 
+// Cette fonction est pour la deconnexion du compte
 function disconnect(stat) {
 	if(stat == 0) {
 		popupaction(0);

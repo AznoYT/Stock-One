@@ -92,7 +92,37 @@
 				
 			</div>
 			<div id="popupabout">
-				
+				<?php
+					// Cette partie du code servira pour la confirmation de commande entré auparavant
+					if(!isset($_GET['code'])) {
+						
+					}
+					else {
+						if($_GET['code'] == '1') {
+							$action = 'Copie';
+						}
+						else if($_GET['code'] == '2') {
+							$action = 'Déplacement';
+						}
+						else if($_GET['code'] == '3') {
+							$action = 'Suppression';
+						}
+						
+						if($_GET['etat'] == "OK") {
+							$msg = '<font>> L\'action menet au fichier à bien été éxecuter.</font>';
+						}
+						else if($_GET['etat'] == "ERREUR") {
+							$msg = '<font id="msg0">> L\'action menet au fichier à rencontrer une erreur.</font>';
+						}
+						
+						echo("<fieldset>");
+						echo("<Legend>Confirmation de $action:</Legend>");
+						echo($msg);
+						echo("<br /><br />");
+						echo('<input type="button" onclick="moreaction(0); document.location = \'./client.php\';" value="Fermer" />');
+						echo("</fieldset>");
+					}
+				?>
 			</div>
 		</section>
 		<footer>
