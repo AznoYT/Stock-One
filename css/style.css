@@ -137,6 +137,10 @@ input:hover {
 	color: #FF0000;
 }
 
+#msg3 {
+	color: #00FF00;
+}
+
 section {
 	height: 91%;
 	position: relative;
