@@ -357,7 +357,7 @@ function moreaction(action, fichier) {
 		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
 		packet += '<br /><br />';
 		packet += '<input type="submit" name="action" value="Copier" />';
-		packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
+		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
 		packet += '</form>';
 	}
@@ -372,7 +372,7 @@ function moreaction(action, fichier) {
 		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
 		packet += '<br /><br />';
 		packet += '<input type="submit" name="action" value="Déplacer" />';
-		packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
+		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
 		packet += '</form>';
 	}
