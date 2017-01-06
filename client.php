@@ -37,7 +37,7 @@
 					if($_SESSION['profile'] == "ADMIN") {
 						echo('
 							<div class="userswitch">
-								<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="document.location = \'./admin.php\';">
+								<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(1);">
 								<label class="userswitch-label" for="myuserswitch">
 									<span class="userswitch-inner"></span>
 									<span class="userswitch-switch"></span>
@@ -55,7 +55,7 @@
 			</div>
 			<h1>Stock One</h1>
 		</header>
-		<section>
+		<section id="UserPanel">
 			<aside class="left">
 				<h2>Racine [./]</h2>
 				<div class="content">

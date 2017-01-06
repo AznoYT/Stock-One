@@ -38,7 +38,7 @@
 			</div>
 			<div class="h-butons">
 				<div class="userswitch">
-					<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="document.location = './client.php';" checked>
+					<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(2);" checked>
 					<label class="userswitch-label" for="myuserswitch">
 						<span class="userswitch-inner"></span>
 						<span class="userswitch-switch"></span>
