@@ -35,6 +35,7 @@ Stock-One-master ./
 \---pics/
         folder.png
         gallery.png
+        icon.png
         movie.png
         music.png
         text-file.png
