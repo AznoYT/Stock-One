@@ -392,6 +392,7 @@ function moreaction(action, fichier) {
 	popup.innerHTML = packet;
 }
 
+// Fonction de changement de mode utilisateur pour l'administrateur user
 function adminswitch(mode) {
 	setTimeout(function(){
 		if(mode == 1) {
