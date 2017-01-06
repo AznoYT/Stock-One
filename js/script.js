@@ -392,6 +392,17 @@ function moreaction(action, fichier) {
 	popup.innerHTML = packet;
 }
 
+function adminswitch(mode) {
+	setTimeout(function(){
+		if(mode == 1) {
+			document.location = "./admin.php";
+		}
+		else if(mode == 2) {
+			document.location = "./client.php";
+		}
+	}, 350);
+}
+
 // Cette fonction est pour la deconnexion du compte
 function disconnect(stat) {
 	if(stat == 0) {
