@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Déconnexion</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
-		<link rel="icon" type="image/png" href="../image/cloud.png" />
+		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
