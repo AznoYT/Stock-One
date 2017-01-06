@@ -394,7 +394,7 @@ function moreaction(action, fichier) {
 
 // Fonction de changement de mode utilisateur pour l'administrateur user
 function adminswitch(mode) {
-	setTimeout(function(){
+	setTimeout(function() {
 		if(mode == 1) {
 			document.location = "./admin.php";
 		}
