@@ -32,6 +32,7 @@
 				$subname = $_POST['prenom'];
 				$sexe = $_POST['genre'];
 				$mail = $_POST['email'];
+				$PROFILE = 'USER';
 				
 				if(!isset($_POST['notif'])) {
 					$notif = 'n';
@@ -70,8 +71,8 @@
 					$_SESSION['user'] = $_POST['utilisateur'];
 					
 					//Insertion des informations dans la base de données
-					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
-					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart));
+					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire, GRADE) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
+					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart, $PROFILE));
 					$stmt = $bdd->query('SELECT utilisateur FROM user');
 					// Et enfin création du répertoires de stockage de l'utilisateur
 					mkdir("../files/$rusr");

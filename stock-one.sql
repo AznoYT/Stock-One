@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 22 Décembre 2016 à 17:23
+-- Généré le :  Ven 06 Janvier 2017 à 21:19
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -36,7 +36,21 @@ CREATE TABLE IF NOT EXISTS `donnee` (
   `adresse` varchar(255) NOT NULL,
   `public` text NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `donnee`
+--
+
+INSERT INTO `donnee` (`ID`, `identifiant`, `type`, `nom`, `nom_dossier`, `taille`, `adresse`, `public`) VALUES
+(1, '4N4RCHY', 'pdf', 'Synthese activite 3.pdf', './files/4N4RCHY/', 51896, '', 'n'),
+(2, '4N4RCHY', 'mp3', 'Track1.mp3', './files/4N4RCHY/', 284211, '', 'n'),
+(3, '4N4RCHY', 'jpeg', 'sylvester staline.jpeg', './files/4N4RCHY/', 38399, '', 'n'),
+(4, 'admin', 'png', 'folder.png', './files/admin/', 7047, '', 'n'),
+(5, 'admin', 'png', 'gallery.png', './files/admin/', 9418, '', 'n'),
+(6, 'admin', 'png', 'movie.png', './files/admin/', 4714, '', 'n'),
+(7, 'admin', 'png', 'music.png', './files/admin/', 4793, '', 'n'),
+(8, 'admin', 'png', 'text-file.png', './files/admin/', 2406, '', 'n');
 
 -- --------------------------------------------------------
 
@@ -53,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `pws` text,
   `notifso` text,
   `notifpartenaire` text,
+  `GRADE` varchar(255) DEFAULT NULL,
   UNIQUE KEY `utilisateur` (`utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -60,9 +75,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`utilisateur`, `nom`, `prenom`, `genre`, `email`, `pws`, `notifso`, `notifpartenaire`) VALUES
-('4N4RCHY', 'NOM', 'Prénom', 'Homme', 'adresse.mail@gmail.com', 'incorrect', 'n', 'n'),
-('admin', '', '', '', '', 'admin', 'y', 'n');
+INSERT INTO `user` (`utilisateur`, `nom`, `prenom`, `genre`, `email`, `pws`, `notifso`, `notifpartenaire`, `GRADE`) VALUES
+('4N4RCHY', 'NOM', 'Prénom', 'Homme', 'adresse.mail@gmail.com', 'incorrect', 'n', 'n', 'USER'),
+('admin', '', '', 'Autres', '', 'admin', 'y', 'n', 'ADMIN');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

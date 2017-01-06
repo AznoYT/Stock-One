@@ -36,7 +36,14 @@
 						if($lpws == $usr[5]) {
 							$try = 1;
 							$_SESSION['user'] = $_POST['lutilisateur'];
-							header("location: ../client.php");
+							if($usr[8] == 'ADMIN') {
+								$_SESSION['profile'] = $usr[8];
+								header("location: ../admin.php");
+							}
+							else if($usr[8] == 'USER') {
+								$_SESSION['profile'] = $usr[8];
+								header("location: ../client.php");
+							}
 						}
 					}
 				}

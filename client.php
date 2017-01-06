@@ -33,6 +33,22 @@
 				?>
 			</div>
 			<div class="h-butons">
+				<?php
+					if($_SESSION['profile'] == "ADMIN") {
+						echo('
+							<div class="userswitch">
+								<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="document.location = \'./admin.php\';">
+								<label class="userswitch-label" for="myuserswitch">
+									<span class="userswitch-inner"></span>
+									<span class="userswitch-switch"></span>
+								</label>
+							</div>
+						');
+					}
+					else if($_SESSION['profile'] == "USER") {
+						echo("");
+					}
+				?>
 				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />

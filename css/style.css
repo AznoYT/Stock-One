@@ -50,6 +50,85 @@
 	-webkit-box-shadow: inset 0 0 0 .0625em rgb(180,180,180), inset 0 0 0 .375em rgb(180,180,180);
 }
 
+.userswitch {
+	margin-left: -30%;
+	position: absolute;
+	width: 90px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.userswitch-checkbox {
+	display: none;
+}
+
+.userswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 2px solid #CCCCCC;
+	border-radius: 50px;
+}
+
+.userswitch-inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	transition: margin 0.3s ease-in 0s;
+}
+
+.userswitch-inner:before, .userswitch-inner:after {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 30px;
+	padding: 0;
+	line-height: 30px;
+	font-size: 14px;
+	color: white;
+	font-family: Consolas, Monospace;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+
+.userswitch-inner:before {
+	content: "ADMIN";
+	margin-left: -10px;
+	background-color: #000000;
+	color: #CCCCCC;
+}
+
+.userswitch-inner:after {
+	content: "USER";
+	padding-right: 10px;
+	background-color: #000000;
+	color: #CCCCCC;
+	text-align: right;
+}
+
+.userswitch-switch {
+	display: block;
+	width: 18px;
+	margin: 6px;
+	background: #000000;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 56px;
+	border: 2px solid #CCCCCC;
+	border-radius: 50px;
+	transition: all 0.3s ease-in 0s; 
+}
+
+.userswitch-checkbox:checked + .userswitch-label .userswitch-inner {
+	margin-left: 0;
+}
+
+.userswitch-checkbox:checked + .userswitch-label .userswitch-switch {
+	right: 0px; 
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -168,9 +247,14 @@ aside {
 	left: 1%;
 }
 
-.right {
+.admin_panel_right, .right {
 	border-right: 2px solid;
 	left: 68.5%;
+}
+
+.admin_panel_right {
+	left: 34%;
+	width: 64.5%;
 }
 
 .about, #popup, #popupabout {
