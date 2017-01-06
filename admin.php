@@ -4,17 +4,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - Cloud</title>
+		<title>Stock One - Cloud [ADMIN MODE]</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
-		// mieux de le faire avec un try car la connexion sera permanante
 		try {
 			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
-		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
+		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
@@ -90,13 +89,11 @@
 					?>
 				</div>
 			</aside>
-			<!-- Le changement de popup s'opérera sur cette balise div depuis le javascript -->
 			<div id="popup">
 				
 			</div>
 			<div id="popupabout">
 				<?php
-					// Cette partie du code servira pour la confirmation de commande entré auparavant
 					if(!isset($_GET['code'])) {
 						echo("");
 					}
