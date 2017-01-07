@@ -35,15 +35,13 @@
 			<div class="h-butons">
 				<?php
 					if($_SESSION['profile'] == "ADMIN") {
-						echo('
-							<div class="userswitch">
-								<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(1);">
-								<label class="userswitch-label" for="myuserswitch">
-									<span class="userswitch-inner"></span>
-									<span class="userswitch-switch"></span>
-								</label>
-							</div>
-						');
+						echo('<div class="userswitch">');
+						echo('<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(1);" />');
+						echo('<label class="userswitch-label" for="myuserswitch">');
+						echo('<span class="userswitch-inner"></span>');
+						echo('<span class="userswitch-switch"></span>');
+						echo('</label>');
+						echo('</div>');
 					}
 					else if($_SESSION['profile'] == "USER") {
 						echo("");
