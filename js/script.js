@@ -118,7 +118,7 @@ function popuplogin(login, attempt) {
 		packet += '<input type="password" name="lpws" />';
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
-		packet += '<input type="submit" value="Connexion" />';
+		packet += '<input class="ACT" type="submit" value="Connexion" />';
 		
 		if(attempt == 1) {
 			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
@@ -180,8 +180,8 @@ function popuplogin(login, attempt) {
 		packet += '<br />';
 		packet += '<input type="checkbox" name="notifpart" value="1" /> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter';
 		packet += '<br /><br />';
-		packet += '<input type="submit" value="Envoyer" />';
-		packet += '<input type="reset" value="Tout Effacer" />';
+		packet += '<input class="ACT" type="submit" value="Inscription" />';
+		packet += '<input class="WARN" type="reset" value="Tout Effacer" />';
 		
 		if(attempt == 1) {
 			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
@@ -244,7 +244,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
 		packet += '<br /><br />';
-		packet += '<input type="submit" name="submit" value="Importer" />';
+		packet += '<input class="ACT" type="submit" name="submit" value="Importer" />';
 		
 		if(attempt == 1) {
 			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
@@ -264,7 +264,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
 		packet += '<br /><br />';
-		packet += '<input type="button" onclick="disconnect(1);" value="Oui" />';
+		packet += '<input class="WARN" type="button" onclick="disconnect(1);" value="Oui" />';
 		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
 		packet += '</fieldset>';
@@ -283,7 +283,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
 		packet += '<br /><br />';
-		packet += '<input type="submit" name="option" value="Créer" />';
+		packet += '<input class="ACT" type="submit" name="option" value="Créer" />';
 		
 		if(attempt == 1) {
 			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
@@ -327,7 +327,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<br />';
 		packet += '<input type="button" onclick="moreaction(1, \'' + nom + '\');" value="Copier" />';
 		packet += '<input type="button" onclick="moreaction(2, \'' + nom + '\');" value="Déplacer" />';
-		packet += '<input type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
+		packet += '<input class="WARN" type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
@@ -356,7 +356,7 @@ function moreaction(action, fichier) {
 		packet += '<br />';
 		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
 		packet += '<br /><br />';
-		packet += '<input type="submit" name="action" value="Copier" />';
+		packet += '<input class="ACT" type="submit" name="action" value="Copier" />';
 		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
 		packet += '</form>';
@@ -371,7 +371,7 @@ function moreaction(action, fichier) {
 		packet += '<br />';
 		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
 		packet += '<br /><br />';
-		packet += '<input type="submit" name="action" value="Déplacer" />';
+		packet += '<input class="ACT" type="submit" name="action" value="Déplacer" />';
 		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 		packet += '</fieldset>';
 		packet += '</form>';
@@ -382,7 +382,7 @@ function moreaction(action, fichier) {
 		packet += '<legend>Supprimer un fichier:</legend>';
 		packet += '<p>Êtes-vous sûre de vouloir supprimer "' + fichier + '" ?</p>';
 		packet += '<br /><br />';
-		packet += '<input type="submit" name="action" value="Oui" />';
+		packet += '<input class="WARN" type="submit" name="action" value="Oui" />';
 		packet += ' - ';
 		packet += '<input type="button" onclick="moreaction(0);" value="Non" />';
 		packet += '</fieldset>';
