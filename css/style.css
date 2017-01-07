@@ -212,12 +212,22 @@ input:hover {
 	color: #CCCCCC;
 }
 
-#msg0, #msg1, #msg2 {
+.WARN, #msg0, #msg1, #msg2 {
 	color: #FF0000;
 }
 
-#msg3 {
+.ACT, #msg3 {
 	color: #00FF00;
+}
+
+.WARN:hover {
+	background-color: #FF0000;
+	color: #000000;
+}
+
+.ACT:hover {
+	background-color: #00FF00;
+	color: #000000;
 }
 
 section {
