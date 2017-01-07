@@ -125,10 +125,10 @@
 						}
 						
 						if($_GET['etat'] == "OK") {
-							$msg = '<font id="msg3">> L\'action menet au fichier à bien été éxecuter.</font>';
+							$msg = '<font id="msg3">> L\'action mené au fichier à bien été éxecuter.</font>';
 						}
 						else if($_GET['etat'] == "ERREUR") {
-							$msg = '<font id="msg0">> L\'action menet au fichier à rencontrer une erreur.</font>';
+							$msg = '<font id="msg0">> L\'action mené au fichier à rencontrer une erreur.</font>';
 						}
 						
 						echo("<fieldset>");
