@@ -4,14 +4,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - Déconnexion</title>
+		<title>Stock One - DÃ©connexion</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
