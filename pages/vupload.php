@@ -12,7 +12,7 @@
 	<?php
 		// Bon tu connais la routine pour le mode de connexion on va pas s'attarder là dessus
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
