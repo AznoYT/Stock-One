@@ -82,9 +82,9 @@
 	display: block;
 	float: left;
 	width: 50%;
-	height: 30px;
+	height: 25px;
 	padding: 0;
-	line-height: 30px;
+	line-height: 25px;
 	font-size: 14px;
 	color: white;
 	font-family: Consolas, Monospace;
@@ -109,7 +109,7 @@
 
 .userswitch-switch {
 	display: block;
-	width: 18px;
+	width: 15px;
 	margin: 6px;
 	background: #000000;
 	position: absolute;
