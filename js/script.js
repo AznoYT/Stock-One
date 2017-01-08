@@ -200,8 +200,6 @@ function popuplogin(login, attempt) {
 // Nouvelle fonction pour géré les popups d'actions du compte.
 function popupaction(action, attempt, methode, nom, taille) {
 	var popup = document.getElementById('popup');
-	popup.style.width = 'auto';
-	popup.style.left = '12%';
 	
 	if(action == 0) {
 		packet = '';
@@ -296,6 +294,9 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '</form>';
 	}
 	else if(action == 4) { // Ici l'affichage du fichiers
+		popup.style.width = 'auto';
+		popup.style.left = '12%';
+		
 		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
