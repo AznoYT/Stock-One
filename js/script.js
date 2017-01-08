@@ -408,10 +408,10 @@ function moreaction(action, fichier) {
 // Fonction de changement de mode utilisateur pour l'administrateur user
 function adminswitch(mode) {
 	setTimeout(function() {
-		if(mode == 1) {
+		if(mode == 1) { // ADMIN MOD
 			document.location = "./admin.php";
 		}
-		else if(mode == 2) {
+		else if(mode == 2) { // USER MOD
 			document.location = "./client.php";
 		}
 	}, 350);
