@@ -208,6 +208,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	else if(action == 1) { // Ici l'upload
 		popup.style.width = '30%';
 		popup.style.left = '34.75%';
+		moreaction(0);
 		
 		if(attempt == 1) {
 			packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">';
@@ -257,6 +258,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	else if(action == 2) { // Ici la deconnexion
 		popup.style.width = '30%';
 		popup.style.left = '34.75%';
+		moreaction(0);
 		
 		packet = '<fieldset>';
 		packet += '<legend>Déconnexion:</legend>';
@@ -270,6 +272,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	else if(action == 3) { // Ici la création de répertoire
 		popup.style.width = '30%';
 		popup.style.left = '34.75%';
+		moreaction(0);
 		
 		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
 		packet += '<fieldset>';
@@ -296,6 +299,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	else if(action == 4) { // Ici l'affichage du fichiers
 		popup.style.width = 'auto';
 		popup.style.left = '12%';
+		moreaction(0);
 		
 		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
@@ -346,7 +350,6 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	
 	popup.innerHTML = packet;
-	moreaction(0);
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
