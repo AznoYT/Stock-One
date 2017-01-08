@@ -339,7 +339,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '</fieldset>';
 		packet += '</form>';
 	}
-	else if(action == 5) {
+	else if(action == 5) { // Ici l'affichage du tchat IRC
 		popup = document.getElementById('popup_irc');
 		if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') {
 			packet = '';
@@ -409,12 +409,15 @@ function moreaction(action, fichier) {
 function info_tchat(obj, msg) {
 	if(obj == 1) { // Pour l'input du tchat
 		var entry = document.getElementById('text_input');
+		//var meta = document.getElementById('refresh');
 		
 		if(msg == 'Ecrivez votre message...') {
+			//meta.content = "50;url=./IRC.php";
 			entry.style.color = '#CCCCCC';
 			entry.value = '';
 		}
 		else if(msg == '') {
+			//meta.content = "5;url=./IRC.php";
 			entry.style.color = '#999999';
 			entry.value = 'Ecrivez votre message...';
 		}

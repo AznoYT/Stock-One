@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<!--<meta id="refresh" http-equiv="refresh" content="5;url=./IRC.php">-->
 		<link rel="stylesheet" type="text/css" href="../css/irc.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
@@ -16,7 +17,6 @@
 			<?php
 				if(isset($_SESSION['user'])) {
 					$user = $_SESSION['user'];
-					$_SESSION['mode'] = "client";
 				}
 				else {
 					header("location: ../index.html");
@@ -25,18 +25,18 @@
 			<div class="tchat_body">
 				<div id="tchat_area">
 					<?php
-						$user = $_SESSION['user'];
-						
 						if($user != "admin" || $_SESSION['mode'] == "client") {
 							$user = 'primary';
+							$content = 'primary';
 						}
 						else if($user == "admin") {
 							if($_SESSION['mode'] == "admin") {
 								$user = "admin";
+								$content = "admin";
 							}
 						}
 						
-						$history = fopen('../pages/historiques-IRC/history-'.$user.'.htm', 'r+');
+						$history = fopen('./historiques-IRC/history-'.$user.'.htm', 'r+');
 						$frame = fgets($history);
 						
 						if(!isset($_POST['message'])) {

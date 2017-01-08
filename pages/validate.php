@@ -70,6 +70,7 @@
 				}
 				else {
 					$_SESSION['user'] = $_POST['utilisateur'];
+					$_SESSION['profile'] = $PROFILE;
 					
 					//Insertion des informations dans la base de données
 					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire, GRADE) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
