@@ -166,6 +166,12 @@ input:hover {
 	color: #CCCCCC;
 }
 
+#to, #to:hover {
+	background-color: #000000;
+	border-color: #CCCCCC;
+	color: #999999;
+}
+
 .WARN, #msg0, #msg1, #msg2 {
 	color: #FF0000;
 }
