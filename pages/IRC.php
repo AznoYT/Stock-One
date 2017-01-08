@@ -50,16 +50,17 @@
 						fclose($history);
 					?>
 				</div>
-				<script language="javascript" type="text/javascript">
-					element = document.getElementById('tchat_area');
-					element.scrollTop = element.scrollHeight;
-				</script>
 				<div class="tchat_entry">
 					<form method="post" action="#">
 						<input type="text" id="text_input" name="message" value="Ecrivez votre message..." onfocus="info_tchat(this.value);" onblur="info_tchat(this.value);" />
 						<input type="submit" value="Envoyer" />
 					</form>
 				</div>
+				<script language="javascript" type="text/javascript">
+					element = document.getElementById('tchat_area');
+					element.scrollTop = element.scrollHeight;
+					document.getElementById('text_input').focus();
+				</script>
 			</div>
 		</div>
 	</body>
