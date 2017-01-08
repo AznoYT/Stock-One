@@ -13,6 +13,15 @@
 			<div class="title">
 				<h3>Chat IRC <?php if($_SESSION['mode'] == "admin") {echo("[ADMIN MOD]");} ?></h3>
 			</div>
+			<?php
+				if(isset($_SESSION['user'])) {
+					$user = $_SESSION['user'];
+					$_SESSION['mode'] = "client";
+				}
+				else {
+					header("location: ../index.html");
+				}
+			?>
 			<div class="tchat_body">
 				<div id="tchat_area">
 					<?php
@@ -52,7 +61,7 @@
 				</div>
 				<div class="tchat_entry">
 					<form method="post" action="#">
-						<input type="text" id="text_input" name="message" value="Ecrivez votre message..." onfocus="info_tchat(this.value);" onblur="info_tchat(this.value);" />
+						<input type="text" id="text_input" name="message" value="Ecrivez votre message..." onfocus="info_tchat(1, this.value);" onblur="info_tchat(1, this.value);" />
 						<input type="submit" value="Envoyer" />
 					</form>
 				</div>
