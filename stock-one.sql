@@ -57,6 +57,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `utilisateur` (`utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `user` (utilisateur, nom, prenom, genre, email, pws, notifso, notifpartenaire, GRADE) VALUES ("admin", NULL, NULL, NULL, NULL, "admin", "y", "n", "ADMIN");
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
