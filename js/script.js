@@ -367,7 +367,7 @@ function moreaction(action, fichier) {
 		packet += '<br />';
 		packet += '<label>Vers:</label>';
 		packet += '<br />';
-		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
+		packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="action" value="Copier" />';
 		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
@@ -382,7 +382,7 @@ function moreaction(action, fichier) {
 		packet += '<br />';
 		packet += '<label>Vers:</label>';
 		packet += '<br />';
-		packet += '<input style="width: 98%;" type="text" name="to" value="./" />';
+		packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="action" value="Déplacer" />';
 		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
@@ -405,6 +405,34 @@ function moreaction(action, fichier) {
 	popup.innerHTML = packet;
 }
 
+// Annimation pour l'affichage de texte par défaut dans une barre input
+function info_tchat(obj, msg) {
+	if(obj == 1) { // Pour l'input du tchat
+		var entry = document.getElementById('text_input');
+		
+		if(msg == 'Ecrivez votre message...') {
+			entry.style.color = '#CCCCCC';
+			entry.value = '';
+		}
+		else if(msg == '') {
+			entry.style.color = '#999999';
+			entry.value = 'Ecrivez votre message...';
+		}
+	}
+	else if(obj == 2) { // Pour l'input de chemin de copie ou déplacement de fichiers
+		var entry = document.getElementById('to');
+		
+		if(msg == './Dossier/sous-Dossier/fichier_à_copier.ext') {
+			entry.style.color = '#CCCCCC';
+			entry.value = './';
+		}
+		else if(msg == './') {
+			entry.style.color = '#999999';
+			entry.value = './Dossier/sous-Dossier/fichier_à_copier.ext';
+		}
+	}
+}
+
 // Fonction de changement de mode utilisateur pour l'administrateur user
 function adminswitch(mode) {
 	setTimeout(function() {
@@ -415,18 +443,6 @@ function adminswitch(mode) {
 			document.location = "./client.php";
 		}
 	}, 350);
-}
-
-// Annimation pour l'affichage de texte par défaut dans une barre input
-function info_tchat(msg) {
-	var entry = document.getElementById('text_input');
-	
-	if(msg == 'Ecrivez votre message...') {
-		entry.value = '';
-	}
-	else if(msg == '') {
-		entry.value = 'Ecrivez votre message...';
-	}
 }
 
 // Cette fonction est pour la deconnexion du compte
