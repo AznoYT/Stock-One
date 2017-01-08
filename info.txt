@@ -8,7 +8,9 @@ Stock-One-master ./
 |   stock-one.sql
 |   
 +---css/
+|       irc.css
 |       other.css
+|       scroll.css
 |       style.css
 |       
 +---files/
@@ -33,13 +35,18 @@ Stock-One-master ./
 |       three.min.js
 |       
 +---pages/
-|       action.php
-|       annimation.html
-|       disconnect.php
-|       other.php
-|       validate.php
-|       veriflogin.php
-|       vupload.php
+|   |   action.php
+|   |   annimation.html
+|   |   disconnect.php
+|   |   IRC.php
+|   |   other.php
+|   |   validate.php
+|   |   veriflogin.php
+|   |   vupload.php
+|   |
+|   \---historiques-IRC/
+|           history-admin.htm
+|           history-primary.htm
 |       
 \---pics/
         folder.png
@@ -49,4 +56,4 @@ Stock-One-master ./
         music.png
         text-file.png
         
-Lien de téléchargement du site: https://mega.nz/#!TtFiXRxY!2ZQZkVyTkzIvErsbm48L9bxlisvGGwiN-hxLceMfg1Q
+Lien de téléchargement du site: https://mega.nz/#!r0NHQZbT!DuccyNruozDlqlrY-KYuEyl_4FLNWGyODfghNhBJe8o
