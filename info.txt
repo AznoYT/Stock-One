@@ -49,4 +49,4 @@ Stock-One-master ./
         music.png
         text-file.png
         
-Lien de tÃ©lÃ©chargement du site: https://mega.nz/#!TtFiXRxY!2ZQZkVyTkzIvErsbm48L9bxlisvGGwiN-hxLceMfg1Q
+Lien de téléchargement du site: https://mega.nz/#!TtFiXRxY!2ZQZkVyTkzIvErsbm48L9bxlisvGGwiN-hxLceMfg1Q

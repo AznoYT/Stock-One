@@ -6,13 +6,14 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [USER MODE]</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
 		// mieux de le faire avec un try car la connexion sera permanante
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
 		catch(Exception $e) { // au cas-où si ça foire il affiche la couille dans le paté
 			die('ERROR : '.$e->getMessage());
@@ -25,6 +26,7 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
+						$_SESSION['mode'] = "client";
 						echo("$user");
 					}
 					else {
@@ -47,6 +49,7 @@
 						echo("");
 					}
 				?>
+				<input class="color" type="button" value="Tchat" onclick="popupaction(5);" />
 				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />
@@ -142,6 +145,7 @@
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
 		</footer>
+		<div id="popup_irc"></div>
 	</body>
 </html>
 <!-- END -->

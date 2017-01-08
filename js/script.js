@@ -334,6 +334,15 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '</fieldset>';
 		packet += '</form>';
 	}
+	else if(action == 5) {
+		popup = document.getElementById('popup_irc');
+		if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') {
+			packet = '';
+		}
+		else {
+			packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>';
+		}
+	}
 	
 	popup.innerHTML = packet;
 	moreaction(0);
@@ -402,6 +411,18 @@ function adminswitch(mode) {
 			document.location = "./client.php";
 		}
 	}, 350);
+}
+
+// Annimation pour l'affichage de texte par défaut dans une barre input
+function info_tchat(msg) {
+	var entry = document.getElementById('text_input');
+	
+	if(msg == 'Ecrivez votre message...') {
+		entry.value = '';
+	}
+	else if(msg == '') {
+		entry.value = 'Ecrivez votre message...';
+	}
 }
 
 // Cette fonction est pour la deconnexion du compte

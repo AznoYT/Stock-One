@@ -6,12 +6,13 @@
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [ADMIN MODE]</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -24,6 +25,7 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
+						$_SESSION['mode'] = "admin";
 						echo("$user");
 					}
 					else {
@@ -43,6 +45,7 @@
 						<span class="userswitch-switch"></span>
 					</label>
 				</div>
+				<input class="color" type="button" value="Tchat" onclick="popupaction(5);" />
 				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />
@@ -85,7 +88,7 @@
 				<h2>Commandes</h2>
 				<div class="content">
 					<?php
-						echo("en construction...");
+						echo("En construction...");
 					?>
 				</div>
 			</aside>
@@ -128,6 +131,7 @@
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
 		</footer>
+		<div id="popup_irc"></div>
 	</body>
 </html>
 <!-- END -->
