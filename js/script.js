@@ -346,11 +346,22 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	else if(action == 5) { // Ici l'affichage du tchat IRC
 		popup = document.getElementById('popup_irc');
-		if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') {
-			packet = '';
+		
+		if(attempt == 0) {
+			if(popup.innerHTML == '<iframe class="IRC" src="./IRC.php"></iframe>') {
+				packet = '';
+			}
+			else {
+				packet = '<iframe class="IRC" src="./IRC.php"></iframe>';
+			}
 		}
 		else {
-			packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>';
+			if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') {
+				packet = '';
+			}
+			else {
+				packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>';
+			}
 		}
 	}
 	
