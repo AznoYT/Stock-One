@@ -268,7 +268,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '<input class="WARN" type="button" onclick="disconnect(1, 1);" value="Oui" />';
 		}
 		else {
-			packet += '<input class="WARN" type="button" onclick="disconnect(0, 1);" value="Oui" />';
+			packet += '<input class="WARN" type="button" onclick="disconnect(1, 0);" value="Oui" />';
 		}
 		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
