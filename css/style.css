@@ -313,15 +313,41 @@ h2 {
 	width: auto;
 }
 
+#frame_param {
+	border: 1px solid;
+	border-radius: 4px;
+	height: 95%;
+	overflow: hidden;
+	margin-left: 1px;
+	margin-right: 1px;
+	position: relative;
+	width: auto;
+}
+
 img.classement {
 	margin-left: 4px;
 	padding-top: 3px;
 	position: absolute;
 }
 
+img.avatar {
+	margin-left: -25px;
+	position: absolute;
+}
+
 a {
 	color: #CCCCCC;
 	text-decoration: none;
+}
+
+a.profile {
+	border-radius: 8px;
+	padding: 2px;
+	transition: 0.7s;
+}
+
+a.profile:hover {
+	background-color: #333333;
 }
 
 pre {
