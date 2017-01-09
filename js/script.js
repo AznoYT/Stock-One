@@ -264,7 +264,12 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
 		packet += '<br /><br />';
-		packet += '<input class="WARN" type="button" onclick="disconnect(1);" value="Oui" />';
+		if(attempt == 1) {
+			packet += '<input class="WARN" type="button" onclick="disconnect(1, 1);" value="Oui" />';
+		}
+		else {
+			packet += '<input class="WARN" type="button" onclick="disconnect(0, 1);" value="Oui" />';
+		}
 		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
 		packet += '</fieldset>';
@@ -449,12 +454,22 @@ function adminswitch(mode) {
 }
 
 // Cette fonction est pour la deconnexion du compte
-function disconnect(stat) {
-	if(stat == 0) {
-		popupaction(0);
+function disconnect(stat, method) {
+	if(method == 1) {
+		if(stat == 0) {
+			popupaction(0);
+		}
+		else if(stat == 1) {
+			document.location = "./disconnect.php";
+		}
 	}
-	else if(stat == 1) {
-		document.location = "./pages/disconnect.php";
+	else if(method == 0) {
+		if(stat == 0) {
+			popupaction(0);
+		}
+		else if(stat == 1) {
+			document.location = "./pages/disconnect.php";
+		}
 	}
 }
 
