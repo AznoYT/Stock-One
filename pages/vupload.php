@@ -13,7 +13,7 @@
 	<?php
 		// Bon tu connais la routine pour le mode de connexion on va pas s'attarder là dessus
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -24,9 +24,8 @@
 			<h1>Stock One </h1>
 		</header>
 		<section>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
+			<div id="popupabout"></div>
 			<?php
 				// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
 				if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
