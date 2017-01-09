@@ -271,7 +271,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '<input class="WARN" type="button" onclick="disconnect(1, 0);" value="Oui" />';
 		}
 		packet += ' - ';
-		packet += '<input type="button" onclick="disconnect(0);" value="Non" />';
+		packet += '<input type="button" onclick="disconnect(0, 0);" value="Non" />';
 		packet += '</fieldset>';
 	}
 	else if(action == 3) { // Ici la création de répertoire
@@ -466,20 +466,17 @@ function adminswitch(mode) {
 
 // Cette fonction est pour la deconnexion du compte
 function disconnect(stat, method) {
-	if(method == 1) {
-		if(stat == 0) {
-			popupaction(0);
-		}
-		else if(stat == 1) {
-			document.location = "./disconnect.php";
-		}
-	}
-	else if(method == 0) {
+	if(method == 0) {
 		if(stat == 0) {
 			popupaction(0);
 		}
 		else if(stat == 1) {
 			document.location = "./pages/disconnect.php";
+		}
+	}
+	else if(method == 1) {
+		if(stat == 1) {
+			document.location = "./disconnect.php";
 		}
 	}
 }
