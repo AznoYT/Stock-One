@@ -254,6 +254,17 @@ aside {
 	position: relative;
 }
 
+.info_selected {
+	height: 15%;
+}
+
+#info_param {
+	border-top: 1px solid;
+	height: 85%;
+	position: relative;
+	width: auto;
+}
+
 iframe {
 	border: 0;
 	border-radius: 8px;
