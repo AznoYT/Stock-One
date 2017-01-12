@@ -60,7 +60,7 @@
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
-							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" /><br />");
+							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"\" /><br />");
 						}
 					?>
 				</div>

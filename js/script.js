@@ -318,9 +318,23 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />';
 		}
 		else if(methode == 2) { // Pour les musiques
-			packet += '<audio autoplay controls>';
+			packet += '<audio id="player" ontimeupdate="custom_controls(4);" autoplay>';
 			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
 			packet += '</audio>';
+			packet += '<div style="position: relative;">';
+			packet += '<div id="progressbarControl">';
+			packet += '<div id="progressbar"></div>';
+			packet += '</div>';
+			packet += '<input class="controls" id="player_start" type="button" value="||" onclick="custom_controls(1, this);">';
+			packet += '<input class="controls" type="button" value=" ■ " onclick="custom_controls(2);">';
+			packet += '<span class="volume">';
+			packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);"></a>';
+			packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);"></a>';
+			packet += '<a class="stick3 volume" onclick="custom_controls(3, 0.5);"></a>';
+			packet += '<a class="stick4 volume" onclick="custom_controls(3, 0.7);"></a>';
+			packet += '<a class="stick5 volume" onclick="custom_controls(3, 1);"></a>';
+			packet += '</span>';
+			packet += '</div>';
 		}
 		else if(methode == 3) { // Pour les fichiers textes ou pdf
 			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
@@ -328,7 +342,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '</div>';
 		}
 		else if(methode == 4) { // Pour les vidéos
-			packet += '<video height="500px" autoplay controls>';
+			packet += '<video height="500px" controls autoplay>';
 			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
 			packet += '</video>';
 		}
@@ -419,6 +433,48 @@ function moreaction(action, fichier) {
 	}
 	
 	popup.innerHTML = packet;
+}
+
+// Personnalisation des controls de la balise <audio>
+function custom_controls(action, lvl) {
+	var player = document.getElementById('player');
+	var starter = document.getElementById('player_start');
+	var progressbar = document.getElementById('progressbar');
+	var volume_info = document.getElementById('volume_info');
+	
+	if(action == 1) { // Lecture et Pause
+		if(player.paused) {
+			player.play();
+			starter.value = "||";
+		}
+		else {
+			player.pause();
+			starter.value = " ► ";
+		}
+	}
+	else if(action == 2) { // Stop puis Recommencer
+		player.currentTime = 0;
+		player.pause();
+		progressbar.style.width = '0%';
+		progressbar.textContent = '0%';
+		starter.value = " ► ";
+	}
+	else if(action == 3) { // Volume
+		player.volume = lvl;
+		if(lvl == 0) {
+			volume_info.innerHTML = "MUTED";
+		}
+		else {
+			volume_info.innerHTML = lvl * 100 + "%";
+		}
+	}
+	else if(action == 4) { // Barre de progression
+		var quotient = player.currentTime / player.duration;
+		var statprogress = Math.ceil(quotient * 100);
+		
+		progressbar.style.width = statprogress + '%';
+		progressbar.textContent = statprogress + '%';
+	}
 }
 
 // Annimation pour l'affichage de texte par défaut dans une barre input
