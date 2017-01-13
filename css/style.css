@@ -186,6 +186,18 @@ input:hover {
 	color: #CCCCCC;
 }
 
+.modif, .modif:hover {
+	background-color: #000000;
+	color: #CCCCCC;
+	border: 1px solid;
+	border-left: 0;
+	border-radius: 0;
+	border-right: 0;
+	border-top: 0;
+	padding: 4px;
+	transition: 0s;
+}
+
 .WARN, #msg0, #msg1, #msg2 {
 	color: #FF0000;
 }
