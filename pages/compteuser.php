@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- compteuser.php -->
+<!-- admin.php -->
 <?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - Cloud [Compte Utilisateur]</title>
+		<title>Stock One - Cloud [ADMIN MODE]</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
@@ -25,32 +25,22 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "admin";
-						echo("$user");
+						$_SESSION['mode'] = "client";
+						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
 					else {
-						header("location: ./index.html");
+						//header("location: ./index.html");
 					}
 				?>
 			</div>
 			<div class="h-butons">
 				<input class="color" type="button" value="Tchat" onclick="popupaction(5, 0);" />
-				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
-				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2, 1);" />
 			</div>
 			<h1>Stock One</h1>
 		</header>
 		<section>
 			<aside id="admin_panel_left" class="left">
-				<h2>En Construction</h2>
-				<div class="content">
-					<?php
-						echo("En Construction")
-					?>
-				</div>
-			</aside>
-			<aside class="admin_panel_right">
 				<h2>Vos Informations</h2>
 				<div class="content">
 					<?php
@@ -73,7 +63,25 @@
 							}
 						}
 					?></br>
-					<input type="button" class="color" value="Modifier son compte" onclick="location.href='#'"/>
+				</div>
+			</aside>
+			<aside class="admin_panel_right">
+				<h2>Modifier vos informations</h2>
+				<div class="content">
+					<form action="./verifmcompte.php" method="POST">
+						<label>Votre Nom:</label>
+						<input type="text" class="color" name="mnom"/></br>
+						<label>Votre Prénom:</label>
+						<input type="text" class="color" name="mprenom"/></br>
+						<label>Votre Email:</label>
+						<input type="email" class="color" name="memail"/></br>
+						<label>Votre Nouveaux mot de passe:</label>
+						<input type="password" class="color" name="pws1"/></br>
+						<label>Resaissir son mot de passe:</label>
+						<input type="password" class="color" name="pws2"/></br>
+						</br>
+						<input type="submit" class="color" value="Modifier son compte" />
+					</form>
 				</div>
 			</aside>
 			<div id="popup">
