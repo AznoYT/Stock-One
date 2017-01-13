@@ -37,6 +37,7 @@ Stock-One-master ./
 +---pages/
 |   |   action.php
 |   |   annimation.html
+|   |   compteuser.php       
 |   |   disconnect.php
 |   |   IRC.php
 |   |   other.php
