@@ -18,9 +18,13 @@
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
-	<body>
+	<body onload="startTime();">
 		<header>
-			<h1>Stock One</h1>
+			<div class="time" id="txt"></div>
+			<a title="Retour à la Page d'Accueil" href="../#">
+				<img class='logo' height="30px" src="../pics/logo.png" />
+				<h1>Stock One </h1>
+			</a>
 		</header>
 		<section>
 			<div id="popup">
@@ -72,7 +76,7 @@
 					$_SESSION['user'] = $_POST['utilisateur'];
 					$_SESSION['profile'] = $PROFILE;
 					
-					//Insertion des informations dans la base de données
+					// Insertion des informations dans la base de données
 					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire, GRADE) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
 					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart, $PROFILE));
 					$stmt = $bdd->query('SELECT utilisateur FROM user');

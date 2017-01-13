@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- admin.php -->
+<!-- compteuser.php -->
 <?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - Cloud [ADMIN MODE]</title>
+		<title>Stock One - Cloud [Compte Utilisateur]</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
@@ -12,7 +12,7 @@
 	</head>
 	<?php
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -25,18 +25,19 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "client";
-						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
+						$_SESSION['mode'] = "admin";
+						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
 					else {
-						//header("location: ./index.html");
+						header("location: ../index.html");
 					}
 				?>
 			</div>
 			<div class="h-butons">
-				<input class="color" type="button" value="Tchat" onclick="popupaction(5, 0);" />
+				<input class="color" type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5, 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2, 1);" />
 			</div>
+			<img class='logo' height="30px" src="../pics/logo.png" />
 			<h1>Stock One</h1>
 		</header>
 		<section>
@@ -47,41 +48,30 @@
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
-							if($file[0] == $user){
-								echo("<label>Votre Identifiant:</label></br>");
-								echo("$file[0]</br></br>");
-								echo("<label>Votre Nom:</label></br>");
-								echo ("$file[1]</br></br>");
-								echo("<label>Votre Prénom:</label></br>");
-								echo ("$file[2]</br></br>");
-								echo("<label>Votre Sexe:</label></br>");
-								echo ("$file[3]</br></br>");
-								echo("<label>Votre Adresse Mail:</label></br>");
-								echo ("$file[4]</br></br>");
-								echo("<label>Votre Grade:</label></br>");
-								echo ("$file[8]</br>");
+							if($file[0] == $user) {
+								echo("<label>Votre Identifiant:</label><br />
+								$file[0]<br /><br />
+								<label>Votre Nom:</label><br />
+								$file[1]<br /><br />
+								<label>Votre Prénom:</label><br />
+								$file[2]<br /><br />
+								<label>Votre Sexe:</label><br />
+								$file[3]<br /><br />
+								<label>Votre Adresse Mail:</label><br />
+								$file[4]<br /><br />
+								<label>Votre Grade:</label><br />
+								$file[8]</br>");
 							}
 						}
-					?></br>
+					?>
 				</div>
 			</aside>
 			<aside class="admin_panel_right">
-				<h2>Modifier vos informations</h2>
+				<h2>Modification compte utilisateur</h2>
 				<div class="content">
-					<form action="./verifmcompte.php" method="POST">
-						<label>Votre Nom:</label>
-						<input type="text" class="color" name="mnom"/></br>
-						<label>Votre Prénom:</label>
-						<input type="text" class="color" name="mprenom"/></br>
-						<label>Votre Email:</label>
-						<input type="email" class="color" name="memail"/></br>
-						<label>Votre Nouveaux mot de passe:</label>
-						<input type="password" class="color" name="pws1"/></br>
-						<label>Resaissir son mot de passe:</label>
-						<input type="password" class="color" name="pws2"/></br>
-						</br>
-						<input type="submit" class="color" value="Modifier son compte" />
-					</form>
+					
+					<br />
+					<input type="button" class="color" value="Modifier son compte" onclick="location.href='#'"/>
 				</div>
 			</aside>
 			<div id="popup">

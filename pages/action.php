@@ -18,8 +18,22 @@
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
-	<body>
+	<body onload="startTime();">
 		<header>
+			<div class="time" id="txt"></div>
+			<div class="time info">
+				<?php
+					if(isset($_SESSION['user'])) {
+						$user = $_SESSION['user'];
+						$_SESSION['mode'] = "admin";
+						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
+					}
+					else {
+						header("location: ../index.html");
+					}
+				?>
+			</div>
+			<img class='logo' height="30px" src="../pics/logo.png" />
 			<h1>Stock One </h1>
 		</header>
 		<section>

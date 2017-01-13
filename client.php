@@ -27,7 +27,7 @@
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
 						$_SESSION['mode'] = "client";
-						echo("<a class='profile' href='./pages/compteuser.php'><img class='avatar' height='25px' src='./pics/user.png' />$user</a>");
+						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./pages/compteuser.php'><img class='avatar' height='25px' src='./pics/user.png' />$user</a>");
 					}
 					else {
 						header("location: ./index.html");
@@ -49,11 +49,12 @@
 						echo("");
 					}
 				?>
-				<input class="color" type="button" value="Tchat" onclick="popupaction(5);" />
+				<input class="color" type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
 				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
 				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />
 			</div>
+			<img class='logo' height="30px" src="./pics/logo.png" />
 			<h1>Stock One</h1>
 		</header>
 		<section id="UserPanel">

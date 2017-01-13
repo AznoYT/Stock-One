@@ -18,9 +18,13 @@
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
-	<body>
+	<body onload="startTime();">
 		<header>
-			<h1>Stock One </h1>
+			<div class="time" id="txt"></div>
+			<a title="Retour à la Page d'Accueil" href="../#">
+				<img class='logo' height="30px" src="../pics/logo.png" />
+				<h1>Stock One </h1>
+			</a>
 		</header>
 		<section>
 			<div id="popup">

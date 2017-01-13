@@ -274,6 +274,7 @@ aside {
 #info_param {
 	border-top: 1px solid;
 	height: 85%;
+	padding: 2px;
 	position: relative;
 	width: auto;
 }
@@ -358,6 +359,12 @@ img.classement {
 
 img.avatar {
 	margin-left: -25px;
+	position: absolute;
+}
+
+img.logo {
+	margin-left: -140px;
+	margin-top: 5px;
 	position: absolute;
 }
 

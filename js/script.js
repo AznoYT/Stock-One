@@ -195,6 +195,7 @@ function popuplogin(login, attempt) {
 	}
 	
 	popup.innerHTML = packet;
+	document.getElementById('userinput').focus();
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
@@ -325,8 +326,8 @@ function popupaction(action, attempt, methode, nom, taille) {
 			packet += '<div id="progressbarControl">';
 			packet += '<div id="progressbar"></div>';
 			packet += '</div>';
-			packet += '<input class="controls" id="player_start" type="button" value="||" onclick="custom_controls(1, this);">';
-			packet += '<input class="controls" type="button" value=" ■ " onclick="custom_controls(2);">';
+			packet += '<input class="controls" id="player_start" type="button" value="||" title="Pause" onclick="custom_controls(1, this);">';
+			packet += '<input class="controls" type="button" value=" ■ " title="Stop" onclick="custom_controls(2);">';
 			packet += '<span class="volume">';
 			packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);"></a>';
 			packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);"></a>';
@@ -380,6 +381,11 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	
 	popup.innerHTML = packet;
+}
+
+// Nouvelle fonctions de gestions du panneau administrateur
+function view_param() {
+	
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
@@ -446,10 +452,12 @@ function custom_controls(action, lvl) {
 		if(player.paused) {
 			player.play();
 			starter.value = "||";
+			starter.title = "Pause";
 		}
 		else {
 			player.pause();
 			starter.value = " ► ";
+			starter.title = "Play";
 		}
 	}
 	else if(action == 2) { // Stop puis Recommencer
@@ -458,6 +466,7 @@ function custom_controls(action, lvl) {
 		progressbar.style.width = '0%';
 		progressbar.textContent = '0%';
 		starter.value = " ► ";
+		starter.title = "Play";
 	}
 	else if(action == 3) { // Volume
 		player.volume = lvl;

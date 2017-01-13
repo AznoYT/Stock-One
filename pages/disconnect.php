@@ -18,8 +18,10 @@
 			die('ERROR : '.$e->getMessage());
 		}
 	?>
-	<body>
+	<body onload="startTime();">
 		<header>
+			<div class="time" id="txt"></div>
+			<img class='logo' height="30px" src="../pics/logo.png" />
 			<h1>Stock One </h1>
 		</header>
 		<section>
