@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- admin.php -->
+<!-- compteuser.php -->
 <?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Stock One - Cloud [ADMIN MODE]</title>
+		<title>Stock One - Cloud [Compte Utilisateur]</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
