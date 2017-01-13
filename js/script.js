@@ -42,6 +42,11 @@ function verify(connect, pws1, pws2, usr) {
 			msg2.innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
+		else if(usr == "confirm" && pws1.value != pws2.value) {
+			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
+			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
+			pws1.focus();
+		}
 		else if(pws1 == 1 && pws2 == 0) { // Cette condition c'est pour le mot de passe faux
 			msg1.innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
 			msg2.innerHTML = '';
@@ -74,7 +79,7 @@ function verify(connect, pws1, pws2, usr) {
 			msg0.innerHTML = '';
 			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
 			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
-			pws1.select();
+			pws1.focus();
 		}
 		else if(pws1 == 1 && pws2 == 1 && usr == 0) { // Cette condition c'est pour le nom d'utilisateur déjà existant
 			msg0.innerHTML = ' Nom d\'utilisateur déjà existant';
