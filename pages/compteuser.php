@@ -69,9 +69,20 @@
 			<aside class="admin_panel_right">
 				<h2>Modification compte utilisateur</h2>
 				<div class="content">
-					
-					<br />
-					<input type="button" class="color" value="Modifier son compte" onclick="location.href='#'"/>
+					<form action="./verifmcompte.php" method="POST">
+						<label>Votre Nom:</label>
+						<input type="text" class="color" name="mnom"/><br />
+						<label>Votre Prénom:</label>
+						<input type="text" class="color" name="mprenom"/><br />
+						<label>Votre Email:</label>
+						<input type="email" class="color" name="memail"/><br />
+						<label>Votre Nouveaux mot de passe:</label>
+						<input type="password" class="color" name="pws1"/><br />
+						<label>Resaissir son mot de passe:</label>
+						<input type="password" class="color" name="pws2"/><br />
+						<br />
+						<input type="submit" class="color" value="Modifier son compte" />
+					</form>
 				</div>
 			</aside>
 			<div id="popup">
