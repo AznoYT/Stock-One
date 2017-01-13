@@ -49,18 +49,30 @@
 						
 						while($file = $data->fetch()) {
 							if($file[0] == $user) {
-								echo("<label>Votre Identifiant:</label><br />
-								$file[0]<br /><br />
-								<label>Votre Nom:</label><br />
-								$file[1]<br /><br />
-								<label>Votre Prénom:</label><br />
-								$file[2]<br /><br />
-								<label>Votre Sexe:</label><br />
-								$file[3]<br /><br />
-								<label>Votre Adresse Mail:</label><br />
-								$file[4]<br /><br />
-								<label>Votre Grade:</label><br />
-								$file[8]</br>");
+								echo("<label>--- Votre Identifiant:</label>
+								<br />
+								- $file[0] <font id='msg0'>[Non Modifiable]</font>
+								<br /><br />
+								<label>--- Votre Nom:</label>
+								<br />
+								- $file[1]
+								<br /><br />
+								<label>--- Votre Prénom:</label>
+								<br />
+								- $file[2]
+								<br /><br />
+								<label>--- Votre Sexe:</label>
+								<br />
+								- $file[3] <font id='msg0'>[Non Modifiable]</font>
+								<br /><br />
+								<label>--- Votre Adresse Mail:</label>
+								<br />
+								- $file[4]
+								<br /><br />
+								<label>--- Votre Grade:</label>
+								<br />
+								- $file[8]
+								</br>");
 							}
 						}
 					?>
@@ -69,19 +81,30 @@
 			<aside class="admin_panel_right">
 				<h2>Modification compte utilisateur</h2>
 				<div class="content">
-					<form action="./verifmcompte.php" method="POST">
-						<label>Votre Nom:</label>
-						<input type="text" class="color" name="mnom"/><br />
-						<label>Votre Prénom:</label>
-						<input type="text" class="color" name="mprenom"/><br />
-						<label>Votre Email:</label>
-						<input type="email" class="color" name="memail"/><br />
-						<label>Votre Nouveaux mot de passe:</label>
-						<input type="password" class="color" name="pws1"/><br />
-						<label>Resaissir son mot de passe:</label>
-						<input type="password" class="color" name="pws2"/><br />
+					<form action="./verifmcompte.php" method="POST" onsubmit="return verify(1, this.pws1, this.pws2, 'confirm');" style="padding: 4px;">
+						<h3>Modification Informations Personnels: </h3>
 						<br />
-						<input type="submit" class="color" value="Modifier son compte" />
+						<label>> Votre Nom:</label>
+						<input type="text" class="modif" name="mnom" />
+						<br />
+						<label>> Votre Prénom:</label>
+						<input type="text" class="modif" name="mprenom" />
+						<br />
+						<label>> Votre Email:</label>
+						<input type="email" class="modif" name="memail" />
+						<br /><br /><br />
+						<h3>Modification Mot de passe: </h3>
+						<br />
+						<label>> Votre Nouveaux mot de passe:</label>
+						<input type="password" class="modif" name="pws1" />
+						<font id="msg1"></font>
+						<br />
+						<label>> Resaissir son mot de passe:</label>
+						<input type="password" class="modif" name="pws2" />
+						<font id="msg2"></font>
+						<br /><br />
+						<input type="submit" class="ACT" value="Modifier son compte" />
+						<input type="button" class="color" value="Retour" onclick="document.location = '../client.php'" />
 					</form>
 				</div>
 			</aside>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- validate.php -->
+<!-- verifmcompte.php -->
 <?php session_start() ?>
 <html>
 	<head>
@@ -12,7 +12,7 @@
 	</head>
 	<?php
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -36,7 +36,6 @@
 				
 			</div>
 			<?php
-				
 				$nom = $_POST['mnom'];
 				$pass = $_POST['pws1'];
 				$prenom = $_POST['mprenom'];
@@ -44,10 +43,10 @@
 				
 				echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
 				echo("<p>> Nom: $nom <br/>");
-				echo("<p>> PrÃ©nom: $prenom <br/>");
+				echo("<p>> Prénom: $prenom <br/>");
 				echo("<p>> Votre addresse mail: $mail <br/>");
 				
-				//Insertion des informations dans la base de donnÃ©es
+				// Modification des informations dans la base de données
 				$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'", nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
 				$stmt->execute();
 				
