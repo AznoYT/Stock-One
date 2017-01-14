@@ -216,6 +216,18 @@ input:hover {
 	color: #000000;
 }
 
+select {
+	background-color: #000000;
+	border-radius: 4px;
+	color: #CCCCCC;
+	padding: 2px;
+	transition: 0.5s;
+}
+
+select:hover {
+	background-color: #333333;
+}
+
 section {
 	height: 91%;
 	position: relative;
@@ -281,12 +293,13 @@ aside {
 
 .info_selected {
 	height: 15%;
+	padding: 4px;
 }
 
 #info_param {
 	border-top: 1px solid;
 	height: 85%;
-	padding: 2px;
+	padding: 4px;
 	position: relative;
 	width: auto;
 }
