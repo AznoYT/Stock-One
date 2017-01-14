@@ -103,7 +103,7 @@
 						<input type="password" class="modif" name="pws2" />
 						<font id="msg2"></font>
 						<br /><br />
-						<input type="submit" class="ACT" value="Modifier son compte" />
+						<input type="submit" class="ACT" value="Modifier" title="Modifier les Informations du Compte" />
 						<input type="button" class="color" value="Retour" onclick="document.location = '../client.php'" />
 					</form>
 				</div>
@@ -119,26 +119,42 @@
 					else {
 						if($_GET['code'] == '1') {
 							$action = 'Copie';
+							$objet = 'fichier';
+							$directory = 'client.php';
 						}
 						else if($_GET['code'] == '2') {
 							$action = 'Déplacement';
+							$objet = 'fichier';
+							$directory = 'client.php';
 						}
 						else if($_GET['code'] == '3') {
 							$action = 'Suppression';
+							$objet = 'fichier';
+							$directory = 'client.php';
+						}
+						else if($_GET['code'] == '4') {
+							$action = 'Importation';
+							$objet = 'fichier';
+							$directory = 'compteuser.php';
+						}
+						else if($_GET['code'] == '5') {
+							$action = 'Modification';
+							$objet = 'compte';
+							$directory = 'compteuser.php';
 						}
 						
 						if($_GET['etat'] == "OK") {
-							$msg = '<font id="msg3">> L\'action mené au fichier à bien été éxecuter.</font>';
+							$msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>';
 						}
 						else if($_GET['etat'] == "ERREUR") {
-							$msg = '<font id="msg0">> L\'action mené au fichier à rencontrer une erreur.</font>';
+							$msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>';
 						}
 						
 						echo("<fieldset>");
 						echo("<Legend>Confirmation de $action:</Legend>");
 						echo($msg);
 						echo("<br /><br />");
-						echo('<input type="button" onclick="moreaction(0); document.location = \'./client.php\';" value="Fermer" />');
+						echo('<input type="button" onclick="moreaction(0); document.location = \'./'.$directory.'\';" value="Fermer" />');
 						echo("</fieldset>");
 					}
 				?>
