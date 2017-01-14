@@ -61,7 +61,7 @@
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
-							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"\" /><br />");
+							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]');\" /><br />");
 						}
 					?>
 				</div>
@@ -70,13 +70,11 @@
 				<h2>Commandes</h2>
 				<div id="frame_param">
 					<div class="info_selected">
-						<h3 id="selected"></h3>
-						<label>--- Affichage:</label>
-						<br />-
+						<h3 id="selected">Affichage de: </h3>> 
 						<input type="button" value="Données Utilisateurs" onclick="" />
 						<input type="button" value="Paramètre Profile" onclick="" />
 						<br /><br />
-						<label>--- Paramètre Afficher:</label>
+						<h3>Paramètre Afficher:</h3>
 					</div>
 					<div id="info_param">
 						<p>Veuillez selectionnez un compte...</p>
