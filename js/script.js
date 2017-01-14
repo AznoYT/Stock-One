@@ -389,8 +389,64 @@ function popupaction(action, attempt, methode, nom, taille) {
 }
 
 // Nouvelle fonctions de gestions du panneau administrateur
-function view_param() {
+function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, profile) {
+	var frame_param = document.getElementById('frame_param');
+	var selected = document.getElementById('selected');
+	var info_param = document.getElementById('info_param');
 	
+	if(action == 1) { // Changement d'informations utilisateur
+		packet = '<div class="info_selected">';
+		packet += '<h3 id="selected">Affichage de: ' + nameuser + '</h3>> ';
+		packet += '<input type="button" value="Données Utilisateurs" onclick="view_param(3);" /> ';
+		packet += '<input type="button" value="Paramètre Profile" onclick="view_param(2, \'' + nameuser + '\', \'' + name + '\', \'' + surname + '\', \'' + sexe + '\', \'' + mail + '\', \'' + pws + '\', \'' + nso + '\', \'' + np + '\', \'' + profile + '\');" />';
+		packet += '<br /><br />';
+		packet += '<h3>Paramètre Afficher:</h3>';
+		packet += '</div>';
+		packet += '<div id="info_param">';
+		packet += '</div>';
+		
+		frame_param.innerHTML = packet;
+		view_param(2, nameuser, name, surname, sexe, mail, pws, nso, np, profile);
+	}
+	else if(action == 2) { // Affichage d'informations utilisateur
+		packet = '<h3>Information Personnels:</h3>';
+		packet += '<br />';
+		packet += '<label>--- Identifiant:</label>';
+		packet += '<br />';
+		packet += '- ' + nameuser;
+		packet += '<br /><br />';
+		packet += '<label>--- Nom:</label>';
+		packet += '<br />';
+		packet += '- ' + name;
+		packet += '<br /><br />';
+		packet += '<label>--- Prénom:</label>';
+		packet += '<br />';
+		packet += '- ' + surname;
+		packet += '<br /><br />';
+		packet += '<label>--- Sexe:</label>';
+		packet += '<br />';
+		packet += '- ' + sexe;
+		packet += '<br /><br />';
+		packet += '<label>--- Adresse Mail:</label>';
+		packet += '<br />';
+		packet += '- ' + mail;
+		packet += '<br /><br />';
+		packet += '<label>--- Mot de passe:</label>';
+		packet += '<br />';
+		packet += '- ' + pws;
+		packet += '<br /><br />';
+		packet += '<label>--- Grade:</label>';
+		packet += '<br />';
+		packet += '- ' + profile;
+		packet += '<br />';
+		
+		info_param.innerHTML = packet;
+	}
+	else if(action == 3) {
+		packet = '';
+		
+		info_param.innerHTML = packet;
+	}
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
