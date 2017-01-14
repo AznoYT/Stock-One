@@ -82,8 +82,8 @@
 				<h2>Modification compte utilisateur</h2>
 				<div class="content">
 					<form action="./verifmcompte.php" method="POST" onsubmit="return verify(1, this.pws1, this.pws2, 'confirm');" style="padding: 4px;">
-						<h3>Modification Informations Personnels: </h3>
-						<br />
+						<h3>Modification Informations Personnels: </h3><font id="msg3">[Laisser vide pour ne pas modifier]</font>
+						<br /><br />
 						<label>> Votre Nom:</label>
 						<input type="text" class="modif" name="mnom" />
 						<br />
