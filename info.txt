@@ -42,6 +42,7 @@ Stock-One-master ./
 |   |   other.php
 |   |   validate.php
 |   |   veriflogin.php
+|   |   verifmcompte.php
 |   |   vupload.php
 |   |
 |   \---historiques-IRC/
