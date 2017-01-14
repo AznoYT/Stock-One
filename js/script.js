@@ -437,7 +437,18 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '<br /><br />';
 		packet += '<label>--- Grade:</label>';
 		packet += '<br />';
-		packet += '- ' + profile;
+		packet += '- <select name="profile">';
+		
+		if(profile == "USER") {
+			packet += '<option>USER</option>';
+			packet += '<option>ADMIN</option>';
+		}
+		else if(profile == "ADMIN") {
+			packet += '<option>ADMIN</option>';
+			packet += '<option>USER</option>';
+		}
+		
+		packet += '</select>';
 		packet += '<br />';
 		
 		info_param.innerHTML = packet;
