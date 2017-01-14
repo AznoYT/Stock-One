@@ -146,7 +146,7 @@ function popuplogin(login, attempt) {
 		
 		packet += '<fieldset>';
 		packet += '<legend>Inscription:</legend>';
-		packet += '<label>Nom d\'utilisateur:</label>';
+		packet += '<label>Nom d\'utilisateur:*</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="utilisateur" id="userinput" value="" />';
 		packet += '<font id="msg0"></font>';
@@ -171,12 +171,12 @@ function popuplogin(login, attempt) {
 		packet += '<br />';
 		packet += '<input type="email" name="email" />';
 		packet += '<br/><br/>';
-		packet += '<label>Mot de passe:</label>';
+		packet += '<label>Mot de passe:*</label>';
 		packet += '<br/>';
 		packet += '<input type="password" name="pws" value="" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
-		packet += '<label>Confirmer votre Mot de Passe:</label>';
+		packet += '<label>Confirmer votre Mot de Passe:*</label>';
 		packet += '<br />';
 		packet += '<input type="password" name="pws1" value="" />';
 		packet += '<font id="msg2"></font>';
