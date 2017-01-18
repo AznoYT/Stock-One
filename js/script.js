@@ -409,11 +409,13 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		view_param(2, nameuser, name, surname, sexe, mail, pws, nso, np, profile);
 	}
 	else if(action == 2) { // Affichage d'informations utilisateur
-		packet = '<h3>Information Personnels:</h3>';
+		packet = '<form action="./pages/verifmcompte.php" method="post">';
+		packet += '<h3>Information Personnels:</h3>';
 		packet += '<br />';
 		packet += '<label>--- Identifiant:</label>';
 		packet += '<br />';
-		packet += '- ' + nameuser;
+		packet += '- <font name="user">' + nameuser + '</font>';
+		packet += '<input class="none" type="hidden" name="user" value="' + nameuser + '" />';
 		packet += '<br /><br />';
 		packet += '<label>--- Nom:</label>';
 		packet += '<br />';
@@ -440,16 +442,18 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '- <select name="profile">';
 		
 		if(profile == "USER") {
-			packet += '<option>USER</option>';
+			packet += '<option value="USER">USER</option>';
 			packet += '<option>ADMIN</option>';
 		}
 		else if(profile == "ADMIN") {
-			packet += '<option>ADMIN</option>';
-			packet += '<option>USER</option>';
+			packet += '<option value="ADMIN">ADMIN</option>';
+			packet += '<option value="USER">USER</option>';
 		}
 		
 		packet += '</select>';
-		packet += '<br />';
+		packet += '<br /><br />';
+		packet += '<input class="ACT" type="submit" name="special" value="Modifier" title="Modifier les Informations du Compte" />';
+		packet += '</form>';
 		
 		info_param.innerHTML = packet;
 	}
