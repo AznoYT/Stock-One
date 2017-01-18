@@ -386,7 +386,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	
 	popup.innerHTML = packet;
-	switch(action) {
+	switch(action) { // Ciblage de l'élément de création de dossier via un switch case comme pour le tp en C
 		case 3: document.getElementById('nom_dossier').focus(); break;
 		default: break;
 	}
