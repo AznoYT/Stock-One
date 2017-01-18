@@ -71,8 +71,7 @@
 								<br /><br />
 								<label>--- Votre Grade:</label>
 								<br />
-								- $file[8]
-								</br>");
+								- $file[8]");
 							}
 						}
 					?>
@@ -104,6 +103,7 @@
 						<font id="msg2"></font>
 						<br /><br />
 						<input type="submit" class="ACT" value="Modifier" title="Modifier les Informations du Compte" />
+						<input class="WARN" type="reset" value="Tout Effacer" />
 						<input type="button" class="color" value="Retour" onclick="document.location = '../client.php'" />
 					</form>
 				</div>
