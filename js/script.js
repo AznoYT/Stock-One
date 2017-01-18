@@ -290,7 +290,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Nouveau Dossier:</legend>';
 		packet += '<label>Nom du dossier:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="Nom_Dossier" />';
+		packet += '<input type="text" id="nom_dossier" name="Nom_Dossier" />';
 		packet += '<br /><br />';
 		packet += '<input type="checkbox" name="Public" value="notif">';
 		packet += '<label>Publique</label>';
@@ -386,6 +386,10 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	
 	popup.innerHTML = packet;
+	switch(action) {
+		case 3: document.getElementById('nom_dossier').focus(); break;
+		default: break;
+	}
 }
 
 // Nouvelle fonctions de gestions du panneau administrateur
