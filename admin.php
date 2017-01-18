@@ -108,12 +108,12 @@
 						else if($_GET['code'] == '4') {
 							$action = 'Importation';
 							$objet = 'fichier';
-							$directory = 'compteuser.php';
+							$directory = 'admin.php';
 						}
 						else if($_GET['code'] == '5') {
 							$action = 'Modification';
 							$objet = 'compte';
-							$directory = 'compteuser.php';
+							$directory = 'admin.php';
 						}
 						
 						if($_GET['etat'] == "OK") {
