@@ -113,6 +113,13 @@
 						<?php
 							$data = $bdd->query('SELECT * FROM donnee');
 							
+							if(!isset($_GET['folder'])) {
+								echo("");
+							}
+							else if($_GET['folder']) {
+								echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"submit\" value=\"..\" title=\"..\" /><br />");
+							}
+							
 							while($file = $data->fetch()) {
 								if($user == $file[1]) {
 									if(!isset($_GET['folder'])) {
