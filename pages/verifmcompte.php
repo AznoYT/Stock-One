@@ -36,31 +36,42 @@
 				
 			</div>
 			<?php
-				$nom = $_POST['mnom'];
-				$pass = $_POST['pws1'];
-				$prenom = $_POST['mprenom'];
-				$mail = $_POST['memail'];
-				
-				echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
-				
-				// Modification des informations utilisateur
-				if($nom == '' && $prenom == '' && $mail == '') { // Si il ya pas d'infos personnels à traiter
-					echo("");
+				if(!isset($_POST['special'])) {
+					$nom = $_POST['mnom'];
+					$pass = $_POST['pws1'];
+					$prenom = $_POST['mprenom'];
+					$mail = $_POST['memail'];
+					
+					echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
+					
+					// Modification des informations utilisateur
+					if($nom == '' && $prenom == '' && $mail == '') { // Si il ya pas d'infos personnels à traiter
+						echo("");
+					}
+					else {
+						echo("<p>> Nom: $nom <br/>");
+						echo("<p>> Prénom: $prenom <br/>");
+						echo("<p>> Votre addresse mail: $mail <br/>");
+						
+						$stmt = $bdd->prepare('UPDATE user SET nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
+						$stmt->execute();
+					}
+					
+					$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
+					$stmt->execute();
+					
+					header("location: ./compteuser.php?code=5&etat=OK");
+					$bdd = null;
 				}
 				else {
-					echo("<p>> Nom: $nom <br/>");
-					echo("<p>> Prénom: $prenom <br/>");
-					echo("<p>> Votre addresse mail: $mail <br/>");
-					
-					$stmt = $bdd->prepare('UPDATE user SET nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
-					$stmt->execute();
+					if($_POST['special'] == 'Modifier') {
+						$stmt = $bdd->prepare('UPDATE user SET GRADE="'.$_POST['profile'].'" WHERE utilisateur="'.$_POST['user'].'"');
+						$stmt->execute();
+						
+						header("location: ../admin.php?code=5&etat=OK");
+						$bdd = null;
+					}
 				}
-				
-				$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
-				$stmt->execute();
-				
-				header("location: ./compteuser.php?code=5&etat=OK");
-				$bdd = null;
 			?>
 		</section>
 		<footer>
