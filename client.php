@@ -94,9 +94,30 @@
 			<article>
 				<h2>Dossier [<?php if(!isset($_GET['folder'])) { echo(""); } else { echo($_GET['folder']."/"); } ?>]</h2>
 				<div class="content">
-					<?php
-						echo("en construction...");
-					?>
+					<form action method="get">
+						<?php
+							$data = $bdd->query('SELECT * FROM donnee');
+							
+							while($file = $data->fetch()) {
+								if($user == $file[1]) {
+									if(!isset($_GET['folder'])) {
+										if($file[2] == 'folder') {
+											echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" /><br />");
+										}
+									}
+									
+									if(!isset($file[8])) {
+										echo("");
+									}
+									else if($file[8] == $_GET['folder']) {
+										if($file[2] == 'folder') {
+											echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" /><br />");
+										}
+									}
+								}
+							}
+						?>
+					</form>
 				</div>
 			</article>
 			<aside class="right">
