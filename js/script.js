@@ -15,6 +15,7 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
+	//t = setTimeout(function() { hide_pubs(); }, 500);
 }
 
 function checkTime(i) {
@@ -386,7 +387,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 	}
 	
 	popup.innerHTML = packet;
-	switch(action) { // Ciblage de l'élément de création de dossier via un switch case comme pour le tp en C
+	switch(action) {
 		case 3: document.getElementById('nom_dossier').focus(); break;
 		default: break;
 	}
@@ -521,6 +522,17 @@ function moreaction(action, fichier) {
 	popup.innerHTML = packet;
 }
 
+// Barre d'analyse espace disque utilisateur
+function analysedisk(occupied_space) {
+	var progressbar = document.getElementById('progressbar');
+	var free_space = 10;
+	var quotient = occupied_space / free_space;
+	var statdisk = Math.ceil(quotient * 100);
+	
+	progressbar.style.width = statdisk + '%';
+	progressbar.textContent = occupied_space + '/' + free_space + 'Go';
+}
+
 // Personnalisation des controls de la balise <audio>
 function custom_controls(action, lvl) {
 	var player = document.getElementById('player');
@@ -635,6 +647,24 @@ function other(op) {
 		document.location = "./pages/other.php";
 	}
 }
+
+/*****************************************************************************
+function hide_pubs() {
+	for(var i = 0; i < 1; i++) {
+		switch(i) {
+			case 0: var pub = document.getElementById('av_toolbar_iframe'); break;
+			case 1: var pub = document.getElementById('av_toolbar_regdiv'); break;
+		}
+		
+		pub.style.width = 0;
+		pub.style.height = 0;
+		pub.style.position = "absolute";
+		pub.innerHTML = "";
+	}
+	
+	document.body.style.marginTop = 0;
+}
+*****************************************************************************/
 
 /******
 * END *
