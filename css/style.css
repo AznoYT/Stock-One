@@ -242,7 +242,8 @@ fieldset {
 }
 
 .presentation {
-	margin: 1%;
+	border: 1px solid;
+	margin: 10px;
 	padding: 6px;
 }
 
@@ -328,6 +329,12 @@ aside {
 
 #progressbar {
 	background-color: #333333;
+	height: 100%;
+}
+
+.title {
+	border-bottom: 1px solid;
+	margin-right: -6px;
 }
 
 iframe {
