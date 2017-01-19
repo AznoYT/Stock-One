@@ -85,7 +85,7 @@
 								<label>--- Votre Espace disque:</label>
 								<br /><br />
 								<center>
-									<div id='progressbarControl'>
+									<div id='progressbarControl' style='margin-left: 15px; margin-right: 15px; width: auto;'>
 										<div id='progressbar'>
 											<script language='javascript' type='text/javascript'>
 												analysedisk($occupied_space);
