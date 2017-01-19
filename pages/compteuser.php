@@ -45,6 +45,15 @@
 				<h2>Vos Informations</h2>
 				<div class="content">
 					<?php
+						$data = $bdd->query('SELECT * FROM donnee');
+						$occupied_space = 0;
+						
+						while($file = $data->fetch()) {
+							if($file[1] == $user) {
+								$occupied_space = $occupied_space + $file[5];
+							}
+						}
+						
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
@@ -79,7 +88,7 @@
 									<div id='progressbarControl'>
 										<div id='progressbar'>
 											<script language='javascript' type='text/javascript'>
-												analysedisk();
+												analysedisk($occupied_space);
 											</script>
 										</div>
 									</div>
