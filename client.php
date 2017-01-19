@@ -94,7 +94,7 @@
 				<div class="content">
 					<form action method="get">
 						<?php
-							for($tour = 0; $tour < 2; $tour++) {
+							for($tour = 0; $tour < 2; $tour++) { // Code réagencer pour le listing des dossiers séparer des fichiers
 								$data = $bdd->query('SELECT * FROM donnee');
 								
 								switch($tour) {
