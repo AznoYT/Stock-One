@@ -71,7 +71,20 @@
 								<br /><br />
 								<label>--- Votre Grade:</label>
 								<br />
-								- $file[8]");
+								- $file[8]
+								<br /><br /><br />
+								<label>--- Votre Espace disque:</label>
+								<br /><br />
+								<center>
+									<div id='progressbarControl'>
+										<div id='progressbar'>
+											<script language='javascript' type='text/javascript'>
+												analysedisk();
+											</script>
+										</div>
+									</div>
+								</center>
+								");
 							}
 						}
 					?>
