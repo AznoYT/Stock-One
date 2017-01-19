@@ -241,6 +241,11 @@ fieldset {
 	padding: 4px;
 }
 
+.presentation {
+	margin: 1%;
+	padding: 6px;
+}
+
 aside {
 	border-bottom: 2px solid;
 	border-radius: 8px;
@@ -253,11 +258,13 @@ aside {
 .left {
 	border-left: 2px solid;
 	left: 1%;
+	z-index: 1;
 }
 
 .admin_panel_right, .right {
 	border-right: 2px solid;
 	left: 68.5%;
+	z-index: 1;
 }
 
 .admin_panel_right {
@@ -275,6 +282,10 @@ aside {
 	width: auto;
 }
 
+#popup {
+	z-index: 2;
+}
+
 .about {
 	bottom: 12%;
 }
@@ -283,12 +294,14 @@ aside {
 	left: 24%;
 	top: 40%;
 	width: 52%;
+	z-index: 2;
 }
 
 #popup_irc {
 	top: -55%;
 	margin-left: 75%;
 	position: relative;
+	z-index: 3;
 }
 
 .info_selected {
