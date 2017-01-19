@@ -94,12 +94,25 @@
 				<div class="content">
 					<form action method="get">
 						<?php
-							$data = $bdd->query('SELECT * FROM donnee');
-							
-							while($file = $data->fetch()) {
-								if($user == $file[1]) {
-									list_dossiers($file);
-									list_fichiers($file);
+							for($tour = 0; $tour < 2; $tour++) {
+								$data = $bdd->query('SELECT * FROM donnee');
+								
+								switch($tour) {
+									case 0:
+										while($file = $data->fetch()) {
+											if($user == $file[1]) {
+												list_dossiers($file);
+											}
+										}
+										break;
+									
+									case 1:
+										while($file = $data->fetch()) {
+											if($user == $file[1]) {
+												list_fichiers($file);
+											}
+										}
+										break;
 								}
 							}
 						?>
