@@ -14,7 +14,7 @@ function startTime() {
 	m = checkTime(m);
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
-	t = setTimeout(function(){ startTime() }, 500);
+	t = setTimeout(function() { startTime(); }, 500);
 }
 
 function checkTime(i) {
