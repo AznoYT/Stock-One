@@ -105,11 +105,9 @@ function popuplogin(login, attempt) {
 		popup.style.width = '42%';
 		popup.style.left = '28.75%';
 		
-		if(attempt == 1) {
-			packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
-		}
-		else {
-			packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">';
+		switch(attempt) {
+			case 1: packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
+			default: packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
 		}
 		
 		packet += '<fieldset>';
@@ -126,11 +124,9 @@ function popuplogin(login, attempt) {
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Connexion" />';
 		
-		if(attempt == 1) {
-			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
-		}
-		else {
-			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		switch(attempt) {
+			case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
+			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
 		}
 		
 		packet += '</fieldset>';
@@ -138,11 +134,9 @@ function popuplogin(login, attempt) {
 	}
 	else if(login == 2) { // Ici le Register
 		// Même topo que pour le login
-		if(attempt == 1) {
-			packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
-		}
-		else {
-			packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">';
+		switch(attempt) {
+			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
+			default: packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
 		}
 		
 		packet += '<fieldset>';
@@ -189,11 +183,9 @@ function popuplogin(login, attempt) {
 		packet += '<input class="ACT" type="submit" value="Inscription" />';
 		packet += '<input class="WARN" type="reset" value="Tout Effacer" />';
 		
-		if(attempt == 1) {
-			packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />';
-		}
-		else {
-			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		switch(attempt) {
+			case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
+			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
 		}
 		
 		packet += '</fieldset>';
@@ -217,33 +209,28 @@ function popupaction(action, attempt, methode, nom, taille) {
 		popup.style.left = '34.75%';
 		moreaction(0);
 		
-		if(attempt == 1) {
-			packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">';
-		}
-		else {
-			packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
+		switch(attempt) {
+			case 1: packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">'; break;
+			default: packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">'; break;
 		}
 		
 		packet += '<fieldset>';
 		
-		if(methode == 0) {
-			packet += '<legend>Envoyer un élément: [FICHIER]</legend>';
-		}
-		else if(methode == 1) {
-			packet += '<legend>Envoyer un élément: [DOSSIER]</legend>';
+		switch(methode) {
+			case 0: packet += '<legend>Envoyer un élément: [FICHIER]</legend>'; break;
+			case 1: packet += '<legend>Envoyer un élément: [DOSSIER]</legend>'; break;
 		}
 		
 		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 0);" value="Importer un fichier" id="file_choose" />';
 		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 1);" value="Importer un dossier" id="folder_choose" />';
 		packet += '<br /><br />';
 		
-		if(methode == 0) { // Alternement en fichier
-			packet += '<input type="file" name="fichiers" id="fichiers" title="Importation de fichiers" />';
-		}
-		else if(methode == 1) { // Alternement en dossier {PAS ENCORE TERMINER}
-			packet += '<input type="file" name="dossier" id="dossier" title="Importation de dossiers" webkitdirectory />';
-			packet += '<br />';
-			packet += '<font id="msg1">/!\\ ATTENTION: Pas encore au point</font>';
+		switch(methode) {
+			case 0: packet += '<input type="file" name="fichiers" id="fichiers" title="Importation de fichiers" />'; break;
+			case 1: packet += '<input type="file" name="dossier" id="dossier" title="Importation de dossiers" webkitdirectory />';
+				packet += '<br />';
+				packet += '<font id="msg1">/!\\ ATTENTION: Pas encore au point</font>';
+				break;
 		}
 		
 		packet += '<br /><br />';
@@ -252,11 +239,9 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="submit" value="Importer" />';
 		
-		if(attempt == 1) {
-			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
-		}
-		else {
-			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		switch(attempt) {
+			case 1: packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />'; break;
+			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
 		}
 		
 		packet += '</fieldset>';
@@ -271,12 +256,12 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Déconnexion:</legend>';
 		packet += '<label>Êtes-vous sûre de vouloir vous déconnecter ?</label>';
 		packet += '<br /><br />';
-		if(attempt == 1) {
-			packet += '<input class="WARN" type="button" onclick="disconnect(1, 1);" value="Oui" />';
+		
+		switch(attempt) {
+			case 1: packet += '<input class="WARN" type="button" onclick="disconnect(1, 1);" value="Oui" />'; break;
+			default: packet += '<input class="WARN" type="button" onclick="disconnect(1, 0);" value="Oui" />'; break;
 		}
-		else {
-			packet += '<input class="WARN" type="button" onclick="disconnect(1, 0);" value="Oui" />';
-		}
+		
 		packet += ' - ';
 		packet += '<input type="button" onclick="disconnect(0, 0);" value="Non" />';
 		packet += '</fieldset>';
@@ -298,11 +283,9 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="option" value="Créer" />';
 		
-		if(attempt == 1) {
-			packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />';
-		}
-		else {
-			packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />';
+		switch(attempt) {
+			case 1: packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />'; break;
+			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
 		}
 		
 		packet += '</fieldset>';
@@ -318,40 +301,35 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
 		packet += '<center>';
 		
-		if(methode == 0) { // Pour les dossiers
-			packet += '<p>En construction</p>';
-		}
-		else if(methode == 1) { // Pour les images
-			packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />';
-		}
-		else if(methode == 2) { // Pour les musiques
-			packet += '<audio id="player" ontimeupdate="custom_controls(4);" autoplay>';
-			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
-			packet += '</audio>';
-			packet += '<div style="position: relative;">';
-			packet += '<div id="progressbarControl">';
-			packet += '<div id="progressbar"></div>';
-			packet += '</div>';
-			packet += '<input class="controls" id="player_start" type="button" value="||" title="Pause" onclick="custom_controls(1, this);">';
-			packet += '<input class="controls" type="button" value=" ■ " title="Stop" onclick="custom_controls(2);">';
-			packet += '<span class="volume">';
-			packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);"></a>';
-			packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);"></a>';
-			packet += '<a class="stick3 volume" onclick="custom_controls(3, 0.5);"></a>';
-			packet += '<a class="stick4 volume" onclick="custom_controls(3, 0.7);"></a>';
-			packet += '<a class="stick5 volume" onclick="custom_controls(3, 1);"></a>';
-			packet += '</span>';
-			packet += '</div>';
-		}
-		else if(methode == 3) { // Pour les fichiers textes ou pdf
-			packet += '<div style="background-color: #FFFFFF; height: 500px;">';
-			packet += '<iframe src="' + attempt + '"></iframe>';
-			packet += '</div>';
-		}
-		else if(methode == 4) { // Pour les vidéos
-			packet += '<video height="500px" controls autoplay>';
-			packet += '<source src="' + attempt + '" type="audio/mpeg" />';
-			packet += '</video>';
+		switch(methode) {
+			case 0: packet += '<p>En construction</p>'; break; // Pour les dossiers
+			case 1: packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />'; break; // Pour les images
+			case 2: packet += '<audio id="player" ontimeupdate="custom_controls(4);" autoplay>'; // Pour les musiques
+				packet += '<source src="' + attempt + '" type="audio/mpeg" />';
+				packet += '</audio>';
+				packet += '<div style="position: relative;">';
+				packet += '<div id="progressbarControl">';
+				packet += '<div id="progressbar"></div>';
+				packet += '</div>';
+				packet += '<input class="controls" id="player_start" type="button" value="||" title="Pause" onclick="custom_controls(1, this);">';
+				packet += '<input class="controls" type="button" value=" ■ " title="Stop" onclick="custom_controls(2);">';
+				packet += '<span class="volume">';
+				packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);"></a>';
+				packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);"></a>';
+				packet += '<a class="stick3 volume" onclick="custom_controls(3, 0.5);"></a>';
+				packet += '<a class="stick4 volume" onclick="custom_controls(3, 0.7);"></a>';
+				packet += '<a class="stick5 volume" onclick="custom_controls(3, 1);"></a>';
+				packet += '</span>';
+				packet += '</div>';
+				break;
+			case 3: packet += '<div style="background-color: #FFFFFF; height: 500px;">'; // Pour les fichiers textes ou pdf
+				packet += '<iframe src="' + attempt + '"></iframe>';
+				packet += '</div>';
+				break;
+			case 4: packet += '<video height="500px" controls autoplay>'; // Pour les vidéos
+				packet += '<source src="' + attempt + '" type="audio/mpeg" />';
+				packet += '</video>';
+				break;
 		}
 		
 		packet += '</center>';
@@ -394,7 +372,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 }
 
 // Nouvelle fonctions de gestions du panneau administrateur
-function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, profile) {
+function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, profile, taille) {
 	var frame_param = document.getElementById('frame_param');
 	var selected = document.getElementById('selected');
 	var info_param = document.getElementById('info_param');
@@ -402,8 +380,8 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 	if(action == 1) { // Changement d'informations utilisateur
 		packet = '<div class="info_selected">';
 		packet += '<h3 id="selected">Affichage de: ' + nameuser + '</h3>> ';
-		packet += '<input type="button" value="Données Utilisateurs" onclick="view_param(3);" /> ';
-		packet += '<input type="button" value="Paramètre Profile" onclick="view_param(2, \'' + nameuser + '\', \'' + name + '\', \'' + surname + '\', \'' + sexe + '\', \'' + mail + '\', \'' + pws + '\', \'' + nso + '\', \'' + np + '\', \'' + profile + '\');" />';
+		packet += '<input type="button" value="Données Utilisateurs" onclick="view_param(3, \'' + nameuser + '\', \'' + name + '\', \'' + surname + '\', \'' + sexe + '\', \'' + mail + '\', \'' + pws + '\', \'' + nso + '\', \'' + np + '\', \'' + profile + '\', \'' + taille + '\');" /> ';
+		packet += '<input type="button" value="Paramètre Profile" onclick="view_param(2, \'' + nameuser + '\', \'' + name + '\', \'' + surname + '\', \'' + sexe + '\', \'' + mail + '\', \'' + pws + '\', \'' + nso + '\', \'' + np + '\', \'' + profile + '\', \'' + taille + '\');" />';
 		packet += '<br /><br />';
 		packet += '<h3>Paramètre Afficher:</h3>';
 		packet += '</div>';
@@ -411,7 +389,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '</div>';
 		
 		frame_param.innerHTML = packet;
-		view_param(2, nameuser, name, surname, sexe, mail, pws, nso, np, profile);
+		view_param(2, nameuser, name, surname, sexe, mail, pws, nso, np, profile, taille);
 	}
 	else if(action == 2) { // Affichage d'informations utilisateur
 		packet = '<form action="./pages/verifmcompte.php" method="post">';
@@ -446,13 +424,14 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '<br />';
 		packet += '- <select name="profile">';
 		
-		if(profile == "USER") {
-			packet += '<option value="USER">USER</option>';
-			packet += '<option>ADMIN</option>';
-		}
-		else if(profile == "ADMIN") {
-			packet += '<option value="ADMIN">ADMIN</option>';
-			packet += '<option value="USER">USER</option>';
+		switch(profile) {
+			case "USER": packet += '<option value="USER">USER</option>';
+				packet += '<option>ADMIN</option>';
+				break;
+			
+			case "ADMIN": packet += '<option value="ADMIN">ADMIN</option>';
+				packet += '<option value="USER">USER</option>';
+				break;
 		}
 		
 		packet += '</select>';
@@ -463,9 +442,18 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		info_param.innerHTML = packet;
 	}
 	else if(action == 3) {
-		packet = '';
+		packet = '<h3>Espace Disque: </h3><br />';
+		packet += '<div id="progressbarControl" style="margin-left: 15px; margin-right: 15px; width: auto;">';
+		packet += '<div id="progressbar">';
+		packet += '</div>';
+		packet += '</div>';
+		packet += '<br /><br />';
+		packet += '';
 		
 		info_param.innerHTML = packet;
+		switch(action) {
+			case 3: analysedisk(taille); break;
+		}
 	}
 }
 
@@ -530,6 +518,7 @@ function analysedisk(occupied_space) {
 	var statdisk = Math.ceil(quotient * 100);
 	
 	progressbar.style.width = statdisk + '%';
+	progressbar.innerHTML = '<p style="padding-left: 3px;">' + statdisk + '%</p>';
 }
 
 // Personnalisation des controls de la balise <audio>
@@ -537,7 +526,7 @@ function custom_controls(action, lvl) {
 	var player = document.getElementById('player');
 	var starter = document.getElementById('player_start');
 	var progressbar = document.getElementById('progressbar');
-	var volume_info = document.getElementById('volume_info');
+	//var volume_info = document.getElementById('volume_info');
 	
 	if(action == 1) { // Lecture et Pause
 		if(player.paused) {
@@ -561,12 +550,11 @@ function custom_controls(action, lvl) {
 	}
 	else if(action == 3) { // Volume
 		player.volume = lvl;
-		if(lvl == 0) {
-			volume_info.innerHTML = "MUTED";
-		}
-		else {
-			volume_info.innerHTML = lvl * 100 + "%";
-		}
+		
+		/*switch(lvl) {
+			case 0: volume_info.innerHTML = "MUTED"; break;
+			default: volume_info.innerHTML = lvl * 100 + "%"; break;
+		}*/
 	}
 	else if(action == 4) { // Barre de progression
 		var quotient = player.currentTime / player.duration;
@@ -611,11 +599,9 @@ function info_tchat(obj, msg) {
 // Fonction de changement de mode utilisateur pour l'administrateur user
 function adminswitch(mode) {
 	setTimeout(function() {
-		if(mode == 1) { // ADMIN MOD
-			document.location = "./admin.php";
-		}
-		else if(mode == 2) { // USER MOD
-			document.location = "./client.php";
+		switch(mode) {
+			case 1: document.location = "./admin.php"; break; // ADMIN MOD
+			case 2: document.location = "./client.php"; break; // USER MOD
 		}
 	}, 350);
 }
@@ -623,27 +609,21 @@ function adminswitch(mode) {
 // Cette fonction est pour la deconnexion du compte
 function disconnect(stat, method) {
 	if(method == 0) {
-		if(stat == 0) {
-			popupaction(0);
-		}
-		else if(stat == 1) {
-			document.location = "./pages/disconnect.php";
+		switch(stat) {
+			case 0: popupaction(0); break;
+			case 1: document.location = "./pages/disconnect.php"; break;
 		}
 	}
 	else if(method == 1) {
-		if(stat == 1) {
-			document.location = "./disconnect.php";
-		}
+		document.location = "./disconnect.php";
 	}
 }
 
 // Fonction de développement /!\ PAS TOUCHER !!!!
 function other(op) {
-	if(op == 0) {
-		document.location = "../client.php";
-	}
-	else if(op == 1) {
-		document.location = "./pages/other.php";
+	switch(op) {
+		case 0: document.location = "../client.php"; break;
+		case 1: document.location = "./pages/other.php"; break;
 	}
 }
 

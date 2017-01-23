@@ -61,7 +61,16 @@
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
-							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]');\" /><br />");
+							$data2 = $bdd->query('SELECT * FROM donnee');
+							$occupied_space = 0;
+							
+							while($file2 = $data2->fetch()) {
+								if($file2[1] == $file[0]) {
+									$occupied_space = $occupied_space + $file2[5];
+								}
+							}
+							
+							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]', '$occupied_space');\" /><br />");
 						}
 					?>
 				</div>
