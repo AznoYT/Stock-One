@@ -39,8 +39,27 @@
 		<section>
 			<?php
 				// Ce fichiers contiendra les commandes de suppressions et de copies
-				function insertion($utilisateur ,$extension, $nom, $dir, $publique, $COMMAND) {
-					// Dans la fonction il y aura l'insertion de nouvel donnée dans la database. Elle sera ensuite appeler par chaque conditions
+				function action($COMMAND, $db, $propriétaire, $nom, $dir, $dirpaste) {
+					// Dans la fonction il y aura le mode d'action de donnée dans la database. Elle sera ensuite appeler par chaque conditions
+					// ICI sera insérer le code PHP executant l'action sur le fichier choisi
+					
+					
+					// Cette Partie du code concerne le référencement dans la base donnée
+					$data = $db->query('SELECT * FROM donnee');
+					
+					while($file = $data->fetch()) {
+						if($propriétaire == $file[1]) {
+							if($nom == $file[3]) {
+								switch($COMMAND) {
+									case 0: $stmt = $db->prepare('UPDATE donnee SET nom_dossier="./files/4N4RCHY/"'); break; // La copie
+									case 1: $stmt = $db->prepare('UPDATE donnee SET nom_dossier="./files/4N4RCHY/"'); break; // Le déplacement
+									case 2: $stmt = $db->prepare('DELETE FROM donnee WHERE nom="'.$nom.'"'); break; // La suppression
+								}
+								
+								$stmt->execute();
+							}
+						}
+					}
 					
 					return 'OK';
 				}
@@ -66,17 +85,17 @@
 				else if($_POST['action'] == 'Copier') { // La copie
 					$code = "1";
 					echo("> Copie du fichier: $fichiers vers $pathpaste");
-					$etat = insertion();
+					$etat = action(0, $bdd, $user, $fichiers, $path, $pathpaste);
 				}
 				else if($_POST['action'] == 'Déplacer') { // Le déplacement
 					$code = "2";
 					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
-					$etat = insertion();
+					$etat = action(1, $bdd, $user, $fichiers, $path, $pathpaste);
 				}
 				else if($_POST['action'] == 'Oui') { // La suppression
 					$code = "3";
 					echo("> Suppression du fichier: $fichiers");
-					$etat = insertion();
+					$etat = action(2, $bdd, $user, $fichiers, NULL, NULL);
 				}
 				else { // Là c'est pour un cas extrêmement rare
 					$code = "0";
