@@ -4,6 +4,23 @@
 *                       *
 ************************/
 
+/*
+@-webkit-keyframes typing {
+    from { width: 0 }
+    to { width:16.3em }
+}
+
+@-moz-keyframes typing {
+    from { width: 0 }
+    to { width:16.3em }
+}
+
+@-moz-keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #CCCCCC }
+}
+*/
+
 .userswitch {
 	margin-left: -30%;
 	position: absolute;
@@ -241,11 +258,19 @@ fieldset {
 	padding: 4px;
 }
 
-.presentation {
+#Note {
 	border: 1px solid;
 	margin: 10px;
 	padding: 6px;
 }
+
+/*
+#Note {
+	white-space: nowrap;
+	-webkit-animation: typing 17s steps(30, end), blink-caret 1s step-end infinite;
+	-moz-animation: typing 17s steps(30, end), blink-caret 1s step-end infinite;
+}
+*/
 
 aside {
 	border-bottom: 2px solid;
