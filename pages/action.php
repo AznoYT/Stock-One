@@ -51,8 +51,8 @@
 						if($propriétaire == $file[1]) {
 							if($nom == $file[3]) {
 								switch($COMMAND) {
-									case 0: $stmt = $db->prepare('UPDATE donnee SET nom_dossier="./files/'.$propriétaire.'/"'); break; // La copie
-									case 1: $stmt = $db->prepare('UPDATE donnee SET nom_dossier="./files/'.$propriétaire.'/"'); break; // Le déplacement
+									case 0: $stmt = $db->prepare('UPDATE donnee SET nom_dossier'); break; // La copie
+									case 1: $stmt = $db->prepare('UPDATE donnee SET nom_dossier'); break; // Le déplacement
 									case 2: $stmt = $db->prepare('DELETE FROM donnee WHERE nom="'.$nom.'"'); break; // La suppression
 								}
 								
