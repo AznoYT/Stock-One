@@ -544,7 +544,6 @@ function custom_controls(action, lvl) {
 		player.currentTime = 0;
 		player.pause();
 		progressbar.style.width = '0%';
-		progressbar.textContent = '0%';
 		starter.value = " ► ";
 		starter.title = "Play";
 	}
@@ -561,7 +560,6 @@ function custom_controls(action, lvl) {
 		var statprogress = Math.ceil(quotient * 100);
 		
 		progressbar.style.width = statprogress + '%';
-		progressbar.textContent = statprogress + '%';
 	}
 }
 
