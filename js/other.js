@@ -15,9 +15,11 @@ grid = {
 		this.width = c;
 		this.height = r;
 		this.grids = [];
-		for (var x = 0; x < c; x++) {
+		
+		for(var x = 0; x < c; x++) {
 			this.grids.push([]);
-			for (var y = 0; y < r; y++) {
+			
+			for(var y = 0; y < r; y++) {
 				this.grids[x].push(d);
 			}
 		}
@@ -50,13 +52,15 @@ snake = {
 
 function setBlob() {
 	var space = [];
-	for (var x = 0;x < grid.width; x++) {
-		for (var y = 0;y < grid.height; y++) {
-			if (grid.get(x,y) == SPACE) {
+	
+	for(var x = 0;x < grid.width; x++) {
+		for(var y = 0;y < grid.height; y++) {
+			if(grid.get(x,y) == SPACE) {
 				space.push({x:x, y:y});
 			}
 		}
 	}
+	
 	var rand = space[Math.round(Math.random() * (space.length - 1))];
 	grid.set(FOOD, rand.x, rand.y);
 	fr++;
@@ -106,36 +110,26 @@ function infinity() {
 
 function update() {
 	frames++;
-	if(keystate[KEY_LEFT] && snake.direction !== RIGHT)
-	{snake.direction = LEFT;}
-	if(keystate[KEY_UP] && snake.direction !==DOWN)
-	{snake.direction = UP;}
-	if (keystate[KEY_RIGHT] && snake.direction !== LEFT) {snake.direction = RIGHT;}
-	if (keystate[KEY_DOWN] && snake.direction !== UP) {snake.direction = DOWN;}
-	if (frames%10 === 0) {
+	if(keystate[KEY_LEFT] && snake.direction !== RIGHT) { snake.direction = LEFT; }
+	if(keystate[KEY_UP] && snake.direction !==DOWN) { snake.direction = UP; }
+	if(keystate[KEY_RIGHT] && snake.direction !== LEFT) { snake.direction = RIGHT; }
+	if(keystate[KEY_DOWN] && snake.direction !== UP) { snake.direction = DOWN; }
+	if(frames%10 === 0) {
 		var xcor = snake.last.x;
 		var ycor = snake.last.y;
-		switch (snake.direction) {
-			case LEFT:
-				xcor--;
-				break;
-			case UP:
-				ycor--;
-				break;
-			case RIGHT:
-				xcor++;
-				break;
-			case DOWN:
-				ycor++;
-				break;
+		switch(snake.direction) {
+			case LEFT: xcor--; break;
+			case UP: ycor--; break;
+			case RIGHT: xcor++; break;
+			case DOWN: ycor++; break;
 		}
-		if (xcor < 0 || xcor > grid.width-1 || ycor<0 || ycor > grid.height-1) {
+		if(xcor < 0 || xcor > grid.width-1 || ycor<0 || ycor > grid.height-1) {
 			return init();
 		}
 		if(grid.get(xcor,ycor) == SNAKE) {
 			return init();
 		}
-		if (grid.get(xcor,ycor) == FOOD) {
+		if(grid.get(xcor,ycor) == FOOD) {
 			score++;
 			setBlob();
 		}
@@ -152,22 +146,18 @@ function update() {
 function draw() {
 	var tw = canvas.width / grid.width;
 	var th = canvas.height / grid.height;
-	for (var x = 0; x < grid.width; x++) {
-		for (var y = 0; y < grid.height; y++) {
-			switch (grid.get(x, y)) {
-				case SPACE:
-					context.fillStyle = '#000000';
-					break;
-				case SNAKE:
-					context.fillStyle = '#CCCCCC';
-					break;
-				case FOOD:
-					context.fillStyle = '#CCCCCC';
-					break;
+	
+	for(var x = 0; x < grid.width; x++) {
+		for(var y = 0; y < grid.height; y++) {
+			switch(grid.get(x, y)) {
+				case SPACE: context.fillStyle = '#000000'; break;
+				case SNAKE: context.fillStyle = '#CCCCCC'; break;
+				case FOOD: context.fillStyle = '#CCCCCC'; break;
 			}
 			context.fillRect(x * tw, y * th, tw, th);
 		}
 	}
+	
 	var x = document.getElementById('score');
 	x.innerHTML = "Score: " + 5 * (fr - 1);
 	var y = document.getElementById('food');
