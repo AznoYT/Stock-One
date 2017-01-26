@@ -12,7 +12,7 @@
 	</head>
 	<?php
 		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
 		}
 		catch(Exception $e) {
 			die('ERROR : '.$e->getMessage());
@@ -67,6 +67,7 @@
 							while($file2 = $data2->fetch()) {
 								if($file2[1] == $file[0]) {
 									$occupied_space = $occupied_space + $file2[5];
+									//$filediscover = ["'$file2[0]','$file2[1]','$file2[2]','$file2[3]','$file2[4]','$file2[5]','$file2[6]','$file2[7]'"];
 								}
 							}
 							
