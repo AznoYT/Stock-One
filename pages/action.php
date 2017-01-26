@@ -82,25 +82,25 @@
 					$etat = "ERREUR";
 					echo("> Echec de traitement. #ERROR: COMMAND NON TROUVER");
 				}
-				else if($_POST['action'] == 'Copier') { // La copie
-					$code = "1";
-					echo("> Copie du fichier: $fichiers vers $pathpaste");
-					$etat = action(0, $bdd, $user, $fichiers, $path, $pathpaste);
-				}
-				else if($_POST['action'] == 'Déplacer') { // Le déplacement
-					$code = "2";
-					echo("> Déplacement du fichier: $fichiers vers $pathpaste");
-					$etat = action(1, $bdd, $user, $fichiers, $path, $pathpaste);
-				}
-				else if($_POST['action'] == 'Oui') { // La suppression
-					$code = "3";
-					echo("> Suppression du fichier: $fichiers");
-					$etat = action(2, $bdd, $user, $fichiers, NULL, NULL);
-				}
-				else { // Là c'est pour un cas extrêmement rare
-					$code = "0";
-					$etat = "INCONNU";
-					echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
+				else {
+					switch($_POST['action']) {
+						case 'Copier': $code = "1";
+							echo("> Copie du fichier: $fichiers vers $pathpaste");
+							$etat = action(0, $bdd, $user, $fichiers, $path, $pathpaste);
+							break;
+						case 'Déplacer': $code = "2";
+							echo("> Déplacement du fichier: $fichiers vers $pathpaste");
+							$etat = action(1, $bdd, $user, $fichiers, $path, $pathpaste);
+							break;
+						case 'Oui': $code = "3";
+							echo("> Suppression du fichier: $fichiers");
+							$etat = action(2, $bdd, $user, $fichiers, NULL, NULL);
+							break;
+						default: $code = "0";
+							$etat = "INCONNU";
+							echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
+							break;
+					}
 				}
 				
 				header("location: ../client.php?code=$code&etat=$etat");
