@@ -69,22 +69,23 @@
 						$try = 1;
 					}
 				}
-				if($try == 1) {
-					echo("<br />> Echec de la tentative de creation de compte.");
+				
+				switch($try) {
+					case 1: echo("<br />> Echec de la tentative de creation de compte."); break;
+					default: $_SESSION['user'] = $_POST['utilisateur'];
+						$_SESSION['profile'] = $PROFILE;
+						
+						// Insertion des informations dans la base de données
+						$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire, GRADE) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
+						$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart, $PROFILE));
+						$stmt = $bdd->query('SELECT utilisateur FROM user');
+						// Et enfin création du répertoires de stockage de l'utilisateur
+						mkdir("../files/$rusr");
+						
+						header("location: ../client.php");
+						break;
 				}
-				else {
-					$_SESSION['user'] = $_POST['utilisateur'];
-					$_SESSION['profile'] = $PROFILE;
-					
-					// Insertion des informations dans la base de données
-					$stmt = $bdd->prepare('INSERT INTO user(utilisateur, pws, nom, prenom, genre, email, notifso, notifpartenaire, GRADE) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
-					$stmt->execute(array($_POST['utilisateur'], $_POST['pws'], $_POST['Nom'], $_POST['prenom'], $_POST['genre'], $mail = $_POST['email'], $notif, $notifpart, $PROFILE));
-					$stmt = $bdd->query('SELECT utilisateur FROM user');
-					// Et enfin création du répertoires de stockage de l'utilisateur
-					mkdir("../files/$rusr");
-					
-					header("location: ../client.php");
-				}
+				
 				$bdd = null;
 			?>
 			<script type="text/javascript">
