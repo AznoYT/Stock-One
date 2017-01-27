@@ -195,7 +195,7 @@ input:hover {
 	border-radius: 3px;
 	right: 150px;
 	padding: 4px;
-	transition: 0s;
+	transition: 0.5s;
 }
 
 .controls:hover {
