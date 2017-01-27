@@ -100,7 +100,7 @@
 				</div>
 			</aside>
 			<aside class="admin_panel_right">
-				<h2>Modification compte utilisateur</h2>
+				<h2>Paramètres</h2>
 				<div class="content">
 					<form action="./verifmcompte.php" method="POST" onsubmit="return verify(1, this.pws1, this.pws2, 'confirm');" style="padding: 4px;">
 						<h3>Modification Informations Personnels: </h3><font id="msg3">[Laisser vide pour ne pas modifier]</font>
