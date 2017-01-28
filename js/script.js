@@ -513,7 +513,7 @@ function moreaction(action, fichier) {
 // Barre d'analyse espace disque utilisateur
 function analysedisk(occupied_space) {
 	var progressbar = document.getElementById('progressbar');
-	var free_space = 10000000;
+	var free_space = 10000000000;
 	var quotient = occupied_space / free_space;
 	var statdisk = Math.ceil(quotient * 100);
 	
