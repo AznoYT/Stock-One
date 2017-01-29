@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 07 Janvier 2017 à 14:40
+-- Généré le :  Dim 29 Janvier 2017 à 19:35
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `donnee` (
   `nom` varchar(255) NOT NULL,
   `nom_dossier` varchar(255) NOT NULL,
   `taille` int(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
+  `placement` varchar(255) NOT NULL,
   `public` text NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
@@ -54,10 +54,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `notifso` text,
   `notifpartenaire` text,
   `GRADE` varchar(255) DEFAULT NULL,
+  `theme` varchar(255) NOT NULL DEFAULT 'default',
   UNIQUE KEY `utilisateur` (`utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (utilisateur, nom, prenom, genre, email, pws, notifso, notifpartenaire, GRADE) VALUES ("admin", NULL, NULL, NULL, NULL, "admin", "y", "n", "ADMIN");
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`utilisateur`, `nom`, `prenom`, `genre`, `email`, `pws`, `notifso`, `notifpartenaire`, `GRADE`, `theme`) VALUES
+('admin', NULL, NULL, NULL, NULL, 'admin', 'y', 'n', 'ADMIN', 'reverse');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
