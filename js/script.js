@@ -106,9 +106,9 @@ function popuplogin(login, attempt) {
 		
 		packet += '<fieldset>';
 		packet += '<legend>Connexion:</legend>';
-		packet += '<label for="username">Nom d\'Utilisateur:</label>';
+		packet += '<label for="userinput">Nom d\'Utilisateur:</label>';
 		packet += '<br />';
-		packet += '<input type="text" id="username" name="lutilisateur" id="userinput" />';
+		packet += '<input type="text" name="lutilisateur" id="userinput" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
 		packet += '<label for="password">Mot de passe:</label>';
