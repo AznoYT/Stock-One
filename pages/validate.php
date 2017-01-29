@@ -11,12 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>
@@ -27,9 +23,7 @@
 			</a>
 		</header>
 		<section>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
 			<?php
 				$rusr = $_POST['utilisateur'];
 				$pass = $_POST['pws'];
@@ -39,18 +33,10 @@
 				$mail = $_POST['email'];
 				$PROFILE = 'USER';
 				
-				if(!isset($_POST['notif'])) {
-					$notif = 'n';
-				}
-				else {
-					$notif = 'y';
-				}
-				if(!isset($_POST['notifpart'])) {
-					$notifpart = 'n';
-				}
-				else {
-					$notifpart = 'y';
-				}
+				if(!isset($_POST['notif'])) { $notif = 'n'; }
+				else { $notif = 'y'; }
+				if(!isset($_POST['notifpart'])) { $notifpart = 'n'; }
+				else { $notifpart = 'y'; }
 				
 				echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
 				echo("<p>> Nom d'utilisateur: $rusr <br/>");
@@ -65,9 +51,7 @@
 				$try = 0;
 				
 				while($usr = $login->fetch()) {
-					if($rusr == $usr[0]) {
-						$try = 1;
-					}
+					if($rusr == $usr[0]) { $try = 1; }
 				}
 				
 				switch($try) {
