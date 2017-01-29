@@ -19,9 +19,7 @@ function startTime() {
 }
 
 function checkTime(i) {
-	if (i<10) {
-		i = "0" + i;
-	}
+	if (i<10) { i = "0" + i; }
 	return i;
 }
 
@@ -52,9 +50,7 @@ function verify(connect, pws1, pws2, usr) {
 			msg1.innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
 			msg2.innerHTML = '';
 		}
-		else {
-			var passed = true;
-		}
+		else { var passed = true; }
 		return passed;
 	}
 	else if(connect == 2) {
@@ -87,9 +83,7 @@ function verify(connect, pws1, pws2, usr) {
 			msg1.innerHTML = '';
 			msg2.innerHTML = '';
 		}
-		else {
-			var passed = true;
-		}
+		else { var passed = true; }
 		return passed;
 	}
 }
@@ -112,14 +106,14 @@ function popuplogin(login, attempt) {
 		
 		packet += '<fieldset>';
 		packet += '<legend>Connexion:</legend>';
-		packet += '<label>Nom d\'Utilisateur:</label>';
+		packet += '<label for="username">Nom d\'Utilisateur:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="lutilisateur" id="userinput" />';
+		packet += '<input type="text" id="username" name="lutilisateur" id="userinput" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
-		packet += '<label>Mot de passe:</label>';
+		packet += '<label for="password">Mot de passe:</label>';
 		packet += '<br />';
-		packet += '<input type="password" name="lpws" />';
+		packet += '<input type="password" id="password" name="lpws" />';
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Connexion" />';
@@ -141,44 +135,49 @@ function popuplogin(login, attempt) {
 		
 		packet += '<fieldset>';
 		packet += '<legend>Inscription:</legend>';
-		packet += '<label>Nom d\'utilisateur:*</label>';
+		packet += '<label for="userinput">Nom d\'utilisateur:*</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="utilisateur" id="userinput" value="" />';
 		packet += '<font id="msg0"></font>';
 		packet += '<br />';
-		packet += '<label>Nom:</label>';
+		packet += '<label for="nom">Nom:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="Nom" value="" />';
+		packet += '<input type="text" id="nom" name="Nom" value="" />';
 		packet += '<br />';
-		packet += '<label>Prénom:</label>';
+		packet += '<label for="surnom">Prénom:</label>';
 		packet += '<br />';
-		packet += '<input type="text" name="prenom" value="" />';
+		packet += '<input type="text" id="surnom" name="prenom" value="" />';
 		packet += '<br /><br />';
 		packet += '<label>Sexe:</label>';
 		packet += '<br />';
-		packet += '<input type="radio" name="genre" value="Homme" checked /> Homme';
+		packet += '<input type="radio" id="Homme" name="genre" value="Homme" checked />';
+		packet += '<label for="Homme"> Homme</label>';
 		packet += '<br />';
-		packet += '<input type="radio" name="genre" value="Femme" /> Femme';
+		packet += '<input type="radio" id="Femme" name="genre" value="Femme" />';
+		packet += '<label for="Femme"> Femme</label>';
 		packet += '<br />';
-		packet += '<input type="radio" name="genre" value="Autres" /> Autres';
+		packet += '<input type="radio" id="Autres" name="genre" value="Autres" />';
+		packet += '<label for="Autres"> Autres</label>';
 		packet += '<br /><br />';
-		packet += '<label>E-mail:</label>';
+		packet += '<label for="adresse">E-mail:</label>';
 		packet += '<br />';
-		packet += '<input type="email" name="email" />';
+		packet += '<input type="email" id="adresse" name="email" />';
 		packet += '<br/><br/>';
-		packet += '<label>Mot de passe:*</label>';
+		packet += '<label for="password">Mot de passe:*</label>';
 		packet += '<br/>';
-		packet += '<input type="password" name="pws" value="" />';
+		packet += '<input id="password" type="password" name="pws" value="" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
-		packet += '<label>Confirmer votre Mot de Passe:*</label>';
+		packet += '<label for="confirmpassword">Confirmer votre Mot de Passe:*</label>';
 		packet += '<br />';
-		packet += '<input type="password" name="pws1" value="" />';
+		packet += '<input id="confirmpassword" type="password" name="pws1" value="" />';
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
-		packet += '<input type="checkbox" name="notif" value="1" /> Souhaitez vous recevoir des notifications de la part de Stock-One';
+		packet += '<input type="checkbox" id="notif" name="notif" value="1" />';
+		packet += '<label for="notif"> Souhaitez vous recevoir des notifications de la part de Stock-One</label>';
 		packet += '<br />';
-		packet += '<input type="checkbox" name="notifpart" value="1" /> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter';
+		packet += '<input type="checkbox" id="notifpart" name="notifpart" value="1" />';
+		packet += '<label for="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter</label>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Inscription" />';
 		packet += '<input class="WARN" type="reset" value="Tout Effacer" />';
@@ -347,20 +346,12 @@ function popupaction(action, attempt, methode, nom, taille) {
 		popup = document.getElementById('popup_irc');
 		
 		if(attempt == 0) {
-			if(popup.innerHTML == '<iframe class="IRC" src="./IRC.php"></iframe>') {
-				packet = '';
-			}
-			else {
-				packet = '<iframe class="IRC" src="./IRC.php"></iframe>';
-			}
+			if(popup.innerHTML == '<iframe class="IRC" src="./IRC.php"></iframe>') { packet = ''; }
+			else { packet = '<iframe class="IRC" src="./IRC.php"></iframe>'; }
 		}
 		else {
-			if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') {
-				packet = '';
-			}
-			else {
-				packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>';
-			}
+			if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') { packet = ''; }
+			else { packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>'; }
 		}
 	}
 	
@@ -451,9 +442,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '';
 		
 		info_param.innerHTML = packet;
-		switch(action) {
-			case 3: analysedisk(taille); break;
-		}
+		switch(action) { case 3: analysedisk(taille); break; }
 	}
 }
 
@@ -461,50 +450,47 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 function moreaction(action, fichier) {
 	var popup = document.getElementById('popupabout');
 	
-	if(action == 0) {
-		packet = '';
-	}
-	else if(action == 1) { // Ici la copie
-		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
-		packet += '<fieldset>';
-		packet += '<legend>Copier un fichier:</legend>';
-		packet += '<p>Copie de "' + fichier + '"</p>';
-		packet += '<br />';
-		packet += '<label>Vers:</label>';
-		packet += '<br />';
-		packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
-		packet += '<br /><br />';
-		packet += '<input class="ACT" type="submit" name="action" value="Copier" />';
-		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
-		packet += '</fieldset>';
-		packet += '</form>';
-	}
-	else if(action == 2) { // Ici le déplacement
-		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
-		packet += '<fieldset>';
-		packet += '<legend>Déplacer un fichier:</legend>';
-		packet += '<p>Déplacement de "' + fichier + '"</p>';
-		packet += '<br />';
-		packet += '<label>Vers:</label>';
-		packet += '<br />';
-		packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
-		packet += '<br /><br />';
-		packet += '<input class="ACT" type="submit" name="action" value="Déplacer" />';
-		packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
-		packet += '</fieldset>';
-		packet += '</form>';
-	}
-	else if(action == 3) { // Ici la confirmation de suppression
-		packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">';
-		packet += '<fieldset>';
-		packet += '<legend>Supprimer un fichier:</legend>';
-		packet += '<p>Êtes-vous sûre de vouloir supprimer "' + fichier + '" ?</p>';
-		packet += '<br /><br />';
-		packet += '<input class="WARN" type="submit" name="action" value="Oui" />';
-		packet += ' - ';
-		packet += '<input type="button" onclick="moreaction(0);" value="Non" />';
-		packet += '</fieldset>';
-		packet += '</form>';
+	switch(action) {
+		case 0: packet = ''; break; // Ici la copie
+		case 1: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici la copie
+			packet += '<fieldset>';
+			packet += '<legend>Copier un fichier:</legend>';
+			packet += '<p>Copie de "' + fichier + '"</p>';
+			packet += '<br />';
+			packet += '<label>Vers:</label>';
+			packet += '<br />';
+			packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
+			packet += '<br /><br />';
+			packet += '<input class="ACT" type="submit" name="action" value="Copier" />';
+			packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
+			packet += '</fieldset>';
+			packet += '</form>';
+			break;
+		case 2: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici le déplacement
+			packet += '<fieldset>';
+			packet += '<legend>Déplacer un fichier:</legend>';
+			packet += '<p>Déplacement de "' + fichier + '"</p>';
+			packet += '<br />';
+			packet += '<label>Vers:</label>';
+			packet += '<br />';
+			packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
+			packet += '<br /><br />';
+			packet += '<input class="ACT" type="submit" name="action" value="Déplacer" />';
+			packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
+			packet += '</fieldset>';
+			packet += '</form>';
+			break;
+		case 3: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici la confirmation de suppression
+			packet += '<fieldset>';
+			packet += '<legend>Supprimer un fichier:</legend>';
+			packet += '<p>Êtes-vous sûre de vouloir supprimer "' + fichier + '" ?</p>';
+			packet += '<br /><br />';
+			packet += '<input class="WARN" type="submit" name="action" value="Oui" />';
+			packet += ' - ';
+			packet += '<input type="button" onclick="moreaction(0);" value="Non" />';
+			packet += '</fieldset>';
+			packet += '</form>';
+			break;
 	}
 	
 	popup.innerHTML = packet;
@@ -537,7 +523,7 @@ function custom_controls(action, lvl) {
 		else {
 			player.pause();
 			starter.value = " ► ";
-			starter.title = "Play";
+			starter.title = "Lecture";
 		}
 	}
 	else if(action == 2) { // Stop puis Recommencer
@@ -545,7 +531,7 @@ function custom_controls(action, lvl) {
 		player.pause();
 		progressbar.style.width = '0%';
 		starter.value = " ► ";
-		starter.title = "Play";
+		starter.title = "Lecture";
 	}
 	else if(action == 3) { // Volume
 		player.volume = lvl;
@@ -612,9 +598,7 @@ function disconnect(stat, method) {
 			case 1: document.location = "./pages/disconnect.php"; break;
 		}
 	}
-	else if(method == 1) {
-		document.location = "./disconnect.php";
-	}
+	else if(method == 1) { document.location = "./disconnect.php"; }
 }
 
 // Fonction de développement /!\ PAS TOUCHER !!!!

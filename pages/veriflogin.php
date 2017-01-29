@@ -11,12 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>
@@ -27,9 +23,7 @@
 			</a>
 		</header>
 		<section>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
 			<?php
 				$login = $bdd->query('SELECT * FROM user');
 				$lusr = $_POST['lutilisateur'];
@@ -42,15 +36,14 @@
 							$try = 1;
 							$_SESSION['user'] = $_POST['lutilisateur'];
 							$_SESSION['profile'] = $usr[8];
+							$_SESSION['theme'] = $usr[9];
 							
 							header("location: ../client.php");
 						}
 					}
 				}
 				
-				if($try == 0) {
-					echo("> Echec de la tentative de connexion.");
-				}
+				if($try == 0) { echo("> Echec de la tentative de connexion."); }
 				
 				$bdd = null;
 			?>

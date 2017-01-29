@@ -19,17 +19,11 @@ grid = {
 		for(var x = 0; x < c; x++) {
 			this.grids.push([]);
 			
-			for(var y = 0; y < r; y++) {
-				this.grids[x].push(d);
-			}
+			for(var y = 0; y < r; y++) { this.grids[x].push(d); }
 		}
 	},
-	set:function(val, x, y) {
-		this.grids[x][y] = val;
-	},
-	get:function(x, y) {
-		return this.grids[x][y];
-	}
+	set:function(val, x, y) { this.grids[x][y] = val; },
+	get:function(x, y) { return this.grids[x][y]; }
 }
 
 snake = {
@@ -45,9 +39,7 @@ snake = {
 		this.que.unshift({x:x, y:y});
 		this.last = this.que[0];
 	},
-	remove:function() {
-		return this.que.pop();
-	}
+	remove:function() { return this.que.pop(); }
 };
 
 function setBlob() {
@@ -55,9 +47,7 @@ function setBlob() {
 	
 	for(var x = 0;x < grid.width; x++) {
 		for(var y = 0;y < grid.height; y++) {
-			if(grid.get(x,y) == SPACE) {
-				space.push({x:x, y:y});
-			}
+			if(grid.get(x,y) == SPACE) { space.push({x:x, y:y}); }
 		}
 	}
 	
@@ -73,12 +63,8 @@ function beg_func() {
 	context = canvas.getContext("2d");
 	frames = 0;
 	keystate = {};
-	document.addEventListener("keydown",function(e) {
-		keystate[e.keyCode] = true;
-	});
-	document.addEventListener("keyup",function(e) {
-	    delete keystate[e.keyCode];
-	});
+	document.addEventListener("keydown",function(e) { keystate[e.keyCode] = true; });
+	document.addEventListener("keyup",function(e) { delete keystate[e.keyCode]; });
 	document.body.onkeyup = function(e) {
     if(e.keyCode == KEY_SPC){
 		document.getElementById('instr').innerHTML = "Appuyez sur la fleche du bas pour reveiller le serpent";
@@ -123,12 +109,8 @@ function update() {
 			case RIGHT: xcor++; break;
 			case DOWN: ycor++; break;
 		}
-		if(xcor < 0 || xcor > grid.width-1 || ycor<0 || ycor > grid.height-1) {
-			return init();
-		}
-		if(grid.get(xcor,ycor) == SNAKE) {
-			return init();
-		}
+		if(xcor < 0 || xcor > grid.width-1 || ycor<0 || ycor > grid.height-1) { return init(); }
+		if(grid.get(xcor,ycor) == SNAKE) { return init(); }
 		if(grid.get(xcor,ycor) == FOOD) {
 			score++;
 			setBlob();

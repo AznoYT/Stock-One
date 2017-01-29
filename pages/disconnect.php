@@ -11,12 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>

@@ -2,22 +2,28 @@
 <!-- compteuser.php -->
 <?php session_start() ?>
 <html>
+	<?php
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
+	?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [Compte Utilisateur]</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" />
-		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
+		<?php
+			if(!isset($_POST['theme'])) { echo(""); }
+			else {
+				$_SESSION['theme'] = $_POST['theme'];
+				$stmt = $bdd->prepare('UPDATE user SET theme="'.$_POST['theme'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
+				$stmt->execute();
+			}
+			switch($_SESSION['theme']) {
+				case 'default': echo("<link rel='stylesheet' type='text/css' href='../css/style.css' /><link rel='stylesheet' type='text/css' href='../css/scroll.css' />"); break;
+				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='../css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='../css/reverse/scroll.css' />"); break;
+			}
+		?>
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
-	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
-	?>
 	<body onload="startTime();">
 		<header>
 			<div class="time" id="txt"></div>
@@ -28,9 +34,7 @@
 						$_SESSION['mode'] = "admin";
 						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
-					else {
-						header("location: ../index.html");
-					}
+					else { header("location: ../index.html"); }
 				?>
 			</div>
 			<div class="h-butons">
@@ -49,37 +53,29 @@
 						$occupied_space = 0;
 						
 						while($file = $data->fetch()) {
-							if($file[1] == $user) {
-								$occupied_space = $occupied_space + $file[5];
-							}
+							if($file[1] == $user) { $occupied_space = $occupied_space + $file[5]; }
 						}
 						
 						$data = $bdd->query('SELECT * FROM user');
 						
 						while($file = $data->fetch()) {
 							if($file[0] == $user) {
-								echo("<label>--- Votre Identifiant:</label>
-								<br />
+								echo("<label>--- Votre Identifiant:</label><br />
 								- $file[0] <font id='msg0'>[Non Modifiable]</font>
 								<br /><br />
-								<label>--- Votre Nom:</label>
-								<br />
+								<label>--- Votre Nom:</label><br />
 								- $file[1]
 								<br /><br />
-								<label>--- Votre Prénom:</label>
-								<br />
+								<label>--- Votre Prénom:</label><br />
 								- $file[2]
 								<br /><br />
-								<label>--- Votre Sexe:</label>
-								<br />
+								<label>--- Votre Sexe:</label><br />
 								- $file[3] <font id='msg0'>[Non Modifiable]</font>
 								<br /><br />
-								<label>--- Votre Adresse Mail:</label>
-								<br />
+								<label>--- Votre Adresse Mail:</label><br />
 								- $file[4]
 								<br /><br />
-								<label>--- Votre Grade:</label>
-								<br />
+								<label>--- Votre Grade:</label><br />
 								- $file[8]
 								<br /><br /><br />
 								<label>--- Votre Espace disque:</label>
@@ -128,48 +124,44 @@
 						<input class="WARN" type="reset" value="Tout Effacer" />
 						<input type="button" class="color" value="Retour" onclick="document.location = '../client.php'" />
 					</form>
+					<br /><br />
+					<form action method="post" style="padding: 4px;">
+						<h3>Modification du Thème:</h3>
+						<br />
+						<label>> Thème: </label>
+						<select name="theme">
+							<?php
+								switch($_SESSION['theme']) {
+									case 'default': echo("<option value='default'>Par Défaut</option>");
+										echo("<option value='reverse'>Inverser</option>");
+										break;
+									case 'reverse': echo("<option value='reverse'>Inverser</option>");
+										echo("<option value='default'>Par Défaut</option>");
+										break;
+								}
+							?>
+						</select>
+						<br /><br />
+						<input type="submit" class="ACT" value="Modifier" title="Modifier les Informations du Compte" />
+					</form>
 				</div>
 			</aside>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
 			<div id="popupabout">
 				<?php
-					if(!isset($_GET['code'])) {
-						echo("");
-					}
+					if(!isset($_GET['code'])) { echo(""); }
 					else {
-						if($_GET['code'] == '1') {
-							$action = 'Copie';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '2') {
-							$action = 'Déplacement';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '3') {
-							$action = 'Suppression';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '4') {
-							$action = 'Importation';
-							$objet = 'fichier';
-							$directory = 'compteuser.php';
-						}
-						else if($_GET['code'] == '5') {
-							$action = 'Modification';
-							$objet = 'compte';
-							$directory = 'compteuser.php';
+						switch($_GET['code']) {
+							case 1: $action = 'Copie'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 2: $action = 'Déplacement'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 3: $action = 'Suppression'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 4: $action = 'Importation'; $objet = 'fichier'; $directory = 'compteuser.php'; break;
+							case 5: $action = 'Modification'; $objet = 'compte'; $directory = 'compteuser.php'; break;
 						}
 						
-						if($_GET['etat'] == "OK") {
-							$msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>';
-						}
-						else if($_GET['etat'] == "ERREUR") {
-							$msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>';
+						switch($_GET['etat']) {
+							case 'OK': $msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>'; break;
+							case 'ERREUR': $msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>'; break;
 						}
 						
 						echo("<fieldset>");

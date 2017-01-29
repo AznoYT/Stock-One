@@ -12,12 +12,8 @@
 		<script language="javascript" type="text/javascript" src="../js/other.js"></script>
 	</head>
 	<?php
-	if(isset($_SESSION['user'])) {
-			$user = $_SESSION['user'];
-		}
-			else {
-			header("location: ./index.html");
-		}
+		if(isset($_SESSION['user'])) { $user = $_SESSION['user']; }
+		else { header("location: ./index.html"); }
 	?>
 	<body>
 		<header>
@@ -32,9 +28,7 @@
 			<p id="score">Score: 0</p>
 			<p id="food">Pomme Manger: 0</p>
 		</section>
-		<footer>
-			
-		</footer>
+		<footer></footer>
 	</body>
 </html>
 <!-- END -->

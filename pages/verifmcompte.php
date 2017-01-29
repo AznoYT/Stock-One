@@ -11,12 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body>
 		<header>
@@ -27,14 +23,13 @@
 						$_SESSION['mode'] = "client";
 						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
+					else { header("location: ../index.html"); }
 				?>
 			</div>
 			<h1>Stock One</h1>
 		</header>
 		<section>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
 			<?php
 				if(!isset($_POST['special'])) {
 					$nom = $_POST['mnom'];
@@ -45,9 +40,7 @@
 					echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
 					
 					// Modification des informations utilisateur
-					if($nom == '' && $prenom == '' && $mail == '') { // Si il ya pas d'infos personnels à traiter
-						echo("");
-					}
+					if($nom == '' && $prenom == '' && $mail == '') { echo(""); } // Si il ya pas d'infos personnels à traiter
 					else {
 						echo("<p>> Nom: $nom <br/>");
 						echo("<p>> Prénom: $prenom <br/>");
@@ -61,7 +54,6 @@
 					$stmt->execute();
 					
 					header("location: ./compteuser.php?code=5&etat=OK");
-					$bdd = null;
 				}
 				else {
 					if($_POST['special'] == 'Modifier') {
@@ -69,9 +61,10 @@
 						$stmt->execute();
 						
 						header("location: ../admin.php?code=5&etat=OK");
-						$bdd = null;
 					}
 				}
+				
+				$bdd = null;
 			?>
 		</section>
 		<footer>

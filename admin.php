@@ -5,18 +5,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [ADMIN MODE]</title>
-		<link rel="stylesheet" type="text/css" href="./css/style.css" />
-		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
+		<?php
+			switch($_SESSION['theme']) {
+				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); break;
+				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); break;
+			}
+		?>
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '');
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>
@@ -28,13 +28,9 @@
 						$_SESSION['mode'] = "admin";
 						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./pages/compteuser.php'><img class='avatar' height='25px' src='./pics/user.png' />$user</a>");
 					}
-					else {
-						header("location: ./index.html");
-					}
+					else { header("location: ./index.html"); }
 					
-					if($_SESSION['profile'] != "ADMIN") {
-						header("location: ./index.html");
-					}
+					if($_SESSION['profile'] != "ADMIN") { header("location: ./index.html"); }
 				?>
 			</div>
 			<div class="h-butons">
@@ -91,46 +87,22 @@
 					</div>
 				</div>
 			</aside>
-			<div id="popup">
-				
-			</div>
+			<div id="popup"></div>
 			<div id="popupabout">
 				<?php
-					if(!isset($_GET['code'])) {
-						echo("");
-					}
+					if(!isset($_GET['code'])) { echo(""); }
 					else {
-						if($_GET['code'] == '1') {
-							$action = 'Copie';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '2') {
-							$action = 'Déplacement';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '3') {
-							$action = 'Suppression';
-							$objet = 'fichier';
-							$directory = 'client.php';
-						}
-						else if($_GET['code'] == '4') {
-							$action = 'Importation';
-							$objet = 'fichier';
-							$directory = 'admin.php';
-						}
-						else if($_GET['code'] == '5') {
-							$action = 'Modification';
-							$objet = 'compte';
-							$directory = 'admin.php';
+						switch($_GET['code']) {
+							case 1: $action = 'Copie'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 2: $action = 'Déplacement'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 3: $action = 'Suppression'; $objet = 'fichier'; $directory = 'client.php'; break;
+							case 4: $action = 'Importation'; $objet = 'fichier'; $directory = 'admin.php'; break;
+							case 5: $action = 'Modification'; $objet = 'compte'; $directory = 'admin.php'; break;
 						}
 						
-						if($_GET['etat'] == "OK") {
-							$msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>';
-						}
-						else if($_GET['etat'] == "ERREUR") {
-							$msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>';
+						switch($_GET['etat']) {
+							case 'OK': $msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>'; break;
+							case 'ERREUR': $msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>'; break;
 						}
 						
 						echo("<fieldset>");

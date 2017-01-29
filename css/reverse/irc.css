@@ -1,8 +1,8 @@
-/**********************
-*                     *
-*    File: irc.css    *
-*                     *
-**********************/
+/******************************
+*                             *
+*    File: reverse-irc.css    *
+*                             *
+******************************/
 
 * {
 	margin: 0;
@@ -10,8 +10,8 @@
 }
 
 html {
-	background-color: #000000;
-	color: #CCCCCC;
+	background-color: #CCCCCC;
+	color: #000000;
 	font-family: Consolas, Monospace;
 	overflow: hidden;
 }
@@ -49,10 +49,10 @@ div {
 }
 
 input {
-	background-color: #000000;
+	background-color: #CCCCCC;
 	border: 1px solid;
 	border-radius: 8px;
-	color: #CCCCCC;
+	color: #000000;
 	font-family: Consolas;
 	margin-top: 3px;
 	padding: 3px;

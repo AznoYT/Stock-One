@@ -11,12 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<?php
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>
@@ -28,9 +24,7 @@
 						$_SESSION['mode'] = "admin";
 						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
-					else {
-						header("location: ../index.html");
-					}
+					else { header("location: ../index.html"); }
 				?>
 			</div>
 			<img class='logo' height="30px" src="../pics/logo.png" />
@@ -68,12 +62,8 @@
 				$fichiers = $_GET['fichiers'];
 				$path = "../files/$user/$fichiers";
 				
-				if(!isset($_POST['to'])) {
-					$pathpaste = NULL;
-				}
-				else {
-					$pathpaste = "../files/$user/".$_POST['to']."/";
-				}
+				if(!isset($_POST['to'])) { $pathpaste = NULL; }
+				else { $pathpaste = "../files/$user/".$_POST['to']."/"; }
 				
 				echo("> fichiers à traiter: $path<br />");
 				

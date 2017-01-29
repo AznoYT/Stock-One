@@ -12,12 +12,8 @@
 	</head>
 	<?php
 		// Bon tu connais la routine pour le mode de connexion on va pas s'attarder là dessus
-		try {
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-		}
-		catch(Exception $e) {
-			die('ERROR : '.$e->getMessage());
-		}
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 	?>
 	<body onload="startTime();">
 		<header>
@@ -29,9 +25,7 @@
 						$_SESSION['mode'] = "admin";
 						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
 					}
-					else {
-						header("location: ../index.html");
-					}
+					else { header("location: ../index.html"); }
 				?>
 			</div>
 			<img class='logo' height="30px" src="../pics/logo.png" />
@@ -42,19 +36,13 @@
 			<div id="popupabout"></div>
 			<?php
 				// Enfin le script d'insertion de fichier, Je fais d'abord l'upload pour pouvoir les lire ensuite
-				if(!isset($_POST['Public'])) { // C'est la valeur par défaut du fichier dans sa variable "public"
-					$publicstat = 'n';
-				}
-				else {
-					$publicstat = 'y';
-				}
+				if(!isset($_POST['Public'])) { $publicstat = 'n'; } // C'est la valeur par défaut du fichier dans sa variable "public"
+				else { $publicstat = 'y'; }
 				
 				if(!isset($_POST['option'])) {
 					echo("> Importation d'un fichiers en cours...<br />");
 					
-					if(!isset($_FILES['fichiers'])) { // On check si il y a un fichiers ou pas
-						echo("> Pas de fichiers détecter.<br />");
-					}
+					if(!isset($_FILES['fichiers'])) { echo("> Pas de fichiers détecter.<br />"); } // On check si il y a un fichiers ou pas
 					else {
 						$fichier = $_FILES['fichiers']['name'];
 						$extension = strtolower(substr(strrchr($fichier, '.'), 1));
@@ -63,9 +51,7 @@
 						
 						$extensions_ok = array('jpg', 'jpeg', 'gif', 'png','bmp', 'pdf', 'odt', 'odp', 'txt', 'iso', 'py', 'php', 'pl', 'pa', 'sql', 'html', 'htm', 'xhtml', 'css', 'js', 'mp3');
 						
-						if(in_array($extension, $extensions_ok)) { // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
-							echo("> Extension valide.<br />");
-						}
+						if(in_array($extension, $extensions_ok)) { echo("> Extension valide.<br />"); } // Une vérificatin d'extension que j'ai prévue de faire, je suis encore dessus
 						
 						// On le déplace vers le repertoire utilisateur
 						$resultat = move_uploaded_file($_FILES['fichiers']['tmp_name'], $path);
@@ -84,9 +70,7 @@
 							
 							header('location: ../client.php');
 						}
-						else {
-							echo("> Echec du transfert.<br />");
-						}
+						else { echo("> Echec du transfert.<br />"); }
 						
 						// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
 					}
