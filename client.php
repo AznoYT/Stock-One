@@ -1,29 +1,14 @@
 <!DOCTYPE html>
 <!-- client.php -->
 <?php session_start() ?>
-<?php
-	function list_fichiers($file) { // Fonction de listing de fichiers
-		if($file[2] == 'folder') {  }
-		else if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 1, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
-		else if($file[2] == 'mp3' || $file[2] == 'wav' || $file[2] == 'wma' || $file[2] == 'aac' || $file[2] == 'ac3' || $file[2] == 'm4a') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/music.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 2, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
-		else if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js' || $file[2] == 'css' || $file[2] == 'php' || $file[2] == 'html' || $file[2] == 'sql' || $file[2] == 'pdf') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/text-file.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 3, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
-		else if($file[2] == 'mp4') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/movie.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 4, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
-		else { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/text-file.png\" /><a href=\"$file[4]$file[3]\" download><input class=\"list\" type=\"button\" value=\"$file[3]\" title=\"$file[3]\" /></a><br />"); }
-	}
-	
-	function list_dossiers($file) { // Fonction de listing de dossiers
-		if($file[2] == 'folder') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/folder.png\" /><input class=\"list\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
-		else { echo(""); }
-	}
-?>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [USER MODE]</title>
 		<?php
 			switch($_SESSION['theme']) {
-				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); break;
-				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); break;
+				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); $dir = "default/"; break;
+				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); $dir = "reverse/"; break;
 			}
 		?>
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
@@ -33,6 +18,21 @@
 		// mieux de le faire avec un try car la connexion sera permanante
 		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
 		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
+	?>
+	<?php
+		function list_fichiers($file, $dir) { // Fonction de listing de fichiers
+			if($file[2] == 'folder') {  }
+			else if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 1, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
+			else if($file[2] == 'mp3' || $file[2] == 'wav' || $file[2] == 'wma' || $file[2] == 'aac' || $file[2] == 'ac3' || $file[2] == 'm4a') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."music.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 2, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
+			else if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js' || $file[2] == 'css' || $file[2] == 'php' || $file[2] == 'html' || $file[2] == 'sql' || $file[2] == 'pdf') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."text-file.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 3, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
+			else if($file[2] == 'mp4') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."movie.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 4, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
+			else { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."text-file.png\" /><a href=\"$file[4]$file[3]\" download><input class=\"list\" type=\"button\" value=\"$file[3]\" title=\"$file[3]\" /></a><br />"); }
+		}
+		
+		function list_dossiers($file, $dir) { // Fonction de listing de dossiers
+			if($file[2] == 'folder') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."folder.png\" /><input class=\"list\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
+			else { echo(""); }
+		}
 	?>
 	<body onload="startTime();">
 		<header>
@@ -80,12 +80,12 @@
 								switch($tour) {
 									case 0:
 										while($file = $data->fetch()) {
-											if($user == $file[1]) { list_dossiers($file); }
+											if($user == $file[1]) { list_dossiers($file, $dir); }
 										} break;
 									
 									case 1:
 										while($file = $data->fetch()) {
-											if($user == $file[1]) { list_fichiers($file); }
+											if($user == $file[1]) { list_fichiers($file, $dir); }
 										} break;
 								}
 							}
@@ -105,10 +105,10 @@
 							
 							while($file = $data->fetch()) {
 								if($user == $file[1]) {
-									if(!isset($_GET['folder'])) { list_dossiers($file); }
+									if(!isset($_GET['folder'])) { list_dossiers($file, $dir); }
 									
 									if(!isset($file[8])) { echo(""); }
-									else if($file[8] == $_GET['folder']) { list_dossiers($file); }
+									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir); }
 								}
 							}
 						?>
@@ -123,7 +123,7 @@
 						
 						while($file = $data->fetch()) {
 							if($user == $file[1]) {
-								if(!isset($_GET['folder'])) { list_fichiers($file); }
+								if(!isset($_GET['folder'])) { list_fichiers($file, $dir); }
 							}
 						}
 					?>

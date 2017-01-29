@@ -7,8 +7,8 @@
 		<title>Stock One - Cloud [ADMIN MODE]</title>
 		<?php
 			switch($_SESSION['theme']) {
-				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); break;
-				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); break;
+				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); $dir = NULL; break;
+				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); $dir = "reverse/"; break;
 			}
 		?>
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
@@ -67,7 +67,7 @@
 								}
 							}
 							
-							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]', '$occupied_space');\" /><br />");
+							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]', '$occupied_space');\" /><br />");
 						}
 					?>
 				</div>
