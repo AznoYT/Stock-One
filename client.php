@@ -18,8 +18,7 @@
 		// mieux de le faire avec un try car la connexion sera permanante
 		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
 		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
-	?>
-	<?php
+		
 		function list_fichiers($file, $dir) { // Fonction de listing de fichiers
 			if($file[2] == 'folder') {  }
 			else if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 1, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
