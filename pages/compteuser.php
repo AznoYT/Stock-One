@@ -101,23 +101,23 @@
 					<form action="./verifmcompte.php" method="POST" onsubmit="return verify(1, this.pws1, this.pws2, 'confirm');" style="padding: 4px;">
 						<h3>Modification Informations Personnels: </h3><font id="msg3">[Laisser vide pour ne pas modifier]</font>
 						<br /><br />
-						<label>> Votre Nom:</label>
-						<input type="text" class="modif" name="mnom" />
+						<label for="nom">> Votre Nom:</label>
+						<input type="text" id="nom" class="modif" name="mnom" />
 						<br />
-						<label>> Votre Prénom:</label>
-						<input type="text" class="modif" name="mprenom" />
+						<label for="prenom">> Votre Prénom:</label>
+						<input type="text" id="prenom" class="modif" name="mprenom" />
 						<br />
-						<label>> Votre Email:</label>
-						<input type="email" class="modif" name="memail" />
+						<label for="email">> Votre Email:</label>
+						<input type="email" id="email" class="modif" name="memail" />
 						<br /><br /><br />
 						<h3>Modification Mot de passe: </h3>
 						<br />
-						<label>> Votre Nouveaux mot de passe:</label>
-						<input type="password" class="modif" name="pws1" />
+						<label for="password">> Votre Nouveaux mot de passe:</label>
+						<input type="password" id="password" class="modif" name="pws1" />
 						<font id="msg1"></font>
 						<br />
-						<label>> Resaissir son mot de passe:</label>
-						<input type="password" class="modif" name="pws2" />
+						<label for="cpassword">> Resaissir son mot de passe:</label>
+						<input type="password" id="cpassword" class="modif" name="pws2" />
 						<font id="msg2"></font>
 						<br /><br />
 						<input type="submit" class="ACT" value="Modifier" title="Modifier les Informations du Compte" />
@@ -129,7 +129,7 @@
 						<h3>Modification du Thème:</h3>
 						<br />
 						<label>> Thème: </label>
-						<select name="theme">
+						<select id="theme" name="theme">
 							<?php
 								switch($_SESSION['theme']) {
 									case 'default': echo("<option value='default'>Par Défaut</option>");
