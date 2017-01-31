@@ -226,9 +226,7 @@ select {
 	transition: 0.5s;
 }
 
-select:hover {
-	background-color: #333333;
-}
+select:hover { background-color: #333333; }
 
 section {
 	height: 91%;
@@ -319,6 +317,7 @@ aside {
 #info_param {
 	border-top: 1px solid;
 	height: 85%;
+	overflow: auto;
 	padding: 4px;
 	position: relative;
 	width: auto;
