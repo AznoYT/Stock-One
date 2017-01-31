@@ -5,6 +5,8 @@
 ************************/
 
 var packet;
+var packet0;
+var a = 0;
 
 function startTime() {
 	var today = new Date();
