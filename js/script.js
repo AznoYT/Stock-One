@@ -29,13 +29,13 @@ function Note_annim(i) { // Ajout d'information de note
 	var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
 	
 	switch(i) {
-		case 0: packet = msg[i]; break;
-		case 1: packet += msg[i]; break;
-		case 2: packet += msg[i]; break;
-		case 3: packet += msg[i]; break;
+		case 0: packet0 = msg[i]; break;
+		case 1: packet0 += msg[i]; break;
+		case 2: packet0 += msg[i]; break;
+		case 3: packet0 += msg[i]; break;
 	}
 	
-	output.innerHTML = packet;
+	output.innerHTML = packet0;
 	i++;
 	return i;
 }
