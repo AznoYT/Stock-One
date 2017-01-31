@@ -15,11 +15,28 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
-	//t = setTimeout(function() { hide_pubs(); }, 500);
+	//hide_pubs();
+	a = Note_annim(a);
 }
 
 function checkTime(i) {
 	if (i<10) { i = "0" + i; }
+	return i;
+}
+
+function Note_annim(i) { // Ajout d'information de note
+	var output = document.getElementById('note_1');
+	var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
+	
+	switch(i) {
+		case 0: packet = msg[i]; break;
+		case 1: packet += msg[i]; break;
+		case 2: packet += msg[i]; break;
+		case 3: packet += msg[i]; break;
+	}
+	
+	output.innerHTML = packet;
+	i++;
 	return i;
 }
 
