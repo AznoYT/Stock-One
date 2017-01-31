@@ -307,7 +307,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
-		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' Bytes</legend>';
+		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' ' + unit + '</legend>';
 		packet += '<center>';
 		
 		switch(methode) {
