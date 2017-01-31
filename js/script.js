@@ -15,8 +15,8 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
-	//hide_pubs();
 	a = Note_annim(a);
+	//hide_pubs();
 }
 
 function checkTime(i) {
