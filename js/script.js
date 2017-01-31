@@ -297,7 +297,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		var all_unit = ["b", "Kb", "Mb", "Gb", "Tb"];
 		var unit = all_unit[0];
 		
-		for(var i = 1; taille > 1000; i++) {
+		for(var i = 1; taille > 1000; i++) { // Convertisseur d'unité
 			taille = taille / 1000;
 			unit = all_unit[i];
 		}
