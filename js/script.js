@@ -15,7 +15,7 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
-	a = Note_annim(a);
+	if(a <= 3) { a = Note_annim(a); }
 	//hide_pubs();
 }
 
