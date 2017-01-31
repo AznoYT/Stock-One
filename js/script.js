@@ -294,6 +294,16 @@ function popupaction(action, attempt, methode, nom, taille) {
 		popup.style.width = 'auto';
 		popup.style.left = '12%';
 		moreaction(0);
+		var all_unit = ["b", "Kb", "Mb", "Gb", "Tb"];
+		var unit = all_unit[0];
+		
+		for(var i = 1; taille > 1000; i++) {
+			taille = taille / 1000;
+			unit = all_unit[i];
+		}
+		
+		taille = String(taille);
+		taille = taille.charAt(0) + taille.charAt(1) + taille.charAt(2) + taille.charAt(3) + taille.charAt(4);
 		
 		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
