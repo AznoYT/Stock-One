@@ -8,7 +8,7 @@
 		<?php
 			switch($_SESSION['theme']) {
 				case 'default': echo("<link rel='stylesheet' type='text/css' href='../css/other.css' /><link rel='stylesheet' type='text/css' href='../css/other.css' />"); break;
-				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='../css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='../css/reverse/scroll.css' />"); break;
+				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='../css/reverse/other.css' /><link rel='stylesheet' type='text/css' href='../css/reverse/other.css' />"); break;
 			}
 		?>
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
