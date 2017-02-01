@@ -257,8 +257,8 @@ function popupaction(action, attempt, methode, nom, taille) {
 		}
 		
 		packet += '<br /><br />';
-		packet += '<input type="checkbox" name="Public" value="notif">';
-		packet += '<label>Publique</label>';
+		packet += '<input type="checkbox" id="public" name="Public" value="notif">';
+		packet += '<label for="public"> Publique</label>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="submit" value="Importer" />';
 		
