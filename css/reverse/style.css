@@ -4,23 +4,6 @@
 *                               *
 ********************************/
 
-/*
-@-webkit-keyframes typing {
-    from { width: 0 }
-    to { width:16.3em }
-}
-
-@-moz-keyframes typing {
-    from { width: 0 }
-    to { width:16.3em }
-}
-
-@-moz-keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #CCCCCC }
-}
-*/
-
 .userswitch {
 	margin-left: -30%;
 	position: absolute;
@@ -33,61 +16,61 @@
 .userswitch-checkbox { display: none; }
 
 .userswitch-label {
-	display: block;
-	overflow: hidden;
-	cursor: pointer;
 	border: 2px solid #000000;
 	border-radius: 50px;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
 }
 
 .userswitch-inner {
 	display: block;
-	width: 200%;
 	margin-left: -100%;
 	transition: margin 0.3s ease-in 0s;
+	width: 200%;
 }
 
 .userswitch-inner:before, .userswitch-inner:after {
+	box-sizing: border-box;
+	color: #FFFFFF;
 	display: block;
-	float: left;
-	width: 50%;
 	height: 25px;
-	padding: 0;
 	line-height: 25px;
+	float: left;
 	font-size: 14px;
-	color: white;
 	font-family: Consolas, Monospace;
 	font-weight: bold;
-	box-sizing: border-box;
+	padding: 0;
+	width: 50%;
 }
 
 .userswitch-inner:before {
-	content: "ADMIN";
-	margin-left: -10px;
 	background-color: #CCCCCC;
 	color: #000000;
+	content: 'ADMIN';
+	margin-left: -10px;
 }
 
 .userswitch-inner:after {
-	content: "USER";
-	padding-right: 10px;
 	background-color: #CCCCCC;
 	color: #000000;
+	content: 'USER';
+	padding-right: 10px;
 	text-align: right;
 }
 
 .userswitch-switch {
-	display: block;
-	width: 15px;
-	margin: 6px;
 	background-color: #CCCCCC;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 56px;
 	border: 2px solid #000000;
 	border-radius: 50px;
-	transition: all 0.3s ease-in 0s; 
+	bottom: 0;
+	display: block;
+	margin: 6px;
+	position: absolute;
+	right: 56px;
+	transition: all 0.3s ease-in 0s;
+	top: 0;
+	width: 15px;
 }
 
 .userswitch-checkbox:checked + .userswitch-label .userswitch-inner { margin-left: 0; }
