@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- veriflogin.php -->
+<!-- validate.php -->
 <?php session_start() ?>
 <html>
 	<head>
