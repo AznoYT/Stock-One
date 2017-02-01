@@ -15,7 +15,7 @@ function startTime() {
 	var s = today.getSeconds();
 	m = checkTime(m);
 	s = checkTime(s);
-	document.getElementById('txt').innerHTML = h+ ":" + m + ":" + s;
+	document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
 	if(a <= 3) { a = Note_annim(a); }
 	//hide_pubs();
@@ -28,18 +28,21 @@ function checkTime(i) {
 
 function Note_annim(i) { // Ajout d'information de note
 	var output = document.getElementById('Note_MAJ');
-	var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
 	
-	switch(i) {
-		case 0: packet0 = msg[i]; break;
-		case 1: packet0 += msg[i]; break;
-		case 2: packet0 += msg[i]; break;
-		case 3: packet0 += msg[i]; break;
+	if(output != undefined) {
+		var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
+		
+		switch(i) {
+			case 0: packet0 = msg[i]; break;
+			case 1: packet0 += msg[i]; break;
+			case 2: packet0 += msg[i]; break;
+			case 3: packet0 += msg[i]; break;
+		}
+		
+		output.innerHTML = packet0;
+		i++;
+		return i;
 	}
-	
-	output.innerHTML = packet0;
-	i++;
-	return i;
 }
 
 // Cette fonction d'alert texte l'affiche mtn sur les 2 type de connexion Login & Register
@@ -119,12 +122,13 @@ function popuplogin(login, attempt) {
 		popup.style.left = '28.75%';
 		
 		switch(attempt) {
-			case 1: packet = '<form method="post" action="./veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
-			default: packet = '<form method="post" action="./pages/veriflogin.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
+			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
+			default: packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
 		}
 		
 		packet += '<fieldset>';
 		packet += '<legend>Connexion:</legend>';
+		packet += '<input type="hidden" name="method" value="LOGIN" />';
 		packet += '<label for="userinput">Nom d\'Utilisateur:</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="lutilisateur" id="userinput" />';
@@ -154,6 +158,7 @@ function popuplogin(login, attempt) {
 		
 		packet += '<fieldset>';
 		packet += '<legend>Inscription:</legend>';
+		packet += '<input type="hidden" name="method" value="REGISTER" />';
 		packet += '<label for="userinput">Nom d\'utilisateur:*</label>';
 		packet += '<br />';
 		packet += '<input type="text" name="utilisateur" id="userinput" value="" />';
