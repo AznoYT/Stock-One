@@ -4,12 +4,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!--<meta id="refresh" http-equiv="refresh" content="5;url=./IRC.php">-->
+		<title id="title">Stock One - IRC</title>
 		<link rel="stylesheet" type="text/css" href="../css/irc.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
+		<script language="javascript" type="text/javascript" src="../js/IRC.js"></script>
 	</head>
-	<body>
+	<body onload="startTime();">
 		<div class="tchat">
 			<div class="title">
 				<h3>Chat IRC <?php if($_SESSION['mode'] == "admin") { echo("[ADMIN MOD]"); } ?></h3>
@@ -26,7 +27,8 @@
 							if($_SESSION['mode'] == "admin") { $user = "admin"; $content = "admin"; }
 						}
 						
-						$history = fopen('./historiques-IRC/history-'.$user.'.htm', 'r+');
+						$path = './historiques-IRC/history-'.$user.'.htm';
+						$history = fopen($path, 'r+');
 						$frame = fgets($history);
 						
 						if(!isset($_POST['message'])) { echo(""); }
@@ -41,7 +43,6 @@
 							}
 						}
 						
-						echo($frame);
 						fclose($history);
 					?>
 				</div>
@@ -52,6 +53,7 @@
 					</form>
 				</div>
 				<script language="javascript" type="text/javascript">
+					var lien = <?php echo("'".$path."'"); ?>;
 					element = document.getElementById('tchat_area');
 					element.scrollTop = element.scrollHeight;
 					document.getElementById('text_input').focus();
