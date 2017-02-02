@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <!-- disconnect.php -->
-<?php session_start(); ?>
 <html>
+	<?php
+		session_start();
+		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
+		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
+	?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Déconnexion</title>
@@ -10,10 +14,6 @@
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
-	<?php
-		try { $bdd = new PDO('mysql:host=127.0.0.1;dbname=stock-one;charset=utf8', 'root', 'toor'); }
-		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
-	?>
 	<body onload="startTime();">
 		<header>
 			<div class="time" id="txt"></div>
