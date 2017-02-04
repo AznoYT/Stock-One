@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- client.php -->
-<?php session_start(); ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [USER MODE]</title>
 		<?php
+			session_start();
 			switch($_SESSION['theme']) {
 				case 'default': echo("<link rel='stylesheet' type='text/css' href='./css/style.css' /><link rel='stylesheet' type='text/css' href='./css/scroll.css' />"); $dir = "default/"; break;
 				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='./css/reverse/style.css' /><link rel='stylesheet' type='text/css' href='./css/reverse/scroll.css' />"); $dir = "reverse/"; break;
