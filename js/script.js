@@ -140,14 +140,6 @@ function popuplogin(login, attempt) {
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Connexion" />';
-		
-		switch(attempt) {
-			case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
-			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
-		}
-		
-		packet += '</fieldset>';
-		packet += '</form>';
 	}
 	else if(login == 2) { // Ici le Register
 		// Même topo que pour le login
@@ -205,15 +197,15 @@ function popuplogin(login, attempt) {
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Inscription" />';
 		packet += '<input class="WARN" type="reset" value="Tout Effacer" />';
-		
-		switch(attempt) {
-			case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
-			default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
-		}
-		
-		packet += '</fieldset>';
-		packet += '</form>';
 	}
+	
+	switch(attempt) {
+		case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
+		default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
+	}
+		
+	packet += '</fieldset>';
+	packet += '</form>';
 	
 	popup.innerHTML = packet;
 	document.getElementById('userinput').focus();
