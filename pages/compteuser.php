@@ -19,9 +19,9 @@
 			switch($_SESSION['theme']) {
 				case 'default': $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; break;
 				case 'reverse': $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; break;
-				case 'red_line': $thumb = "#002200"; $rgb = "rgb(255,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CC0000"; $bgcolor = "#110000"; $bglist = "#330000"; $color = "#CC0000"; $actcolor = "#00FF00"; break;
-				case 'green_line': $thumb = "#002200"; $rgb = "rgb(0,255,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#00CC00"; $bgcolor = "#001100"; $bglist = "#003300"; $color = "#00CC00"; $actcolor = "#00FF00"; break;
-				case 'blue_line': $thumb = "#002200"; $rgb = "rgb(0,0,255)"; $rgb_r = "rgb(180,180,180)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
+				case 'red_line': $thumb = "#220000"; $rgb = "rgb(180,0,0)"; $rgb_r = "rgb(25,0,0)"; $border = "#CC0000"; $bgcolor = "#110000"; $bglist = "#330000"; $color = "#CC0000"; $actcolor = "#00FF00"; break;
+				case 'green_line': $thumb = "#002200"; $rgb = "rgb(0,180,0)"; $rgb_r = "rgb(0,25,0)"; $border = "#00CC00"; $bgcolor = "#001100"; $bglist = "#003300"; $color = "#00CC00"; $actcolor = "#00FF00"; break;
+				case 'blue_line': $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
 			}
 		?>
 		<link rel='stylesheet' type='text/css' href='../css/style.css' />
@@ -32,11 +32,11 @@
 			::-webkit-scrollbar { background-color: <?php echo("$bgcolor"); ?>; }
 			::-webkit-scrollbar:horizontal { background-color: <?php echo("$bgcolor"); ?>; }
 			::-webkit-scrollbar-track-piece { background-color: <?php echo("$bgcolor"); ?>; border: 1px solid <?php echo("$border"); ?>; }
-			::-webkit-scrollbar-thumb { border: 1px solid <?php echo("$thumb"); ?>; -webkit-box-shadow: inset 0 0 0 .0625em rgb(180,180,180), inset 0 0 0 .375em <?php echo("$rgb"); ?>; }
-			::-webkit-scrollbar-thumb:hover { -webkit-box-shadow: inset 0 0 0 .0625em <?php echo("$rgb_r"); ?>, inset 0 0 0 .375em <?php echo("$rgb_r"); ?>; }
+			::-webkit-scrollbar-thumb { border: 1px solid <?php echo("$thumb"); ?>; -webkit-box-shadow: inset 0 0 0 .0625em <?php echo("$rgb"); ?>, inset 0 0 0 .375em <?php echo("$rgb_r"); ?>; }
+			::-webkit-scrollbar-thumb:hover { -webkit-box-shadow: inset 0 0 0 .0625em <?php echo("$rgb"); ?>, inset 0 0 0 .375em <?php echo("$rgb"); ?>; }
 			::-webkit-scrollbar-corner { background-color: <?php echo("$bgcolor"); ?>; }
 			::-webkit-scrollbar-button { background-color: <?php echo("$bgcolor"); ?>; border: 1px solid <?php echo("$border"); ?>; }
-			::-webkit-scrollbar-button:hover { -webkit-box-shadow: inset 0 0 0 .0625em <?php echo("$rgb_r"); ?>, inset 0 0 0 .375em <?php echo("$rgb_r"); ?>; }
+			::-webkit-scrollbar-button:hover { -webkit-box-shadow: inset 0 0 0 .0625em <?php echo("$rgb"); ?>, inset 0 0 0 .375em <?php echo("$rgb"); ?>; }
 			userswitch-label { border: 2px solid <?php echo("$border"); ?>; border-radius: 50px; }
 			.userswitch-inner:before, .userswitch-inner:after { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 			.userswitch-switch { background-color: <?php echo("$bgcolor"); ?>; border: 2px solid <?php echo("$border"); ?>; border-radius: 50px; }
