@@ -340,11 +340,11 @@ function popupaction(action, attempt, methode, nom, taille) {
 				packet += '<input class="controls" id="player_start" type="button" value="||" title="Pause" onclick="custom_controls(1, this);">';
 				packet += '<input class="controls" type="button" value=" ■ " title="Stop" onclick="custom_controls(2);">';
 				packet += '<span class="volume">';
-				packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);"></a>';
-				packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);"></a>';
-				packet += '<a class="stick3 volume" onclick="custom_controls(3, 0.5);"></a>';
-				packet += '<a class="stick4 volume" onclick="custom_controls(3, 0.7);"></a>';
-				packet += '<a class="stick5 volume" onclick="custom_controls(3, 1);"></a>';
+				packet += '<a class="stick1 volume" onclick="custom_controls(3, 0);" title="MUTE"></a>';
+				packet += '<a class="stick2 volume" onclick="custom_controls(3, 0.3);" title="30%"></a>';
+				packet += '<a class="stick3 volume" onclick="custom_controls(3, 0.5);" title="50%"></a>';
+				packet += '<a class="stick4 volume" onclick="custom_controls(3, 0.7);" title="70%"></a>';
+				packet += '<a class="stick5 volume" onclick="custom_controls(3, 1);" title="100%"></a>';
 				packet += '</span>';
 				packet += '</div>';
 				break;
