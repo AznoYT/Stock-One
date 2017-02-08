@@ -20,7 +20,7 @@ function refresh_tchat(tchat) { // Fonction de récupération de donnée d'un fi
 
 function startTime() {
 	var output_tchat = document.getElementById('tchat_area');
-	t = setTimeout(function() { startTime(); }, 250);
+	t = setTimeout(function() { startTime(); }, 500);
 	refresh_tchat(lien);
 }
 
