@@ -37,7 +37,8 @@
 							if($msg == "Ecrivez votre message...") { echo(""); }
 							else {
 								$user = $_SESSION['user'];
-								$sending = '> '.$user.': '.$msg.'<br />';
+								if($_SESSION['user'] == "admin") { $color = "#CC0000"; }
+								$sending = '> <font color="'.$color.'">'.$user.': '.$msg.'</font><br />';
 								fputs($history, $sending);
 								$frame = $frame.$sending;
 							}
