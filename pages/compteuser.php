@@ -24,8 +24,8 @@
 				case 'blue_line': $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
 			}
 		?>
-		<link rel='stylesheet' type='text/css' href='../css/style.css' />
-		<link rel='stylesheet' type='text/css' href='../css/scroll.css' />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<style>
 			/* Thème: "<?php echo($_SESSION['theme']); ?>" */
@@ -86,16 +86,14 @@
 				<h2>Vos Informations</h2>
 				<div class="content">
 					<?php
-						$data = $bdd->query('SELECT * FROM donnee');
+						$data = [$bdd->query('SELECT * FROM donnee'), $data = $bdd->query('SELECT * FROM user')];
 						$occupied_space = 0;
 						
-						while($file = $data->fetch()) {
+						while($file = $data[0]->fetch()) {
 							if($file[1] == $user) { $occupied_space = $occupied_space + $file[5]; }
 						}
 						
-						$data = $bdd->query('SELECT * FROM user');
-						
-						while($file = $data->fetch()) {
+						while($file = $data[1]->fetch()) {
 							if($file[0] == $user) {
 								echo("<label>--- Votre Identifiant:</label><br />
 								- $file[0] <font id='msg0'>[Non Modifiable]</font>
