@@ -38,6 +38,7 @@
 							else {
 								$user = $_SESSION['user'];
 								if($_SESSION['user'] == "admin") { $color = "#CC0000"; }
+								else { $color = "#AAAAAA"; }
 								$sending = '> <font color="'.$color.'">'.$user.': '.$msg.'</font><br />';
 								fputs($history, $sending);
 								$frame = $frame.$sending;
