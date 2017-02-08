@@ -26,7 +26,8 @@ function checkTime(i) {
 	return i;
 }
 
-function Note_annim(i) { // Ajout d'information de note
+// Ajout d'information de note
+function Note_annim(i) {
 	var output = document.getElementById('Note_MAJ');
 	
 	if(output != undefined) {
@@ -568,7 +569,11 @@ function custom_controls(action, lvl) {
 		}*/
 	}
 	else if(action == 4) { // Barre de progression
-		var quotient = player.currentTime / player.duration;
+		switch(player.currentTime) {
+			case 0: break;
+			default: var quotient = player.currentTime / player.duration; break;
+		}
+		
 		var statprogress = Math.ceil(quotient * 100);
 		
 		progressbar.style.width = statprogress + '%';
