@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- other.php -->
+<?php session_start() ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Snake Game</title>
 		<?php
-			session_start();
 			switch($_SESSION['theme']) {
 				case 'default': echo("<link rel='stylesheet' type='text/css' href='../css/other.css' /><link rel='stylesheet' type='text/css' href='../css/other.css' />"); break;
 				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='../css/reverse/other.css' /><link rel='stylesheet' type='text/css' href='../css/reverse/other.css' />"); break;
