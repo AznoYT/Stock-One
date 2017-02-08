@@ -17,8 +17,11 @@
 				$stmt->execute();
 			}
 			switch($_SESSION['theme']) {
-				case 'default': $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; $stick1 = "#888888"; $stick2 = "#999999"; $stick3 = "#AAAAAA"; $stick4 = "#BBBBBB"; $stick5 = "#CCCCCC"; break;
-				case 'reverse': $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; $stick1 = "#444444"; $stick2 = "#333333"; $stick3 = "#222222"; $stick4 = "#111111"; $stick5 = "#000000"; break;
+				case 'default': $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; break;
+				case 'reverse': $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; break;
+				case 'red_line': $thumb = "#002200"; $rgb = "rgb(255,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CC0000"; $bgcolor = "#110000"; $bglist = "#330000"; $color = "#CC0000"; $actcolor = "#00FF00"; break;
+				case 'green_line': $thumb = "#002200"; $rgb = "rgb(0,255,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#00CC00"; $bgcolor = "#001100"; $bglist = "#003300"; $color = "#00CC00"; $actcolor = "#00FF00"; break;
+				case 'blue_line': $thumb = "#002200"; $rgb = "rgb(0,0,255)"; $rgb_r = "rgb(180,180,180)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
 			}
 		?>
 		<link rel='stylesheet' type='text/css' href='../css/style.css' />
@@ -55,11 +58,6 @@
 			.profile:hover { background-color: <?php echo("$bglist"); ?>; }
 			.volume { background-color: <?php echo("$bgcolor"); ?>; }
 			.volume:hover { background-color: <?php echo("$bglist"); ?>; }
-			.stick1 { border: 1px solid <?php echo("$stick1"); ?>; }
-			.stick2 { border: 1px solid <?php echo("$stick2"); ?>; }
-			.stick3 { border: 1px solid <?php echo("$stick3"); ?>; }
-			.stick4 { border: 1px solid <?php echo("$stick4"); ?>; }
-			.stick5 { border: 1px solid <?php echo("$stick5"); ?>; }
 		</style>
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
@@ -173,9 +171,33 @@
 								switch($_SESSION['theme']) {
 									case 'default': echo("<option value='default'>Par Défaut</option>");
 										echo("<option value='reverse'>Inverser</option>");
+										echo("<option value='red_line'>Ligne Rouge</option>");
+										echo("<option value='green_line'>Ligne Verte</option>");
+										echo("<option value='blue_line'>Ligne Bleu</option>");
 										break;
 									case 'reverse': echo("<option value='reverse'>Inverser</option>");
 										echo("<option value='default'>Par Défaut</option>");
+										echo("<option value='red_line'>Ligne Rouge</option>");
+										echo("<option value='green_line'>Green Line</option>");
+										echo("<option value='blue_line'>Blue Line</option>");
+										break;
+									case 'red_line': echo("<option value='red_line'>Ligne Rouge</option>");
+										echo("<option value='default'>Par Défaut</option>");
+										echo("<option value='reverse'>Inverser</option>");
+										echo("<option value='green_line'>Ligne Verte</option>");
+										echo("<option value='blue_line'>Ligne Bleu</option>");
+										break;
+									case 'green_line': echo("<option value='green_line'>Ligne Verte</option>");
+										echo("<option value='default'>Par Défaut</option>");
+										echo("<option value='reverse'>Inverser</option>");
+										echo("<option value='red_line'>Ligne Rouge</option>");
+										echo("<option value='blue_line'>Ligne Bleu</option>");
+										break;
+									case 'blue_line': echo("<option value='blue_line'>Ligne Bleu</option>");
+										echo("<option value='default'>Par Défaut</option>");
+										echo("<option value='reverse'>Inverser</option>");
+										echo("<option value='red_line'>Ligne Rouge</option>");
+										echo("<option value='green_line'>Ligne Verte</option>");
 										break;
 								}
 							?>
