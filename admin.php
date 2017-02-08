@@ -19,8 +19,8 @@
 				case 'blue_line': $dir = NULL; $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
 			}
 		?>
-		<link rel='stylesheet' type='text/css' href='./css/style.css' />
-		<link rel='stylesheet' type='text/css' href='./css/scroll.css' />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<style>
 			/* Thème: "<?php echo($_SESSION['theme']); ?>" */
@@ -92,13 +92,13 @@
 				<h2>Locations [./files/]</h2>
 				<div class="content">
 					<?php
-						$data = $bdd->query('SELECT * FROM user');
+						$data = [$bdd->query('SELECT * FROM user'), $bdd->query('SELECT * FROM donnee')];
 						
-						while($file = $data->fetch()) {
-							$data2 = $bdd->query('SELECT * FROM donnee');
+						while($file = $data[0]->fetch()) {
+							$data[1] = $bdd->query('SELECT * FROM donnee');
 							$occupied_space = 0;
 							
-							while($file2 = $data2->fetch()) {
+							while($file2 = $data[1]->fetch()) {
 								if($file2[1] == $file[0]) {
 									$occupied_space = $occupied_space + $file2[5];
 									//$filediscover = ["'$file2[0]','$file2[1]','$file2[2]','$file2[3]','$file2[4]','$file2[5]','$file2[6]','$file2[7]'"];

@@ -7,7 +7,7 @@
 		catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
 		
 		function list_fichiers($file, $dir) { // Fonction de listing de fichiers
-			if($file[2] == 'folder') {  }
+			if($file[2] == 'folder') { echo(""); }
 			else if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."gallery.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 1, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
 			else if($file[2] == 'mp3' || $file[2] == 'wav' || $file[2] == 'wma' || $file[2] == 'aac' || $file[2] == 'ac3' || $file[2] == 'm4a') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."music.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 2, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
 			else if($file[2] == 'txt' || $file[2] == 'log' || $file[2] == 'py' || $file[2] == 'pl' || $file[2] == 'js' || $file[2] == 'css' || $file[2] == 'php' || $file[2] == 'html' || $file[2] == 'sql' || $file[2] == 'pdf') { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."text-file.png\" /><input class=\"list\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 3, '$file[3]', '$file[5]');\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
@@ -32,8 +32,8 @@
 				case 'blue_line': $dir = "default/"; $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; $stick1 = "#008888"; $stick2 = "#009999"; $stick3 = "#00AAAA"; $stick4 = "#00BBBB"; $stick5 = "#00CCCC"; break;
 			}
 		?>
-		 <link rel='stylesheet' type='text/css' href='./css/style.css' />
-		 <link rel='stylesheet' type='text/css' href='./css/scroll.css' />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
 		<style>
 			/* Thème: "<?php echo($_SESSION['theme']); ?>" */
@@ -114,16 +114,16 @@
 					<form action method="get">
 						<?php
 							for($tour = 0; $tour < 2; $tour++) { // Code réagencer pour le listing des dossiers séparer des fichiers
-								$data = $bdd->query('SELECT * FROM donnee');
+								$data = [$bdd->query('SELECT * FROM donnee'), $bdd->query('SELECT * FROM donnee'), $bdd->query('SELECT * FROM donnee')];
 								
 								switch($tour) {
 									case 0:
-										while($file = $data->fetch()) {
+										while($file = $data[0]->fetch()) {
 											if($user == $file[1]) { list_dossiers($file, $dir); }
 										} break;
 									
 									case 1:
-										while($file = $data->fetch()) {
+										while($file = $data[0]->fetch()) {
 											if($user == $file[1]) { list_fichiers($file, $dir); }
 										} break;
 								}
@@ -137,12 +137,10 @@
 				<div class="content">
 					<form action method="get">
 						<?php
-							$data = $bdd->query('SELECT * FROM donnee');
-							
 							if(!isset($_GET['folder'])) { echo(""); }
 							else if($_GET['folder']) { echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."folder.png\" /><input class=\"list\" type=\"submit\" value=\"..\" title=\"..\" /><br />"); }
 							
-							while($file = $data->fetch()) {
+							while($file = $data[1]->fetch()) {
 								if($user == $file[1]) {
 									if(!isset($_GET['folder'])) { list_dossiers($file, $dir); }
 									
@@ -158,9 +156,7 @@
 				<h2>Fichiers du dossier</h2>
 				<div class="content">
 					<?php
-						$data = $bdd->query('SELECT * FROM donnee');
-						
-						while($file = $data->fetch()) {
+						while($file = $data[2]->fetch()) {
 							if($user == $file[1]) {
 								if(!isset($_GET['folder'])) { list_fichiers($file, $dir); }
 							}
