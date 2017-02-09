@@ -12,13 +12,6 @@
 				$stmt = $bdd->prepare('UPDATE user SET theme="'.$_POST['theme'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
 				$stmt->execute();
 			}
-			switch($_SESSION['theme']) {
-				case 'default': $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; break;
-				case 'reverse': $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; break;
-				case 'red_line': $thumb = "#220000"; $rgb = "rgb(180,0,0)"; $rgb_r = "rgb(25,0,0)"; $border = "#CC0000"; $bgcolor = "#110000"; $bglist = "#330000"; $color = "#CC0000"; $actcolor = "#00FF00"; break;
-				case 'green_line': $thumb = "#002200"; $rgb = "rgb(0,180,0)"; $rgb_r = "rgb(0,25,0)"; $border = "#00CC00"; $bgcolor = "#001100"; $bglist = "#003300"; $color = "#00CC00"; $actcolor = "#00FF00"; break;
-				case 'blue_line': $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; break;
-			}
 		?>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
@@ -34,7 +27,7 @@
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
 						$_SESSION['mode'] = "client";
-						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
+						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/".$dir."user.png' />$user</a>");
 					}
 					else { header("location: ../index.html"); }
 				?>

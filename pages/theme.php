@@ -1,4 +1,13 @@
 <!-- theme.php -->
+<?php
+	switch($_SESSION['theme']) {
+		case 'default': $dir = 'default/'; $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; $stick1 = "#888888"; $stick2 = "#999999"; $stick3 = "#AAAAAA"; $stick4 = "#BBBBBB"; $stick5 = "#CCCCCC"; break;
+		case 'reverse': $dir = 'reverse/'; $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; $stick1 = "#444444"; $stick2 = "#333333"; $stick3 = "#222222"; $stick4 = "#111111"; $stick5 = "#000000"; break;
+		case 'red_line': $dir = 'default/'; $thumb = "#220000"; $rgb = "rgb(180,0,0)"; $rgb_r = "rgb(25,0,0)"; $border = "#CC0000"; $bgcolor = "#110000"; $bglist = "#330000"; $color = "#CC0000"; $actcolor = "#00FF00"; $stick1 = "#880000"; $stick2 = "#990000"; $stick3 = "#AA0000"; $stick4 = "#BB0000"; $stick5 = "#CC0000"; break;
+		case 'green_line': $dir = 'default/'; $thumb = "#002200"; $rgb = "rgb(0,180,0)"; $rgb_r = "rgb(0,25,0)"; $border = "#00CC00"; $bgcolor = "#001100"; $bglist = "#003300"; $color = "#00CC00"; $actcolor = "#00FF00"; $stick1 = "#008800"; $stick2 = "#009900"; $stick3 = "#00AA00"; $stick4 = "#00BB00"; $stick5 = "#00CC00"; break;
+		case 'blue_line': $dir = 'default/'; $thumb = "#002222"; $rgb = "rgb(0,180,180)"; $rgb_r = "rgb(0,25,25)"; $border = "#00CCCC"; $bgcolor = "#001111"; $bglist = "#003333"; $color = "#00CCCC"; $actcolor = "#00FF00"; $stick1 = "#008888"; $stick2 = "#009999"; $stick3 = "#00AAAA"; $stick4 = "#00BBBB"; $stick5 = "#00CCCC"; break;
+	}
+?>
 <style>
 	/************************
 	*                       *
