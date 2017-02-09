@@ -5,18 +5,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Snake Game</title>
-		<?php
-			switch($_SESSION['theme']) {
-				case 'default': echo("<link rel='stylesheet' type='text/css' href='../css/other.css' /><link rel='stylesheet' type='text/css' href='../css/other.css' />"); break;
-				case 'reverse': echo("<link rel='stylesheet' type='text/css' href='../css/reverse/other.css' /><link rel='stylesheet' type='text/css' href='../css/reverse/other.css' />"); break;
-			}
-		?>
+		<link rel='stylesheet' type='text/css' href='../css/other.css' />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 		<script language="javascript" type="text/javascript" src="../js/other.js"></script>
 	</head>
 	<?php
-		if(isset($_SESSION['user'])) { $user = $_SESSION['user']; }
+		if(isset($_SESSION['user'])) { echo(""); }
 		else { header("location: ./index.html"); }
 	?>
 	<body>
