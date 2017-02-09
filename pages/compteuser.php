@@ -169,20 +169,10 @@
 								$l_theme = ['default','reverse','red_line','green_line','blue_line'];
 								$n_theme = ['Par Défaut','Inverser','Ligne Rouge','Ligne Verte','Ligne Bleu'];
 								
-								if($_SESSION['theme']) {
-									switch($_SESSION['theme']) {
-										case $l_theme[0]: $i = 0; break;
-										case $l_theme[1]: $i = 1; break;
-										case $l_theme[2]: $i = 2; break;
-										case $l_theme[3]: $i = 3; break;
-										case $l_theme[4]: $i = 4; break;
-									}
-									
-									echo("<option value='".$_SESSION['theme']."'>".$n_theme[$i]."</option>");
-								}
-								
 								for($i = 0; $i <= 4; $i++) {
-									if($_SESSION['theme'] != $l_theme[$i]) { echo("<option value='".$l_theme[$i]."'>".$n_theme[$i]."</option>"); }
+									$select = NULL;
+									if($_SESSION['theme'] == $l_theme[$i]) { $select = "selected"; }
+									echo("<option value='".$l_theme[$i]."' ".$select.">".$n_theme[$i]."</option>");
 								}
 							?>
 						</select>
