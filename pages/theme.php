@@ -6,7 +6,7 @@
 	************************/
 	@charset "UTF-8";
 	
-	/* Thème: "<?php echo($_SESSION['theme']); ?>" */
+	/* ThÃ¨me: "<?php echo($_SESSION['theme']); ?>" */
 	
 	::-webkit-scrollbar { background-color: <?php echo("$bgcolor"); ?>; }
 	::-webkit-scrollbar:horizontal { background-color: <?php echo("$bgcolor"); ?>; }
