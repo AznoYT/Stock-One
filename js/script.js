@@ -348,7 +348,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 				packet += '</span>';
 				packet += '</div>';
 				break;
-			case 3: packet += '<div style="background-color: #FFFFFF; height: 500px;">'; // Pour les fichiers textes ou pdf
+			case 3: packet += '<div style="background-color: #FFFFFF; border-radius: 8px; height: 500px;">'; // Pour les fichiers textes ou pdf
 				packet += '<iframe src="' + attempt + '"></iframe>';
 				packet += '</div>';
 				break;
