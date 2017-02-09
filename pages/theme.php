@@ -22,6 +22,7 @@
 	html, input { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	input:hover { background-color: <?php echo("$color"); ?>; color: <?php echo("$bgcolor"); ?>; }
 	.list:hover { background-color: <?php echo("$bglist"); ?>; color: <?php echo("$color"); ?>; }
+	.modif, .modif:hover { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	.controls:hover { background-color: <?php echo("$bglist"); ?>; color: <?php echo("$color"); ?>; }
 	.ACT, #msg3 { color: <?php echo("$actcolor"); ?>; }
 	.WARN:hover, .WARN:hover { color: <?php echo("$bgcolor"); ?>; }

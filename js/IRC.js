@@ -9,7 +9,8 @@ if(window.XMLHttpRequest) { obj = new XMLHttpRequest(); } // Chrome, IE, etc...
 else if(window.ActiveXObject) { obj = new ActiveXObject("Microsoft.XMLHTTP"); } // Pour FireFox
 if(obj.overrideMimeType) { obj.overrideMimeType("text/xml"); } // Safari le sheitan navigateur d'apple
 
-function refresh_tchat(tchat) { // Fonction de récupération de donnée d'un fichier
+// Fonction de récupération de donnée d'un fichier
+function refresh_tchat(tchat) {
 	var output_tchat = document.getElementById('tchat_area');
 	
 	obj.open('GET', tchat, false);

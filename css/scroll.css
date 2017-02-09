@@ -3,6 +3,7 @@
 *    File: scroll.css    *
 *                        *
 *************************/
+@charset "UTF-8";
 
 ::-webkit-scrollbar {
 	border-radius: 3px;

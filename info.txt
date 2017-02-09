@@ -2,6 +2,7 @@
 
 Stock-One-master ./
 |   admin.php
+|   bdd_access.php
 |   client.php
 |   index.html
 |   info.txt
