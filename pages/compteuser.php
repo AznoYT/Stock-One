@@ -171,7 +171,7 @@
 								
 								for($i = 0; $i <= 4; $i++) {
 									$select = NULL;
-									if($_SESSION['theme'] == $l_theme[$i]) { $select = "selected"; }
+									if($_SESSION['theme'] == $l_theme[$i]) { $select = 'selected'; }
 									echo("<option value='".$l_theme[$i]."' ".$select.">".$n_theme[$i]."</option>");
 								}
 							?>
