@@ -22,9 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<link rel="stylesheet" type="text/css" href="./css/scroll.css" />
 		<link rel="icon" type="image/png" href="./pics/icon.png" />
-		<style>
-			<?php include("./pages/theme.php"); ?>
-		</style>
+		<?php include("./pages/theme.php"); ?>
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
 	<body onload="startTime();">
