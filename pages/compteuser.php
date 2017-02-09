@@ -166,37 +166,23 @@
 						<label>> Thème: </label>
 						<select id="theme" name="theme">
 							<?php
-								switch($_SESSION['theme']) {
-									case 'default': echo("<option value='default'>Par Défaut</option>");
-										echo("<option value='reverse'>Inverser</option>");
-										echo("<option value='red_line'>Ligne Rouge</option>");
-										echo("<option value='green_line'>Ligne Verte</option>");
-										echo("<option value='blue_line'>Ligne Bleu</option>");
-										break;
-									case 'reverse': echo("<option value='reverse'>Inverser</option>");
-										echo("<option value='default'>Par Défaut</option>");
-										echo("<option value='red_line'>Ligne Rouge</option>");
-										echo("<option value='green_line'>Green Line</option>");
-										echo("<option value='blue_line'>Blue Line</option>");
-										break;
-									case 'red_line': echo("<option value='red_line'>Ligne Rouge</option>");
-										echo("<option value='default'>Par Défaut</option>");
-										echo("<option value='reverse'>Inverser</option>");
-										echo("<option value='green_line'>Ligne Verte</option>");
-										echo("<option value='blue_line'>Ligne Bleu</option>");
-										break;
-									case 'green_line': echo("<option value='green_line'>Ligne Verte</option>");
-										echo("<option value='default'>Par Défaut</option>");
-										echo("<option value='reverse'>Inverser</option>");
-										echo("<option value='red_line'>Ligne Rouge</option>");
-										echo("<option value='blue_line'>Ligne Bleu</option>");
-										break;
-									case 'blue_line': echo("<option value='blue_line'>Ligne Bleu</option>");
-										echo("<option value='default'>Par Défaut</option>");
-										echo("<option value='reverse'>Inverser</option>");
-										echo("<option value='red_line'>Ligne Rouge</option>");
-										echo("<option value='green_line'>Ligne Verte</option>");
-										break;
+								$l_theme = ['default','reverse','red_line','green_line','blue_line'];
+								$n_theme = ['Par Défaut','Inverser','Ligne Rouge','Ligne Verte','Ligne Bleu'];
+								
+								if($_SESSION['theme']) {
+									switch($_SESSION['theme']) {
+										case $l_theme[0]: $i = 0; break;
+										case $l_theme[1]: $i = 1; break;
+										case $l_theme[2]: $i = 2; break;
+										case $l_theme[3]: $i = 3; break;
+										case $l_theme[4]: $i = 4; break;
+									}
+									
+									echo("<option value='".$_SESSION['theme']."'>".$n_theme[$i]."</option>");
+								}
+								
+								for($i = 0; $i <= 4; $i++) {
+									if($_SESSION['theme'] != $l_theme[$i]) { echo("<option value='".$l_theme[$i]."'>".$n_theme[$i]."</option>"); }
 								}
 							?>
 						</select>
