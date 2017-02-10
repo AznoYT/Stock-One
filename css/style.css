@@ -382,6 +382,11 @@ h2 {
 	width: auto;
 }
 
+img.show {
+	border-radius: 8px;
+	height: 500px;
+}
+
 img.classement {
 	margin-left: 4px;
 	padding-top: 3px;
