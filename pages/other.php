@@ -11,8 +11,8 @@
 		<script language="javascript" type="text/javascript" src="../js/other.js"></script>
 	</head>
 	<?php
-		if(isset($_SESSION['user'])) { echo(""); }
-		else { header("location: ./index.html"); }
+		if(isset($_SESSION['user'])) { echo(''); }
+		else { header('location: ../#'); }
 	?>
 	<body>
 		<header>

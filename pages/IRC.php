@@ -13,39 +13,39 @@
 	<body onload="startTime();">
 		<div class="tchat">
 			<div class="title">
-				<h3>Chat IRC <?php if($_SESSION['mode'] == "admin") { echo("[ADMIN MOD]"); } ?></h3>
+				<h3>Chat IRC <?php if($_SESSION['mode'] == 'admin') { echo('[ADMIN MOD]'); } ?></h3>
 			</div>
 			<?php
 				if(isset($_SESSION['user'])) { $user = $_SESSION['user']; }
-				else { header("location: ../index.html"); }
+				else { header('location: ../#'); }
 			?>
 			<div class="tchat_body">
 				<div id="tchat_area">
 					<?php
-						if($user != "admin" || $_SESSION['mode'] == "client") { $user = 'primary'; $content = 'primary'; }
-						else if($user == "admin") {
-							if($_SESSION['mode'] == "admin") { $user = "admin"; $content = "admin"; }
+						if($user != 'admin' || $_SESSION['mode'] == 'client') { $user = 'primary'; $content = 'primary'; }
+						else if($user == 'admin') {
+							if($_SESSION['mode'] == 'admin') { $user = 'admin'; $content = 'admin'; }
 						}
 						
 						$path = './historiques-IRC/history-'.$user.'.htm';
 						$history = fopen($path, 'r+');
 						$frame = fgets($history);
 						
-						if(!isset($_POST['message'])) { echo(""); }
+						if(!isset($_POST['message'])) { echo(''); }
 						else if($_POST['message']) {
 							$msg = $_POST['message'];
-							if($msg == "Ecrivez votre message...") { echo(""); }
+							if($msg == 'Ecrivez votre message...') { echo(''); }
 							else {
 								$user = $_SESSION['user'];
-								if($_SESSION['user'] == "admin") { $color = "#CC0000"; }
-								else { $color = "#AAAAAA"; }
+								if($_SESSION['user'] == "admin") { $color = '#CC0000'; }
+								else { $color = '#AAAAAA'; }
 								$sending = '> <font color="'.$color.'">'.$user.': '.$msg.'</font><br />';
 								fputs($history, $sending);
 								$frame = $frame.$sending;
 							}
 						}
 						
-						echo("<p>Chargement en cours...</p>");
+						echo('<p>Chargement en cours...</p>');
 						fclose($history);
 					?>
 				</div>

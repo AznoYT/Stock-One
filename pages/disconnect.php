@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- disconnect.php -->
 <html>
-	<?php include("../bdd_access.php"); ?>
+	<?php include('../bdd_access.php'); ?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Déconnexion</title>
@@ -20,7 +20,7 @@
 		<section>
 			<?php
 				$_SESSION['user'] = NULL;
-				header("location: ../index.html");
+				header('location: ../#');
 			?>
 		</section>
 		<footer>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- verifmcompte.php -->
 <html>
-	<?php include("../bdd_access.php"); ?>
+	<?php include('../bdd_access.php'); ?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Validation</title>
@@ -17,10 +17,10 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "client";
-						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
+						$_SESSION['mode'] = 'client';
+						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/default/user.png' />$user</a>");
 					}
-					else { header("location: ../index.html"); }
+					else { header('location: ../#'); }
 				?>
 			</div>
 			<h1>Stock One</h1>
@@ -34,10 +34,10 @@
 					$prenom = $_POST['mprenom'];
 					$mail = $_POST['memail'];
 					
-					echo("<p>Les informations suivants sont en cours de traitement: <p><br/><br/>");
+					echo('<p>Les informations suivants sont en cours de traitement: <p><br/><br/>');
 					
 					// Modification des informations utilisateur
-					if($nom == '' && $prenom == '' && $mail == '') { echo(""); } // Si il ya pas d'infos personnels à traiter
+					if($nom == '' && $prenom == '' && $mail == '') { echo(''); } // Si il ya pas d'infos personnels à traiter
 					else {
 						echo("<p>> Nom: $nom <br/>");
 						echo("<p>> Prénom: $prenom <br/>");
@@ -61,7 +61,7 @@
 					}
 				}
 				
-				$bdd = null;
+				$bdd = NULL;
 			?>
 		</section>
 		<footer>

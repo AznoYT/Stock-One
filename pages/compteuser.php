@@ -26,10 +26,10 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "client";
+						$_SESSION['mode'] = 'client';
 						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/".$dir."user.png' />$user</a>");
 					}
-					else { header('location: ../index.html'); }
+					else { header('location: ../#'); }
 				?>
 			</div>
 			<div class="h-butons">

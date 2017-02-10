@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- vupload.php -->
 <html>
-	<?php include("../bdd_access.php"); ?>
+	<?php include('../bdd_access.php'); ?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Validation Upload</title>
@@ -18,10 +18,10 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "admin";
-						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/user.png' />$user</a>");
+						$_SESSION['mode'] = 'admin';
+						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/default/user.png' />$user</a>");
 					}
-					else { header("location: ../index.html"); }
+					else { header('location: ../#'); }
 				?>
 			</div>
 			<img class='logo' height="30px" src="../pics/logo.png" />

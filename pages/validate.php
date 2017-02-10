@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- validate.php -->
 <html>
-	<?php include("../bdd_access.php"); ?>
+	<?php include('../bdd_access.php'); ?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Validation</title>
@@ -22,7 +22,7 @@
 		<section>
 			<div id="popup"></div>
 			<?php
-				if($_POST['method'] == "REGISTER") { // Ici le script d'enregistrement du compte (REGISTER)
+				if($_POST['method'] == 'REGISTER') { // Ici le script d'enregistrement du compte (REGISTER)
 					$username = $_POST['utilisateur'];
 					$name = $_POST['Nom'];
 					$subname = $_POST['prenom'];
@@ -54,7 +54,7 @@
 					}
 					
 					switch($try) {
-						case 1: echo("<br />> Echec de la tentative de creation de compte."); break;
+						case 1: echo('<br />> Echec de la tentative de creation de compte.'); break;
 						default: $_SESSION['user'] = $_POST['utilisateur'];
 							$_SESSION['profile'] = $PROFILE;
 							
@@ -65,13 +65,13 @@
 							// Et enfin création du répertoires de stockage de l'utilisateur
 							mkdir("../files/$username");
 							
-							header("location: ../client.php");
+							header('location: ../client.php');
 							break;
 					}
 					
-					$bdd = null;
+					$bdd = NULL;
 				}
-				else if($_POST['method'] == "LOGIN") { // Ici le script de connexion au compte (LOGIN)
+				else if($_POST['method'] == 'LOGIN') { // Ici le script de connexion au compte (LOGIN)
 					$login = $bdd->query('SELECT * FROM user');
 					$username = $_POST['lutilisateur'];
 					$lpws = $_POST['lpws'];
@@ -87,14 +87,14 @@
 								$_SESSION['profile'] = $usr[8];
 								$_SESSION['theme'] = $usr[9];
 								
-								header("location: ../client.php");
+								header('location: ../client.php');
 							}
 						}
 					}
 					
-					if($try == 0) { echo("> Echec de la tentative de connexion."); }
+					if($try == 0) { echo('> Echec de la tentative de connexion.'); }
 					
-					$bdd = null;
+					$bdd = NULL;
 				}
 			?>
 			<script type="text/javascript">

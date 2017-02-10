@@ -21,7 +21,7 @@
 						$_SESSION['mode'] = 'admin';
 						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./pages/compteuser.php'><img class='avatar' height='25px' src='./pics/".$dir."user.png' />$user</a>");
 					}
-					else { header('location: ./index.html'); }
+					else { header('location: ./#'); }
 					
 					if($_SESSION['profile'] != 'ADMIN') { header('location: ./client.php'); }
 				?>

@@ -33,15 +33,15 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						$user = $_SESSION['user'];
-						$_SESSION['mode'] = "client";
+						$_SESSION['mode'] = 'client';
 						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./pages/compteuser.php'><img class='avatar' height='25px' src='./pics/".$dir."user.png' />$user</a>");
 					}
-					else { header('location: ./index.html'); }
+					else { header('location: ./#'); }
 				?>
 			</div>
 			<div class="h-butons">
 				<?php
-					if($_SESSION['profile'] == "ADMIN") {
+					if($_SESSION['profile'] == 'ADMIN') {
 						echo('<div class="userswitch">');
 						echo('<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(1);" />');
 						echo('<label class="userswitch-label" for="myuserswitch">');
@@ -50,7 +50,7 @@
 						echo('</label>');
 						echo('</div>');
 					}
-					else if($_SESSION['profile'] == "USER") { echo(''); }
+					else if($_SESSION['profile'] == 'USER') { echo(''); }
 				?>
 				<input class="color" type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
 				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
