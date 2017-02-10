@@ -329,7 +329,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		
 		switch(methode) {
 			case 0: packet += '<p>En construction</p>'; break; // Pour les dossiers
-			case 1: packet += '<img style="height: 500px;" title="' + nom + '" src="' + attempt + '" />'; break; // Pour les images
+			case 1: packet += '<img class="show" title="' + nom + '" src="' + attempt + '" />'; break; // Pour les images
 			case 2: packet += '<audio id="player" ontimeupdate="custom_controls(4);" autoplay>'; // Pour les musiques
 				packet += '<source src="' + attempt + '" type="audio/mpeg" />';
 				packet += '</audio>';
