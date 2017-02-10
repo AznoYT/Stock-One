@@ -1,5 +1,6 @@
 <?php
 	// bdd_access.php
+	// Fichier de connexion à la base de données
 	$host = '127.0.0.1';
 	$db_name = 'stock-one';
 	$encoding = 'utf8';
