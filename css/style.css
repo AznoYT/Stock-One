@@ -382,8 +382,9 @@ h2 {
 	width: auto;
 }
 
-img.show {
-	border-radius: 8px;
+.show {
+	background-color: #AAAAAA;
+	border-radius: 4px;
 	height: 500px;
 }
 
