@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!-- compteuser.php -->
 <html>
-	<?php include("../bdd_access.php"); ?>
+	<?php include('../bdd_access.php'); ?>
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock One - Cloud [Compte Utilisateur]</title>
 		<?php
-			if(!isset($_POST['theme'])) { echo(""); }
+			if(!isset($_POST['theme'])) { echo(''); }
 			else {
 				$_SESSION['theme'] = $_POST['theme'];
 				$stmt = $bdd->prepare('UPDATE user SET theme="'.$_POST['theme'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
-		<?php include("./theme.php"); ?>
+		<?php if(isset($_SESSION['user'])) { include('./theme.php'); } ?>
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
 	<body onload="startTime();">
@@ -29,7 +29,7 @@
 						$_SESSION['mode'] = "client";
 						echo("<a class='profile' title='Retour à la Page Client' href='../client.php'><img class='avatar' height='25px' src='../pics/".$dir."user.png' />$user</a>");
 					}
-					else { header("location: ../index.html"); }
+					else { header('location: ../index.html'); }
 				?>
 			</div>
 			<div class="h-butons">
@@ -142,7 +142,7 @@
 			<div id="popup"></div>
 			<div id="popupabout">
 				<?php
-					if(!isset($_GET['code'])) { echo(""); }
+					if(!isset($_GET['code'])) { echo(''); }
 					else {
 						switch($_GET['code']) {
 							case 1: $action = 'Copie'; $objet = 'fichier'; $directory = 'client.php'; break;
@@ -152,17 +152,7 @@
 							case 5: $action = 'Modification'; $objet = 'compte'; $directory = 'compteuser.php'; break;
 						}
 						
-						switch($_GET['etat']) {
-							case 'OK': $msg = '<font id="msg3">> L\'action mené au '.$objet.' à bien été éxecuter.</font>'; break;
-							case 'ERREUR': $msg = '<font id="msg0">> L\'action mené au '.$objet.' fichier à rencontrer une erreur.</font>'; break;
-						}
-						
-						echo("<fieldset>");
-						echo("<Legend>Confirmation de $action:</Legend>");
-						echo($msg);
-						echo("<br /><br />");
-						echo('<input type="button" onclick="moreaction(0); document.location = \'./'.$directory.'\';" value="Fermer" />');
-						echo("</fieldset>");
+						include('./msg.php');
 					}
 				?>
 			</div>
