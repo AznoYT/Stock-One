@@ -1,5 +1,6 @@
 <!-- theme.php -->
 <?php
+	// Fichier de gestion de thèmes utilisateurs par commande switch et attribution de couleurs par le biais des variables.
 	switch($_SESSION['theme']) {
 		case 'default': $dir = 'default/'; $thumb = "#002200"; $rgb = "rgb(0,0,0)"; $rgb_r = "rgb(180,180,180)"; $border = "#CCCCCC"; $bgcolor = "#000000"; $bglist = "#333333"; $color = "#CCCCCC"; $actcolor = "#00FF00"; $stick1 = "#888888"; $stick2 = "#999999"; $stick3 = "#AAAAAA"; $stick4 = "#BBBBBB"; $stick5 = "#CCCCCC"; break;
 		case 'reverse': $dir = 'reverse/'; $thumb = "#000000"; $rgb = "rgb(180,180,180)"; $rgb_r = "rgb(0,0,0)"; $border = "#000000"; $bgcolor = "#CCCCCC"; $bglist = "#999999"; $color = "#000000"; $actcolor = "#00AA00"; $stick1 = "#444444"; $stick2 = "#333333"; $stick3 = "#222222"; $stick4 = "#111111"; $stick5 = "#000000"; break;
