@@ -44,7 +44,7 @@
 				<h2>Vos Informations</h2>
 				<div class="content">
 					<?php
-						$data = [$bdd->query('SELECT * FROM donnee'), $data = $bdd->query('SELECT * FROM user')];
+						$data = [$bdd->query('SELECT * FROM donnee'), $bdd->query('SELECT * FROM user')];
 						$occupied_space = 0;
 						
 						while($file = $data[0]->fetch()) {
