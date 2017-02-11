@@ -245,7 +245,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 			case 0: packet += '<input type="file" name="fichiers" id="fichiers" title="Importation de fichiers" required />'; break;
 			case 1: packet += '<input type="file" name="dossier" id="dossier" title="Importation de dossiers" webkitdirectory required />';
 				packet += '<br />';
-				packet += '<font id="msg1">/!\\ ATTENTION: Pas encore au point</font>';
+				packet += '<font id="msg1">/!\\ ATTENTION: Incompatible sous Mozilla FireFox</font>';
 				break;
 		}
 		
