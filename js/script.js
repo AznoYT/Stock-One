@@ -17,7 +17,7 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
-	if(a <= 3) { a = Note_annim(a); }
+	if(a <= 4) { a = Note_annim(a); }
 	//hide_pubs();
 }
 
@@ -29,6 +29,11 @@ function checkTime(i) {
 // Ajout d'information de note
 function Note_annim(i) {
 	var output = document.getElementById('Note_MAJ');
+	/*var warning_msg = '<fieldset id="Note">';
+	warning_msg += '<div class="title"><h3 class="alert">ATTENTION !</h3></div>';
+	warning_msg += '<img height="100px" width="100px" src="./pics/alert.png" />';
+	warning_msg += '<p class="alert alert_content">A l\'attention des utilisateur,<br /><br />Des Mises à Jours se font régulièrement toutes les semaines, il est donc normal que vous rencontreriez quelques bugs.</p>';
+	warning_msg += '</fieldset>';*/
 	
 	if(output != undefined) {
 		var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
@@ -38,6 +43,7 @@ function Note_annim(i) {
 			case 1: packet0 += msg[i]; break;
 			case 2: packet0 += msg[i]; break;
 			case 3: packet0 += msg[i]; break;
+			//case 4: document.getElementById('article').innerHTML = warning_msg; break;
 		}
 		
 		output.innerHTML = packet0;
