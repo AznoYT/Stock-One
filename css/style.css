@@ -202,7 +202,7 @@ input {
 	transition: 0s;
 }
 
-.WARN, #msg0, #msg1, #msg2 { color: #FF0000; }
+.WARN, .alert, #msg0, #msg1, #msg2 { color: #FF0000; }
 
 .WARN:hover {
 	background-color: #FF0000;
@@ -239,6 +239,13 @@ fieldset {
 	-moz-animation: typing 17s steps(30, end), blink-caret 1s step-end infinite;
 }
 */
+
+.alert_content {
+	color: #FF0000;
+	font-weight: bold;
+	margin-left: 100px;
+	margin-top: -100px;
+}
 
 aside {
 	border-bottom: 2px solid;
@@ -281,7 +288,7 @@ aside {
 
 #popupabout {
 	left: 24%;
-	top: 40%;
+	top: 25%;
 	width: 52%;
 	z-index: 2;
 }
@@ -347,6 +354,7 @@ article {
 	left: 34%;
 	position: absolute;
 	width: 31.5%;
+	z-index: 1;
 }
 
 h2 {
