@@ -179,9 +179,9 @@ function popuplogin(login, attempt) {
 		packet += '<label for="adresse">E-mail:</label>';
 		packet += '<br />';
 		packet += '<input type="email" id="adresse" name="email" />';
-		packet += '<br/><br/>';
+		packet += '<br />';
 		packet += '<label for="password">Mot de passe:*</label>';
-		packet += '<br/>';
+		packet += '<br />';
 		packet += '<input id="password" type="password" name="pws" value="" />';
 		packet += '<font id="msg1"></font>';
 		packet += '<br />';
