@@ -526,12 +526,23 @@ function moreaction(action, fichier) {
 // Barre d'analyse espace disque utilisateur
 function analysedisk(occupied_space) {
 	var progressbar = document.getElementById('progressbar');
-	var free_space = 10000000000;
+	var free_space = 50000000;
 	var quotient = occupied_space / free_space;
 	var statdisk = Math.ceil(quotient * 100);
 	
 	progressbar.style.width = statdisk + '%';
 	progressbar.innerHTML = '<p style="padding-left: 3px;">' + statdisk + '%</p>';
+	
+	free_space = ((free_space / 1000) / 1000);
+	occupied_space = ((occupied_space / 1000) / 1000);
+	occupied_space = String(occupied_space);
+	
+	switch(occupied_space.charAt(1)) {
+		case '.': occupied_space = occupied_space.charAt(0); break;
+		default: occupied_space = occupied_space.charAt(0) + occupied_space.charAt(1); break;
+	}
+	
+	progressbar.innerHTML += "<p style='position: absolute;'>--- Espace Occupé: " + occupied_space + "/" + free_space + "Mo</p>";
 }
 
 // Personnalisation des controls de la balise <audio>
