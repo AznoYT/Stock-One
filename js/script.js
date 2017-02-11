@@ -4,8 +4,8 @@
 *                       *
 ************************/
 
-var packet;
-var packet0;
+var packet = '';
+var packet0 = '';
 var a = 0;
 
 function startTime() {
@@ -29,21 +29,18 @@ function checkTime(i) {
 // Ajout d'information de note
 function Note_annim(i) {
 	var output = document.getElementById('Note_MAJ');
-	/*var warning_msg = '<fieldset id="Note">';
+	var warning_msg = '<fieldset id="Note">';
 	warning_msg += '<div class="title"><h3 class="alert">ATTENTION !</h3></div>';
 	warning_msg += '<img height="100px" width="100px" src="./pics/alert.png" />';
 	warning_msg += '<p class="alert alert_content">A l\'attention des utilisateur,<br /><br />Des Mises à Jours se font régulièrement toutes les semaines, il est donc normal que vous rencontreriez quelques bugs.</p>';
-	warning_msg += '</fieldset>';*/
+	warning_msg += '</fieldset>';
 	
 	if(output != undefined) {
 		var msg = [document.getElementById('text_0').value, document.getElementById('text_1').value, document.getElementById('text_2').value, document.getElementById('text_3').value];
 		
 		switch(i) {
-			case 0: packet0 = msg[i]; break;
-			case 1: packet0 += msg[i]; break;
-			case 2: packet0 += msg[i]; break;
-			case 3: packet0 += msg[i]; break;
-			//case 4: document.getElementById('article').innerHTML = warning_msg; break;
+			case 4: document.getElementById('article').innerHTML = warning_msg; break;
+			default: packet0 += msg[i]; break;
 		}
 		
 		output.innerHTML = packet0;
@@ -55,62 +52,60 @@ function Note_annim(i) {
 // Cette fonction d'alert texte l'affiche mtn sur les 2 type de connexion Login & Register
 function verify(connect, pws1, pws2, usr) {
 	var passed = false;
-	var msg0 = document.getElementById('msg0');
-	var msg1 = document.getElementById('msg1');
-	var msg2 = document.getElementById('msg2');
+	var msg = [document.getElementById('msg0'), document.getElementById('msg1'), document.getElementById('msg2')];
 	
 	if(connect == 1) {
 		if(pws1.value =='') {
-			msg1.innerHTML = ' <-- Ce champs est vide !';
-			msg2.innerHTML = '';
+			msg[1].innerHTML = ' <-- Ce champs est vide !';
+			msg[2].innerHTML = '';
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			msg1.innerHTML = '';
-			msg2.innerHTML = ' <-- Ce champs est vide !';
+			msg[1].innerHTML = '';
+			msg[2].innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
 		else if(usr == "confirm" && pws1.value != pws2.value) {
-			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
-			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
+			msg[1].innerHTML = ' <-- Les 2 champs sont différents !';
+			msg[2].innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.focus();
 		}
 		else if(pws1 == 1 && pws2 == 0) { // Cette condition c'est pour le mot de passe faux
-			msg1.innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
-			msg2.innerHTML = '';
+			msg[1].innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
+			msg[2].innerHTML = '';
 		}
 		else { var passed = true; }
 		return passed;
 	}
 	else if(connect == 2) {
 		if(usr.value == '') {
-			msg0.innerHTML = ' <-- Ce champs est vide !';
-			msg1.innerHTML = '';
-			msg2.innerHTML = '';
+			msg[0].innerHTML = ' <-- Ce champs est vide !';
+			msg[1].innerHTML = '';
+			msg[2].innerHTML = '';
 			usr.focus();
 		}
 		else if(pws1.value == '') {
-			msg0.innerHTML = '';
-			msg1.innerHTML = ' <-- Ce champs est vide !';
-			msg2.innerHTML = '';
+			msg[0].innerHTML = '';
+			msg[1].innerHTML = ' <-- Ce champs est vide !';
+			msg[2].innerHTML = '';
 			pws1.focus();
 		}
 		else if(pws2.value == '') {
-			msg0.innerHTML = '';
-			msg1.innerHTML = '';
-			msg2.innerHTML = ' <-- Ce champs est vide !';
+			msg[0].innerHTML = '';
+			msg[1].innerHTML = '';
+			msg[2].innerHTML = ' <-- Ce champs est vide !';
 			pws2.focus();
 		}
 		else if(pws1.value != pws2.value) {
-			msg0.innerHTML = '';
-			msg1.innerHTML = ' <-- Les 2 champs sont différents !';
-			msg2.innerHTML = ' <-- Les 2 champs sont différents !';
+			msg[0].innerHTML = '';
+			msg[1].innerHTML = ' <-- Les 2 champs sont différents !';
+			msg[2].innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.focus();
 		}
 		else if(pws1 == 1 && pws2 == 1 && usr == 0) { // Cette condition c'est pour le nom d'utilisateur déjà existant
-			msg0.innerHTML = ' Nom d\'utilisateur déjà existant';
-			msg1.innerHTML = '';
-			msg2.innerHTML = '';
+			msg[0].innerHTML = ' Nom d\'utilisateur déjà existant';
+			msg[1].innerHTML = '';
+			msg[2].innerHTML = '';
 		}
 		else { var passed = true; }
 		return passed;
