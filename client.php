@@ -52,10 +52,10 @@
 					}
 					else if($_SESSION['profile'] == 'USER') { echo(''); }
 				?>
-				<input class="color" type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
-				<input class="color" type="button" value="Créer un dossier" onclick="popupaction(3);" />
-				<input class="color" type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
-				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2);" />
+				<input type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
+				<input type="button" value="Créer un dossier" onclick="popupaction(3);" />
+				<input type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
+				<input type="button" value="Déconnexion" onclick="popupaction(2);" />
 			</div>
 			<img class='logo' height="30px" src="./pics/logo.png" />
 			<h1>Stock One</h1>
