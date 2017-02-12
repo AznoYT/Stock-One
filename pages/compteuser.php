@@ -33,8 +33,8 @@
 				?>
 			</div>
 			<div class="h-butons">
-				<input class="color" type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5, 0);" />
-				<input class="color" type="button" value="Déconnexion" onclick="popupaction(2, 1);" />
+				<input type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5, 0);" />
+				<input type="button" value="Déconnexion" onclick="popupaction(2, 1);" />
 			</div>
 			<img class='logo' height="30px" src="../pics/logo.png" />
 			<h1>Stock One</h1>
