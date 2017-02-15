@@ -3,6 +3,7 @@
 *    File: style.css    *
 *                       *
 ************************/
+
 @charset "UTF-8";
 
 .userswitch {
@@ -138,9 +139,10 @@ header {
 }
 
 .time {
-	font-size: 18px;
+	font-size: 100%;
 	margin-left: 4px;
 	margin-top: 4px;
+	padding: 0.1%;
 	position: absolute;
 }
 
@@ -178,12 +180,6 @@ input {
 	width: 95%;
 }
 
-#to, #to:hover {
-	background-color: #000000;
-	border-color: #CCCCCC;
-	color: #999999;
-}
-
 .controls {
 	border: 1px solid;
 	border-radius: 3px;
@@ -202,6 +198,12 @@ input {
 	transition: 0s;
 }
 
+#changing {
+	height: 85%;
+	position: absolute;
+	right: 0;
+}
+
 .WARN, .alert, #msg0, #msg1, #msg2 { color: #FF0000; }
 
 .WARN:hover {
@@ -215,7 +217,7 @@ select {
 }
 
 section {
-	height: 91%;
+	height: 91.5%;
 	position: relative;
 	width: 100%;
 }
@@ -261,13 +263,13 @@ aside {
 	z-index: 1;
 }
 
-.admin_panel_right, .right {
+#admin_panel_right, .right {
 	border-right: 2px solid;
 	left: 68.5%;
 	z-index: 1;
 }
 
-.admin_panel_right {
+#admin_panel_right {
 	left: 34%;
 	width: 64.5%;
 }
@@ -462,12 +464,16 @@ a {
 pre { font-size: 16px; }
 
 footer {
-	height: 3%;
+	height: 2%;
 	padding-bottom: 4px;
 	padding-top: 4px;
 	position: relative;
 	text-align: left;
 	width: 100%;
+}
+
+h4 {
+	font-size: 80%;
 }
 
 /********
