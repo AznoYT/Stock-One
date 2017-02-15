@@ -44,7 +44,10 @@ Stock-One-master ./
 |   |   action.php
 |   |   annimation.html
 |   |   disconnect.php
+|   |   filelist.php
 |   |   IRC.php
+|   |   module.php
+|   |   msg.php
 |   |   other.php
 |   |   theme.php
 |   |   validate.php
