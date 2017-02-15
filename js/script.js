@@ -126,7 +126,7 @@ function popuplogin(login, attempt) {
 		
 		switch(attempt) {
 			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
-			default: packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
+			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
 		}
 		
 		packet += '<fieldset>';
@@ -148,7 +148,7 @@ function popuplogin(login, attempt) {
 		// Même topo que pour le login
 		switch(attempt) {
 			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
-			default: packet = '<form method="post" action="./pages/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
+			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
 		}
 		
 		packet += '<fieldset>';
@@ -227,7 +227,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		
 		switch(attempt) {
 			case 1: packet = '<form method="post" action="./vupload.php" enctype="multipart/form-data">'; break;
-			default: packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">'; break;
+			default: packet = '<form method="post" action="./php/vupload.php" enctype="multipart/form-data">'; break;
 		}
 		
 		packet += '<fieldset>';
@@ -287,7 +287,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		popup.style.left = '34.75%';
 		moreaction(0);
 		
-		packet = '<form method="post" action="./pages/vupload.php" enctype="multipart/form-data">';
+		packet = '<form method="post" action="./php/vupload.php" enctype="multipart/form-data">';
 		packet += '<fieldset>';
 		packet += '<legend>Nouveau Dossier:</legend>';
 		packet += '<label>Nom du dossier:</label>';
@@ -322,7 +322,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		taille = String(taille);
 		taille = taille.charAt(0) + taille.charAt(1) + taille.charAt(2) + taille.charAt(3) + taille.charAt(4);
 		
-		packet = '<form method="post" action="./pages/action.php?fichiers=' + nom + '">';
+		packet = '<form method="post" action="./php/action.php?fichiers=' + nom + '">';
 		packet += '<fieldset>';
 		packet += '<legend>Fichiers: ' + nom + ' - ' + taille + ' ' + unit + '</legend>';
 		packet += '<center>';
@@ -374,14 +374,8 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 	else if(action == 5) { // Ici l'affichage du tchat IRC
 		popup = document.getElementById('popup_irc');
 		
-		if(attempt == 0) {
-			if(popup.innerHTML == '<iframe class="IRC" src="./IRC.php"></iframe>') { packet = ''; }
-			else { packet = '<iframe class="IRC" src="./IRC.php"></iframe>'; }
-		}
-		else {
-			if(popup.innerHTML == '<iframe class="IRC" src="./pages/IRC.php"></iframe>') { packet = ''; }
-			else { packet = '<iframe class="IRC" src="./pages/IRC.php"></iframe>'; }
-		}
+		if(popup.innerHTML == '<iframe class="IRC" src="./php/IRC.php"></iframe>') { packet = ''; }
+		else { packet = '<iframe class="IRC" src="./php/IRC.php"></iframe>'; }
 	}
 	
 	popup.innerHTML = packet;
@@ -412,7 +406,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		view_param(2, nameuser, name, surname, sexe, mail, pws, nso, np, profile, taille);
 	}
 	else if(action == 2) { // Affichage d'informations utilisateur
-		packet = '<form action="./pages/verifmcompte.php" method="post">';
+		packet = '<form action="./php/verifmcompte.php" method="post">';
 		packet += '<h3>Information Personnels:</h3>';
 		packet += '<br />';
 		packet += '<label>--- Identifiant:</label>';
@@ -464,7 +458,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet = '<h3>Fichiers sur Disque: </h3><br />';
 		packet += '<fieldset>';
 		packet += '<legend>Fichiers:</legend>';
-		packet += '<iframe style="border-radius: 0; height: 300px;" src="./pages/filelist.php?target=' + nameuser + '">';
+		packet += '<iframe style="border-radius: 0; height: 300px;" src="./php/filelist.php?target=' + nameuser + '">';
 		packet += '</iframe>';
 		packet += '</fieldset>';
 		packet += '<br />';
@@ -486,7 +480,7 @@ function moreaction(action, fichier, partage) {
 	
 	switch(action) {
 		case 0: packet = ''; break; // Ici la copie
-		case 1: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici la copie
+		case 1: packet = '<form method="post" action="./php/action.php?fichiers=' + fichier + '">'; // Ici la copie
 			packet += '<fieldset>';
 			packet += '<legend>Copier un fichier:</legend>';
 			packet += '<p>Copie de "' + fichier + '"</p>';
@@ -500,7 +494,7 @@ function moreaction(action, fichier, partage) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
-		case 2: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici le déplacement
+		case 2: packet = '<form method="post" action="./php/action.php?fichiers=' + fichier + '">'; // Ici le déplacement
 			packet += '<fieldset>';
 			packet += '<legend>Déplacer un fichier:</legend>';
 			packet += '<p>Déplacement de "' + fichier + '"</p>';
@@ -514,7 +508,7 @@ function moreaction(action, fichier, partage) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
-		case 3: packet = '<form method="post" action="./pages/action.php?fichiers=' + fichier + '">'; // Ici la confirmation de suppression
+		case 3: packet = '<form method="post" action="./php/action.php?fichiers=' + fichier + '">'; // Ici la confirmation de suppression
 			packet += '<fieldset>';
 			packet += '<legend>Supprimer un fichier:</legend>';
 			packet += '<p>Êtes-vous sûre de vouloir supprimer "' + fichier + '" ?</p>';
@@ -673,7 +667,7 @@ function disconnect(stat, method) {
 	if(method == 0) {
 		switch(stat) {
 			case 0: popupaction(0); break;
-			case 1: document.location = "./pages/disconnect.php"; break;
+			case 1: document.location = "./php/disconnect.php"; break;
 		}
 	}
 	else if(method == 1) { document.location = "./disconnect.php"; }
@@ -683,7 +677,7 @@ function disconnect(stat, method) {
 function other(op) {
 	switch(op) {
 		case 0: document.location = "../client.php"; break;
-		case 1: document.location = "./pages/other.php"; break;
+		case 1: document.location = "./php/other.php"; break;
 	}
 }
 
