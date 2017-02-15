@@ -50,14 +50,14 @@
 					$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
 					$stmt->execute();
 					
-					header("location: ./compteuser.php?code=5&etat=OK");
+					header("location: ./compteuser.php?code=4&etat=OK");
 				}
 				else {
 					if($_POST['special'] == 'Modifier') {
 						$stmt = $bdd->prepare('UPDATE user SET GRADE="'.$_POST['profile'].'" WHERE utilisateur="'.$_POST['user'].'"');
 						$stmt->execute();
 						
-						header("location: ../admin.php?code=5&etat=OK");
+						header("location: ../admin.php?code=4&etat=OK");
 					}
 				}
 				

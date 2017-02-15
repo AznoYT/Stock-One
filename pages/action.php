@@ -71,19 +71,19 @@
 				}
 				else {
 					switch($_POST['action']) {
-						case 'Copier': $code = "1";
+						case 'Copier': $code = '0';
 							echo("> Copie du fichier: $fichiers vers $pathpaste");
 							$etat = action(0, $bdd, $user, $fichiers, $path, $pathpaste);
 							break;
-						case 'Déplacer': $code = "2";
+						case 'Déplacer': $code = '1';
 							echo("> Déplacement du fichier: $fichiers vers $pathpaste");
 							$etat = action(1, $bdd, $user, $fichiers, $path, $pathpaste);
 							break;
-						case 'Oui': $code = "3";
+						case 'Oui': $code = '2';
 							echo("> Suppression du fichier: $fichiers");
 							$etat = action(2, $bdd, $user, $fichiers, NULL, NULL);
 							break;
-						default: $code = "0";
+						default: $code = '4';
 							$etat = "INCONNU";
 							echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
 							break;
