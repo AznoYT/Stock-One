@@ -142,7 +142,7 @@ function popuplogin(login, attempt) {
 		packet += '<input class="text" type="password" id="password" name="lpws" />';
 		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
-		packet += '<input class="ACT" type="submit" value="Connexion" />';
+		packet += '<input class="ACT" type="submit" value="Connexion" /> ';
 	}
 	else if(login == 2) { // Ici le Register
 		// Même topo que pour le login
@@ -196,8 +196,8 @@ function popuplogin(login, attempt) {
 		packet += '<input type="checkbox" id="notifpart" name="notifpart" value="1" />';
 		packet += '<label for="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter</label>';
 		packet += '<br /><br />';
-		packet += '<input class="ACT" type="submit" value="Inscription" />';
-		packet += '<input class="WARN" type="reset" value="Tout Effacer" />';
+		packet += '<input class="ACT" type="submit" value="Inscription" /> ';
+		packet += '<input class="WARN" type="reset" value="Tout Effacer" /> ';
 	}
 	
 	switch(attempt) {
@@ -254,6 +254,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		packet += '<label for="public"> Publique</label>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="submit" value="Importer" />';
+		packet += ' - ';
 		
 		switch(attempt) {
 			case 1: packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />'; break;
@@ -298,6 +299,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		packet += '<label for="public"> Publique</label>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" name="option" value="Créer" />';
+		packet += ' - ';
 		
 		switch(attempt) {
 			case 1: packet += '<input type="button" onclick="document.location = \'../client.php\'" value="Retour" />'; break;
@@ -487,9 +489,12 @@ function moreaction(action, fichier, partage) {
 			packet += '<br />';
 			packet += '<label>Vers:</label>';
 			packet += '<br />';
-			packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
+			packet += '<center>';
+			packet += '<input class="text" style="margin: 0; margin-top: 4px; width: 98%;" type="text" name="to" placeholder="./Dossier/sous-Dossier/fichier_à_copier.ext" />';
+			packet += '</center>';
 			packet += '<br /><br />';
 			packet += '<input class="ACT" type="submit" name="action" value="Copier" />';
+			packet += ' - ';
 			packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 			packet += '</fieldset>';
 			packet += '</form>';
@@ -501,9 +506,12 @@ function moreaction(action, fichier, partage) {
 			packet += '<br />';
 			packet += '<label>Vers:</label>';
 			packet += '<br />';
-			packet += '<input style="width: 98%;" type="text" name="to" id="to" value="./Dossier/sous-Dossier/fichier_à_copier.ext" onfocus="info_tchat(2, this.value);" onblur="info_tchat(2, this.value);" />';
+			packet += '<center>';
+			packet += '<input class="text" style="margin: 0; margin-top: 4px; width: 98%;" type="text" name="to" placeholder="./Dossier/sous-Dossier/fichier_à_déplacer.ext" />';
+			packet += '</center>';
 			packet += '<br /><br />';
 			packet += '<input class="ACT" type="submit" name="action" value="Déplacer" />';
+			packet += ' - ';
 			packet += '<input type="button" onclick="moreaction(0);" value="Annuler" />';
 			packet += '</fieldset>';
 			packet += '</form>';
@@ -541,6 +549,7 @@ function moreaction(action, fichier, partage) {
 			packet += '</select>';
 			packet += '<br /><br />';
 			packet += '<input class="ACT" type="submit" name="action" value="Appliquer" />';
+			packet += ' - ';
 			packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
 			packet += '</fieldset>';
 			packet += '</form>';
@@ -628,26 +637,12 @@ function info_tchat(obj, msg) {
 		//var meta = document.getElementById('refresh');
 		
 		if(msg == 'Ecrivez votre message...') {
-			//meta.content = "50;url=./IRC.php";
 			entry.style.color = '#CCCCCC';
 			entry.value = '';
 		}
 		else if(msg == '') {
-			//meta.content = "5;url=./IRC.php";
 			entry.style.color = '#999999';
 			entry.value = 'Ecrivez votre message...';
-		}
-	}
-	else if(obj == 2) { // Pour l'input de chemin de copie ou déplacement de fichiers
-		var entry = document.getElementById('to');
-		
-		if(msg == './Dossier/sous-Dossier/fichier_à_copier.ext') {
-			entry.style.color = '#CCCCCC';
-			entry.value = './';
-		}
-		else if(msg == './') {
-			entry.style.color = '#999999';
-			entry.value = './Dossier/sous-Dossier/fichier_à_copier.ext';
 		}
 	}
 }
@@ -660,6 +655,45 @@ function adminswitch(mode) {
 			case 2: document.location = "./client.php"; break; // USER MOD
 		}
 	}, 350);
+}
+
+// Fonction de gestions de pannaux administrateur
+function panel_switch(action, list_user) {
+	var panel_left = document.getElementById('admin_panel_left');
+	var panel_right = document.getElementById('admin_panel_right');
+	
+	if(action == 0) { // Ici l'Interface de Gestion Système Serveur
+		packet = '<h2>Commandes</h2>';
+		packet += '<div class="content">';
+		packet += '';
+		packet += '</div>';
+		packet0 = '<h2>Gestion du Système<input id="changing" type="button" value="Administration" onclick="panel_switch(1, temp);" /></h2>';
+		packet0 += '<div id="frame_param">';
+		packet0 += '';
+		packet0 += '</div>';
+	}
+	else if(action == 1) { // Ici l'Interface de Gestion d'Utilisateurs
+		packet = '<h2>Utilisateurs</h2>';
+		packet += '<div class="content" id="list_user">';
+		packet += list_user.innerHTML;
+		packet += '</div>';
+		packet0 = '<h2>Administration Compte <input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0);" /></h2>';
+		packet0 += '<div id="frame_param">';
+		packet0 += '<div class="info_selected">';
+		packet0 += '<h3 id="selected">Affichage de: </h3>> ';
+		packet0 += '<input type="button" value="Données Utilisateurs" onclick="" />';
+		packet0 += ' <input type="button" value="Paramètre Profile" onclick="" />';
+		packet0 += '<br /><br />';
+		packet0 += '<h3>Paramètre Afficher:</h3>';
+		packet0 += '</div>';
+		packet0 += '<div id="info_param">';
+		packet0 += '<p>Veuillez selectionnez un compte...</p>';
+		packet0 += '</div>';
+		packet0 += '</div>';
+	}
+	
+	panel_left.innerHTML = packet;
+	panel_right.innerHTML = packet0;
 }
 
 // Cette fonction est pour la deconnexion du compte
