@@ -32,6 +32,7 @@
 	.userswitch-switch { background-color: <?php echo("$bgcolor"); ?>; border: 2px solid <?php echo("$border"); ?>; border-radius: 50px; }
 	html, input { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	input:hover { background-color: <?php echo("$color"); ?>; color: <?php echo("$bgcolor"); ?>; }
+	.text:hover { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	.list:hover { background-color: <?php echo("$bglist"); ?>; color: <?php echo("$color"); ?>; }
 	.modif, .modif:hover { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	.controls:hover { background-color: <?php echo("$bglist"); ?>; color: <?php echo("$color"); ?>; }
