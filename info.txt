@@ -2,8 +2,8 @@
 
 Stock-One-master ./
 |   admin.php
-|   bdd_access.php
 |   client.php
+|   compteuser.php
 |   index.html
 |   info.txt
 |   stock-one.sql
@@ -19,19 +19,8 @@ Stock-One-master ./
 |           other.css
 |           
 +---files/
-|   +---4N4RCHY/
-|   |       south_park___kenny_cartman_stan_and_kyle_by_zombie_mitsuki-d60azai.jpg
-|   |       Synthese activite 3.pdf
-|   |       test1.txt
-|   |       JonTron - What...What The Fuck-!.mp3
-|   |       JonTron - What...What The Fuck-!.mp4
 |   |
 |   \---admin/
-|           folder.png
-|           gallery.png
-|           movie.png
-|           music.png
-|           text-file.png
 |           
 +---js/
 |       annimation.js
@@ -40,9 +29,10 @@ Stock-One-master ./
 |       script.js
 |       three.min.js
 |       
-+---pages/
++---php/
 |   |   action.php
 |   |   annimation.html
+|   |   bdd_access.php
 |   |   disconnect.php
 |   |   filelist.php
 |   |   IRC.php
@@ -59,9 +49,10 @@ Stock-One-master ./
 |           history-primary.htm
 |       
 \---pics/
+    |   alert.png
     |   icon.png
     |   logo.png
-    |   user.png
+    |   logo_older.png
     |
     +---default/
     |       folder.png
@@ -78,4 +69,4 @@ Stock-One-master ./
             text-file.png
             user.png
 
-Lien de téléchargement du site: https://mega.nz/#!ehFClaxT!5__I5JAY7D7-UmXlkeJFSikCUmFKnbH86MFF49MDnLE
+Lien de téléchargement du site: ---
