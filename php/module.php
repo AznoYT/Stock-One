@@ -21,8 +21,11 @@
 	// Fonction de commande Copie/Déplacement/Suppression de fichiers
 	function action($COMMAND, $db, $propriétaire, $nom, $dir, $dirpaste) {
 		// Dans la fonction il y aura le mode d'action de donnée dans la database. Elle sera ensuite appeler par chaque conditions
-		// ICI sera insérer le code PHP executant l'action sur le fichier choisi
-		
+		switch($COMMAND) {
+			case 0: break; // Copie sur serveur
+			case 1: break; // Déplacement sur serveur
+			case 2: unlink($dir); break; // Suppression du serveur
+		}
 		
 		// Cette Partie du code concerne le référencement dans la base donnée
 		$data = $db->query('SELECT * FROM donnee');

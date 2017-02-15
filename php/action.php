@@ -58,7 +58,7 @@
 							break;
 						case 'Oui': $code = '2';
 							echo("> Suppression du fichier: $fichiers");
-							$etat = action(2, $bdd, $user, $fichiers, NULL, NULL);
+							$etat = action(2, $bdd, $user, $fichiers, $path, NULL);
 							break;
 						default: $code = '4';
 							$etat = "INCONNU";
