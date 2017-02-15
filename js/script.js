@@ -8,6 +8,7 @@ var packet = '';
 var packet0 = '';
 var a = 0;
 
+// Affichage du temps de la machine
 function startTime() {
 	var today = new Date();
 	var h = today.getHours();
@@ -214,7 +215,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt, methode, nom, taille) {
+function popupaction(action, attempt, methode, nom, taille, partage) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -366,6 +367,7 @@ function popupaction(action, attempt, methode, nom, taille) {
 		packet += '<input class="WARN" type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
+		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\');" value="Propriétés" />';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
 		packet += '</form>';
@@ -443,14 +445,13 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '<br />';
 		packet += '- <select name="profile">';
 		
-		switch(profile) {
-			case "USER": packet += '<option value="USER">USER</option>';
-				packet += '<option>ADMIN</option>';
-				break;
-			
-			case "ADMIN": packet += '<option value="ADMIN">ADMIN</option>';
-				packet += '<option value="USER">USER</option>';
-				break;
+		var grade = ['USER', 'ADMIN'];
+		var select = '';
+		
+		for(i = 0; i <= 1; i++) {
+			select = '';
+			if(profile == grade[i]) { select = 'selected'; }
+			packet += '<option value="' + grade[i] + '" ' + select + '>' + grade[i] + '</option>';
 		}
 		
 		packet += '</select>';
@@ -475,7 +476,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
-function moreaction(action, fichier) {
+function moreaction(action, fichier, partage) {
 	var popup = document.getElementById('popupabout');
 	
 	switch(action) {
@@ -519,6 +520,31 @@ function moreaction(action, fichier) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
+		case 4: packet = '<form method="post" action="./client.php">';
+			packet += '<fieldset>';
+			packet += '<legend>Propriétés:</legend>';
+			packet += '<h3>Paramètres du fichier: </h3>';
+			packet += '<p>' + fichier + '</p>';
+			packet += '<br />';
+			packet += '<label for="share">> Partage du fichier: </label>';
+			packet += '<select name="public">';
+			
+			var state = ['Public', 'Privé'];
+			var valeur = ['y', 'n'];
+			var select = '';
+			
+			for(i = 0; i <= 1; i++) {
+				select = '';
+				if(partage == valeur[i]) { select = 'selected'; }
+				packet += '<option value="' + valeur[i] + '" ' + select + '>' + state[i] + '</option>';
+			}
+			
+			packet += '</select>';
+			packet += '<br /><br />';
+			packet += '<input class="ACT" type="submit" name="action" value="Appliquer" />';
+			packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
+			packet += '</fieldset>';
+			packet += '</form>';
 	}
 	
 	popup.innerHTML = packet;
