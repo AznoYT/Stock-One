@@ -670,7 +670,6 @@ function disconnect(stat, method) {
 			case 1: document.location = "./php/disconnect.php"; break;
 		}
 	}
-	else if(method == 1) { document.location = "./disconnect.php"; }
 }
 
 // Fonction de développement /!\ PAS TOUCHER !!!!
