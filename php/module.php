@@ -15,7 +15,7 @@
 		else { echo(''); }
 	}
 	
-	function action($COMMAND, $db, $propriétaire, $nom, $dir, $dirpaste) {
+	function action($COMMAND, $db, $propriétaire, $nom, $dir, $dirpaste) { // Fonction de commande Copie/Déplacement/Suppression de fichiers
 		// Dans la fonction il y aura le mode d'action de donnée dans la database. Elle sera ensuite appeler par chaque conditions
 		// ICI sera insérer le code PHP executant l'action sur le fichier choisi
 		
