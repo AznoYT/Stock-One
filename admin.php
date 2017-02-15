@@ -38,8 +38,8 @@
 		</header>
 		<section>
 			<aside id="admin_panel_left" class="left">
-				<h2>Locations [./files/]</h2>
-				<div class="content">
+				<h2>Utilisateurs</h2>
+				<div class="content" id="list_user">
 					<?php
 						$data = [$bdd->query('SELECT * FROM user'), $bdd->query('SELECT * FROM donnee')];
 						
@@ -56,8 +56,8 @@
 					?>
 				</div>
 			</aside>
-			<aside class="admin_panel_right">
-				<h2>Administration Compte</h2>
+			<aside id="admin_panel_right">
+				<h2>Administration Compte<input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0);" /></h2>
 				<div id="frame_param">
 					<div class="info_selected">
 						<h3 id="selected">Affichage de: </h3>> 
@@ -83,6 +83,10 @@
 				?>
 			</div>
 		</section>
+		<script>
+			// Sauvegarde de la liste d'utilisateur dans une variable temporaire
+			var temp = document.getElementById('list_user');
+		</script>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
 		</footer>
