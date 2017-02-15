@@ -85,13 +85,7 @@
 				<?php
 					if(!isset($_GET['code'])) { echo(''); }
 					else {
-						switch($_GET['code']) {
-							case 1: $action = 'Copie'; $objet = 'fichier'; $directory = 'client.php'; break;
-							case 2: $action = 'Déplacement'; $objet = 'fichier'; $directory = 'client.php'; break;
-							case 3: $action = 'Suppression'; $objet = 'fichier'; $directory = 'client.php'; break;
-							case 4: $action = 'Importation'; $objet = 'fichier'; $directory = 'admin.php'; break;
-							case 5: $action = 'Modification'; $objet = 'compte'; $directory = 'admin.php'; break;
-						}
+						$frame2 = ['client.php', 'client.php', 'client.php', 'admin.php', 'admin.php'];
 						
 						include('./pages/msg.php');
 					}
