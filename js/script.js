@@ -461,16 +461,22 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		info_param.innerHTML = packet;
 	}
 	else if(action == 3) {
-		packet = '<h3>Espace Disque: </h3><br />';
+		packet = '<h3>Fichiers sur Disque: </h3><br />';
+		packet += '<fieldset>';
+		packet += '<legend>Fichiers:</legend>';
+		packet += '<iframe style="border-radius: 0; height: 300px;" src="./pages/filelist.php?target=' + nameuser + '">';
+		packet += '</iframe>';
+		packet += '</fieldset>';
+		packet += '<br />';
+		packet += '<h3>Espace Disque: </h3><br />';
 		packet += '<div id="progressbarControl" style="margin-left: 15px; margin-right: 15px; width: auto;">';
 		packet += '<div id="progressbar">';
 		packet += '</div>';
 		packet += '</div>';
 		packet += '<br /><br />';
-		packet += '';
 		
 		info_param.innerHTML = packet;
-		switch(action) { case 3: analysedisk(taille); break; }
+		analysedisk(taille);
 	}
 }
 
@@ -548,7 +554,7 @@ function moreaction(action, fichier, partage) {
 	
 	popup.innerHTML = packet;
 	switch(action) {
-		case 4: popup.style.width = "35%"; popup.style.left = '32.5%'; break;
+		case 4: popup.style.width = "35%"; popup.style.left = '32.3%'; break;
 		default: popup.style.width = "52%"; popup.style.left = '24%'; break;
 	}
 }
