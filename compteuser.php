@@ -84,7 +84,7 @@
 					?>
 				</div>
 			</aside>
-			<aside class="admin_panel_right">
+			<aside id="admin_panel_right">
 				<h2>Paramètres</h2>
 				<div class="content">
 					<form action="./php/verifmcompte.php" method="POST" onsubmit="return verify(1, this.pws1, this.pws2, 'confirm');" style="padding: 4px;">
