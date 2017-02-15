@@ -548,6 +548,10 @@ function moreaction(action, fichier, partage) {
 	}
 	
 	popup.innerHTML = packet;
+	switch(action) {
+		case 4: popup.style.width = "35%"; popup.style.left = '32.5%'; break;
+		default: popup.style.width = "52%"; popup.style.left = '24%'; break;
+	}
 }
 
 // Barre d'analyse espace disque utilisateur
