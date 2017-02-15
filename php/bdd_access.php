@@ -5,7 +5,7 @@
 	$db_name = 'stock-one';
 	$encoding = 'utf8';
 	$username = 'root';
-	$password = 'toor';
+	$password = '';
 	
 	session_start();
 	try { $bdd = new PDO('mysql:host='.$host.';dbname='.$db_name.';charset='.$encoding, $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
