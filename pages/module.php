@@ -14,4 +14,6 @@
 		if($file[2] == 'folder') { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."folder.png\" /><input class=\"list\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" /><br />"); }
 		else { echo(''); }
 	}
+	
+	// END
 ?>
