@@ -52,10 +52,7 @@
 							$occupied_space = 0;
 							
 							while($file2 = $data[1]->fetch()) {
-								if($file2[1] == $file[0]) {
-									$occupied_space = $occupied_space + $file2[5];
-									//$filediscover = ["'$file2[0]','$file2[1]','$file2[2]','$file2[3]','$file2[4]','$file2[5]','$file2[6]','$file2[7]'"];
-								}
+								if($file2[1] == $file[0]) { $occupied_space = $occupied_space + $file2[5]; }
 							}
 							
 							echo("<img class=\"classement\" height=\"15px\" src=\"./pics/".$dir."user.png\" /><input class=\"list\" type=\"button\" value=\"$file[0]\" title=\"$file[0]\" onclick=\"view_param(1, '$file[0]', '$file[1]', '$file[2]', '$file[3]', '$file[4]', '$file[5]', '$file[6]', '$file[7]', '$file[8]', '$occupied_space');\" /><br />");
