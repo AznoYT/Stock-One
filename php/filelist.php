@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- vupload.php -->
+<!-- filelist.php -->
 <html>
 	<?php
 		include('./bdd_access.php'); $a = '.';
@@ -16,11 +16,8 @@
 	<body>
 		<form action="./filelist.php" method="get">
 			<?php
-				if(isset($_SESSION['user'])) {
-					$user = $_SESSION['user'];
-					$_SESSION['mode'] = 'admin';
-				}
-				else { header('location: ../#'); }
+				$page = 'filelist.php';
+				include('./session.php');
 				
 				if($_SESSION['profile'] != 'ADMIN') { header('location: ../client.php'); }
 				

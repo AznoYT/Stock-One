@@ -15,12 +15,8 @@
 		<header>
 			<div class="time info">
 				<?php
-					if(isset($_SESSION['user'])) {
-						$user = $_SESSION['user'];
-						$_SESSION['mode'] = 'client';
-						echo("<a class='profile' href='../client.php'><img class='avatar' height='25px' src='../pics/default/user.png' />$user</a>");
-					}
-					else { header('location: ../#'); }
+					$page = 'verifmcompte.php';
+					include('./session.php');
 				?>
 			</div>
 			<h1>Stock One</h1>
