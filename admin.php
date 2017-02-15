@@ -27,7 +27,7 @@
 				?>
 			</div>
 			<div class="h-butons">
-				<div class="userswitch">
+				<div class="userswitch" style="margin-left: -110px;">
 					<input type="checkbox" name="userswitch" class="userswitch-checkbox" id="myuserswitch" onclick="adminswitch(2);" checked>
 					<label class="userswitch-label" for="myuserswitch">
 						<span class="userswitch-inner"></span>
@@ -35,8 +35,6 @@
 					</label>
 				</div>
 				<input type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
-				<input type="button" value="Créer un dossier" onclick="popupaction(3);" />
-				<input type="button" value="Importer" onclick="popupaction(1, 0 , 0);" />
 				<input type="button" value="Déconnexion" onclick="popupaction(2);" />
 			</div>
 			<img class='logo' height="30px" src="./pics/logo.png" />
