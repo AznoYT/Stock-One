@@ -3,6 +3,7 @@
 *    File: irc.css    *
 *                     *
 **********************/
+
 @charset "UTF-8";
 
 * {
@@ -60,6 +61,7 @@ input {
 }
 
 #text_input { width: 72.5%; }
+#text_input:hover { background-color: #000000; }
 
 /******
 * END *
