@@ -57,7 +57,7 @@
 				</div>
 			</aside>
 			<aside id="admin_panel_right">
-				<h2>Administration Compte<input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0);" /></h2>
+				<h2>Administration Compte<input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0, temp, theme);" /></h2>
 				<div id="frame_param">
 					<div class="info_selected">
 						<h3 id="selected">Affichage de: </h3>> 
@@ -86,6 +86,7 @@
 		<script>
 			// Sauvegarde de la liste d'utilisateur dans une variable temporaire
 			var temp = document.getElementById('list_user');
+			var theme = '<?php echo($dir); ?>';
 		</script>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
