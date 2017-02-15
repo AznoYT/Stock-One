@@ -658,16 +658,20 @@ function adminswitch(mode) {
 }
 
 // Fonction de gestions de pannaux administrateur
-function panel_switch(action, list_user) {
+function panel_switch(action, list_user, theme) {
 	var panel_left = document.getElementById('admin_panel_left');
 	var panel_right = document.getElementById('admin_panel_right');
 	
 	if(action == 0) { // Ici l'Interface de Gestion Système Serveur
 		packet = '<h2>Commandes</h2>';
 		packet += '<div class="content">';
-		packet += '';
+		packet += '<img class="classement" height="15px" src="./pics/' + theme + 'console.png" />';
+		packet += '<input class="list" type="button" value="Panneau de commande" title="Panneau d\'affichage de commandes d\'interactions serveur" onclick="" />';
+		packet += '<br />'
+		packet += '<img class="classement" height="15px" src="./pics/' + theme + 'monitor.png" />';
+		packet += '<input class="list" type="button" value="Moniteur Système" title="Affichage des informations d\'état du serveur" onclick="" />';
 		packet += '</div>';
-		packet0 = '<h2>Gestion du Système<input id="changing" type="button" value="Administration" onclick="panel_switch(1, temp);" /></h2>';
+		packet0 = '<h2>Gestion du Système<input id="changing" type="button" value="Gestion Comptes" onclick="panel_switch(1, temp, theme);" /></h2>';
 		packet0 += '<div id="frame_param">';
 		packet0 += '';
 		packet0 += '</div>';
@@ -677,7 +681,7 @@ function panel_switch(action, list_user) {
 		packet += '<div class="content" id="list_user">';
 		packet += list_user.innerHTML;
 		packet += '</div>';
-		packet0 = '<h2>Administration Compte <input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0);" /></h2>';
+		packet0 = '<h2>Administration Compte <input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0, temp, theme);" /></h2>';
 		packet0 += '<div id="frame_param">';
 		packet0 += '<div class="info_selected">';
 		packet0 += '<h3 id="selected">Affichage de: </h3>> ';
