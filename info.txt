@@ -35,7 +35,7 @@ Stock-One-master ./
 |           
 +---js/
 |       annimation.js
-|       IRC.js
+|       irc.js
 |       other.js
 |       script.js
 |       three.min.js
