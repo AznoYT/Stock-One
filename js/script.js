@@ -368,6 +368,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\');" value="Propriétés" />';
+		packet += ' - ';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
 		packet += '</form>';
