@@ -9,15 +9,15 @@ Stock-One-master ./
 |   stock-one.sql
 |   
 +---css/
+|   |   irc.css
 |   |   other.css
+|   |   scroll.css
+|   |   style.css
+|   |   system.css
 |   |
 |   \---reverse/
-|           irc.css
 |           other.css
-|           scroll.css
-|           style.css
-|           system.css
-|       
+|           
 +---files/
 |   +---4N4RCHY/
 |   |       south_park___kenny_cartman_stan_and_kyle_by_zombie_mitsuki-d60azai.jpg
