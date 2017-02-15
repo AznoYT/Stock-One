@@ -2,7 +2,7 @@
 <!-- client.php -->
 <html>
 	<?php
-		include('./php/bdd_access.php'); $a = '';
+		include('./php/bdd_access.php'); $a = NULL;
 		include('./php/module.php');
 	?>
 	<head>
