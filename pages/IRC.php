@@ -7,8 +7,9 @@
 		<title id="title">Stock One - IRC</title>
 		<link rel="stylesheet" type="text/css" href="../css/irc.css" />
 		<link rel="stylesheet" type="text/css" href="../css/scroll.css" />
+		<link rel="stylesheet" type="text/css" href="../css/system.css" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
-		<script language="javascript" type="text/javascript" src="../js/IRC.js"></script>
+		<script language="javascript" type="text/javascript" src="../js/irc.js"></script>
 	</head>
 	<body onload="startTime();">
 		<div class="tchat">
@@ -57,8 +58,7 @@
 				</div>
 				<script language="javascript" type="text/javascript">
 					var lien = <?php echo("'".$path."'"); ?>;
-					element = document.getElementById('tchat_area');
-					element.scrollTop = element.scrollHeight;
+					var element = document.getElementById('tchat_area');
 					document.getElementById('text_input').focus();
 				</script>
 			</div>
