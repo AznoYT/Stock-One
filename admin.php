@@ -16,12 +16,8 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					if(isset($_SESSION['user'])) {
-						$user = $_SESSION['user'];
-						$_SESSION['mode'] = 'admin';
-						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./compteuser.php'><img class='avatar' height='25px' src='./pics/".$dir."user.png' />$user</a>");
-					}
-					else { header('location: ./#'); }
+					$page = 'admin.php';
+					include('./php/session.php');
 					
 					if($_SESSION['profile'] != 'ADMIN') { header('location: ./client.php'); }
 				?>
@@ -61,7 +57,7 @@
 				</div>
 			</aside>
 			<aside class="admin_panel_right">
-				<h2>Commandes</h2>
+				<h2>Administration Compte</h2>
 				<div id="frame_param">
 					<div class="info_selected">
 						<h3 id="selected">Affichage de: </h3>> 

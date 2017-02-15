@@ -19,12 +19,8 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					if(isset($_SESSION['user'])) {
-						$user = $_SESSION['user'];
-						$_SESSION['mode'] = 'client';
-						echo("<a class='profile' title='Paramètre du Compte Utilisateur' href='./compteuser.php'><img class='avatar' height='25px' src='./pics/".$dir."user.png' />$user</a>");
-					}
-					else { header('location: ./#'); }
+					$page = 'client.php';
+					include('./php/session.php');
 				?>
 			</div>
 			<div class="h-butons">

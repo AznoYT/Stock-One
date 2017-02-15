@@ -24,17 +24,13 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					if(isset($_SESSION['user'])) {
-						$user = $_SESSION['user'];
-						$_SESSION['mode'] = 'client';
-						echo("<a class='profile' title='Retour à la Page Client' href='./client.php'><img class='avatar' height='25px' src='./pics/".$dir."user.png' />$user</a>");
-					}
-					else { header('location: ./#'); }
+					$page = 'compteuser.php';
+					include('./php/session.php');
 				?>
 			</div>
 			<div class="h-butons">
 				<input type="button" value="Tchat" title="Faire apparaître le tchat IRC" onclick="popupaction(5);" />
-				<input type="button" value="Déconnexion" onclick="popupaction(2, 1);" />
+				<input type="button" value="Déconnexion" onclick="popupaction(2);" />
 			</div>
 			<img class='logo' height="30px" src="./pics/logo.png" />
 			<h1>Stock One</h1>
