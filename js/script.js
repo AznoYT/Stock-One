@@ -213,7 +213,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt, methode, nom, taille, partage) {
+function popupaction(action, attempt, methode, nom, taille, partage, ext, owner) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -330,7 +330,7 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		packet += '<center>';
 		
 		switch(methode) {
-			case 0: packet += '<p>En construction</p>'; break; // Pour les dossiers
+			case 0: packet += '<p>En construction</p>'; break; // Pour les dossiers [PROTOTYPE]
 			case 1: packet += '<img class="show" title="' + nom + '" src="' + attempt + '" />'; break; // Pour les images
 			case 2: packet += '<audio id="player" ontimeupdate="custom_controls(4);" autoplay>'; // Pour les musiques
 				packet += '<source src="' + attempt + '" type="audio/mpeg" />';
@@ -367,7 +367,8 @@ function popupaction(action, attempt, methode, nom, taille, partage) {
 		packet += '<input class="WARN" type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
-		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\');" value="Propriétés" />';
+		substract = 8 + owner.length;
+		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\');" value="Propriétés" />';
 		packet += ' - ';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
@@ -477,7 +478,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
-function moreaction(action, fichier, partage) {
+function moreaction(action, fichier, partage, taille, placement, ext) {
 	var popup = document.getElementById('popupabout');
 	
 	switch(action) {
@@ -530,8 +531,14 @@ function moreaction(action, fichier, partage) {
 		case 4: packet = '<form method="post" action="./client.php">';
 			packet += '<fieldset>';
 			packet += '<legend>Propriétés:</legend>';
+			packet += '<h3>Information:</h3>';
+			packet += '<br />'
+			packet += '<p>> Nom: "' + fichier + '"</p>';
+			packet += '<p>> Type: .' + ext + '</p>';
+			packet += '<p>> Taille: ' + taille + '</p>';
+			packet += '<p title="' + placement + '">> Placement: ' + placement + '</p>';
+			packet += '<br />'
 			packet += '<h3>Paramètres du fichier: </h3>';
-			packet += '<p>' + fichier + '</p>';
 			packet += '<br />';
 			packet += '<label for="share">> Partage du fichier: </label>';
 			packet += '<select name="public">';
