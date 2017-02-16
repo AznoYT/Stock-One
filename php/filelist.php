@@ -16,7 +16,7 @@
 	<body>
 		<form action="./filelist.php" method="get">
 			<?php
-				$page = 'filelist.php';
+				$page = 'admin.php';
 				include('./session.php');
 				
 				if($_SESSION['profile'] != 'ADMIN') { header('location: ../client.php'); }
