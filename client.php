@@ -114,6 +114,9 @@
 				?>
 			</div>
 		</section>
+		<script>
+			var owner = '<?php echo($_SESSION['user']) ?>';
+		</script>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
 		</footer>
