@@ -4,7 +4,7 @@
 	if(isset($_SESSION['user'])) {
 		$user = $_SESSION['user'];
 		if($page != 'admin.php') { $_SESSION['mode'] = 'client'; }
-		else if($page == 'admin.php' || $page == 'filelist.php') { $_SESSION['mode'] = 'admin'; }
+		else if($page == 'admin.php') { $_SESSION['mode'] = 'admin'; }
 		if($page == 'compteuser.php') { $href = 'client.php'; }
 		else if($page != 'compteuser.php') { $href = 'compteuser.php'; }
 		if(!isset($dir)) { $dir = NULL; }
