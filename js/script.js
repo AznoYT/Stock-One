@@ -55,7 +55,7 @@ function verify(connect, pws1, pws2, usr) {
 	var passed = false;
 	var msg = [document.getElementById('msg0'), document.getElementById('msg1'), document.getElementById('msg2')];
 	
-	if(connect == 0) {
+	if(connect == 0) { // Verification Login
 		if(pws1.value =='') {
 			msg[1].innerHTML = 'Nom d\'utilisateur inexistant';
 			pws1.focus();
@@ -69,7 +69,7 @@ function verify(connect, pws1, pws2, usr) {
 		}
 		else { var passed = true; }
 	}
-	else if(connect == 1) {
+	else if(connect == 1) { // Verification d'Update de Mot de Passe
 		if(pws1.value =='') {
 			msg[1].innerHTML = ' <-- Ce champs est vide !';
 			msg[2].innerHTML = '';
@@ -91,7 +91,7 @@ function verify(connect, pws1, pws2, usr) {
 		}
 		else { var passed = true; }
 	}
-	else if(connect == 2) {
+	else if(connect == 2) { // Verification de Register
 		if(usr.value == '') {
 			msg[0].innerHTML = ' <-- Ce champs est vide !';
 			msg[1].innerHTML = '';
@@ -134,11 +134,10 @@ function popuplogin(login, attempt) {
 	popup.style.left = '12%';
 	
 	if(login == 1) { // Ici le Login
-		// Ces conditions sont variante pour les chemins d'actions des formulaire si il y a un imprévue à la connexion
 		popup.style.width = '42%';
 		popup.style.left = '28.75%';
 		
-		switch(attempt) {
+		switch(attempt) { // Ces conditions sont variante pour les chemins d'actions des formulaire si il y a un imprévue à la connexion
 			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(0, this.lutilisateur, this.lpws);">'; break;
 			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(0, this.lutilisateur, this.lpws);">'; break;
 		}
@@ -165,8 +164,7 @@ function popuplogin(login, attempt) {
 		packet += '<input class="ACT" type="submit" value="Connexion" /> ';
 	}
 	else if(login == 2) { // Ici le Register
-		// Même topo que pour le login
-		switch(attempt) {
+		switch(attempt) { // Même topo que pour le login
 			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
 			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(2, this.pws, this.pws1, this.utilisateur);">'; break;
 		}
@@ -274,7 +272,13 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		packet += '<input type="checkbox" id="public" name="Public" value="notif">';
 		packet += '<label for="public"> Publique</label>';
 		packet += '<br /><br />';
-		packet += '<input class="ACT" type="submit" name="submit" value="Importer" />';
+		
+		switch(methode) {
+			case 0: var CONTENT_FILE = 'fichiers'; break;
+			case 1: var CONTENT_FILE = 'dossier'; break;
+		}
+		
+		packet += '<input class="ACT" type="submit" name="submit" value="Importer" onclick="moreaction(5, ' + attempt + ', document.getElementById(\'' + CONTENT_FILE + '\').files.length);" />';
 		packet += ' - ';
 		
 		switch(attempt) {
@@ -581,6 +585,22 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
+		case 5: packet = '<fieldset>';
+			packet += '<center>';
+			packet += '<br />';
+			
+			switch(fichier) {
+				case 1: packet += '<img class="loader" type="image/gif" src="../pics/loader.gif" />'; break;
+				default: packet += '<img class="loader" type="image/gif" src="./pics/loader.gif" />'; break;
+			}
+			
+			packet += '<p>Importation en cours...</p>';
+			packet += '<br />';
+			packet += '</center>';
+			packet += '</fieldset>';
+			
+			if(partage == 0) { packet = ''; }
+			break;
 	}
 	
 	popup.innerHTML = packet;
@@ -596,6 +616,7 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 				return false;
 			});
 			break;
+		case 5: popup.style.width = "35%"; popup.style.left = '32.3%'; break;
 		default: popup.style.width = "52%"; popup.style.left = '24%'; break;
 	}
 }
