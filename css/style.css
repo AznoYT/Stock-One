@@ -420,6 +420,8 @@ img.img_login {
 	height: 200px;
 }
 
+img.loader { height: 100px; }
+
 a { text-decoration: none; }
 
 .profile {
