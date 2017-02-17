@@ -147,14 +147,16 @@ function popuplogin(login, attempt) {
 		packet += '<legend>Connexion:</legend>';
 		packet += '<center>';
 		packet += '<input type="hidden" name="method" value="LOGIN" />';
-		//packet += '<label for="userinput">Nom d\'Utilisateur:</label>';
+		packet += '<label for="userinput">';
+		
 		switch(attempt) {
 			case 1: packet += '<img class="img_login" type="images/png" src="../pics/default/user.png" />'; break;
 			default: packet += '<img class="img_login" type="images/png" src="./pics/default/user.png" />'; break;
 		}
+		
+		packet += '</label>';
 		packet += '<br />';
 		packet += '<input class="text" type="text" name="lutilisateur" id="userinput" placeholder="Nom d\'Utilisateur" />';
-		//packet += '<label for="password">Mot de passe:</label>';
 		packet += '<br />';
 		packet += '<input class="text" type="password" id="password" name="lpws" placeholder="Mot de passe" />';
 		packet += '<br />';
