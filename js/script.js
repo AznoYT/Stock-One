@@ -55,7 +55,21 @@ function verify(connect, pws1, pws2, usr) {
 	var passed = false;
 	var msg = [document.getElementById('msg0'), document.getElementById('msg1'), document.getElementById('msg2')];
 	
-	if(connect == 1) {
+	if(connect == 0) {
+		if(pws1.value =='') {
+			msg[1].innerHTML = 'Nom d\'utilisateur inexistant';
+			pws1.focus();
+		}
+		else if(pws2.value == '') {
+			msg[1].innerHTML = 'Mot de passe inexistant';
+			pws2.focus();
+		}
+		else if(pws1 == 1 && pws2 == 0) { // Cette condition c'est pour le mot de passe faux
+			msg[1].innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
+		}
+		else { var passed = true; }
+	}
+	else if(connect == 1) {
 		if(pws1.value =='') {
 			msg[1].innerHTML = ' <-- Ce champs est vide !';
 			msg[2].innerHTML = '';
@@ -71,12 +85,11 @@ function verify(connect, pws1, pws2, usr) {
 			msg[2].innerHTML = ' <-- Les 2 champs sont différents !';
 			pws1.focus();
 		}
-		else if(pws1 == 1 && pws2 == 0) { // Cette condition c'est pour le mot de passe faux
+		else if(pws1 == 1 && pws2 == 0) {
 			msg[1].innerHTML = ' Nom d\'utilisateur ou mot de passe incorrect';
 			msg[2].innerHTML = '';
 		}
 		else { var passed = true; }
-		return passed;
 	}
 	else if(connect == 2) {
 		if(usr.value == '') {
@@ -109,8 +122,9 @@ function verify(connect, pws1, pws2, usr) {
 			msg[2].innerHTML = '';
 		}
 		else { var passed = true; }
-		return passed;
 	}
+	
+	return passed;
 }
 
 // Nouvelle fonction pour géré les popup de login ou register de l'index
@@ -125,22 +139,26 @@ function popuplogin(login, attempt) {
 		popup.style.left = '28.75%';
 		
 		switch(attempt) {
-			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
-			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(1, this.lutilisateur, this.lpws);">'; break;
+			case 1: packet = '<form method="post" action="./validate.php" onsubmit="return verify(0, this.lutilisateur, this.lpws);">'; break;
+			default: packet = '<form method="post" action="./php/validate.php" onsubmit="return verify(0, this.lutilisateur, this.lpws);">'; break;
 		}
 		
 		packet += '<fieldset>';
 		packet += '<legend>Connexion:</legend>';
+		packet += '<center>';
 		packet += '<input type="hidden" name="method" value="LOGIN" />';
-		packet += '<label for="userinput">Nom d\'Utilisateur:</label>';
+		//packet += '<label for="userinput">Nom d\'Utilisateur:</label>';
+		switch(attempt) {
+			case 1: packet += '<img class="img_login" type="images/png" src="../pics/default/user.png" />'; break;
+			default: packet += '<img class="img_login" type="images/png" src="./pics/default/user.png" />'; break;
+		}
 		packet += '<br />';
-		packet += '<input class="text" type="text" name="lutilisateur" id="userinput" />';
+		packet += '<input class="text" type="text" name="lutilisateur" id="userinput" placeholder="Nom d\'Utilisateur" />';
+		//packet += '<label for="password">Mot de passe:</label>';
+		packet += '<br />';
+		packet += '<input class="text" type="password" id="password" name="lpws" placeholder="Mot de passe" />';
+		packet += '<br />';
 		packet += '<font id="msg1"></font>';
-		packet += '<br />';
-		packet += '<label for="password">Mot de passe:</label>';
-		packet += '<br />';
-		packet += '<input class="text" type="password" id="password" name="lpws" />';
-		packet += '<font id="msg2"></font>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Connexion" /> ';
 	}
@@ -204,7 +222,8 @@ function popuplogin(login, attempt) {
 		case 1: packet += '<input type="button" onclick="document.location = \'../index.html\'" value="Retour" />'; break;
 		default: packet += '<input type="button" onclick="popupaction(0);" value="Annuler" />'; break;
 	}
-		
+	
+	packet += '</center>'
 	packet += '</fieldset>';
 	packet += '</form>';
 	
@@ -442,12 +461,11 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 		packet += '- <select name="profile">';
 		
 		var grade = ['USER', 'ADMIN'];
-		var select = '';
 		
 		for(i = 0; i <= 1; i++) {
-			select = '';
-			if(profile == grade[i]) { select = 'selected'; }
-			packet += '<option value="' + grade[i] + '" ' + select + '>' + grade[i] + '</option>';
+			var selected = '';
+			if(profile == grade[i]) { selected = 'selected'; }
+			packet += '<option value="' + grade[i] + '" ' + selected + '>' + grade[i] + '</option>';
 		}
 		
 		packet += '</select>';
@@ -528,7 +546,7 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
-		case 4: packet = '<form method="post" action="./client.php">';
+		case 4: packet = '<form method="post" action="./client.php">'; // Ici la vue sur les propriétés du fichier sélectionner
 			packet += '<fieldset>';
 			packet += '<legend>Propriétés:</legend>';
 			packet += '<h3>Information:</h3>';
@@ -536,8 +554,9 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '<p>> Nom: "' + fichier + '"</p>';
 			packet += '<p>> Type: .' + ext + '</p>';
 			packet += '<p>> Taille: ' + taille + '</p>';
-			packet += '<p title="' + placement + '">> Placement: ' + placement + '</p>';
-			packet += '<br />'
+			packet += '<p title="' + placement + '">> Placement: <input class="text" type="text" id="to_copy" style="width: 190px;" value="' + placement + '" readonly /></p>';
+			packet += '<input id="btn_copy" type="button" value="Copier le chemin" />';
+			packet += '<br /><br />';
 			packet += '<h3>Paramètres du fichier: </h3>';
 			packet += '<br />';
 			packet += '<label for="share">> Partage du fichier: </label>';
@@ -545,12 +564,11 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			
 			var state = ['Public', 'Privé'];
 			var valeur = ['y', 'n'];
-			var select = '';
 			
 			for(i = 0; i <= 1; i++) {
-				select = '';
-				if(partage == valeur[i]) { select = 'selected'; }
-				packet += '<option value="' + valeur[i] + '" ' + select + '>' + state[i] + '</option>';
+				var selected = '';
+				if(partage == valeur[i]) { selected = 'selected'; }
+				packet += '<option value="' + valeur[i] + '" ' + selected + '>' + state[i] + '</option>';
 			}
 			
 			packet += '</select>';
@@ -560,11 +578,22 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '<input type="button" onclick="moreaction(0);" value="Fermer" />';
 			packet += '</fieldset>';
 			packet += '</form>';
+			break;
 	}
 	
 	popup.innerHTML = packet;
-	switch(action) {
-		case 4: popup.style.width = "35%"; popup.style.left = '32.3%'; break;
+	switch(action) { // Redimensionnement du popup
+		case 4: popup.style.width = "35%"; popup.style.left = '32.3%';
+			// Ajout d'une fonctionnalité de copie de texte
+			var bouton = document.getElementById('btn_copy');
+			var copying = document.getElementById('to_copy');
+			
+			bouton.addEventListener('click', function() {
+				copying.select();
+				document.execCommand('copy');
+				return false;
+			});
+			break;
 		default: popup.style.width = "52%"; popup.style.left = '24%'; break;
 	}
 }
@@ -579,8 +608,8 @@ function analysedisk(occupied_space) {
 	progressbar.style.width = statdisk + '%';
 	progressbar.innerHTML = '<p style="padding-left: 3px;">' + statdisk + '%</p>';
 	
-	free_space = ((free_space / 1000) / 1000);
-	occupied_space = ((occupied_space / 1000) / 1000);
+	free_space = (free_space / 1000000);
+	occupied_space = (occupied_space / 1000000);
 	occupied_space = String(occupied_space);
 	
 	switch(occupied_space.charAt(1)) {
