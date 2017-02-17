@@ -16,7 +16,7 @@
 			<div class="time" id="txt"></div>
 			<div class="time info">
 				<?php
-					$page = 'verifmcompte.php';
+					$page = 'vupload.php';
 					include('./session.php');
 				?>
 			</div>
