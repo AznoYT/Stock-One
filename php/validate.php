@@ -77,7 +77,7 @@
 					$lpws = $_POST['lpws'];
 					$try = 0;
 					$methode = 1;
-					$verify = '1, 1, 0';
+					$verify = '0, 1, 0';
 					
 					while($usr = $login->fetch()) {
 						if($username == $usr[0]) {
@@ -101,6 +101,7 @@
 				popuplogin(<?php echo($methode); ?>, 1);
 				verify(<?php echo("$verify"); ?>);
 				document.getElementById('userinput').value = "<?php echo($username); ?>";
+				document.getElementById('userinput').select();
 			</script>
 		</section>
 		<footer>
