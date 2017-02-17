@@ -414,9 +414,13 @@ img.logo {
 	position: absolute;
 }
 
-a {
-	text-decoration: none;
+img.img_login {
+	border: 2px solid;
+	border-radius: 500px;
+	height: 200px;
 }
+
+a { text-decoration: none; }
 
 .profile {
 	border-radius: 8px;
@@ -472,9 +476,7 @@ footer {
 	width: 100%;
 }
 
-h4 {
-	font-size: 80%;
-}
+h4 { font-size: 80%; }
 
 /********
 *  END  *
