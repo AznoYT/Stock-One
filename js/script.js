@@ -198,7 +198,7 @@ function popuplogin(login, attempt) {
 		packet += '<br /><br />';
 		packet += '<label for="adresse">E-mail:</label>';
 		packet += '<br />';
-		packet += '<input class="text" type="email" id="adresse" name="email" />';
+		packet += '<input class="text" type="email" id="adresse" name="email" placeholder="exemple@mail.box" />';
 		packet += '<br />';
 		packet += '<label for="password">Mot de passe:*</label>';
 		packet += '<br />';
@@ -256,7 +256,7 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 			case 1: packet += '<legend>Envoyer un élément: [DOSSIER]</legend>'; break;
 		}
 		
-		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 0);" value="Importer un fichier" id="file_choose" />';
+		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 0);" value="Importer un fichier" id="file_choose" /> ';
 		packet += '<input type="button" onclick="popupaction(1, ' + attempt + ', 1);" value="Importer un dossier" id="folder_choose" />';
 		packet += '<br /><br />';
 		
@@ -560,7 +560,7 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '<p>> Nom: "' + fichier + '"</p>';
 			packet += '<p>> Type: .' + ext + '</p>';
 			packet += '<p>> Taille: ' + taille + '</p>';
-			packet += '<p title="' + placement + '">> Placement: <input class="text" type="text" id="to_copy" style="width: 190px;" value="' + placement + '" readonly /></p>';
+			packet += '<p title="' + placement + '">> Placement: <input class="text" type="text" id="to_copy" style="width: 50%;" value="' + placement + '" readonly /></p>';
 			packet += '<input id="btn_copy" type="button" value="Copier le chemin" />';
 			packet += '<br /><br />';
 			packet += '<h3>Paramètres du fichier: </h3>';
