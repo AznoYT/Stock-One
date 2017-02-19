@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Snake Game</title>
+		<title>Other Programme</title>
 		<link rel='stylesheet' type='text/css' href='../css/other.css' />
 		<link rel="icon" type="image/png" href="../pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
@@ -16,7 +16,7 @@
 	?>
 	<body>
 		<header>
-			<h4 id="instr">Appuyez sur Espace pour lancer le jeu & Echap pour quitter</h4>
+			<h4 id="instr">Appuyez sur Espace pour lancer le programme & Echap pour quitter</h4>
 		</header>
 		<section>
 			<center>
