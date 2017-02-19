@@ -29,7 +29,7 @@ grid = {
 snake = {
 	direction:null,
 	last:null,
-	que:null,	 
+	que:null,
 	init:function(d, x, y) {
 		this.direction = d;
 		this.que = [];
@@ -66,16 +66,14 @@ function beg_func() {
 	document.addEventListener("keydown",function(e) { keystate[e.keyCode] = true; });
 	document.addEventListener("keyup",function(e) { delete keystate[e.keyCode]; });
 	document.body.onkeyup = function(e) {
-    if(e.keyCode == KEY_SPC){
-		document.getElementById('instr').innerHTML = "Appuyez sur la fleche du bas pour reveiller le serpent";
-		init()
-		infinity();
-    }
+		if(e.keyCode == KEY_SPC) {
+			document.getElementById('instr').innerHTML = "Appuyez sur la fleche du bas pour reveiller le serpent";
+			init()
+			infinity();
+		}
 	}
-	document.onkeyup = function(e){
-    if(e.keyCode == KEY_ESC){
-		location.reload();
-    }
+	document.onkeyup = function(e) {
+		if(e.keyCode == KEY_ESC) { location.reload(); }
 	}
 }
 

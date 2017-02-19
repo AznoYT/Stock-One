@@ -722,6 +722,7 @@ function panel_switch(action, list_user, theme) {
 	var panel_right = document.getElementById('admin_panel_right');
 	
 	if(action == 0) { // Ici l'Interface de Gestion Système Serveur
+		// --------------------------------------------------------------------- Panneau N° 1 ---------------------------------------------------------------------
 		packet = '<h2>Commandes</h2>';
 		packet += '<div class="content">';
 		packet += '<img class="classement" height="15px" src="./pics/' + theme + 'console.png" />';
@@ -729,17 +730,23 @@ function panel_switch(action, list_user, theme) {
 		packet += '<br />'
 		packet += '<img class="classement" height="15px" src="./pics/' + theme + 'monitor.png" />';
 		packet += '<input class="list" type="button" value="Moniteur Système" title="Affichage des informations d\'état du serveur" onclick="" />';
+		packet += '<br />'
+		packet += '<img class="classement" height="15px" src="./pics/' + theme + 'monitor.png" />';
+		packet += '<input class="list" type="button" value="PhpMyAdmin" title="Ouverture de PhpMyAdmin" onclick="" />';
 		packet += '</div>';
+		// --------------------------------------------------------------------- Panneau N° 2 ---------------------------------------------------------------------
 		packet0 = '<h2>Gestion du Système<input id="changing" type="button" value="Gestion Comptes" onclick="panel_switch(1, temp, theme);" /></h2>';
 		packet0 += '<div id="frame_param">';
 		packet0 += '';
 		packet0 += '</div>';
 	}
 	else if(action == 1) { // Ici l'Interface de Gestion d'Utilisateurs
+		// --------------------------------------------------------------------- Panneau N° 1 ---------------------------------------------------------------------
 		packet = '<h2>Utilisateurs</h2>';
 		packet += '<div class="content" id="list_user">';
 		packet += list_user.innerHTML;
 		packet += '</div>';
+		// --------------------------------------------------------------------- Panneau N° 2 ---------------------------------------------------------------------
 		packet0 = '<h2>Administration Compte <input id="changing" type="button" value="Gestion Système" onclick="panel_switch(0, temp, theme);" /></h2>';
 		packet0 += '<div id="frame_param">';
 		packet0 += '<div class="info_selected">';
