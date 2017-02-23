@@ -405,6 +405,11 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		if(popup.innerHTML == '<iframe class="IRC" src="./php/IRC.php"></iframe>') { packet = ''; }
 		else { packet = '<iframe class="IRC" src="./php/IRC.php"></iframe>'; }
 	}
+	else if(action == 6) { // Ici la demande d'un code de déverrouillage de partage
+		packet = '<fieldset>';
+		packet += '<legend>Code de Déverrouillage:</legend>';
+		packet += '</fieldset>';
+	}
 	
 	popup.innerHTML = packet;
 	switch(action) {
