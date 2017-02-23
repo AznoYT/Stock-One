@@ -52,11 +52,11 @@
 |           <a href="../../blob/master/php/historiques-IRC/history-primary.htm">history-primary.htm</a>
 |           
 +---<a href="../../tree/master/pics/">pics/</a>
-|   |   alert.png
-|   |   icon.png
-|   |   loader.gif
-|   |   logo.png
-|   |   logo_older.png
+|   |   <a href="../../blob/master/pics/alert.png">alert.png</a>
+|   |   <a href="../../blob/master/pics/icon.png">icon.png</a>
+|   |   <a href="../../blob/master/pics/loader.gif">loader.gif</a>
+|   |   <a href="../../blob/master/pics/logo.png">logo.png</a>
+|   |   <a href="../../blob/master/pics/logo_older.png">logo_older.png</a>
 |   |   
 |   +---<a href="../../tree/master/pics/default/">default/</a>
 |   |       console.png
