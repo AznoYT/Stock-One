@@ -51,14 +51,14 @@
 |           <a href="../../blob/master/php/historiques-IRC/history-admin.htm">history-admin.htm</a>
 |           <a href="../../blob/master/php/historiques-IRC/history-primary.htm">history-primary.htm</a>
 |           
-+---pics/
++---<a href="../../tree/master/pics/">pics/</a>
 |   |   alert.png
 |   |   icon.png
 |   |   loader.gif
 |   |   logo.png
 |   |   logo_older.png
 |   |   
-|   +---default/
+|   +---<a href="../../tree/master/pics/default/">default/</a>
 |   |       console.png
 |   |       folder.png
 |   |       gallery.png
@@ -68,7 +68,7 @@
 |   |       text-file.png
 |   |       user.png
 |   |       
-|   \---reverse/
+|   \---<a href="../../tree/master/pics/reverse/">reverse/</a>
 |           console.png
 |           folder.png
 |           gallery.png
