@@ -1,5 +1,6 @@
 # Structure du dossier:
 
+<pre>
 Stock-One-master ./ <- racine du site
 |   admin.php
 |   client.php
@@ -72,5 +73,6 @@ Stock-One-master ./ <- racine du site
 |           user.png
 |           
 \---share/ <- dossier de partage de fichier utilisateur
+</pre>
 
 Lien de téléchargement du site: <a href="https://mega.nz/#!jtMjmIDY!cBOa-y_NcOCULn4ysdr9vbsagklj7_KmhjHiIcinE_k">ICI</a>
