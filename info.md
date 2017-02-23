@@ -58,15 +58,20 @@ Stock-One-master ./ <- racine du site
 |   |   logo_older.png
 |   |   
 |   +---default/
+|   |       console.png
 |   |       folder.png
 |   |       gallery.png
+|   |       monitor.png
 |   |       movie.png
 |   |       music.png
 |   |       text-file.png
+|   |       user.png
 |   |       
 |   \---reverse/
+|           console.png
 |           folder.png
 |           gallery.png
+|           monitor.png
 |           movie.png
 |           music.png
 |           text-file.png
