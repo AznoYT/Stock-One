@@ -1,4 +1,4 @@
-Structure du dossier:
+# Structure du dossier:
 
 Stock-One-master ./ <- racine du site
 |   admin.php
