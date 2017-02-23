@@ -1,4 +1,4 @@
-# Structure du dossier:
+﻿# Structure du dossier:
 
 <pre>
 <a href="../../">Stock-One-master ./</a> <- racine du site
