@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 29 Janvier 2017 à 19:35
+-- Généré le :  Jeu 23 Février 2017 à 20:10
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -35,8 +35,9 @@ CREATE TABLE IF NOT EXISTS `donnee` (
   `taille` int(255) NOT NULL,
   `placement` varchar(255) NOT NULL,
   `public` text NOT NULL,
+  `sharecode` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
 
 -- --------------------------------------------------------
 
