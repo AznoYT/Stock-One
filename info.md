@@ -54,6 +54,7 @@
 |   |   <a href="../../blob/master/pics/alert.png">alert.png</a>
 |   |   <a href="../../blob/master/pics/icon.png">icon.png</a>
 |   |   <a href="../../blob/master/pics/loader.gif">loader.gif</a>
+|   |   <a href="../../blob/master/pics/lock-file.png">lock-file.png</a>
 |   |   <a href="../../blob/master/pics/logo.png">logo.png</a>
 |   |   <a href="../../blob/master/pics/logo_older.png">logo_older.png</a>
 |   |   
