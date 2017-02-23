@@ -47,7 +47,7 @@
 |   |   <a href="../../blob/master/php/verifmcompte.php">verifmcompte.php</a>
 |   |   <a href="../../blob/master/php/vupload.php">vupload.php</a>
 |   |
-|   \---<a href="../../tree/master/php/historiques-IRC/">historiques-IRC/</a>
+|   \---<a href="../../tree/master/php/historiques-IRC/">historiques-IRC/</a> <- dossier d'historique de convesation du Tchat-IRC
 |           <a href="../../blob/master/php/historiques-IRC/history-admin.htm">history-admin.htm</a>
 |           <a href="../../blob/master/php/historiques-IRC/history-primary.htm">history-primary.htm</a>
 |           
