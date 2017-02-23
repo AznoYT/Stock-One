@@ -1,7 +1,7 @@
 # Structure du dossier:
 
 <pre>
-<a href="../../Stock-One">Stock-One-master ./</a> <- racine du site
+<a href="../../">Stock-One-master ./</a> <- racine du site
 |   admin.php
 |   client.php
 |   compteuser.php
