@@ -20,18 +20,18 @@
 |   \---<a href="../../tree/master/css/reverse/">reverse/</a>
 |           <a href="../../blob/master/css/reverse/other.css">other.css</a>
 |           
-+---files/ <- dossier de fichier utilisateur
++---<a href="../../tree/master/files/">files/ <- dossier de fichier utilisateur</a>
 |   |
-|   \---admin/
+|   \---<a href="../../tree/master/css/files/admin/">admin/</a>
 |          
-+---js/
++---<a href="../../tree/master/js/">js/</a>
 |       <a href="../../blob/master/js/annimation.js">annimation.js</a>
 |       <a href="../../blob/master/js/irc.js">irc.js</a>
 |       <a href="../../blob/master/js/other.js">other.js</a>
 |       <a href="../../blob/master/js/script.js">script.js</a>
 |       <a href="../../blob/master/js/three.min.js">three.min.js</a>
 |       
-+---php/
++---<a href="../../tree/master/php/">php/</a>
 |   |   action.php
 |   |   annimation.html
 |   |   bdd_access.php
@@ -47,7 +47,7 @@
 |   |   verifmcompte.php
 |   |   vupload.php
 |   |
-|   \---historiques-IRC/
+|   \---<a href="../../tree/master/php/historiques-IRC/">historiques-IRC/</a>
 |           history-admin.htm
 |           history-primary.htm
 |           
