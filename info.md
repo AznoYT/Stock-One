@@ -11,14 +11,14 @@
 |   <a href="../../blob/master/stock-one.sql">stock-one.sql</a>
 |   
 +---css/
-|   |   irc.css
-|   |   other.css
-|   |   scroll.css
-|   |   style.css
-|   |   system.css
+|   |   <a href="../../blob/master/css/irc.css">irc.css</a>
+|   |   <a href="../../blob/master/css/other.css">other.css</a>
+|   |   <a href="../../blob/master/css/scroll.css">scroll.css</a>
+|   |   <a href="../../blob/master/css/style.css">style.css</a>
+|   |   <a href="../../blob/master/css/system.css">system.css</a>
 |   |   
 |   \---reverse/
-|           other.css
+|           <a href="../../blob/master/css/reverse/other.css">other.css</a>
 |           
 +---files/ <- dossier de fichier utilisateur
 |   |
