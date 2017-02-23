@@ -7,6 +7,7 @@ Stock-One-master ./ <- racine du site
 |   compteuser.php
 |   index.html
 |   info.txt
+|   partage.php
 |   stock-one.sql
 |   
 +---css/
