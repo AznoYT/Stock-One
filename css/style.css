@@ -206,9 +206,9 @@ input {
 
 .WARN, .alert, #msg0, #msg1, #msg2 { color: #FF0000; }
 
-.WARN:hover {
-	background-color: #FF0000;
-}
+.WARN:hover { background-color: #FF0000; }
+
+.lock { width: 80%; }
 
 select {
 	border-radius: 4px;
@@ -333,6 +333,13 @@ aside {
 	margin-right: -6px;
 }
 
+.lock-content {
+	margin-left: 30%;
+	margin-top: 3%;
+	position: absolute;
+	width: 70%;
+}
+
 iframe {
 	border: 0;
 	border-radius: 8px;
@@ -421,6 +428,10 @@ img.img_login {
 }
 
 img.loader { height: 100px; }
+img.lock-img {
+	margin-bottom: 30px;
+	width: 30%;
+}
 
 a { text-decoration: none; }
 
