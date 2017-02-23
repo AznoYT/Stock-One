@@ -2,13 +2,13 @@
 
 <pre>
 <a href="../../">Stock-One-master ./</a> <- racine du site
-|   admin.php
-|   client.php
-|   compteuser.php
-|   index.html
-|   info.txt
-|   partage.php
-|   stock-one.sql
+|   <a href="../../blob/master/admin.php">admin.php</a>
+|   <a href="../../blob/master/client.php">client.php</a>
+|   <a href="../../blob/master/compteuser.php">compteuser.php</a>
+|   <a href="../../blob/master/index.html">index.html</a>
+|   <a href="../../blob/master/info.txt">info.txt</a>
+|   <a href="../../blob/master/partage.php">partage.php</a>
+|   <a href="../../blob/master/stock-one.sql">stock-one.sql</a>
 |   
 +---css/
 |   |   irc.css
