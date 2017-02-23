@@ -208,7 +208,11 @@ input {
 
 .WARN:hover { background-color: #FF0000; }
 
-.lock { width: 80%; }
+.lock {
+	position: absolute;
+	right: 10%;
+	width: 80%;
+}
 
 select {
 	border-radius: 4px;
@@ -335,7 +339,6 @@ aside {
 
 .lock-content {
 	margin-left: 30%;
-	margin-top: 3%;
 	position: absolute;
 	width: 70%;
 }
