@@ -25,11 +25,11 @@
 |   \---admin/
 |          
 +---js/
-|       annimation.js
-|       irc.js
-|       other.js
-|       script.js
-|       three.min.js
+|       <a href="../../blob/master/js/annimation.js">annimation.js</a>
+|       <a href="../../blob/master/js/irc.js">irc.js</a>
+|       <a href="../../blob/master/js/other.js">other.js</a>
+|       <a href="../../blob/master/js/script.js">script.js</a>
+|       <a href="../../blob/master/js/three.min.js">three.min.js</a>
 |       
 +---php/
 |   |   action.php
