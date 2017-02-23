@@ -408,16 +408,19 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 	else if(action == 6) { // Ici la demande d'un code de déverrouillage de partage
 		popup.style.width = '42%';
 		popup.style.left = '28.75%';
-		packet = '<fieldset>';
+		
+		packet = '<fieldset style="height: 180px;">';
 		packet += '<legend>Déverrouillage de partage:</legend>';
 		packet += '<center>';
 		packet += '<h1>Déverrouillage du fichier partagé</h1>';
 		packet += '</center>';
 		packet += '<div class="lock-content">';
 		packet += '<br />';
-		packet += '<input class="text lock" type="number" placeholder="Numéro d\'identification du fichier (ID)..." />';
-		packet += '<br />';
-		packet += '<input class="text lock" type="text" placeholder="Code de décodage..." />';
+		packet += '<input class="text lock" type="number" id="id_file" placeholder="Numéro d\'identification du fichier (ID)..." />';
+		packet += '<br /><br />';
+		packet += '<input class="text lock" type="text" id="code_dechif" placeholder="Code de décodage..." />';
+		packet += '<br /><br />';
+		packet += '<input style="right: 10%; position: absolute;" class="ACT" type="button" value="Décoder" onclick="" />';
 		packet += '</div>';
 		packet += '<img class="lock-img" type="image/png" src="./pics/lock-file.png" />';
 		packet += '</fieldset>';
