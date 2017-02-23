@@ -20,7 +20,7 @@
 |   \---<a href="../../tree/master/css/reverse/">reverse/</a>
 |           <a href="../../blob/master/css/reverse/other.css">other.css</a>
 |           
-+---<a href="../../tree/master/files/">files/ <- dossier de fichier utilisateur</a>
++---<a href="../../tree/master/files/">files/</a> <- dossier de fichier utilisateur
 |   |
 |   \---<a href="../../tree/master/css/files/admin/">admin/</a>
 |          
