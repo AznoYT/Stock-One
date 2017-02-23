@@ -59,24 +59,24 @@
 |   |   <a href="../../blob/master/pics/logo_older.png">logo_older.png</a>
 |   |   
 |   +---<a href="../../tree/master/pics/default/">default/</a>
-|   |       console.png
-|   |       folder.png
-|   |       gallery.png
-|   |       monitor.png
-|   |       movie.png
-|   |       music.png
-|   |       text-file.png
-|   |       user.png
+|   |       <a href="../../blob/master/pics/default/console.png">console.png</a>
+|   |       <a href="../../blob/master/pics/default/folder.png">folder.png</a>
+|   |       <a href="../../blob/master/pics/default/gallery.png">gallery.png</a>
+|   |       <a href="../../blob/master/pics/default/monitor.png">monitor.png</a>
+|   |       <a href="../../blob/master/pics/default/movie.png">movie.png</a>
+|   |       <a href="../../blob/master/pics/default/music.png">music.png</a>
+|   |       <a href="../../blob/master/pics/default/text-file.png">text-file.png</a>
+|   |       <a href="../../blob/master/pics/default/user.png">user.png</a>
 |   |       
 |   \---<a href="../../tree/master/pics/reverse/">reverse/</a>
-|           console.png
-|           folder.png
-|           gallery.png
-|           monitor.png
-|           movie.png
-|           music.png
-|           text-file.png
-|           user.png
+|           <a href="../../blob/master/pics/reverse/console.png">console.png</a>
+|           <a href="../../blob/master/pics/reverse/folder.png">folder.png</a>
+|           <a href="../../blob/master/pics/reverse/gallery.png">gallery.png</a>
+|           <a href="../../blob/master/pics/reverse/monitor.png">monitor.png</a>
+|           <a href="../../blob/master/pics/reverse/movie.png">movie.png</a>
+|           <a href="../../blob/master/pics/reverse/music.png">music.png</a>
+|           <a href="../../blob/master/pics/reverse/text-file.png">text-file.png</a>
+|           <a href="../../blob/master/pics/reverse/user.png">user.png</a>
 |           
 \---<a href="../../tree/master/share/">share/</a> <- dossier de partage de fichier utilisateur
 </pre>
