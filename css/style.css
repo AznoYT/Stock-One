@@ -431,10 +431,7 @@ img.img_login {
 }
 
 img.loader { height: 100px; }
-img.lock-img {
-	margin-bottom: 30px;
-	width: 30%;
-}
+img.lock-img { width: 10em; }
 
 a { text-decoration: none; }
 
