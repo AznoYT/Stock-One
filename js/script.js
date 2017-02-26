@@ -424,11 +424,14 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		packet += '</div>';
 		packet += '<img class="lock-img" type="image/png" src="./pics/lock-file.png" />';
 		packet += '</fieldset>';
+		
+		if(popup.innerHTML != '') { packet = ''; }
 	}
 	
 	popup.innerHTML = packet;
 	switch(action) {
 		case 3: document.getElementById('nom_dossier').focus(); break;
+		case 6: document.getElementById('id_file').focus(); break;
 		default: break;
 	}
 }
