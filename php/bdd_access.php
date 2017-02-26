@@ -5,10 +5,10 @@
 	$db_name = 'stock-one';
 	$encoding = 'utf8';
 	$username = 'root';
-	$password = '';
+	$password = 'toor';
 	
 	session_start();
-	try { $bdd = new PDO('mysql:host='.$host.';dbname='.$db_name.';charset='.$encoding, $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
-	catch(Exception $e) { die('ERROR : '.$e->getMessage()); }
+	try { $bdd = new PDO("mysql:host=$host;dbname=$db_name;charset=$encoding", $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
+	catch(Exception $e) { die('ERROR: '.$e->getMessage()); }
 	// END
 ?>
