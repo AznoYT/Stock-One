@@ -7,7 +7,7 @@
 	$username = 'root';
 	$password = '';
 	
-	session_start();
+	session_start(); // Actionnement des variables $_SESSION[];
 	try { $bdd = new PDO("mysql:host=$host;dbname=$db_name;charset=$encoding", $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)); }
 	catch(Exception $e) { die('ERROR: '.$e->getMessage()); }
 	// END
