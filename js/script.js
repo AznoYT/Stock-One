@@ -427,8 +427,6 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		packet += '<img class="lock-img" type="image/png" src="./pics/lock-file.png" />';
 		packet += '</div>';
 		packet += '</fieldset>';
-		
-		if(popup.innerHTML != '') { packet = ''; }
 	}
 	
 	popup.innerHTML = packet;
