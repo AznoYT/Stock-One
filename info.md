@@ -78,12 +78,12 @@
 |           <a href="../../blob/master/pics/reverse/text-file.png">text-file.png</a>
 |           <a href="../../blob/master/pics/reverse/user.png">user.png</a>
 |           
-+---<a href="../../tree/master/share/">share/</a> <- dossier de partage de fichier utilisateur
++---<!--<a href="../../tree/master/share/">-->share/<!--</a>--> <- dossier de partage de fichier utilisateur
 |
-\---<a href="../../tree/master/system/">system/</a> <- dossier système de gestion serveur à distance
-        <a href="../../blob/master/system/___init___.py">___init___.py</a>
-        <a href="../../blob/master/system/module.py">module.py</a>
-        <a href="../../blob/master/system/system.php">system.php</a>
+\---<!--<a href="../../tree/master/system/">-->system/<!--</a>--> <- dossier système de gestion serveur à distance
+        <!--<a href="../../blob/master/system/___init___.py">-->___init___.py<!--</a>-->
+        <!--<a href="../../blob/master/system/module.py">-->module.py<!--</a>-->
+        <!--<a href="../../blob/master/system/system.php">-->system.php<!--</a>-->
 </pre>
 
 > Lien de téléchargement du site: <a href="https://mega.nz/#!2wFT2bqR!3Gr8OsEd0GyeHHV4STZZAveKm_tcZqmd6OclKmKz84g" target="_blank">ICI</a>
