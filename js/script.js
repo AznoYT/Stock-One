@@ -212,7 +212,7 @@ function popuplogin(login, attempt) {
 		packet += '<label for="notif"> Souhaitez vous recevoir des notifications de la part de Stock-One</label>';
 		packet += '<br />';
 		packet += '<input type="checkbox" id="notifpart" name="notifpart" value="1" />';
-		packet += '<label for="notifpart"> Souhaitez vous que les Partenaires de Stock-One puisse vous Contacter</label>';
+		packet += '<label for="notifpart"> Souhaitez vous que les partenaires de Stock-One puissent vous contacter</label>';
 		packet += '<br /><br />';
 		packet += '<input class="ACT" type="submit" value="Inscription" /> ';
 		packet += '<input class="WARN" type="reset" value="Tout Effacer" /> ';
