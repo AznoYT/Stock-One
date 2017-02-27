@@ -33,7 +33,7 @@ function Note_annim(i) {
 	var warning_msg = '<fieldset id="Note">';
 	warning_msg += '<div class="title"><h3 class="alert">ATTENTION !</h3></div>';
 	warning_msg += '<img height="100px" width="100px" src="./pics/alert.png" />';
-	warning_msg += '<p class="alert alert_content">A l\'attention des utilisateur,<br /><br />Des Mises à Jours se font régulièrement toutes les semaines, il est donc normal que vous rencontreriez quelques bugs.</p>';
+	warning_msg += '<p class="alert alert_content">A l\'attention des utilisateurs,<br /><br />Des Mises à Jours auront régulièrement toutes les semaines, il est donc normal que vous rencontriez quelques bugs.</p>';
 	warning_msg += '</fieldset>';
 	
 	if(output != undefined) {
