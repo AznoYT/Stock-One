@@ -32,17 +32,18 @@
 					
 					echo('<p>Les informations suivants sont en cours de traitement: <p><br/><br/>');
 					
-					// Modification des informations utilisateur
+					// Checking de mot de passe avant modification
 					$data = $bdd->query('SELECT * FROM user');
 					while($file = $data->fetch()) {
 						if($user == $file[0]) { $output = $file[5]; }
 					}
 					
+					// Modification des informations utilisateur
 					if($_POST['pws0'] == $output) {
-						if($nom == '' && $prenom == '' && $mail == '') { echo(''); } // Si il ya pas d'infos personnels à traiter
+						if($nom == '' && $prenom == '' && $mail == '') { echo(''); } // Si il ya pas d'infos personnels Ã  traiter
 						else {
 							echo("<p>> Nom: $nom <br/>");
-							echo("<p>> Prénom: $prenom <br/>");
+							echo("<p>> PrÃ©nom: $prenom <br/>");
 							echo("<p>> Votre addresse mail: $mail <br/>");
 							
 							$stmt = $bdd->prepare('UPDATE user SET nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
