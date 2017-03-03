@@ -102,7 +102,7 @@
 						<h3>Modification Mot de passe: </h3>
 						<br />
 						<label for="apassword">> Votre ancien mot de passe:</label>
-						<input type="password" id="apassword" class="modif" name="apws" />
+						<input type="password" id="apassword" class="modif" name="pws0" />
 						<font id="msg"></font>
 						<br />
 						<label for="password">> Votre Nouveaux mot de passe:</label>
