@@ -33,20 +33,31 @@
 					echo('<p>Les informations suivants sont en cours de traitement: <p><br/><br/>');
 					
 					// Modification des informations utilisateur
-					if($nom == '' && $prenom == '' && $mail == '') { echo(''); } // Si il ya pas d'infos personnels à traiter
-					else {
-						echo("<p>> Nom: $nom <br/>");
-						echo("<p>> Prénom: $prenom <br/>");
-						echo("<p>> Votre addresse mail: $mail <br/>");
-						
-						$stmt = $bdd->prepare('UPDATE user SET nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
-						$stmt->execute();
+					$data = $bdd->query('SELECT * FROM user');
+					while($file = $data->fetch()) {
+						if($user == $file[0]) { $output = $file[5]; }
 					}
 					
-					$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
-					$stmt->execute();
+					if($_POST['pws0'] == $output) {
+						if($nom == '' && $prenom == '' && $mail == '') { echo(''); } // Si il ya pas d'infos personnels à traiter
+						else {
+							echo("<p>> Nom: $nom <br/>");
+							echo("<p>> Prénom: $prenom <br/>");
+							echo("<p>> Votre addresse mail: $mail <br/>");
+							
+							$stmt = $bdd->prepare('UPDATE user SET nom="'.$_POST['mnom'].'", prenom="'.$_POST['mprenom'].'", email="'.$_POST['memail'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
+							$stmt->execute();
+						}
+						
+						$stmt = $bdd->prepare('UPDATE user SET pws="'.$_POST['pws1'].'" WHERE utilisateur="'.$_SESSION['user'].'"');
+						$stmt->execute();
+						$redirect = "location: ../compteuser.php?code=4&etat=OK";
+					}
+					else {
+						$redirect = "location: ../compteuser.php?code=4&etat=ERREUR";
+					}
 					
-					header("location: ../compteuser.php?code=4&etat=OK");
+					header($redirect);
 				}
 				else {
 					if($_POST['special'] == 'Modifier') {
