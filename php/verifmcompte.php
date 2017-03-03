@@ -54,9 +54,7 @@
 						$stmt->execute();
 						$redirect = "location: ../compteuser.php?code=4&etat=OK";
 					}
-					else {
-						$redirect = "location: ../compteuser.php?code=4&etat=ERREUR";
-					}
+					else { $redirect = "location: ../compteuser.php?code=4&etat=ERREUR"; }
 					
 					header($redirect);
 				}
