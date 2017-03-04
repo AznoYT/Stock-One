@@ -12,7 +12,6 @@ Toutes Reproduction entrenera des poursuites judicieres
 |   <a href="../../blob/master/client.php">client.php</a>
 |   <a href="../../blob/master/compteuser.php">compteuser.php</a>
 |   <a href="../../blob/master/index.html">index.html</a>
-|   <a href="../../blob/master/info.md">info.md</a>
 |   <a href="../../blob/master/stock-one.sql">stock-one.sql</a>
 |   
 +---<a href="../../tree/master/css/">css/</a>
