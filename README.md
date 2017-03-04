@@ -1,5 +1,9 @@
 # Stock-One
 
+Tous les Droits sont réservés.
+
+Toutes Reproduction entrenera des poursuites judicieres
+
 # Structure du dossier:
 
 <pre>
@@ -89,7 +93,3 @@
 </pre>
 
 > Lien de téléchargement du site: <a href="https://mega.nz/#!2wFT2bqR!3Gr8OsEd0GyeHHV4STZZAveKm_tcZqmd6OclKmKz84g" target="_blank">ICI</a>
-
-Tous les Droits sont réservés.
-
-Toutes Reproduction entrenera des poursuites judicieres
