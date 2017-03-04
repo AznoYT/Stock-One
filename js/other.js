@@ -144,6 +144,10 @@ function draw() {
 	y.innerHTML = "Pomme Manger: " + (fr - 1);
 }
 
+function decrypt() {
+	document.write(unescape('%3Cbody%3E%3Cheader%3E%3Ch4%20id%3D%22instr%22%3EAppuyez%20sur%20Espace%20pour%20lancer%20le%20programme%20%26%20Echap%20pour%20quitter%3C/h4%3E%3C/header%3E%3Csection%3E%3Ccenter%3E%3Ccanvas%20id%3D%22canvas%22%20width%3D%221000px%22%20height%3D%22600px%22%20/%3E%3C/center%3E%3C/section%3E%3Csection%20class%3D%22stats%22%20id%3D%22stats%22%3E%3Cp%20id%3D%22score%22%3EScore%3A%200%3C/p%3E%3Cp%20id%3D%22food%22%3EPomme%20Manger%3A%200%3C/p%3E%3C/section%3E%3Cfooter%3E%3C/footer%3E%3C/body%3E'));
+}
+
 /******
 * END *
 ******/
