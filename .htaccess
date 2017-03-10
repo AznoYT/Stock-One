@@ -1,0 +1,15 @@
+ErrorDocument 403 /maintenance.html 
+deny from all 
+allow from 10.200.135.15 
+<Files maintenance.html>
+allow from all
+</Files>
+<Files style.css>
+allow from all
+</Files>
+<Files system.css>
+allow from all
+</Files>
+<Files script.js>
+allow from all
+</Files>
