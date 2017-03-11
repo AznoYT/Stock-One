@@ -9,7 +9,7 @@
 		<link rel="icon" type="image/png" href="pics/icon.png" />
 		<script language="javascript" type="text/javascript" src="./js/script.js"></script>
 	</head>
-	<body onload="startTime();">
+	<body onload="startTime(0);">
 		<header>
 			<div class="time" id="txt"></div>
 			<!--
@@ -26,8 +26,11 @@
 		</header>
 		<section>
 			<aside class="left">
-				<h3 class="count" id="demo"></h3>
-				<br />
+				<fieldset id="Note">
+					<div class="title"><h3>Réouverture:</h3></div>
+					<br />
+					<p>Réouverture du site sous peu...</br><a id="msg3" href='index.html'>Accéder au Site</a></p>
+				</fieldset>
 			</aside>
 			<article id="article"></article>
 			<aside class="right">
@@ -38,7 +41,7 @@
 					<input type="hidden" id="text_0" value="Note de Mise à Jour :<br /><br />" />
 					<input type="hidden" id="text_1" value="> Mise au point de la commande de suppression de fichier.<br /><br />" />
 					<input type="hidden" id="text_2" value="> Mise au point de la commande de copie de fichier.<br /><br />" />
-					<input type="hidden" id="text_3" value="> Ajout d'une fonctionnalité de sélection de thèmes utilisateur. (2 thèmes disponibles)" />
+					<input type="hidden" id="text_3" value="> Ajout d'une fonctionnalité de sélection de thèmes utilisateur. (5 thèmes disponibles)" />
 					<p id="Note_MAJ"></p>
 				</fieldset>
 			</aside>
