@@ -18,7 +18,10 @@ function startTime() {
 	s = checkTime(s);
 	document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
 	t = setTimeout(function() { startTime(); }, 500);
-	if(a <= 4) { a = Note_annim(a); }
+	if(a <= 4) {
+		if(document.location.pathname == "/Stock-One-cloud/maintenance.html") { a = Note_annim(a, 0); }
+		else { a = Note_annim(a); }
+	}
 	//hide_pubs();
 }
 
@@ -28,12 +31,17 @@ function checkTime(i) {
 }
 
 // Ajout d'information de note
-function Note_annim(i) {
+function Note_annim(i, j) {
 	var output = document.getElementById('Note_MAJ');
 	var warning_msg = '<fieldset id="Note">';
 	warning_msg += '<div class="title"><h3 class="alert">ATTENTION !</h3></div>';
 	warning_msg += '<img height="100px" width="100px" src="./pics/alert.png" />';
-	warning_msg += '<p class="alert alert_content">A l\'attention des utilisateurs,<br /><br />Des Mises à Jours auront régulièrement toutes les semaines, il est donc normal que vous rencontriez quelques bugs.</p>';
+	
+	switch(j) {
+		case 0: warning_msg += '<p class="alert alert_content">Une Mise à Jour de maintenance est en cours à ce moment même, veuillez revenir plus tard.<br /><br /><br /><br /></p>'; break;
+		default: warning_msg += '<p class="alert alert_content">A l\'attention des utilisateurs,<br /><br />Des Mises à Jours auront régulièrement toutes les semaines, il est donc normal que vous rencontriez quelques bugs.</p>'; break;
+	}
+	
 	warning_msg += '</fieldset>';
 	
 	if(output != undefined) {
