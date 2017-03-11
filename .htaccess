@@ -1,16 +1,6 @@
-ErrorDocument 403 /maintenance.html 
-deny from all 
-allow from 192.168.0.37 
-allow from 127.0.0.1
-<Files maintenance.html>
-allow from all
-</Files>
-<Files stylemaintenance.css>
-allow from all
-</Files>
-<Files systemmaintenance.css>
-allow from all
-</Files>
-<Files scriptmaintenance.js>
+ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=./maintenance.html">'
+deny from all
+#allow form 10.200.135.4
+<Files 'maintenance.html'>
 allow from all
 </Files>
