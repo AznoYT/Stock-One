@@ -1,0 +1,12 @@
+ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=./maintenance.html">'
+deny from all
+#allow form 10.200.135.4
+<Files 'icon.png'>
+allow from all
+</Files>
+<Files 'logo.png'>
+allow from all
+</Files>
+<Files 'alert.png'>
+allow from all
+</Files>
