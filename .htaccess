@@ -1,15 +1,16 @@
 ErrorDocument 403 /maintenance.html 
 deny from all 
-allow from 10.200.135.15 
+allow from 192.168.0.37 
+allow from 127.0.0.1
 <Files maintenance.html>
 allow from all
 </Files>
-<Files style.css>
+<Files stylemaintenance.css>
 allow from all
 </Files>
-<Files system.css>
+<Files systemmaintenance.css>
 allow from all
 </Files>
-<Files script.js>
+<Files scriptmaintenance.js>
 allow from all
 </Files>
