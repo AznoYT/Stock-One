@@ -61,6 +61,7 @@ Toutes Reproduction entrenera des poursuites judicieres
 |           <a href="../../blob/master/php/historiques-IRC/history-primary.htm">history-primary.htm</a>
 |           
 +---<a href="../../tree/master/pics/">pics/</a>
+|   |   <a href="../../blob/master/pics/.htaccess">.htaccess</a>
 |   |   <a href="../../blob/master/pics/alert.png">alert.png</a>
 |   |   <a href="../../blob/master/pics/icon.png">icon.png</a>
 |   |   <a href="../../blob/master/pics/loader.gif">loader.gif</a>
