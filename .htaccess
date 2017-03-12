@@ -1,6 +1,6 @@
 ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=./maintenance.html">'
 deny from all
-#allow form 10.200.135.4
+#allow from 10.200.135.4
 <Files 'maintenance.html'>
 allow from all
 </Files>
