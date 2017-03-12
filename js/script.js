@@ -168,7 +168,7 @@ function popuplogin(login, attempt) {
 		packet += '<input class="text" type="password" id="password" name="lpws" placeholder="Mot de passe" />';
 		packet += '<br />';
 		packet += '<font id="msg1"></font>';
-		packet += '<br /><br />';
+		packet += '<br />';
 		packet += '<input class="ACT" type="submit" value="Connexion" /> ';
 	}
 	else if(login == 2) { // Ici le Register
