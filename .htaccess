@@ -1,4 +1,4 @@
-ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=/Stock-One-cloud/maintenance.html">'
+ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=/Stock-One-master/maintenance.html">'
 
 deny from all
 allow from 10.200.135.4
