@@ -1,7 +1,7 @@
 ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=/Stock-One-cloud/maintenance.html">'
 
 deny from all
-allow from 192.168.1.48
+allow from 10.200.135.4
 
 <Files 'maintenance.html'>
 allow from all
