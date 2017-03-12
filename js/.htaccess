@@ -1,4 +1,5 @@
 ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=./maintenance.html">'
+
 <Files 'script.js'>
 allow from all
 </Files>
