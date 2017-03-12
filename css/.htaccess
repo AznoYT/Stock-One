@@ -1,5 +1,3 @@
-ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=./maintenance.html">'
-
 <Files 'style.css'>
 allow from all
 </Files>
