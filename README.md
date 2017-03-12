@@ -1,6 +1,6 @@
 # Stock-One
 
-> Tous les Droits sont réservés.
+> Tous les Droits sont réservés.<br />
 > Toutes Reproduction entrenera des poursuites judicieres
 
 # Structure du dossier:
