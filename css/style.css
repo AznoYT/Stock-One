@@ -183,8 +183,9 @@ input {
 .controls {
 	border: 1px solid;
 	border-radius: 3px;
-	right: 150px;
+	cursor: pointer;
 	padding: 4px;
+	right: 150px;
 	transition: 0.5s;
 }
 
