@@ -584,12 +584,13 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
-		case 4: packet = '<form method="post" action="./client.php">'; // Ici la vue sur les propriétés du fichier sélectionner
+		case 4: packet = '<form method="get" action="./client.php">'; // Ici la vue sur les propriétés du fichier sélectionner
 			packet += '<fieldset>';
 			packet += '<legend>Propriétés:</legend>';
 			packet += '<h3>Information:</h3>';
 			packet += '<br />'
 			packet += '<p>> Nom: "' + fichier + '"</p>';
+			packet += '<input type="hidden" name="fichier" value="' + fichier + '" />';
 			packet += '<p>> Type: .' + ext + '</p>';
 			packet += '<p>> Taille: ' + taille + '</p>';
 			packet += '<p title="' + placement + '">> Placement: <input class="text" type="text" id="to_copy" style="width: 50%;" value="' + placement + '" readonly /></p>';

@@ -47,5 +47,20 @@
 		return 'OK';
 	}
 	
+	// Fonction de mise à jour d'état de partage d'un fichier
+	function share_state($db, $state, $file, $user) {
+		$data = $db->query('SELECT * FROM donnee');
+		
+		while($nom = $data->fetch()) {
+			if($nom[1] == $user) {
+				if($nom[3] == $file) {
+					$stmt = $db->prepare('UPDATE donnee SET public="'.$state.'" WHERE nom="'.$file.'" AND identifiant="'.$user.'"');
+					$stmt->execute();
+					echo("<script>document.location = './client.php';</script>");
+				}
+			}
+		}
+	}
+	
 	// END
 ?>

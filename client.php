@@ -108,9 +108,11 @@
 					if(!isset($_GET['code'])) { echo(''); }
 					else {
 						$frame2 = ['client.php', 'client.php', 'client.php', 'compteuser.php', 'compteuser.php'];
-						
 						include('./php/msg.php');
 					}
+					
+					if(!isset($_GET['action'])) { echo(''); }
+					else if($_GET['action'] == 'Appliquer') { share_state($bdd, $_GET['public'], $_GET['fichier'], $user); }
 				?>
 			</div>
 		</section>
