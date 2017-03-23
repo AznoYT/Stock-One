@@ -77,7 +77,6 @@
 					if(!isset($_GET['code'])) { echo(''); }
 					else {
 						$frame2 = ['client.php', 'client.php', 'client.php', 'admin.php', 'admin.php'];
-						
 						include('./php/msg.php');
 					}
 				?>
