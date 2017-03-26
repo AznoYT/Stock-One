@@ -190,6 +190,7 @@ input {
 .opt_cel {
 	border: 0;
 	border-radius: 2px;
+	cursor: pointer;
 	margin: 2px;
 	text-align: left;
 	width: 100%;
