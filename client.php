@@ -56,12 +56,12 @@
 								
 								switch($tour) {
 									case 0: while($file = $data[0]->fetch()) {
-											if($user == $file[1]) { list_dossiers($file, $dir, $a, $i); }
+											if($user == $file[1]) { list_dossiers($file, $dir, $a, $i, 0); }
 											$i++;
 										} break;
 									
 									case 1: while($file = $data[0]->fetch()) {
-											if($user == $file[1]) { list_fichiers($file, $dir, $a, $i); }
+											if($user == $file[1]) { list_fichiers($file, $dir, $a, $i, 0); }
 											$i++;
 										} break;
 								}
@@ -80,10 +80,10 @@
 							
 							while($file = $data[1]->fetch()) {
 								if($user == $file[1]) {
-									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a, $i); }
+									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a, $i, 0); }
 									
 									if(!isset($file[8])) { echo(''); }
-									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a, $i); }
+									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a, $i, 0); }
 									$i++;
 								}
 							}
@@ -97,7 +97,7 @@
 					<?php
 						while($file = $data[2]->fetch()) {
 							if($user == $file[1]) {
-								if(!isset($_GET['folder'])) { list_fichiers($file, $dir, $a, $i); }
+								if(!isset($_GET['folder'])) { list_fichiers($file, $dir, $a, $i, 0); }
 								$i++;
 							}
 						}
@@ -121,6 +121,7 @@
 		</section>
 		<script>
 			var owner = '<?php echo($_SESSION['user']) ?>';
+			var theme = '<?php echo("$dir"); ?>';
 		</script>
 		<footer>
 			<h4>Auteur: Groupe STI2D SIN Déodat de Séverac - 2016 Novembre</h4>
