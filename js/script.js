@@ -828,11 +828,13 @@ function option(action, mouse, list, attempt, nom, theme) {
 				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'share.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Partage" /><br />';
 				menu.innerHTML += '<hr />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Copier vers" /><br />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Déplacer vers" /><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'rename.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Renommer" /><br />';
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" /><br />';
 				menu.innerHTML += '<hr />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Partage" />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Propriétés" />';
 				break;
 			default: option(0); break;
 		}
