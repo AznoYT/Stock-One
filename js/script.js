@@ -814,13 +814,20 @@ function option(action, mouse, list, attempt, nom, theme) {
 	else if(action == 2) { // Affichage du menu d'option d'objet
 		var menu = document.getElementById(list);
 		
+		switch(document.location.pathname) {
+			case '/Stock-One-cloud/admin.php':
+			case '/Stock-One-cloud/client.php':
+			case '/Stock-One-cloud/compteuser.php': var link = '.'; break;
+			default: var link = '..'; break;
+		}
+		
 		switch(menu.innerHTML) {
 			case '': option(0);
 				menu.style.border = '1px solid';
 				menu.style.padding = '4px';
-				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="./pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
+				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
 				menu.innerHTML += '<hr />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="./pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
 				break;
 			default: option(0); break;
 		}
@@ -857,7 +864,7 @@ function other(op) {
 	}
 }
 
-/*****************************************************************************
+/******************************************************************************
 function hide_pubs() {
 	for(var i = 0; i < 1; i++) {
 		switch(i) {
@@ -873,7 +880,7 @@ function hide_pubs() {
 	
 	document.body.style.marginTop = 0;
 }
-*****************************************************************************/
+******************************************************************************/
 
 /******
 * END *
