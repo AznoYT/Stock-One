@@ -802,7 +802,7 @@ function panel_switch(action, list_user, theme) {
 }
 
 // Cette fonction est pour le menu contextuel de la liste de fichiers
-function option(action, mouse, list, attempt, nom, theme) {
+function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, owner) {
 	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
 		var cellule = document.getElementById(list);
 		
@@ -825,16 +825,25 @@ function option(action, mouse, list, attempt, nom, theme) {
 			case '': option(0);
 				menu.style.border = '1px solid';
 				menu.style.padding = '4px';
+				var all_unit = ["b", "Kb", "Mb", "Gb", "Tb"];
+				var unit = all_unit[0];
+				
+				for(var i = 1; taille > 1000; i++) { // Convertisseur d'unité
+					taille = taille / 1000;
+					unit = all_unit[i];
+				}
+				substract = 8 + owner.length;
+				
 				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'share.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Partage" /><br />';
 				menu.innerHTML += '<hr />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Copier vers" /><br />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Déplacer vers" /><br />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(1, \'' + nom + '\'); option(0);" value="Copier vers" /><br />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(2, \'' + nom + '\'); option(0);" value="Déplacer vers" /><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'rename.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Renommer" /><br />';
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" /><br />';
 				menu.innerHTML += '<hr />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Propriétés" />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\'); option(0);" value="Propriétés" />';
 				break;
 			default: option(0); break;
 		}
