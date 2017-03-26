@@ -799,8 +799,8 @@ function panel_switch(action, list_user, theme) {
 	panel_right.innerHTML = packet0;
 }
 
-// Cette fonction est pour les options de liste
-function option(action, mouse, list, nom) {
+// Cette fonction est pour le menu contextuel de la liste de fichiers
+function option(action, mouse, list, attempt, nom) {
 	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
 		var cellule = document.getElementById(list);
 		
@@ -809,17 +809,20 @@ function option(action, mouse, list, nom) {
 			case 1: cellule.style.width = '90%'; break;
 		}
 	}
-	else if(action == 2) {
+	else if(action == 2) { // Affichage du menu d'option d'objet
 		var menu = document.getElementById(list);
-		option(0);
 		
-		menu.style.border = '1px solid';
-		menu.style.padding = '4px';
-		
-		menu.innerHTML = '<a href="' + nom + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
-		menu.innerHTML += '<hr /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
+		switch(menu.innerHTML) {
+			case '': option(0);
+				menu.style.border = '1px solid';
+				menu.style.padding = '4px';
+				menu.innerHTML = '<a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
+				menu.innerHTML += '<hr /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
+				break;
+			default: option(0); break;
+		}
 	}
-	else if(action == 0) {
+	else if(action == 0) { // Effacement du menu
 		for(i = 0; i < 1000; i++) {
 			var list = 'opt_' + i;
 			var menu = document.getElementById(list);
