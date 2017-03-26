@@ -67,7 +67,7 @@
 |   |   <a href="../../blob/master/pics/lock-file.png">lock-file.png</a>
 |   |   <a href="../../blob/master/pics/logo.png">logo.png</a>
 |   |   <a href="../../blob/master/pics/logo_older.png">logo_older.png</a>
-|   |   <a href="../../blob/master/pics/trash.png">trash.png</a>
+|   |   <a href="../../blob/master/pics/trash.jpg">trash.jpg</a>
 |   |   
 |   +---<a href="../../tree/master/pics/default/">default/</a>
 |   |       <a href="../../blob/master/pics/default/console.png">console.png</a>
