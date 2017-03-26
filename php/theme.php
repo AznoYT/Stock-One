@@ -39,6 +39,7 @@
 	.ACT, #msg3 { color: <?php echo("$actcolor"); ?>; }
 	.WARN:hover, .WARN:hover { color: <?php echo("$bgcolor"); ?>; }
 	.ACT:hover { background-color: <?php echo("$actcolor"); ?>; }
+	nav { background-color: <?php echo("$bgcolor"); ?> }
 	select { background-color: <?php echo("$bgcolor"); ?>; color: <?php echo("$color"); ?>; }
 	select:hover { background-color: <?php echo("$bglist"); ?>; }
 	fieldset { background-color: <?php echo("$bgcolor"); ?>; }

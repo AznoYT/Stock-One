@@ -12,7 +12,7 @@
 		else if($file[2] == 'mp4') { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."movie.png\" /><input class=\"list\" id=\"list_$i\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 4, '$file[3]', '$file[5]', '$file[7]', '$file[2]', '".$_SESSION['user']."');\" value=\"$file[3]\" title=\"$file[3]\" />"); }
 		else { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."text-file.png\" /><a href=\"$a$file[4]$file[3]\" download><input class=\"list\" id=\"list_$i\" type=\"button\" value=\"$file[3]\" title=\"$file[3]\" /></a>"); }
 		
-		if($file[2] != 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"\" /><br />"); }
+		if($file[2] != 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i');\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
 	
@@ -22,7 +22,7 @@
 		if($file[2] == 'folder') { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."folder.png\" /><input class=\"list\" id=\"list_$i\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" />"); }
 		else { echo(''); }
 		
-		if($file[2] == 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"\" /><br />"); }
+		if($file[2] == 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i');\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
 	
