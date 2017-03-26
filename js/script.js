@@ -815,9 +815,9 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 		var menu = document.getElementById(list);
 		
 		switch(document.location.pathname) {
-			case '/Stock-One-cloud/admin.php':
-			case '/Stock-One-cloud/client.php':
-			case '/Stock-One-cloud/compteuser.php': var link = '.'; break;
+			case '/Stock-One-master/admin.php':
+			case '/Stock-One-master/client.php':
+			case '/Stock-One-master/compteuser.php': var link = '.'; break;
 			default: var link = '..'; break;
 		}
 		
