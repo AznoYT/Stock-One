@@ -67,9 +67,11 @@
 |   |   <a href="../../blob/master/pics/lock-file.png">lock-file.png</a>
 |   |   <a href="../../blob/master/pics/logo.png">logo.png</a>
 |   |   <a href="../../blob/master/pics/logo_older.png">logo_older.png</a>
+|   |   <a href="../../blob/master/pics/trash.png">trash.png</a>
 |   |   
 |   +---<a href="../../tree/master/pics/default/">default/</a>
 |   |       <a href="../../blob/master/pics/default/console.png">console.png</a>
+|   |       <a href="../../blob/master/pics/default/download.png">download.png</a>
 |   |       <a href="../../blob/master/pics/default/folder.png">folder.png</a>
 |   |       <a href="../../blob/master/pics/default/gallery.png">gallery.png</a>
 |   |       <a href="../../blob/master/pics/default/monitor.png">monitor.png</a>
@@ -80,6 +82,7 @@
 |   |       
 |   \---<a href="../../tree/master/pics/reverse/">reverse/</a>
 |           <a href="../../blob/master/pics/reverse/console.png">console.png</a>
+|           <a href="../../blob/master/pics/reverse/download.png">download.png</a>
 |           <a href="../../blob/master/pics/reverse/folder.png">folder.png</a>
 |           <a href="../../blob/master/pics/reverse/gallery.png">gallery.png</a>
 |           <a href="../../blob/master/pics/reverse/monitor.png">monitor.png</a>
