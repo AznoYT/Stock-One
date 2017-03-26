@@ -50,18 +50,19 @@
 				<div class="content">
 					<form action method="get">
 						<?php
+							$i = 0;
 							for($tour = 0; $tour < 2; $tour++) { // Code réagencer pour le listing des dossiers séparer des fichiers
 								$data = [$bdd->query('SELECT * FROM donnee'), $bdd->query('SELECT * FROM donnee'), $bdd->query('SELECT * FROM donnee')];
 								
 								switch($tour) {
-									case 0:
-										while($file = $data[0]->fetch()) {
-											if($user == $file[1]) { list_dossiers($file, $dir, $a); }
+									case 0: while($file = $data[0]->fetch()) {
+											if($user == $file[1]) { list_dossiers($file, $dir, $a, $i); }
+											$i++;
 										} break;
 									
-									case 1:
-										while($file = $data[0]->fetch()) {
-											if($user == $file[1]) { list_fichiers($file, $dir, $a); }
+									case 1: while($file = $data[0]->fetch()) {
+											if($user == $file[1]) { list_fichiers($file, $dir, $a, $i); }
+											$i++;
 										} break;
 								}
 							}
@@ -79,10 +80,11 @@
 							
 							while($file = $data[1]->fetch()) {
 								if($user == $file[1]) {
-									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a); }
+									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a, $i); }
 									
 									if(!isset($file[8])) { echo(''); }
-									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a); }
+									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a, $i); }
+									$i++;
 								}
 							}
 						?>
@@ -95,7 +97,8 @@
 					<?php
 						while($file = $data[2]->fetch()) {
 							if($user == $file[1]) {
-								if(!isset($_GET['folder'])) { list_fichiers($file, $dir, $a); }
+								if(!isset($_GET['folder'])) { list_fichiers($file, $dir, $a, $i); }
+								$i++;
 							}
 						}
 					?>
