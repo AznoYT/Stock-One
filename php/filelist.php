@@ -14,7 +14,7 @@
 		<?php if(isset($_SESSION['user'])) { include('./theme.php'); } ?>
 		<script language="javascript" type="text/javascript" src="../js/script.js"></script>
 	</head>
-	<body>
+	<body style="overflow-x: hidden;">
 		<form action="./filelist.php" method="get">
 			<?php
 				$page = 'filelist.php';
