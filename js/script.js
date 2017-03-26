@@ -825,6 +825,7 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 			case '': option(0);
 				menu.style.border = '1px solid';
 				menu.style.padding = '4px';
+				
 				var all_unit = ["b", "Kb", "Mb", "Gb", "Tb"];
 				var unit = all_unit[0];
 				
@@ -832,7 +833,9 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 					taille = taille / 1000;
 					unit = all_unit[i];
 				}
-				substract = 8 + owner.length;
+				
+				taille = String(taille);
+				taille = taille.charAt(0) + taille.charAt(1) + taille.charAt(2) + taille.charAt(3) + taille.charAt(4);
 				
 				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'share.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Partage" /><br />';
@@ -843,6 +846,7 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" /><br />';
 				menu.innerHTML += '<hr />';
+				substract = 8 + owner.length;
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\'); option(0);" value="Propriétés" />';
 				break;
 			default: option(0); break;
