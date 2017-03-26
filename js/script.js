@@ -346,6 +346,8 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		popup.style.width = 'auto';
 		popup.style.left = '12%';
 		moreaction(0);
+		option(0);
+		
 		var all_unit = ["b", "Kb", "Mb", "Gb", "Tb"];
 		var unit = all_unit[0];
 		
