@@ -3,7 +3,7 @@
 	// Fichier de fonction php
 	
 	// Fonction de listing de fichiers
-	function list_fichiers($file, $dir, $a, $i) {
+	function list_fichiers($file, $dir, $a, $i, $link) {
 		echo("<div onmouseover=\"option(1, 1, 'list_$i');\" onmouseout=\"option(1, 0, 'list_$i');\">");
 		if($file[2] == 'folder') { echo(''); }
 		else if($file[2] == 'png' || $file[2] == 'jpeg' || $file[2] == 'jpg' || $file[2] == 'gif' || $file[2] == 'bmp' ) { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."gallery.png\" /><input class=\"list\" id=\"list_$i\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 1, '$file[3]', '$file[5]', '$file[7]', '$file[2]','".$_SESSION['user']."');\" value=\"$file[3]\" title=\"$file[3]\" />"); }
@@ -12,17 +12,21 @@
 		else if($file[2] == 'mp4') { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."movie.png\" /><input class=\"list\" id=\"list_$i\" type=\"button\" onclick=\"popupaction(4, '$file[4]$file[3]', 4, '$file[3]', '$file[5]', '$file[7]', '$file[2]', '".$_SESSION['user']."');\" value=\"$file[3]\" title=\"$file[3]\" />"); }
 		else { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."text-file.png\" /><a href=\"$a$file[4]$file[3]\" download><input class=\"list\" id=\"list_$i\" type=\"button\" value=\"$file[3]\" title=\"$file[3]\" /></a>"); }
 		
-		if($file[2] != 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$file[4]$file[3]', '$file[3]');\" /><nav id=\"opt_$i\"></nav><br />"); }
+		if($link == 1) { $link = '.'; }
+		else { $link = ''; }
+		if($file[2] != 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$link$file[4]$file[3]', '$file[3]', theme);\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
 	
 	// Fonction de listing de dossiers
-	function list_dossiers($file, $dir, $a, $i) {
+	function list_dossiers($file, $dir, $a, $i, $link) {
 		echo("<div onmouseover=\"option(1, 1, 'list_$i');\" onmouseout=\"option(1, 0, 'list_$i');\">");
 		if($file[2] == 'folder') { echo("<img class=\"classement\" height=\"15px\" src=\"$a./pics/".$dir."folder.png\" /><input class=\"list\" id=\"list_$i\" type=\"submit\" name=\"folder\" value=\"$file[3]\" title=\"$file[3]\" />"); }
 		else { echo(''); }
 		
-		if($file[2] == 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$file[4]$file[3]', '$file[3]');\" /><nav id=\"opt_$i\"></nav><br />"); }
+		if($link == 1) { $link = '.'; }
+		else { $link = ''; }
+		if($file[2] == 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$link$file[4]', '$file[3]', theme);\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
 	

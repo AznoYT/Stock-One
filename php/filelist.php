@@ -29,18 +29,21 @@
 					
 					switch($tour) {
 						case 0: while($file = $data[0]->fetch()) {
-								if($_GET['target'] == $file[1]) { list_dossiers($file, $dir, $a, $i); }
+								if($_GET['target'] == $file[1]) { list_dossiers($file, $dir, $a, $i, 1); }
 								$i++;
 							} break;
 						
 						case 1: while($file = $data[0]->fetch()) {
-								if($_GET['target'] == $file[1]) { list_fichiers($file, $dir, $a, $i); }
+								if($_GET['target'] == $file[1]) { list_fichiers($file, $dir, $a, $i, 1); }
 								$i++;
 							} break;
 					}
 				}
 			?>
 		</form>
+		<script>
+			var theme = '<?php echo("$dir"); ?>';
+		</script>
 	</body>
 </html>
 <!-- END -->
