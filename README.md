@@ -71,6 +71,7 @@
 |   |   
 |   +---<a href="../../tree/master/pics/default/">default/</a>
 |   |       <a href="../../blob/master/pics/default/console.png">console.png</a>
+|   |       <a href="../../blob/master/pics/default/copy.png">copy.png</a>
 |   |       <a href="../../blob/master/pics/default/download.png">download.png</a>
 |   |       <a href="../../blob/master/pics/default/folder.png">folder.png</a>
 |   |       <a href="../../blob/master/pics/default/gallery.png">gallery.png</a>
@@ -85,6 +86,7 @@
 |   |       
 |   \---<a href="../../tree/master/pics/reverse/">reverse/</a>
 |           <a href="../../blob/master/pics/reverse/console.png">console.png</a>
+|           <a href="../../blob/master/pics/reverse/copy.png">copy.png</a>
 |           <a href="../../blob/master/pics/reverse/download.png">download.png</a>
 |           <a href="../../blob/master/pics/reverse/folder.png">folder.png</a>
 |           <a href="../../blob/master/pics/reverse/gallery.png">gallery.png</a>
