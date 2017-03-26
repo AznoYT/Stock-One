@@ -74,9 +74,12 @@
 |   |       <a href="../../blob/master/pics/default/download.png">download.png</a>
 |   |       <a href="../../blob/master/pics/default/folder.png">folder.png</a>
 |   |       <a href="../../blob/master/pics/default/gallery.png">gallery.png</a>
+|   |       <a href="../../blob/master/pics/default/info.png">info.png</a>
 |   |       <a href="../../blob/master/pics/default/monitor.png">monitor.png</a>
 |   |       <a href="../../blob/master/pics/default/movie.png">movie.png</a>
 |   |       <a href="../../blob/master/pics/default/music.png">music.png</a>
+|   |       <a href="../../blob/master/pics/default/rename.png">rename.png</a>
+|   |       <a href="../../blob/master/pics/default/share.png">share.png</a>
 |   |       <a href="../../blob/master/pics/default/text-file.png">text-file.png</a>
 |   |       <a href="../../blob/master/pics/default/user.png">user.png</a>
 |   |       
@@ -85,9 +88,12 @@
 |           <a href="../../blob/master/pics/reverse/download.png">download.png</a>
 |           <a href="../../blob/master/pics/reverse/folder.png">folder.png</a>
 |           <a href="../../blob/master/pics/reverse/gallery.png">gallery.png</a>
+|           <a href="../../blob/master/pics/reverse/info.png">info.png</a>
 |           <a href="../../blob/master/pics/reverse/monitor.png">monitor.png</a>
 |           <a href="../../blob/master/pics/reverse/movie.png">movie.png</a>
 |           <a href="../../blob/master/pics/reverse/music.png">music.png</a>
+|           <a href="../../blob/master/pics/reverse/rename.png">rename.png</a>
+|           <a href="../../blob/master/pics/reverse/share.png">share.png</a>
 |           <a href="../../blob/master/pics/reverse/text-file.png">text-file.png</a>
 |           <a href="../../blob/master/pics/reverse/user.png">user.png</a>
 |           
