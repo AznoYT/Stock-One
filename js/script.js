@@ -802,7 +802,7 @@ function panel_switch(action, list_user, theme) {
 }
 
 // Cette fonction est pour le menu contextuel de la liste de fichiers
-function option(action, mouse, list, attempt, nom) {
+function option(action, mouse, list, attempt, nom, theme) {
 	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
 		var cellule = document.getElementById(list);
 		
@@ -818,8 +818,9 @@ function option(action, mouse, list, attempt, nom) {
 			case '': option(0);
 				menu.style.border = '1px solid';
 				menu.style.padding = '4px';
-				menu.innerHTML = '<a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
-				menu.innerHTML += '<hr /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
+				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="./pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
+				menu.innerHTML += '<hr />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="./pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
 				break;
 			default: option(0); break;
 		}
