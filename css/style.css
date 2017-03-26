@@ -187,6 +187,19 @@ input {
 	width: 5%;
 }
 
+.opt_cel {
+	border: 0;
+	border-radius: 2px;
+	margin: 2px;
+	text-align: left;
+	width: 100%;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid;
+}
+
 .controls {
 	border: 1px solid;
 	border-radius: 3px;
@@ -219,6 +232,16 @@ input {
 	position: absolute;
 	right: 10%;
 	width: 80%;
+}
+
+nav {
+	border-radius: 5px;
+	border-top-right-radius: 0;
+	margin-top: 1px;
+	margin-right: 1px;
+	position: absolute;
+	right: 0;
+	z-index: 1;
 }
 
 select {
