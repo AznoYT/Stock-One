@@ -800,7 +800,7 @@ function panel_switch(action, list_user, theme) {
 }
 
 // Cette fonction est pour les options de liste
-function option(action, mouse, list) {
+function option(action, mouse, list, nom) {
 	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
 		var cellule = document.getElementById(list);
 		
@@ -810,7 +810,26 @@ function option(action, mouse, list) {
 		}
 	}
 	else if(action == 2) {
+		var menu = document.getElementById(list);
+		option(0);
 		
+		menu.style.border = '1px solid';
+		menu.style.padding = '4px';
+		
+		menu.innerHTML = '<a href="' + nom + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
+		menu.innerHTML += '<hr /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" />';
+	}
+	else if(action == 0) {
+		for(i = 0; i < 1000; i++) {
+			var list = 'opt_' + i;
+			var menu = document.getElementById(list);
+			
+			if(menu != undefined) {
+				menu.style.border = '0';
+				menu.style.padding = '0';
+				menu.innerHTML = '';
+			}
+		}
 	}
 }
 
