@@ -800,12 +800,17 @@ function panel_switch(action, list_user, theme) {
 }
 
 // Cette fonction est pour les options de liste
-function option(mouse, list) {
-	var cellule = document.getElementById(list);
-	
-	switch(mouse) {
-		case 0: cellule.style.width = '95%'; break;
-		case 1: cellule.style.width = '90%'; break;
+function option(action, mouse, list) {
+	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
+		var cellule = document.getElementById(list);
+		
+		switch(mouse) {
+			case 0: cellule.style.width = '95%'; break;
+			case 1: cellule.style.width = '90%'; break;
+		}
+	}
+	else if(action == 2) {
+		
 	}
 }
 
