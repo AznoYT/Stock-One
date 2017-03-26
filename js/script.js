@@ -799,6 +799,16 @@ function panel_switch(action, list_user, theme) {
 	panel_right.innerHTML = packet0;
 }
 
+// Cette fonction est pour les options de liste
+function option(mouse, list) {
+	var cellule = document.getElementById(list);
+	
+	switch(mouse) {
+		case 0: cellule.style.width = '95%'; break;
+		case 1: cellule.style.width = '90%'; break;
+	}
+}
+
 // Cette fonction est pour la deconnexion du compte
 function disconnect(stat, method) {
 	if(method == 0) {

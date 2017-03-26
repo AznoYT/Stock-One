@@ -180,6 +180,13 @@ input {
 	width: 95%;
 }
 
+.opt {
+	margin-left: 0%;
+	position: absolute;
+	text-align: center;
+	width: 5%;
+}
+
 .controls {
 	border: 1px solid;
 	border-radius: 3px;
@@ -206,7 +213,6 @@ input {
 }
 
 .WARN, .alert, #msg0, #msg1, #msg2 { color: #FF0000; }
-
 .WARN:hover { background-color: #FF0000; }
 
 .lock {
@@ -385,6 +391,7 @@ h2 {
 	border-radius: 4px;
 	height: 95%;
 	overflow: auto;
+	overflow-x: hidden;
 	margin-left: 1px;
 	margin-right: 1px;
 	position: relative;
