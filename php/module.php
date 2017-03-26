@@ -14,6 +14,7 @@
 		
 		if($link == 1) { $link = '.'; }
 		else { $link = ''; }
+		
 		if($file[2] != 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$link$file[4]$file[3]', '$file[3]', theme);\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
@@ -26,6 +27,7 @@
 		
 		if($link == 1) { $link = '.'; }
 		else { $link = ''; }
+		
 		if($file[2] == 'folder') { echo("<input class=\"list opt\" type=\"button\" value=\">\" onclick=\"option(2, 0, 'opt_$i', '$link$file[4]', '$file[3]', theme);\" /><nav id=\"opt_$i\"></nav><br />"); }
 		echo("</div>");
 	}
