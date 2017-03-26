@@ -825,7 +825,7 @@ function option(action, mouse, list, attempt, nom) {
 		}
 	}
 	else if(action == 0) { // Effacement du menu
-		for(i = 0; i < 1000; i++) {
+		for(i = 0; i < 10000; i++) {
 			var list = 'opt_' + i;
 			var menu = document.getElementById(list);
 			
