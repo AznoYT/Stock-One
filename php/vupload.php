@@ -51,20 +51,28 @@
 						if($resultat) { // Et enfin on check si le transfert s'est bien passé puis on note la trace dans la db
 							echo("> Transfert réussi.<br />");
 							
+							$char = 'abcdefghijklmnpqrstuvwxyABCDEFGHIJKLMNOPQRSUTVWXYZ0123456789';
+							$num = '50';
+							$coderesult = str_shuffle($char);
+							$Caracteres = strlen($num);
+							$coderesult .= substr($coderesult, 0, 10);
+							
 							$taille = filesize("$path");
 							$path = "./files/$user/"; // Ce path est le chemin de référence pour la database
 							
-							$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, taille, public) VALUES(?, ?, ?, ?, ?, ?)');
-							$req->execute(array($user, $extension, $fichier, $path, $taille, $publicstat));
+							$req = $bdd->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, taille, public, sharecode) VALUES(?, ?, ?, ?, ?, ?, ?)');
+							$req->execute(array($user, $extension, $fichier, $path, $taille, $publicstat, $coderesult));
 							
 							$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
 							$data = $req->fetch();
 							
-							header('location: ../client.php');
+							echo($coderesult);
+							
+							//header('location: ../client.php');
 						}
 						else { echo("> Echec du transfert.<br />"); }
 						
-						// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
+						// Voili voulou, j'espére que t'auras compris mon script Ugo, sur ceux @+
 					}
 				}
 				else {
