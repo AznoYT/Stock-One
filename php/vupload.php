@@ -68,7 +68,7 @@
 							
 							echo($coderesult);
 							
-							//header('location: ../client.php');
+							header('location: ../client.php');
 						}
 						else { echo("> Echec du transfert.<br />"); }
 						
