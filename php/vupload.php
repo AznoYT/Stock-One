@@ -55,7 +55,7 @@
 							$num = '50';
 							$coderesult = str_shuffle($char);
 							$Caracteres = strlen($num);
-							$coderesult .= substr($coderesult, 0, 10);
+							$coderesult = substr($coderesult, 0, 10);
 							
 							$taille = filesize("$path");
 							$path = "./files/$user/"; // Ce path est le chemin de référence pour la database
@@ -66,13 +66,11 @@
 							$req = $bdd->query('SELECT identifiant, nom, public FROM donnee');
 							$data = $req->fetch();
 							
-							echo($coderesult);
-							
 							header('location: ../client.php');
 						}
 						else { echo("> Echec du transfert.<br />"); }
 						
-						// Voili voulou, j'espére que t'auras compris mon script Ugo, sur ceux @+
+						// Voili voulou, j'espère que t'auras compris mon script Ugo, sur ceux @+
 					}
 				}
 				else {
