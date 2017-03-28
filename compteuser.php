@@ -72,9 +72,7 @@
 								<center>
 									<div id='progressbarControl' style='margin-left: 15px; margin-right: 15px; width: auto;'>
 										<div id='progressbar'>
-											<script language='javascript' type='text/javascript'>
-												analysedisk($occupied_space);
-											</script>
+											<script language='javascript' type='text/javascript'>analysedisk($occupied_space);</script>
 										</div>
 									</div>
 								</center>
