@@ -56,6 +56,10 @@
 							echo("> Suppression du fichier: $fichiers");
 							$etat = action(2, $bdd, $user, $fichiers, $path, NULL);
 							break;
+						case 'Renommer': $code = '3';
+							echo("> Renommage du fichier: $fichiers");
+							$etat = action(3, $bdd, $user, $fichiers, $path, $_POST['to']);
+							break;
 						default: $code = '4';
 							$etat = "INCONNU";
 							echo("> Echec de traitement. #ERROR: COMMAND INCONNU");
