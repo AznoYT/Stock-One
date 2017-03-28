@@ -80,8 +80,6 @@
 							
 							while($file = $data[1]->fetch()) {
 								if($user == $file[1]) {
-									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a, $i, 0); }
-									
 									if(!isset($file[8])) { echo(''); }
 									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a, $i, 0); }
 									$i++;
@@ -110,7 +108,7 @@
 				<?php
 					if(!isset($_GET['code'])) { echo(''); }
 					else {
-						$frame2 = ['client.php', 'client.php', 'client.php', 'compteuser.php', 'compteuser.php'];
+						$frame2 = ['client.php', 'client.php', 'client.php', 'client.php','compteuser.php', 'compteuser.php'];
 						include('./php/msg.php');
 					}
 					
