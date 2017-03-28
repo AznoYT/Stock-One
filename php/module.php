@@ -39,6 +39,7 @@
 			case 0: break; // Copie sur serveur
 			case 1: break; // Déplacement sur serveur
 			case 2: unlink($dir); break; // Suppression du serveur
+			case 3: break; // Renommage du fichier dans le serveur
 		}
 		
 		// Cette Partie du code concerne le référencement dans la base donnée
@@ -51,6 +52,7 @@
 						case 0: $stmt = $db->prepare('INSERT INTO donnee(identifiant, type, nom, nom_dossier, taille, public) VALUES ("'.$propriétaire.'", "'.$file[2].'", "'.$nom.'", "'.$file[4].'", "'.$file[5].'", "'.$file[7].'")'); break; // La copie
 						case 1: $stmt = $db->prepare('UPDATE donnee SET nom_dossier'); break; // Le déplacement
 						case 2: $stmt = $db->prepare('DELETE FROM donnee WHERE nom="'.$nom.'"'); break; // La suppression
+						case 3: $stmt = $db->prepare('UPDATE donnee SET nom="'.$dirpaste.'" WHERE nom="'.$nom.'" AND identifiant="'.$propriétaire.'"'); break; // Le renommage
 					}
 					
 					$stmt->execute();
