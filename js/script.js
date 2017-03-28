@@ -399,6 +399,7 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		packet += '<br />';
 		packet += '<input type="button" onclick="moreaction(1, \'' + nom + '\');" value="Copier" />';
 		packet += '<input type="button" onclick="moreaction(2, \'' + nom + '\');" value="Déplacer" />';
+		packet += '<input type="button" onclick="moreaction(6, \'' + nom + '\');" value="Renommer" />';
 		packet += '<input class="WARN" type="button" onclick="moreaction(3, \'' + nom + '\');" value="Supprimer" />';
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
@@ -620,7 +621,7 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
-		case 5: packet = '<fieldset>';
+		case 5: packet = '<fieldset>'; // Ici la fenêtre d'état de transfert de fichiers
 			packet += '<center>';
 			packet += '<br />';
 			
@@ -635,6 +636,23 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '</fieldset>';
 			
 			if(partage == 0) { packet = ''; }
+			break;
+		case 6: packet = '<form method="post" action="./php/action.php?fichiers=' + fichier + '">'; // Ici la fenêtre de renommage de fichiers
+			packet += '<fieldset>';
+			packet += '<legend>Renommer:</legend>';
+			packet += '<p>Entrer le nom du fichier:</p>';
+			packet += '<br />';
+			packet += '<label>Nom: </label>';
+			packet += '<br ∕>';
+			packet += '<center>';
+			packet += '<input class="text" style="margin: 0; margin-top: 4px; width: 98%;" type="text" name="to" placeholder="' + fichier + '" />';
+			packet += '</center>';
+			packet += '<br /><br />';
+			packet += '<input class="ACT" type="submit" name="action" value="Renommer" />';
+			packet += ' - ';
+			packet += '<input type="button" onclick="moreaction(0);" value="Fermer" ∕>';
+			packet += '</fieldset>';
+			packet += '</form>';
 			break;
 	}
 	
@@ -842,7 +860,7 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(1, \'' + nom + '\'); option(0);" value="Copier vers" /><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(2, \'' + nom + '\'); option(0);" value="Déplacer vers" /><br />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'rename.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Renommer" /><br />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'rename.png" /><input class="opt_cel" type="button" onclick="moreaction(6, \'' + nom + '\'); option(0);" value="Renommer" /><br />';
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" /><br />';
 				menu.innerHTML += '<hr />';
