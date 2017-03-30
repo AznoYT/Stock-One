@@ -93,6 +93,8 @@
 					}
 					
 					if($try == 0) { echo('> Echec de la tentative de connexion.'); }
+					
+					$bdd = NULL;
 				}
 			?>
 			<script type="text/javascript">

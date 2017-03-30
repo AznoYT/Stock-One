@@ -80,6 +80,8 @@
 							
 							while($file = $data[1]->fetch()) {
 								if($user == $file[1]) {
+									if(!isset($_GET['folder'])) { list_dossiers($file, $dir, $a, $i, 0); }
+									
 									if(!isset($file[8])) { echo(''); }
 									else if($file[8] == $_GET['folder']) { list_dossiers($file, $dir, $a, $i, 0); }
 									$i++;

@@ -240,7 +240,7 @@ function popuplogin(login, attempt) {
 }
 
 // Nouvelle fonction pour géré les popups d'actions du compte.
-function popupaction(action, attempt, methode, nom, taille, partage, ext, owner) {
+function popupaction(action, attempt, methode, nom, taille, partage, ext, owner, sharekey) {
 	var popup = document.getElementById('popup');
 	
 	if(action == 0) {
@@ -404,7 +404,7 @@ function popupaction(action, attempt, methode, nom, taille, partage, ext, owner)
 		packet += ' - ';
 		packet += '<a href="' + attempt + '" download><input type="button" value="Télécharger" /></a>';
 		substract = 8 + owner.length;
-		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\');" value="Propriétés" />';
+		packet += '<input type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\', \'' + sharekey + '\');" value="Propriétés" />';
 		packet += ' - ';
 		packet += '<input type="button" onclick="popupaction(0);" value="Fermer" />';
 		packet += '</fieldset>';
@@ -537,7 +537,7 @@ function view_param(action, nameuser, name, surname, sexe, mail, pws, nso, np, p
 }
 
 // Cette fonction est dédié pour les commandes de copies déplacements et confirmation de suppresion
-function moreaction(action, fichier, partage, taille, placement, ext) {
+function moreaction(action, fichier, partage, taille, placement, ext, sharekey) {
 	var popup = document.getElementById('popupabout');
 	
 	switch(action) {
@@ -645,12 +645,21 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 			packet += '<label>Nom: </label>';
 			packet += '<br ∕>';
 			packet += '<center>';
-			packet += '<input class="text" style="margin: 0; margin-top: 4px; width: 98%;" type="text" name="to" placeholder="' + fichier + '" />';
+			packet += '<input class="text" style="margin: 0; margin-top: 4px; width: 98%;" type="text" id="to" name="to" placeholder="' + fichier + '" value="' + fichier + '" />';
 			packet += '</center>';
 			packet += '<br /><br />';
 			packet += '<input class="ACT" type="submit" name="action" value="Renommer" />';
 			packet += ' - ';
 			packet += '<input type="button" onclick="moreaction(0);" value="Fermer" ∕>';
+			packet += '</fieldset>';
+			packet += '</form>';
+			break;
+		case 7: packet = '<form method="post" action="./php/action.php?fichier=' + fichier + '">'; // Ici la fenêtre de partage du fichier
+			packet += '<fieldset>';
+			packet += '<legend>Partage:</legend>';
+			packet += '';
+			packet += '';
+			packet += '';
 			packet += '</fieldset>';
 			packet += '</form>';
 			break;
@@ -669,9 +678,11 @@ function moreaction(action, fichier, partage, taille, placement, ext) {
 				return false;
 			});
 			break;
-		case 5: popup.style.width = "35%"; popup.style.left = '32.3%'; break;
+		case 5: 
+		case 6: popup.style.width = "35%"; popup.style.left = '32.3%'; break;
 		default: popup.style.width = "52%"; popup.style.left = '24%'; break;
 	}
+	if(action == 6) { document.getElementById('to').select(); }
 }
 
 // Barre d'analyse espace disque utilisateur
@@ -820,7 +831,7 @@ function panel_switch(action, list_user, theme) {
 }
 
 // Cette fonction est pour le menu contextuel de la liste de fichiers
-function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, owner) {
+function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, owner, sharekey) {
 	if(action == 1) { // Affichage de la flèche d'option de fichier dans la liste
 		var cellule = document.getElementById(list);
 		
@@ -856,7 +867,7 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 				taille = taille.charAt(0) + taille.charAt(1) + taille.charAt(2) + taille.charAt(3) + taille.charAt(4);
 				
 				menu.innerHTML = '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'download.png" /><a href="' + attempt + '" download><input class="opt_cel" type="button" onclick="option(0);" value="Télécharger" /></a><br />';
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'share.png" /><input class="opt_cel" type="button" onclick="option(0);" value="Partage" /><br />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'share.png" /><input class="opt_cel" type="button" onclick="moreaction(7, \'' + nom + '\', \'' + partage + '\', \'' + sharekey + '\'); option(0);" value="Partage" /><br />';
 				menu.innerHTML += '<hr />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(1, \'' + nom + '\'); option(0);" value="Copier vers" /><br />';
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'copy.png" /><input class="opt_cel" type="button" onclick="moreaction(2, \'' + nom + '\'); option(0);" value="Déplacer vers" /><br />';
@@ -865,7 +876,7 @@ function option(action, mouse, list, attempt, nom, theme, taille, partage, ext, 
 				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/trash.png" /><input class="opt_cel WARN" type="button" onclick="moreaction(3, \'' + nom + '\'); option(0);" value="Supprimer" /><br />';
 				menu.innerHTML += '<hr />';
 				substract = 8 + owner.length;
-				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\'); option(0);" value="Propriétés" />';
+				menu.innerHTML += '<img class="classement" height="16px" type="image/png" src="' + link + '/pics/' + theme + 'info.png" /><input class="opt_cel" type="button" onclick="moreaction(4, \'' + nom + '\', \'' + partage + '\', \'' + taille + unit + '\', \'.' + attempt.substring(substract, 1000) + '\', \'' + ext + '\', \'' + sharekey + '\'); option(0);" value="Propriétés" />';
 				break;
 			default: option(0); break;
 		}

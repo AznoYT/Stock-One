@@ -66,6 +66,8 @@
 						header("location: ../admin.php?code=4&etat=OK");
 					}
 				}
+				
+				$bdd = NULL;
 			?>
 		</section>
 		<footer>
