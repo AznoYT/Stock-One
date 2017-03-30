@@ -1,6 +1,7 @@
 ErrorDocument 403 '<meta http-equiv="refresh" content="0; URL=/Stock-One-master/maintenance.html">'
 
 deny from all
+allow from 127.0.0.1
 allow from 10.200.135.4
 
 <Files 'maintenance.html'>
